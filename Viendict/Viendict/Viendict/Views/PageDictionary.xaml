@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Views.PageDictionary"
+             BackgroundImageSource="bg_loang.png">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="WhiteSmoke">
+                <SearchBar Placeholder="Nhập từ để tra" PlaceholderColor="Gray"
+                           TextColor="CornflowerBlue" TextTransform="Lowercase"
+                           FontSize="Medium" CancelButtonColor="CornflowerBlue"></SearchBar>
+            </Frame>
+            <StackLayout Margin="2,50" Spacing="20">
+                <ScrollView>
+                    <StackLayout Spacing="20" >
+                        <Frame Margin="10" BackgroundColor="White" BorderColor="LightBlue" CornerRadius="10">
+                            <Editor x:Name="txtInput" Placeholder="Nhập để dịch" AutoSize="TextChanges" Keyboard="Text" VerticalOptions="Start">
+                            </Editor>
+                        </Frame>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+                            <Label x:Name="InputLang" Text="Tiếng Việt" FontSize="18" TextColor="CornflowerBlue" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                            <ImageButton x:Name="changeLang" Source="exchange.png" WidthRequest="30" HeightRequest="30" BackgroundColor="Transparent" Clicked="changeLang_Clicked"></ImageButton>
+                            <Label x:Name="OutputLang" Text="Tiếng Anh"  FontSize="18" TextColor="CornflowerBlue" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            <Button x:Name="cmdTrans" Clicked="cmdTrans_Clicked" Text="Dịch" FontSize="Medium" TextColor="White" BackgroundColor="CornflowerBlue" CornerRadius="5"/>
+                        </StackLayout>
+                        <Frame Margin="10" BackgroundColor="White" BorderColor="LightBlue" CornerRadius="10">
+                            <Editor x:Name="txtOutput" AutoSize="TextChanges" Keyboard="Text" VerticalOptions="Start" IsReadOnly="True">
+                            </Editor>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Study.PageTopicStudy">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="lstTopicStudy" HasUnevenRows="True" RowHeight="60" SelectionMode="Single">
+                <ListView.Header>
+                    <Label Text="{Binding TopicName}" TextColor="Black" FontSize="Medium"/>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame WidthRequest="48" HeightRequest="48" Padding="2" Margin="10,0" CornerRadius="5" BorderColor="CornflowerBlue" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+                                    <Image Source="{Binding Img}"/>
+                                </Frame>
+                                <Label Text="{Binding Name}" FontSize="Large" TextColor="Maroon" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"/>
+                                <Label Text="{Binding TotalLessons, StringFormat='Total Lessons: {0}'}" FontSize="Caption" TextColor="Gray" Grid.Column="1" Grid.Row="1"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

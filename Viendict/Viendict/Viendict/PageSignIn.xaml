@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Viendict"
+             x:Class="Viendict.PageSignIn"
+             BackgroundImageSource="bg_signin.png">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Đăng nhập" TextColor="White" HorizontalTextAlignment="Center" FontSize="25" Margin="0,0,75, 0"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10,50,10,20" Spacing="20">
+                <Label Text="Tiếp tục với tài khoản mạng xã hội" HorizontalOptions="CenterAndExpand" FontSize="20" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                    <ImageButton x:Name="signup_fb" Source="logo_fb.png" WidthRequest="60" Margin="0,0,30,0" BackgroundColor="Transparent"/>
+                    <ImageButton x:Name="signup_gg" Source="logo_gg.png" WidthRequest="60" Margin="30,0,0,0" BackgroundColor="Transparent"/>
+                </StackLayout>
+                <Label Text="OR" HorizontalOptions="Center" FontSize="18" Margin="0,20,0,0"/>
+                <StackLayout Padding="15,25" Spacing="20">
+                    <Label Text="Địa chỉ email" TextColor="CornflowerBlue" FontSize="20" FontAttributes="Bold"/>
+                    <Entry x:Name="email" Keyboard="Email" Placeholder="example@gmail.com"
+                           Margin="-5,0,0,0"/>
+                    <Label Text="Mật khẩu" TextColor="CornflowerBlue" FontSize="20" FontAttributes="Bold"/>
+                    <local:PageSecurityPwEntry WidthRequest="100" HeightRequest="50"/>
+                    <Button x:Name="ForgotPwd" Text="Quên mật khẩu?" BackgroundColor="Transparent" 
+                        FontSize="20" TextColor="MintCream" FontAttributes="Italic"
+                        HorizontalOptions="EndAndExpand" Clicked="ForgotPwd_Clicked"/>
+                </StackLayout>
+                <Button x:Name="Submit_Signin" Text="Đăng nhập" BackgroundColor="CornflowerBlue"
+                        FontSize="20" TextColor="White" FontAttributes="Bold"
+                        CornerRadius="15" Margin="20" Padding="0,15"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

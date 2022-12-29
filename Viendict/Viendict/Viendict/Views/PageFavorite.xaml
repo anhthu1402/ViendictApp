@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Views.PageFavorite"
+             BackgroundImageSource="bg_beige.png">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<ListView RowHeight="100" SeparatorColor="Cornflowerblue">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>-->
+            <Grid Padding="15, 10" RowSpacing="7">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Bye" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="18" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalOptions="EndAndExpand">
+                    <Image Source="speakeroff.png" WidthRequest="24" HeightRequest="24" BackgroundColor="Transparent">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  x:Name="TurnOnSpeaker" Tapped="TurnOnSpeaker_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="FavouriteRed.png" WidthRequest="24" HeightRequest="24" Margin="0" BackgroundColor="Transparent">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  x:Name="RemoveFromFavourite" Tapped="RemoveFromFavourite_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <Label Text="Cat" Grid.Column="0" Grid.Row="1" VerticalOptions="Center" FontSize="18" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1" HorizontalOptions="EndAndExpand">
+                    <ImageButton Source="speakeroff.png" WidthRequest="24" HeightRequest="24" BackgroundColor="Transparent"/>
+                    <ImageButton Source="FavouriteRed.png" WidthRequest="24" HeightRequest="24" Padding="0" Margin="0" BackgroundColor="Transparent"/>
+                </StackLayout>
+            </Grid>
+            <!--</ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

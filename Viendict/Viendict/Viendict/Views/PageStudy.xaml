@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Views.PageStudy"
+             BackgroundImageSource="about">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Padding="10" Spacing="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame WidthRequest="40" HeightRequest="40" IsClippedToBounds="True" CornerRadius="100" Padding="0" Grid.Row="0" Grid.Column="0">
+                            <Image Source="ielts900" WidthRequest="40" HeightRequest="40" Aspect="AspectFit"/>
+                        </Frame>
+                        <Label x:Name="TopicName" Text="900 Essential IELTS Vocabularies" VerticalOptions="Center"
+                               FontSize="Medium" TextColor="#26428b" FontAttributes="Bold" Grid.Row="0" Grid.Column="1"/>
+                        <Frame Padding="15,0" Margin="0,15" CornerRadius="10" HasShadow="True" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="1">
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <Image Source="exchange" WidthRequest="25" HeightRequest="25"/>
+                                <Button x:Name="cmdChangeTopic" Text="Đổi chủ đề" HorizontalOptions="Start" Padding="10,0" 
+                                        BackgroundColor="Transparent" TextColor="#26428b" FontSize="Medium" Clicked="cmdChangeTopic_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <ListView x:Name="lstStudyLesson" HasUnevenRows="True" RowHeight="100">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame CornerRadius="10" HasShadow="True" Margin="10">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding ID, StringFormat='Bài: {0}'}" TextColor="CornflowerBlue" 
+                                                                               FontAttributes="Bold" FontSize="20"/>
+                                                <Label x:Name="LessonName" Text="{Binding Name, StringFormat=' {0}'}" TextColor="CornflowerBlue" 
+                                                                               FontAttributes="Bold" FontSize="20"/>
+                                            </StackLayout>
+                                            <Label x:Name="Learnt" Text="Đã học: 3/10" FontSize="18" HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

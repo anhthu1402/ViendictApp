@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.PageGrammarTense" Title="Các thì trong tiếng Anh">
+    <ContentPage.Content>
+        <ListView x:Name="lstGrammarTenseTitle" ItemTapped="lstGrammarTenseTitle_ItemTapped" RowHeight="80" SeparatorColor="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Name}" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="21" TextColor="CornflowerBlue"/>
+                            <Label Text="{Binding EnName}" Grid.Column="0" Grid.Row="1" VerticalOptions="Center" FontSize="18" TextColor="LightGray"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

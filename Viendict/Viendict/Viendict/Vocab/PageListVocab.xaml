@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Vocab.PageListVocab"
+             BackgroundImageSource="bg_blue">
+    <ContentPage.Content>
+        <ListView x:Name="lstWord" ItemTapped="lstWord_ItemTapped" RowHeight="80" SeparatorColor="Black" SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Word}" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="21" TextColor="#26428b"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
