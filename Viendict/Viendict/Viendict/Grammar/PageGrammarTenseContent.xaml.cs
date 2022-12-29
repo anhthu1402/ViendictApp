@@ -17,7 +17,7 @@ namespace Viendict.Grammar
         async void GetGrammarTenseByTenseID(int tenseID)
         {
             HttpClient httpClient = new HttpClient();
-            var tense_content = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/GrammarTenseController/GetGrammarTenseByTenseID?TenseID=" + tenseID.ToString());
+            var tense_content = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/AppController/GetGrammarTenseByTenseID?TenseID=" + tenseID.ToString());
             var tense_contentConverted = JsonConvert.DeserializeObject<List<GrammarTenseContent>>(tense_content);
             lstTenseContent.ItemsSource = tense_contentConverted;
         }

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.PassiveSentence.PageID2">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Margin="7" Spacing="20">
+                <Label Text="1. Một số công thức bị động đặc biệt" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+
+                <StackLayout>
+                    <Label Text=" + It's your duty to + V(nguyên thể)" FontAttributes="Bold"></Label>
+                    <Label Text="--> bị động: You're supposed to + V(nguyên thể)"/>
+                    <Label Text="Với V là động từ"/>
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- It's your duty to make tea today."/>
+                    <Label Text="-> You are supposed to make tea today."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + It's impossible to + V(nguyên thể)" FontAttributes="Bold"></Label>
+                    <Label Text="--> bị động: S + can't + be + V3/-ed" />
+                    <Label Text="Với S là chủ ngữ, V là động từ." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- It's impossible to solve this problem." />
+                    <Label Text="-> This problem can't be solve." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + It's necessary to + V(nguyên thể)" FontAttributes="Bold"></Label>
+                    <Label Text="--> bị động : S + should/must + be + V3/-ed" />
+                    <Label Text="Với S là chủ ngữ, V là động từ." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- It's necessary for you to type this letter." />
+                    <Label Text="-> This letter should/must be typed by you." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Mệnh lệnh thức + Object." FontAttributes="Bold"></Label>
+                    <Label Text="--> bị động: S + should/must + be +V3/-ed." />
+                    <Label Text="Với S là chủ ngữ, V là động từ." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- Turn on the lights!" />
+                    <Label Text="-> The lights should be turned on." />
+                </StackLayout>
+
+                <Label Text="2. Bị động của động từ 'make/let'" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+                <StackLayout>
+                    <Label Text=" + Công thức chủ động: S + make/let + somebody + V(nguyên thể)" FontAttributes="Bold"></Label>
+                    <Label Text="--> Bị động: S + be + made + to + V(nguyên thể)/let + V(nguyên thể)." />
+                    <Label Text="Với S là chủ ngữ, V là động từ." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- My parent never let me do anything by myself." />
+                    <Label Text="-> I'm never let to do anything by myself." />
+                </StackLayout>
+
+                <Label Text="3. Bị động của cấu trúc 'Nhờ ai làm gì?'" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+                <StackLayout>
+                    <Label Text=" + Chủ động: S + have(get) + somebody + (to)V(nguyên thể)" FontAttributes="Bold"></Label>
+                    <Label Text="--> Bị động : S + have/get + something + done." />
+                    <Label Text="Với S là chủ ngữ, V là động từ." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- I have my father repair my bike." />
+                    <Label Text="-> I have my bike repaired by my father." />
+                </StackLayout>
+
+                <Label Text="4. Bị động của động từ đi sau nó là một động từ ở dạng V_ing" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+                <StackLayout>
+                    <Label Text=" + Các động từ đó như: love, like, dislike, enjoy, fancy, hate, imagine, regret, mind, admit, involve, deny, avoid....etc" FontAttributes="Bold"></Label>
+                    <Label Text="Chủ động: S + V + somebody + V_ing" FontAttributes="Bold"/>
+                    <Label Text="--> Bị động : S + V + somebody/something + being + V3/-ed" />
+                    <Label Text="Với S là chủ ngữ, V là động từ." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- I like you wearing this dress." />
+                    <Label Text="-> I like this dress being worn by you." />
+                </StackLayout>
+
+                <Label Text="5. Bị động của các động từ chi giác" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+                <StackLayout>
+                    <Label Text=" + Cấu trúc 1: S + Vp + somebody + V_ing." FontAttributes="Bold"></Label>
+                    <Label Text="(Ai đó chứng kiến người khác làm gì và chỉ thấy 1 phần của hành động hoặc 1 hành động dand diễn ra bị 1 hành động khác xen vào)"/>
+                    <Label Text="Với S là chủ ngữ, V là động từ." />
+                    <Label Text="Vp là động từ chỉ chi giác." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- Opening the door, we saw her overhearing us." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Cấu trúc 2: S + Vp + somebody + V." FontAttributes="Bold"></Label>
+                    <Label Text="(Ai đó chứng kiến người khác làm gì từ đầu đến cuối)"/>
+                    <Label Text="Với S là chủ ngữ, V là động từ." />
+                    <Label Text="Vp là động từ chỉ chi giác." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- I saw him close the door and drive his car away." />
+                    <Label Text="Chú ý: riêng các động từ : feel, find, catch thì chỉ sử dụng công thức 1." />
+                    <Label Text="--> Bị động : S + be + V3/-ed(of Vp) + to +V(nguyên thể)" />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- He was found closing the door and driving his car away." />
+                </StackLayout>
+
+                <Label Text="6. Bị động kép" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+                <StackLayout>
+                    <Label Text=" + Khi main verb ở thời HIỆN TẠI" FontAttributes="Bold"></Label>
+                    <Label Text="Chủ động:" FontAttributes="Bold"></Label>
+                    <Label Text="People/they + think/say/suppose/believe/consider/report ... + that + clause(mệnh đề)." FontAttributes="Bold"/>
+                    <Label Text="--> Bị động :" FontAttributes="Bold"></Label>
+                    <Label Text="- It's + thought/said/ supposed/believed/considered/reported...+ that + clause" />
+                    <Label Text="(trong đó clause = S + V(nguyên thể) + O) với S là chủ ngữ, V là động từ, O là tân ngữ" />
+                    <Label Text="- Động từ trong clause để ở thì hiện tại đơn hoặc tương lai đơn" FontAttributes="Bold"/>
+                    <Label Text="S + am/is/are + thought/said/supposed... + to + V(nguyên thể): với S là chủ ngữ, V là động từ" />
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- People say that he is a good doctor."/>
+                    <Label Text="-> It's said that he is a good doctor"/>
+                    <Label Text="-> He is said to be a good doctor."/>
+                    <Label Text="- Động từ trong clause để ở thời quá khứ đơn hoặc hiện tại hoàn thành." FontAttributes="Bold"/>
+                    <Label Text="S + am/is/are + thought/ said/ supposed... + to + have + V3/-ed" />
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- People think he stole my car."/>
+                    <Label Text="-> It's thought he stole my car."/>
+                    <Label Text="-> He is thought to have stolen my car."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Khi main verb ở thời QUÁ KHỨ." FontAttributes="Bold"></Label>
+                    <Label Text="Chủ động:" FontAttributes="Bold"></Label>
+                    <Label Text="People/they + thought/said/supposed ... + that + clause(mệnh đề)" FontAttributes="Bold"/>
+                    <Label Text="--> Bị động :" FontAttributes="Bold"></Label>
+                    <Label Text="- It was + thought/ said/ supposed...+ that + clause." />
+                    <Label Text="- Động từ trong clause để ở thì quá khứ đơn:" FontAttributes="Bold"/>
+                    <Label Text="S + was/were + thought/said/supposed... + to + V(nguyên thể)." />
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- People said that he is a good doctor."/>
+                    <Label Text="-> It was said that he is a good doctor."/>
+                    <Label Text="-> He was said to be a good doctor."/>
+                    <Label Text="- Động từ trong clause ở thì quá khứ hoàn thành." FontAttributes="Bold"/>
+                    <Label Text="S + was/were + thought/ said/ supposed... + to + have + V3/-ed." />
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- They thought he was one of famous singers."/>
+                    <Label Text="-> It was thought he was one of famous singers."/>
+                    <Label Text="-> He was thought to be one of famous singers."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Bị động của tám động từ đặc biệt" FontAttributes="Bold"></Label>
+                    <Label Text="Các động từ : suggest, require, request, order, demand, insist(on), recommend."/>
+                    <Label Text="Chủ động:" FontAttributes="Bold"></Label>
+                    <Label Text=" S + suggest/ recommend/ order/ require... + that + clause(mệnh đề)"/>
+                    <Label Text="(trong đó clause = S + V(nguyên thể) + O): Với S là chủ ngữ, V là động từ, O là tân ngữ"/>
+                    <Label Text="--> Bị động :" FontAttributes="Bold"></Label>
+                    <Label Text=" It + was/will be/has been/is... + V3/-ed(of 8 verb) + that + something + be + V3/-ed." />
+                    <Label Text="(trong đó 'be' là không đổi vì động từ trong clause ở câu chủ động ở dạng V(nguyên thể))"/>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- He suggested that she buy a new car."/>
+                    <Label Text="-> It was suggessted that a new car be bought."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Bị động của cấu trúc chủ ngữ giả 'it'" FontAttributes="Bold"></Label>
+                    <Label Text="Chủ động:" FontAttributes="Bold"></Label>
+                    <Label Text=" It + be + adj + for somebody + to do something (trong đó adj là tính từ)"/>
+                    <Label Text="--> Bị động :" FontAttributes="Bold"></Label>
+                    <Label Text=" It + be + adj + for something + to be done." />
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- It is difficult for me to finish this test in one hour"/>
+                    <Label Text="-> It is difficult for this test to be finished in one hour."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Bị động trong trường hợp 2 tân ngữ" FontAttributes="Bold"></Label>
+                    <Label Text="Trong đó : Oi = Indirect Object (đối tượng gián tiếp)"></Label>
+                    <Label Text="Od = Direct Object (đối tượng trực tiếp)"/>
+                    <Label Text="Chủ động:" FontAttributes="Bold"></Label>
+                    <Label Text=" S + V + Oi + Od"/>
+                    <Label Text="--> Bị động :" FontAttributes="Bold"></Label>
+                    <Label Text=" Oi + be + V3/-ed(of V) + Od." FontAttributes="Bold"/>
+                    <Label Text=" Od + be + V3/-ed(of V) + to Oi." FontAttributes="Bold"/>
+                    <Label Text="(riêng động từ 'buy' dùng giới từ 'for')."/>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- My friend gave me a present on my birthday."/>
+                    <Label Text="-> A present was given to me by my friend on my birthday."/>
+                    <Label Text="-> I was given a present on my birthday by my friend."/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

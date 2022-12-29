@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Viendict.Grammar.PassiveSentence;
+using Viendict.Grammar.WishSentence;
 
 
 namespace Viendict.Grammar
@@ -18,7 +20,7 @@ namespace Viendict.Grammar
         async void GetAllGrammarTitle()
         {
             HttpClient httpClient = new HttpClient();
-            var titles = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/GrammarTenseController/GetAllGrammarTitle");
+            var titles = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/AppController/GetAllGrammarTitle");
             var titlesConverted = JsonConvert.DeserializeObject<List<GrammarTitle>>(titles);
             lstGrammarTitle.ItemsSource = titlesConverted;
         }
@@ -39,7 +41,7 @@ namespace Viendict.Grammar
                         Navigation.PushAsync(new PageGrammarTense());
                         break;
                     case 2:
-                        Navigation.PushAsync(new PagePassiveSentence());
+                        Navigation.PushAsync(new PagePassiveSentenceTitle());
                         break;
                     case 3:
                         Navigation.PushAsync(new PageWishTypes());

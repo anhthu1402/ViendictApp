@@ -19,7 +19,7 @@ namespace Viendict.Views
         async void GetAllVocabTopic()
         {
             HttpClient httpClient = new HttpClient();
-            var topics = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/GrammarTenseController/GetAllVocabTopic");
+            var topics = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/GetAllVocabTopic");
             var topicsConverted = JsonConvert.DeserializeObject<List<ListVocabTopic>>(topics);
             lstVocabTopic.ItemsSource = topicsConverted;
         }

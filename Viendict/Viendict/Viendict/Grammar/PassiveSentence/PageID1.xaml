@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.PassiveSentence.PageID1">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Margin="7" Spacing="20">
+                <Label Text="1. Cấu trúc ngữ pháp câu bị động" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+                <Label Text="Chú thích: S - chủ ngữ, V3/-ed(Vpp/-ed) - động từ cột 3 trong bảng bất quy tắc hoặc động từ đuôi 'ed'" FontSize="20" TextColor="Black"></Label>
+
+                <StackLayout>
+                    <Label Text=" + Thì hiện tại đơn (Simple Present):" FontAttributes="Bold"></Label>
+                    <Label Text="Công thức:"/>
+                    <Label Text="S + be (am/is/are) + V3/-ed + ..."/>
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- He likes chickens."/>
+                    <Label Text="-> Chickens are liked"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Thì quá khứ đơn (Past Simple):" FontAttributes="Bold"></Label>
+                    <Label Text="Công thức:" />
+                    <Label Text="S + be (am/is/are) + being + V3/-ed + ..." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- The storm destroyed the city last night." />
+                    <Label Text="-> The city was destroyed by the storm last night." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Thì hiện tại tiếp diễn (Present Continuous):" FontAttributes="Bold"></Label>
+                    <Label Text="Công thức:" />
+                    <Label Text="S + be (am/is/are) + being + V3/-ed + ..." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- He is reading a book." />
+                    <Label Text="-> A book is being read (by him)." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Thì quá khứ tiếp diễn (Past Continuous):" FontAttributes="Bold"></Label>
+                    <Label Text="Công thức:" />
+                    <Label Text="S + was/were + being + V3/-ed + ..." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- They were listening to music." />
+                    <Label Text="-> Music was being listened to (by them)." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Thì hiện tại hoàn thành (Present Perfect):" FontAttributes="Bold"></Label>
+                    <Label Text="Công thức:" />
+                    <Label Text="S + have/has + been + V3/-ed + ..." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- They have studied English for two months." />
+                    <Label Text="-> English has been studied (by them) for two months" />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Thì quá khứ hoàn thành (Past Perfect):" FontAttributes="Bold"></Label>
+                    <Label Text="Công thức:" />
+                    <Label Text="S + had + been + V3/-ed + ..." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- They had done the exercises." />
+                    <Label Text="-> The exercises had been done (by them)." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Thì tương lai đơn (Simple Future):" FontAttributes="Bold"></Label>
+                    <Label Text="Công thức:" />
+                    <Label Text="S + will/shall + be + V3/-ed + ..." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- They will cut the grass tomorrow." />
+                    <Label Text="-> The grass will be cut (by them) tomorrow." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Thì tương lai tiếp diễn (Future Continuous):" FontAttributes="Bold"></Label>
+                    <Label Text="Công thức:" />
+                    <Label Text="S + will/shall + be + being + V3/-ed + ..." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- She will be helping you when you come here tomorrow." />
+                    <Label Text="-> You will be being helped (by her) when you come here tomorrow." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Thì tương lai hoàn thành (Future Perfect):" FontAttributes="Bold"></Label>
+                    <Label Text="Công thức:" />
+                    <Label Text="S + will/shall + have + been + V3/-ed + ..." />
+                    <Label Text="Ví dụ:" />
+                    <Label Text="- They will have finished the course by the end of this month." />
+                    <Label Text="-> The course will have been finished by the end of this month" />
+                </StackLayout>
+
+                <Label Text="2. Ngoài ra còn một số những cấu trúc câu bị động thường dùng sau:" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+                <StackLayout>
+                    <Label Text=" + Chủ động (active):" FontAttributes="Bold" ></Label>
+                    <Label Text="S + should/could + have + V3/-ed + O."/>
+
+                     <Label Text=" + Bị động (passive):" FontAttributes="Bold"></Label>
+                    <Label Text=" S + should/could + have +been + V3/-ed + ..."/>
+
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- You should have bought this book."/>
+                    <Label Text="-> This book should have been bought."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Dùng 'It' làm chủ ngữ (mệnh đề làm tân ngữ vẫn được giữ nguyên)"/>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- They said that he is kind to you."/>
+                    <Label Text="-> It is said that he is kind to you."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Dùng cấu trúc câu bị động với động từ nguyên mẫu:"/>
+                    <Label Text="Nếu hành động trong mệnh đề làm tân ngữ xảy ra trước hành động của mệnh đề chính, chúng ta dùng: perfect infinitive (to have + V3/-ed)"/>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- They said that he had killed the woman."/>
+                    <Label Text="-> He was said to have killed the woman."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Nếu hành động trong mệnh đề làm tân ngữ xảy ra sau hành động trong mệnh đề chính, chúng ta sử dụng: simple infinitive (to + Vo)"/>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- They expect that you will come."/>
+                    <Label Text="-> You are expected to come."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Nếu hành động trong mệnh đề làm tận ngữ xảy ra đồng thời với hành động trong mệnh đề chính, ta dùng: present infinitive (to be + V-ing)"/>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- They said that he was doing homework."/>
+                    <Label Text="-> He was said to be doing homework."/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -29,10 +29,19 @@
     <EmbeddedResource Update="Grammar\PageGrammarTitle.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Grammar\PagePassiveSentence.xaml">
+    <EmbeddedResource Update="Grammar\PassiveSentence\PageID1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Grammar\PageWishTypes.xaml">
+    <EmbeddedResource Update="Grammar\PassiveSentence\PageID2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Grammar\WishSentence\PageWishSentenceContent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Grammar\PassiveSentence\PagePassiveSentenceTitle.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Grammar\WishSentence\PageWishTypes.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="PageChangePw.xaml">

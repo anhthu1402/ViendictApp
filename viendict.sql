@@ -65,9 +65,85 @@ CREATE TABLE [dbo].[lst_wish_types](
 	[Name] [nvarchar](100) NULL,
 	[Describe] [nvarchar](max) NULL,
 )
+/*create table lst_wish_sentence_content*/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[lst_wish_sentence_content](
+	[ID] [int] NOT NULL Primary key,
+	[Define] [nvarchar](max) NULL,
+	[Formula] [nvarchar](max) NULL,
+	[Example] [nvarchar](max) NULL,
+)
+
+/*create table lst_study_topic*/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[lst_study_topic](
+	[TopicID] [int] NOT NULL Primary key,
+	[Name] [nvarchar](100) NULL,
+	[TotalLessons] [int] NULL,
+)
+
+/*create table lst_study_topic_lesson*/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[lst_study_topic_lesson](
+	[LessonID] [int] NOT NULL Primary key,
+	[Name] [nvarchar](100) NULL,
+	[TopicID] [int] NULL,
+)
+
+/*create table lst_study_topic_vocab*/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[lst_study_topic_vocab](
+	[ID] [int] NOT NULL Primary key,
+	[Word] [nvarchar](100) NULL,
+	[IPA] [nvarchar](50) NULL,
+	[Type] [nvarchar](50) NULL,
+	[Meaning] [nvarchar](max) NULL,
+	[EnExample] [nvarchar](max) NULL,
+	[ViExample] [nvarchar](max) NULL,
+	[LessonID] [int] NULL,
+)
+
 
 alter table lst_vocab add constraint fk_TopicID foreign key (TopicID) references lst_vocab_topic (TopicID)
 alter table lst_vocab add constraint pk_lstvocan primary key (ID, TopicID)
+alter table lst_study_topic_lesson add constraint fk_Study_TopicID foreign key (TopicID) references lst_study_topic (TopicID)
+alter table lst_study_topic_vocab add constraint fk_LessonID foreign key (LessonID) references lst_study_topic_lesson (LessonID)
+
+SET ANSI_WARNINGS OFF;
+insert into lst_study_topic values(1, N'900 từ vựng luyện IELTS', 50)
+insert into lst_study_topic values(2, N'600 từ vựng TOEIC', 50)
+insert into lst_study_topic values(3, N'1000 từ vựng TOEFL', 50)
+insert into lst_study_topic values(4, N'900 từ vựng luyện thi SAT', 59)
+SET ANSI_WARNINGS ON;
+/*haven't execute*/
+SET ANSI_WARNINGS OFF;
+insert into lst_study_topic_lesson values(1, N'Health problems', 1) 
+insert into lst_study_topic_lesson values(2, N'Academic subjects', 1) 
+
+insert into lst_study_topic_lesson values(1, N'Contracts', 2) 
+insert into lst_study_topic_lesson values(2, N'Marketing', 2) 
+
+insert into lst_study_topic_lesson values(1, N'Food crops', 3)
+
+insert into lst_study_topic_lesson values(1, N'', 4) 
+insert into lst_study_topic_lesson values(2, N'', 4) 
+SET ANSI_WARNINGS ON;
+/*haven't execute*/
+SET ANSI_WARNINGS OFF;
+insert into lst_study_topic_vocab values(1, 'vaccinate', N'/ˈvæksɪneɪt/', 'verb', N'chủng ngừa, tiêm chủng', N'All children under 6 years old are vaccinated for free.', N'Tất cả trẻ am dưới 6 tuổi được tiêm phòng miễn phí.', 1)
+SET ANSI_WARNINGS ON;
 
 SET ANSI_WARNINGS OFF;
 insert into lst_grammar_title values(1, N'Các thì trong tiếng Anh', N'Hiện tại đơn, hiện tại tiếp diễn, quá khứ đơn, ...');
@@ -87,6 +163,84 @@ SET ANSI_WARNINGS OFF;
 insert into lst_wish_types values(1, N'Câu ước loại 1', N'Định nghĩa, công thức, ví dụ về câu ước loại 1');
 insert into lst_wish_types values(2, N'Câu ước loại 2', N'Định nghĩa, công thức, ví dụ về câu ước loại 2');
 insert into lst_wish_types values(3, N'Câu ước loại 3', N'Định nghĩa, công thức, ví dụ về câu ước loại 3');
+SET ANSI_WARNINGS ON;
+
+SET ANSI_WARNINGS OFF;
+insert into lst_wish_sentence_content values(1, N'Câu ước loại 1 dùng để diễn tả những mong ước về một sự việc trong tương lai. Chúng ta sử dụng câu ước ở tương lai với mong muốn ai đó, sự việc gì đó sẽ tốt đẹp hơn trong tương lai.', N'	• Khẳng định: S + wish(es) + S + would + V(nguyên thể).
+
+	• Phủ định: S + wish(es) + S + wouldn’t + V(nguyên thể).
+	
+	• IF ONLY + S + would/could + V(nguyên thể)
+
+Chú thích: S - chủ ngữ, V - động từ.
+
+	• Chú ý:
+  * Đối với chủ ngữ ở vế “wish” là chủ ngữ số nhiều, chúng ta sử dụng wish. (They wish, Many people wish,…)
+  Ví dụ:
+  - We wish we would travel to America one day.
+(Chúng tôi ước rằng chúng tôi sẽ du lịch tới Mỹ vào một ngày nào đó)
+  * Đối với chủ ngữ ở vế “wish” là chủ ngữ số ít, chúng ta sử dụng wishes. (He wishes, the boy wishes,...)
+  Ví dụ:
+  - She wishes she would earn a lot of money next year
+(Cô ấy ước cô ấy sẽ kiếm được rất nhiều tiền trong năm tới)
+  * Động từ ở mệnh đề sau ta chia ở dạng nguyên thể vì đứng trước nó là Modal verbs: would/could.', N'Một số ví dụ về câu ước loại 1:
+  - I wish I would be an astronaut in the future.
+(Tôi ước mình sẽ là một phi hành gia trong tương lai.)
+
+  - Tom wishes he could visit Paris next summer.
+(Tom muốn anh có thể tới thăm Paris vào mùa hè năm sau)
+
+  - If only I would take the trip with you next Sunday.
+  - I wish they would stop arguing.
+  - If only I would be able to attend your wedding next week.')
+
+insert into lst_wish_sentence_content values(2, N'Câu ước loại 2 dùng để diễn tả những mong ước về một sự việc không có thật ở hiện tại, hay giả định một điều ngược lại so với thực tế.Chúng ta dùng câu ước ở hiện tại để ước về điều không có thật ở hiện tại, thường là thể hiện sự nuối tiếc về tình huống hiện tại (regret about present situations).', N'	• Khẳng định: S + wish(es) + S + V2/-ed + O. (to be: were/weren’t)
+
+	• Phủ định: S + wish(es) + S + didn’t + V(nguyên thể).
+	
+	• IF ONLY + S + V(quá khứ)
+
+Chú thích: S - chủ ngữ, V2/-ed - động từ cột 2 trong bảng bất quy tắc hoặc động từ đuôi "ed".
+
+	• Chú ý:
+  - Động từ “wish” chia theo thì và chia theo chủ ngữ
+  - Động từ chính trong mệnh đề sau “wish” chia thì quá khứ đơn
+  - Động từ “to be” chia là “were” với tất cả các chủ ngữ trong câu ước.', N'Một số ví dụ về câu ước loại 2:
+  - He wishes he didn’t work in this company at present
+(Anh ấy ước rằng hiện tại anh ấy không làm việc cho công ty này.)
+
+  - She wishes she were a billionaire at the moment.
+(Cô ấy ước rằng lúc này cô ấy là một tỷ phú -> Thực tế hiện tại cô ấy không phải là một tỷ phú.)
+
+  - If wish I were rich. (But I am poor now).
+  - I can’t swim. I wish I could swim.
+  - We wish that we didn’t have to go to class today.')
+
+insert into lst_wish_sentence_content values(3, N'Câu ước loại 3 dùng để diễn tả những mong ước về một sự việc không có thật ở quá khứ, hay giả định một điều ngược lại so với thực tại đã xảy ra ở quá khứ. Chúng ta sử dụng câu ước ở quá khứ để ước điều trái với những gì xảy ra trong quá khứ, thường là để diễn tả sự nuối tiếc với tình huống ở quá khứ.', N'	• Khẳng định: S + wish(es) + S + had + V3/-ed.
+
+	• Phủ định: S + wish(es) + S + hadn’t + V3/-ed.
+	
+	• IF ONLY + S + V3/-ed
+
+	Ta có: S + WISH + S + COULD HAVE + V3/-ed = IF ONLY+ S + COULD HAVE + V3/-ed
+
+Chú thích: S - chủ ngữ, V3/-ed - động từ cột 3 trong bảng bất quy tắc hoặc động từ đuôi "ed"
+
+	• Chú ý:
+  - Động từ "wish" chia theo thì và chia theo chủ ngữ
+  - Động từ sau "wish" chia thì quá khứ hoàn thành.', N'Một số ví dụ về câu ước loại 3:
+  - Mary wishes she had gone to school yesterday
+(Mary ước rằng cô ấy đã đi học ngày hôm qua)
+
+  - I wish I hadn`t gone to that party.
+(Tôi ước là tôi đã không đến bữa tiệc đó)
+
+  - She wishes she had been listening to the teacher
+(Cô ấy ước rằng lúc đó cô ấy nghe cô giáo giảng bài)
+
+  - If only I had gone by taxi. (I didn’t go by taxi).
+  - She wishes she had had enough money to buy the house.
+  - I wish I hadn’t failed my exam last year.')
 SET ANSI_WARNINGS ON;
 
 SET ANSI_WARNINGS OFF;
@@ -1265,4 +1419,14 @@ GO
 CREATE proc [dbo].[Proc_GetVocabByTopic](@topicID int)
 as
 select * from lst_vocab where TopicID=@topicID
+GO
+
+/* Proc_GetWishSentence */
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[Proc_GetWishSentence](@ID int)
+as
+select * from lst_wish_sentence_content where ID=@ID
 GO
