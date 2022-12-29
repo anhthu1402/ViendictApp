@@ -16,11 +16,11 @@ namespace Viendict.Views
         void ListStudyLesson()
         {
             List<StudyListLesson> lstLesson = new List<StudyListLesson>();
-            lstLesson.Add(new StudyListLesson { ID = 1, Name = "Health problems", IDTopic = 1 });
-            lstLesson.Add(new StudyListLesson { ID = 2, Name = "Academic subjects", IDTopic = 1 });
-            lstLesson.Add(new StudyListLesson { ID = 3, Name = "Travel and adventure", IDTopic = 1 });
-            lstLesson.Add(new StudyListLesson { ID = 4, Name = "Dimensions", IDTopic = 1 });
-            lstLesson.Add(new StudyListLesson { ID = 5, Name = "City life", IDTopic = 1 });
+            lstLesson.Add(new StudyListLesson { LessonID = 1, Name = "Health problems", TopicID = 1 });
+            lstLesson.Add(new StudyListLesson { LessonID = 2, Name = "Academic subjects", TopicID = 1 });
+            lstLesson.Add(new StudyListLesson { LessonID = 3, Name = "Travel and adventure", TopicID = 1 });
+            lstLesson.Add(new StudyListLesson { LessonID = 4, Name = "Dimensions", TopicID = 1 });
+            lstLesson.Add(new StudyListLesson { LessonID = 5, Name = "City life", TopicID = 1 });
             lstStudyLesson.ItemsSource = lstLesson;
         }
         public PageStudy()

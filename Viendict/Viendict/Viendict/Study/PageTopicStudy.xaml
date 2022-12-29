@@ -5,9 +5,9 @@
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="lstTopicStudy" HasUnevenRows="True" RowHeight="60" SelectionMode="Single">
-                <ListView.Header>
+                <!--<ListView.Header>
                     <Label Text="{Binding TopicName}" TextColor="Black" FontSize="Medium"/>
-                </ListView.Header>
+                </ListView.Header>-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -24,7 +24,7 @@
                                     <Image Source="{Binding Img}"/>
                                 </Frame>
                                 <Label Text="{Binding Name}" FontSize="Large" TextColor="Maroon" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"/>
-                                <Label Text="{Binding TotalLessons, StringFormat='Total Lessons: {0}'}" FontSize="Caption" TextColor="Gray" Grid.Column="1" Grid.Row="1"/>
+                                <Label Text="{Binding TotalLessons, StringFormat='Số bài học: {0}'}" FontSize="Caption" TextColor="Gray" Grid.Column="1" Grid.Row="1"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

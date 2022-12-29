@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ns3hmZBfUmWs8twFsxgQz1+xE/Sk6aZHrFJSyVM1ZDt7zRSY0B4CqcZvwpRs+h05ciYjnFAyjLvmWQu4CTyTng==",
+  "dgSpecHash": "FESLsvGiQmlIWtjZXLNzl7GyoVMXryPBzHdESlVFZY8/LHwloRYQaCZJoYuCjWdF2qXb8/m/WFUVcQl4+SCuuQ==",
   "success": true,
-  "projectFilePath": "D:\\IE307\\Project\\Viendict\\Viendict\\Viendict\\Viendict.csproj",
+  "projectFilePath": "D:\\IE307\\Project\\Project\\ViendictApp\\Viendict\\Viendict\\Viendict\\Viendict.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anhth\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\anhth\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

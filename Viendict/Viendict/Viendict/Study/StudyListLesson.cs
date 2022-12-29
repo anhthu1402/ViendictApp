@@ -6,8 +6,8 @@ namespace Viendict.Study
 {
     public class StudyListLesson
     {
-        public int ID { get; set; }
+        public int LessonID { get; set; }
         public string Name { get; set; }
-        public int IDTopic { get; set; }
+        public int TopicID { get; set; }
     }
 }

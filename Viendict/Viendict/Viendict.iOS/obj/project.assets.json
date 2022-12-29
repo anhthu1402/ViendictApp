@@ -1067,11 +1067,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\IE307\\Project\\Viendict\\Viendict\\Viendict.iOS\\Viendict.iOS.csproj",
+      "projectUniqueName": "D:\\IE307\\Project\\Project\\ViendictApp\\Viendict\\Viendict\\Viendict.iOS\\Viendict.iOS.csproj",
       "projectName": "Viendict.iOS",
-      "projectPath": "D:\\IE307\\Project\\Viendict\\Viendict\\Viendict.iOS\\Viendict.iOS.csproj",
+      "projectPath": "D:\\IE307\\Project\\Project\\ViendictApp\\Viendict\\Viendict\\Viendict.iOS\\Viendict.iOS.csproj",
       "packagesPath": "C:\\Users\\anhth\\.nuget\\packages\\",
-      "outputPath": "D:\\IE307\\Project\\Viendict\\Viendict\\Viendict.iOS\\obj\\",
+      "outputPath": "D:\\IE307\\Project\\Project\\ViendictApp\\Viendict\\Viendict\\Viendict.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1092,8 +1092,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "D:\\IE307\\Project\\Viendict\\Viendict\\Viendict\\Viendict.csproj": {
-              "projectPath": "D:\\IE307\\Project\\Viendict\\Viendict\\Viendict\\Viendict.csproj"
+            "D:\\IE307\\Project\\Project\\ViendictApp\\Viendict\\Viendict\\Viendict\\Viendict.csproj": {
+              "projectPath": "D:\\IE307\\Project\\Project\\ViendictApp\\Viendict\\Viendict\\Viendict\\Viendict.csproj"
             }
           }
         }

@@ -38,7 +38,7 @@
                                     <Frame CornerRadius="10" HasShadow="True" Margin="10">
                                         <StackLayout>
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding ID, StringFormat='Bài: {0}'}" TextColor="CornflowerBlue" 
+                                                <Label Text="{Binding TopicID, StringFormat='Bài: {0}'}" TextColor="CornflowerBlue" 
                                                                                FontAttributes="Bold" FontSize="20"/>
                                                 <Label x:Name="LessonName" Text="{Binding Name, StringFormat=' {0}'}" TextColor="CornflowerBlue" 
                                                                                FontAttributes="Bold" FontSize="20"/>
