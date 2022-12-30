@@ -24,7 +24,12 @@ namespace Viendict.Grammar.WishSentence
         public PageWishTypes()
         {
             InitializeComponent();
+        }
+        public PageWishTypes(GrammarTitle title)
+        {
+            InitializeComponent();
             GetAllWishTypes();
+            this.Title = title.Title;
         }
 
         private void lstWishTypes_ItemTapped(object sender, ItemTappedEventArgs e)

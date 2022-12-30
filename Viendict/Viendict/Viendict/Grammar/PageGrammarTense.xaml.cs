@@ -24,7 +24,12 @@ namespace Viendict.Grammar
         public PageGrammarTense()
         {
             InitializeComponent();
+        }
+        public PageGrammarTense(GrammarTitle title)
+        {
+            InitializeComponent();
             GetAllGrammarTenses();
+            this.Title = title.Title;
         }
 
         private void lstGrammarTenseTitle_ItemTapped(object sender, ItemTappedEventArgs e)

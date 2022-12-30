@@ -35,6 +35,9 @@
     <EmbeddedResource Update="Grammar\PassiveSentence\PageID2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Grammar\Reported Speech\PageReportedSpeech.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Grammar\WishSentence\PageWishSentenceContent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

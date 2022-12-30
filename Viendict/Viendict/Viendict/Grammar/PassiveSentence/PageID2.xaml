@@ -15,7 +15,16 @@
 
                 <StackLayout>
                     <Label Text=" + It's your duty to + V(nguyên thể)" FontAttributes="Bold"></Label>
-                    <Label Text="--> bị động: You're supposed to + V(nguyên thể)"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="--> bị động: " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="You're supposed to + V(nguyên thể)"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Với V là động từ"/>
                     <Label Text="Ví dụ:" />
                     <Label Text="- It's your duty to make tea today."/>
@@ -24,7 +33,16 @@
 
                 <StackLayout>
                     <Label Text=" + It's impossible to + V(nguyên thể)" FontAttributes="Bold"></Label>
-                    <Label Text="--> bị động: S + can't + be + V3/-ed" />
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="--> bị động: " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="S + can't + be + V3/-ed"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Với S là chủ ngữ, V là động từ." />
                     <Label Text="Ví dụ:" />
                     <Label Text="- It's impossible to solve this problem." />
@@ -33,7 +51,16 @@
 
                 <StackLayout>
                     <Label Text=" + It's necessary to + V(nguyên thể)" FontAttributes="Bold"></Label>
-                    <Label Text="--> bị động : S + should/must + be + V3/-ed" />
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="--> bị động: " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="S + should/must + be + V3/-ed"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Với S là chủ ngữ, V là động từ." />
                     <Label Text="Ví dụ:" />
                     <Label Text="- It's necessary for you to type this letter." />
@@ -42,7 +69,16 @@
 
                 <StackLayout>
                     <Label Text=" + Mệnh lệnh thức + Object." FontAttributes="Bold"></Label>
-                    <Label Text="--> bị động: S + should/must + be +V3/-ed." />
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="--> bị động: " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="S + should/must + be +V3/-ed."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Với S là chủ ngữ, V là động từ." />
                     <Label Text="Ví dụ:" />
                     <Label Text="- Turn on the lights!" />
@@ -52,7 +88,16 @@
                 <Label Text="2. Bị động của động từ 'make/let'" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
                 <StackLayout>
                     <Label Text=" + Công thức chủ động: S + make/let + somebody + V(nguyên thể)" FontAttributes="Bold"></Label>
-                    <Label Text="--> Bị động: S + be + made + to + V(nguyên thể)/let + V(nguyên thể)." />
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="--> Bị động: " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="S + be + made + to + V(nguyên thể)/let + V(nguyên thể)."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Với S là chủ ngữ, V là động từ." />
                     <Label Text="Ví dụ:" />
                     <Label Text="- My parent never let me do anything by myself." />
@@ -62,7 +107,16 @@
                 <Label Text="3. Bị động của cấu trúc 'Nhờ ai làm gì?'" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
                 <StackLayout>
                     <Label Text=" + Chủ động: S + have(get) + somebody + (to)V(nguyên thể)" FontAttributes="Bold"></Label>
-                    <Label Text="--> Bị động : S + have/get + something + done." />
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="--> Bị động: " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="S + have/get + something + done."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Với S là chủ ngữ, V là động từ." />
                     <Label Text="Ví dụ:" />
                     <Label Text="- I have my father repair my bike." />
@@ -71,9 +125,27 @@
 
                 <Label Text="4. Bị động của động từ đi sau nó là một động từ ở dạng V_ing" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
                 <StackLayout>
-                    <Label Text=" + Các động từ đó như: love, like, dislike, enjoy, fancy, hate, imagine, regret, mind, admit, involve, deny, avoid....etc" FontAttributes="Bold"></Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text=" + Các động từ đó như: "/>
+                                    <Span Text="love, like, dislike, enjoy, fancy, hate, imagine, regret, mind, admit, involve, deny, avoid....etc" FontAttributes="Bold" FontSize="20"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Chủ động: S + V + somebody + V_ing" FontAttributes="Bold"/>
-                    <Label Text="--> Bị động : S + V + somebody/something + being + V3/-ed" />
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="--> Bị động: " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="S + V + somebody/something + being + V3/-ed"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Với S là chủ ngữ, V là động từ." />
                     <Label Text="Ví dụ:" />
                     <Label Text="- I like you wearing this dress." />
@@ -98,7 +170,16 @@
                     <Label Text="Ví dụ:" />
                     <Label Text="- I saw him close the door and drive his car away." />
                     <Label Text="Chú ý: riêng các động từ : feel, find, catch thì chỉ sử dụng công thức 1." />
-                    <Label Text="--> Bị động : S + be + V3/-ed(of Vp) + to +V(nguyên thể)" />
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="--> Bị động: " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="S + be + V3/-ed(of Vp) + to +V(nguyên thể)"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Ví dụ:" />
                     <Label Text="- He was found closing the door and driving his car away." />
                 </StackLayout>
@@ -147,7 +228,16 @@
 
                 <StackLayout>
                     <Label Text=" + Bị động của tám động từ đặc biệt" FontAttributes="Bold"></Label>
-                    <Label Text="Các động từ : suggest, require, request, order, demand, insist(on), recommend."/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Các động từ: "/>
+                                    <Span Text="suggest, require, request, order, demand, insist(on), recommend." FontAttributes="Bold" FontSize="20"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Chủ động:" FontAttributes="Bold"></Label>
                     <Label Text=" S + suggest/ recommend/ order/ require... + that + clause(mệnh đề)"/>
                     <Label Text="(trong đó clause = S + V(nguyên thể) + O): Với S là chủ ngữ, V là động từ, O là tân ngữ"/>

@@ -22,8 +22,13 @@ namespace Viendict.Grammar.PassiveSentence
         public PagePassiveSentenceTitle()
         {
             InitializeComponent();
+        }
+        public PagePassiveSentenceTitle(GrammarTitle title)
+        {
+            InitializeComponent();
             InitializeTitle();
             lstPssSentenceTitle.ItemsSource = titles;
+            this.Title = title.Title;
         }
 
         private void lstPssSentenceTitle_ItemTapped(object sender, ItemTappedEventArgs e)

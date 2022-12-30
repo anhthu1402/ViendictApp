@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.Reported_Speech.PageReportedSpeech">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Margin="7" Spacing="20">
+                <Label Text="1. Phân biệt câu trực tiếp và câu gián tiếp" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+                <StackLayout>
+                    <Label Text=" + Câu trực tiếp" FontAttributes="Bold"></Label>
+                    <Label>- Câu trực tiếp là câu nói của ai đó được trích dẫn lại nguyên văn và thường được để trong dấu ngoặc kép (“...”).</Label>
+                    <Label Text="Ví dụ:"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="+ Mary said "></Span>
+                                    <Span FontAttributes="Bold" FontSize="20">
+                                        “I don’t like ice-cream”
+                                    </Span>
+                                    <Span>
+                                        . (Cô ấy nói rằng: “Tôi không thích kem”.)
+                                    </Span>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="Ta thấy trong dấu ngoặc kép là lời nói trực tiếp của Mary và nó được trích dẫn lại một cách nguyên văn."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Câu gián tiếp" FontAttributes="Bold"></Label>
+                    <Label>- Câu gián tiếp là câu tường thuật lại lời nói của người khác theo ý của người tường thuật và ý nghĩa không thay đổi.</Label>
+                    <Label Text="Ví dụ:"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="+ Mary said that "></Span>
+                                    <Span FontAttributes="Bold" FontSize="20" Text="she didn't like ice-cream."/>
+                                    <Span Text=" (Mary nói cô ấy không thích kem.)"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="Ta thấy câu nói của Mary được tường thuật lại theo cách nói của người tường thuật và ý nghĩa thì vẫn giữ nguyên."/>
+                </StackLayout>
+
+                <Label Text="2. Ngoài ra còn một số những cấu trúc câu bị động thường dùng sau:" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+                <StackLayout>
+                    <Label Text=" + Chủ động (active):" FontAttributes="Bold" ></Label>
+                    <Label Text="S + should/could + have + V3/-ed + O."/>
+
+                    <Label Text=" + Bị động (passive):" FontAttributes="Bold"></Label>
+                    <Label Text=" S + should/could + have +been + V3/-ed + ..."/>
+
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- You should have bought this book."/>
+                    <Label Text="-> This book should have been bought."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Dùng 'It' làm chủ ngữ (mệnh đề làm tân ngữ vẫn được giữ nguyên)"/>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- They said that he is kind to you."/>
+                    <Label Text="-> It is said that he is kind to you."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Dùng cấu trúc câu bị động với động từ nguyên mẫu:"/>
+                    <Label Text="Nếu hành động trong mệnh đề làm tân ngữ xảy ra trước hành động của mệnh đề chính, chúng ta dùng: perfect infinitive (to have + V3/-ed)"/>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- They said that he had killed the woman."/>
+                    <Label Text="-> He was said to have killed the woman."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Nếu hành động trong mệnh đề làm tân ngữ xảy ra sau hành động trong mệnh đề chính, chúng ta sử dụng: simple infinitive (to + Vo)"/>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- They expect that you will come."/>
+                    <Label Text="-> You are expected to come."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Nếu hành động trong mệnh đề làm tận ngữ xảy ra đồng thời với hành động trong mệnh đề chính, ta dùng: present infinitive (to be + V-ing)"/>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- They said that he was doing homework."/>
+                    <Label Text="-> He was said to be doing homework."/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

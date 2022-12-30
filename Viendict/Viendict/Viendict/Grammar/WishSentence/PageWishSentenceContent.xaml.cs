@@ -17,7 +17,7 @@ namespace Viendict.Grammar.WishSentence
         async void GetWishSentence(int ID)
         {
             HttpClient httpClient = new HttpClient();
-            var content = await httpClient.GetStringAsync("http://192.168.1.85/ViedictAPI/api/AppController/GetWishSentence?ID=" + ID.ToString());
+            var content = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/AppController/GetWishSentence?ID=" + ID.ToString());
             var contentConverted = JsonConvert.DeserializeObject<List<GrammarTenseContent>>(content);
             lstWishSentenceContent.ItemsSource = contentConverted;
         }

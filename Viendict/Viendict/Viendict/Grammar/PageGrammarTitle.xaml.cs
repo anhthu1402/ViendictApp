@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Viendict.Grammar.PassiveSentence;
 using Viendict.Grammar.WishSentence;
+using Viendict.Grammar.Reported_Speech;
 
 
 namespace Viendict.Grammar
@@ -38,13 +39,16 @@ namespace Viendict.Grammar
                 switch (grammarTitle.ID)
                 {
                     case 1:
-                        Navigation.PushAsync(new PageGrammarTense());
+                        Navigation.PushAsync(new PageGrammarTense(grammarTitle));
                         break;
                     case 2:
-                        Navigation.PushAsync(new PagePassiveSentenceTitle());
+                        Navigation.PushAsync(new PagePassiveSentenceTitle(grammarTitle));
                         break;
                     case 3:
-                        Navigation.PushAsync(new PageWishTypes());
+                        Navigation.PushAsync(new PageWishTypes(grammarTitle));
+                        break;
+                    case 4:
+                        Navigation.PushAsync(new PageReportedSpeech(grammarTitle));
                         break;
                 }
             }

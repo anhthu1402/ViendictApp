@@ -97,11 +97,27 @@
 
                 <Label Text="2. Ngoài ra còn một số những cấu trúc câu bị động thường dùng sau:" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
                 <StackLayout>
-                    <Label Text=" + Chủ động (active):" FontAttributes="Bold" ></Label>
-                    <Label Text="S + should/could + have + V3/-ed + O."/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text=" + Chủ động (active): " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="S + should/could + have + V3/-ed + O."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
 
-                     <Label Text=" + Bị động (passive):" FontAttributes="Bold"></Label>
-                    <Label Text=" S + should/could + have +been + V3/-ed + ..."/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text=" + Bị động (passive): " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="S + should/could + have +been + V3/-ed + ..."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
 
                     <Label Text="Ví dụ:"/>
                     <Label Text="- You should have bought this book."/>
