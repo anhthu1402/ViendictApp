@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.ConditionalSentence.PageID4">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Margin="7" Spacing="20">
+                <Label Text="1. Đảo ngữ câu điều kiện loại 1" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+
+                <StackLayout>
+                    <Label Text=" + Công thức:" FontAttributes="Bold"></Label>
+                    <StackLayout>
+                        <Label Text="- Câu điều kiện:"/>
+                        <Label Text="If + S1 + V(hiện tại), S2 + will/may/might/should/can… + V (nguyên thể)"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="- Câu đảo ngữ:" />
+                        <Label Text="Should + S1 + (not) + V(hiện tại), S2 + will/may/might/should/can… + V(nguyên thể)" />
+                    </StackLayout>
+                    <Label Text="Chú thích: S - chủ ngữ, V - động từ." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Cách dùng" FontAttributes="Bold"></Label>
+                    <StackLayout>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Đảo ngữ " FontAttributes="Bold" FontSize="20"/>
+                                        <Span Text="câu điều kiện loại 1 dùng để chỉ tình huống có thể xảy ra ở hiện tại hoặc tương lai."/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>* Nếu trong câu có "should" ở mệnh đề if, thì đảo "should" lên đầu câu:</Label>
+                        <Label Text="Ví dụ:"/>
+                        <Label Text="- If he should ring , I will tell him the news."/>
+                        <Label Text="→ Should he ring, I will tell him the news."/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label>* Nếu trong câu không có "should", chúng ta phải mượn "should"</Label>
+                        <Label Text="Ví dụ:"/>
+                        <Label Text="- If he has free time, he'll play tennis."/>
+                        <Label Text="→ Should he have free time, he'll play tennis."/>
+                    </StackLayout>
+                </StackLayout>
+
+                <Label Text="2. Đảo ngữ câu điều kiện loại 2" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+
+                <StackLayout>
+                    <Label Text=" + Công thức:" FontAttributes="Bold"></Label>
+                    <StackLayout>
+                        <Label Text="- Câu điều kiện:"/>
+                        <Label Text="If + S1 + V(quá khứ), S2 + would/might/could… + V (nguyên thể)"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="- Câu đảo ngữ:" />
+                        <Label Text="Were + S1 + (not) + O, S2 + would/might/could… + V(nguyên thể)" />
+                    </StackLayout>
+                    <Label Text="Chú thích: S - chủ ngữ, V - động từ." />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Cách dùng" FontAttributes="Bold"></Label>
+                    <StackLayout>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Đảo ngữ " FontAttributes="Bold" FontSize="20"/>
+                                        <Span Text="trong câu điều kiện loại 2 dùng để chỉ tình huống giả định, không thể xảy ra ở hiện tại, không có thực ở hiện tại:"/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>* Nếu trong câu có động từ "were", thì đảo "were" lên đầu.</Label>
+                        <Label Text="Ví dụ:"/>
+                        <Label Text="- If I were a bird, I would fly."/>
+                        <Label Text="→ Were I a bird, I would fly."/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label>* Nếu trong câu không có động từ "were" thì mượn "were" và dùng "to V"</Label>
+                        <Label Text="Ví dụ:"/>
+                        <Label Text="- If I learnt Russian, I would read a Russian book."/>
+                        <Label Text="→ Were I to learn Russian, I would read a Russian book."/>
+                    </StackLayout>
+                </StackLayout>
+
+                <Label Text="3. Đảo ngữ câu điều kiện loại 3" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+
+                <StackLayout>
+                    <Label Text=" + Công thức:" FontAttributes="Bold"></Label>
+                    <StackLayout>
+                        <Label Text="- Câu điều kiện:"/>
+                        <Label Text="If + S1 + had + V3/-ed, S2 + would/might/could… + have + V3/-ed"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="- Câu đảo ngữ:" />
+                        <Label Text="Had + S1 + (not) + V3/-ed, S2 + would/might/could… + have + V3/-ed" />
+                    </StackLayout>
+                    <Label>Chú thích: S - chủ ngữ, V3/-ed - V3/-ed(Vpp/-ed) - động từ cột 3 trong bảng bất quy tắc hoặc động từ đuôi "ed".</Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Cách dùng" FontAttributes="Bold"></Label>
+                    <StackLayout>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Đảo ngữ " FontAttributes="Bold" FontSize="20"/>
+                                        <Span Text="trong câu điều kiện loại 3 dùng để chỉ tình huống trái thực tế trong quá khứ."/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>* Đảo trợ động từ của thì quá khứ hoàn thành.</Label>
+                        <StackLayout>
+                            <Label Text="Ví dụ 1:"/>
+                            <Label Text="- If it had rained yesterday, we would have stayed at home."/>
+                            <Label Text="→ Had it rained yesterday, we would have stayed at home."/>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="Ví dụ 2:"/>
+                            <Label Text="- If he had trained hard, he would have won the match."/>
+                            <Label Text="→ Had he trained hard, he would have won the match."/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label>* Chú ý: ở dạng phủ định, “not” được đặt sau chủ ngữ:</Label>
+                        <Label Text="Ví dụ:"/>
+                        <Label Text="- Had it not been so late, we would have called you."/>
+                    </StackLayout>
+                </StackLayout>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

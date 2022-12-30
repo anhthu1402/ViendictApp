@@ -120,5 +120,22 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
         }
+
+        [Route("api/AppController/GetConditionalSentenceTypes")]
+        [HttpGet]
+        public IHttpActionResult GetConditionalSentenceTypes(int ID)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("ID", ID);
+                DataTable result = Database.Database.ReadTable("Proc_GetConditionalSentenceTypes", param);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

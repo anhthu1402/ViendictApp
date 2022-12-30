@@ -11,6 +11,8 @@ using Xamarin.Forms.Xaml;
 using Viendict.Grammar.PassiveSentence;
 using Viendict.Grammar.WishSentence;
 using Viendict.Grammar.Reported_Speech;
+using Viendict.Grammar.ConditionalSentence;
+using Viendict.Grammar.ComparisonSentence;
 
 
 namespace Viendict.Grammar
@@ -49,6 +51,12 @@ namespace Viendict.Grammar
                         break;
                     case 4:
                         Navigation.PushAsync(new PageReportedSpeech(grammarTitle));
+                        break;
+                    case 5:
+                        Navigation.PushAsync(new PageTitle(grammarTitle));
+                        break;
+                    case 6:
+                        Navigation.PushAsync(new PageComparisonSentence(grammarTitle));
                         break;
                 }
             }

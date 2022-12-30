@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.ConditionalSentence.PageID5">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Margin="7" Spacing="20">
+                <Label Text="1. Câu điều kiện hỗn hợp" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+
+                <StackLayout>
+                    <Label Text=" + Định nghĩa:" FontAttributes="Bold"></Label>
+                    <StackLayout>
+                        <Label>Câu điều kiện hỗn hợp là câu điều kiện kết hợp giữa câu điều kiện loại 3 và câu điều kiện loại 2.</Label>
+                        <Label>-> Dùng để diễn đạt giả định về một điều "trái với sự thật trong quá khứ", nhưng kết quả muốn nói đến trái ngược với sự thật ở hiện tại.</Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text=" + Công thức:" />
+                        <Label Text="S + had + V3/-ed, S + would/should + V(nguyên thể)" />
+                        <Label>Chú thích: S - chủ ngữ, V3/-ed(Vpp/-ed) - động từ cột 3 trong bảng bất quy tắc hoặc động từ đuôi "ed"</Label>
+                        <Label>Ta thấy mệnh đề chứa "If" hay còn gọi là "mệnh đề giả định" sử dụng cấu trúc của câu điều kiện loại 3 (động từ chia thì quá khứ hoàn thành), còn mệnh đề chính sử dụng cấu trúc của câu điều kiện loại 2 (would/should + V(nguyên thể)).</Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text=" + Ví dụ:" />
+                        <Label Text="- If he had told me the reason yesterday, I wouldn't be sad now." />
+                        <Label Text="(Nếu hôm qua anh ấy nói với tôi lý do thì bây giờ tôi sẽ không buồn như vậy)" FontAttributes="Italic"/>
+                        <Label>-> Sự thật là hôm qua anh ấy đã không nói với tôi lý do, và bây giờ tôi cảm thấy rất buồn. Ta thấy mệnh đề “If” đưa ra một giả định trái với sự thật trong quá khứ (hôm qua), và mệnh đề chính đưa ra giả định về kết quả trái với sự thật ở hiện tại (bây giờ).</Label>
+                    </StackLayout>
+                </StackLayout>
+
+                <Label Text="2. Câu điều kiện với UNLESS" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+
+                <StackLayout>
+                    <Label Text=" + Unless(trừ khi) = if not" FontAttributes="Bold"></Label>
+                    <Label Text=" Ví dụ:"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="- If she "/>
+                                    <Span Text="doesn't study " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="hard, she "/>
+                                    <Span Text="will get " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="bad marks."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="(Nếu cô ấy không học hành chăm chỉ, cô ấy sẽ bị điểm kém.)" FontAttributes="Italic"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="- Bằng với: "/>
+                                    <Span Text="Unless " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="she "/>
+                                    <Span Text="studies " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="hard, she "/>
+                                    <Span Text="will get " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="bad marks."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="(Trừ khi cô ấy học hành chăm chỉ, nếu không cô ấy sẽ bị điểm kém)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + CHÚ Ý:" FontAttributes="Bold"></Label>
+                    <Label>* Ta chỉ sử dụng "unless" trong câu điều kiện loại 1 (giả định một việc có thể xảy ra ở hiện tại và tương lai)</Label>
+                    <Label>* Không sử dụng "unless" trong câu điều kiện loại 2 và loại 3.</Label>
+                    <Label>* Không sử dụng "unless" trong câu hỏi.</Label>
+                    <Label Text="Ví dụ:"/>
+                    <Label Text="- What will you do if he doesn't come?"/>
+                    <Label Text="(Bạn sẽ làm gì nếu anh ấy không đến?)" FontAttributes="Italic"/>
+                    <Label Text="Không được sử dụng:" FontAttributes="Bold"/>
+                    <Label Text="- What will you do unless he comes?"/>
+                </StackLayout>
+
+                <Label Text="3. Một số biến thể có thể có của các cụm động từ trong các vế của câu điều kiện" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+
+                <StackLayout>
+                    <Label Text=" + LOẠI 1" FontAttributes="Bold"></Label>
+                    <Label Text="A. Biến thể của cụm động từ trong mệnh đề chính (main clause)" FontAttributes="Bold"/>
+                    <Label Text="* Đối với trường hợp muốn nhấn mạnh tính có thể xảy ra sự việc:"/>
+                    <Label Text="If + hiện tại đơn, ... may/might + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If the weather gets worse, the flight may/might be delayed."/>
+                    <Label Text="(Nếu thời tiết xấu hơn, chuyến bay có thể bị trì hoãn)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với trường hợp thể hiện sự đồng ý, cho phép, gợi ý:"/>
+                    <Label Text="If + hiện tại đơn, ... may/can + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If it stops raining, we can go out."/>
+                    <Label Text="(Nếu trời ngừng mưa, chúng ta có thể ra ngoài)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với câu gợi ý, khuyên răn, đề nghị hoặc yêu cầu nhưng nhấn mạnh về hành động:"/>
+                    <Label Text="If + hiện tại đơn, ... would like to/must/have to/should... + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you go to the library today, I would like to go with you."/>
+                    <Label Text="(Nếu bạn đi đến thư viện ngày hôm nay, tôi muốn đi với bạn)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với trường hợp muốn diễn tả hậu quả tất yếu của điều kiện đặt ra theo quy luật hoặc thói quen:"/>
+                    <Label Text="If + hiện tại đơn, hiện tại đơn." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you eat this poisonous fruit, you die at once."/>
+                    <Label Text="(Nếu bạn ăn trái cây độc hại này, bạn chết ngay lập tức)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với trường hợp có thể xảy ra trong tương lai và nhấn mạnh trạng thái diễn ra/hoàn thành của sự việc:"/>
+                    <Label Text="If + hiện tại đơn, tương lai tiếp diễn/tương lai hoàn thành." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If we leave Hanoi for Hue today, we shall be staying in Hue tomorrow."/>
+                    <Label Text="(Nếu chúng ta rời Hà Nội cho Huế hôm nay, chúng ta sẽ ở Huế vào ngày mai.)" FontAttributes="Italic"/>
+                    <Label Text="- If you do your home work right now, you will have finished it in 2 hours' time."/>
+                    <Label Text="(Nếu bạn làm việc nhà ngay bây giờ, bạn sẽ hoàn thành nó trong 2 giờ.)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với câu mệnh lệnh (chủ ngữ ẩn ở mệnh đề chính):"/>
+                    <Label Text="If + hiện tại đơn, (do not) V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you are hungry, go to a restaurant."/>
+                    <Label Text="(Nếu bạn đói, hãy đi đến nhà hàng.)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label>* Đối với câu khuyên răn, trong trường hợp này không thực sự là một câu điều kiện bởi "if" mang nghĩa như "as, since, because":</Label>
+                    <Label Text="If + hiện tại đơn, why do (not) + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you like the movie, why don't you go to the cinema?"/>
+                    <Label Text="(Nếu bạn thích bộ phim, tại sao bạn không đi xem phim?)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + LOẠI 1" FontAttributes="Bold"></Label>
+                    <Label Text="A. Biến thể của cụm động từ trong mệnh đề chính (main clause)" FontAttributes="Bold"/>
+                    <Label Text="* Đối với trường hợp muốn nhấn mạnh tính có thể xảy ra sự việc:"/>
+                    <Label Text="If + hiện tại đơn, ... may/might + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If the weather gets worse, the flight may/might be delayed."/>
+                    <Label Text="(Nếu thời tiết xấu hơn, chuyến bay có thể bị trì hoãn)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với trường hợp thể hiện sự đồng ý, cho phép, gợi ý:"/>
+                    <Label Text="If + hiện tại đơn, ... may/can + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If it stops raining, we can go out."/>
+                    <Label Text="(Nếu trời ngừng mưa, chúng ta có thể ra ngoài)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với câu gợi ý, khuyên răn, đề nghị hoặc yêu cầu nhưng nhấn mạnh về hành động:"/>
+                    <Label Text="If + hiện tại đơn, ... would like to/must/have to/should... + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you go to the library today, I would like to go with you."/>
+                    <Label Text="(Nếu bạn đi đến thư viện ngày hôm nay, tôi muốn đi với bạn)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với trường hợp muốn diễn tả hậu quả tất yếu của điều kiện đặt ra theo quy luật hoặc thói quen:"/>
+                    <Label Text="If + hiện tại đơn, hiện tại đơn." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you eat this poisonous fruit, you die at once."/>
+                    <Label Text="(Nếu bạn ăn trái cây độc hại này, bạn chết ngay lập tức)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với trường hợp có thể xảy ra trong tương lai và nhấn mạnh trạng thái diễn ra/hoàn thành của sự việc:"/>
+                    <Label Text="If + hiện tại đơn, tương lai tiếp diễn/tương lai hoàn thành." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If we leave Hanoi for Hue today, we shall be staying in Hue tomorrow."/>
+                    <Label Text="(Nếu chúng ta rời Hà Nội cho Huế hôm nay, chúng ta sẽ ở Huế vào ngày mai.)" FontAttributes="Italic"/>
+                    <Label Text="- If you do your home work right now, you will have finished it in 2 hours' time."/>
+                    <Label Text="(Nếu bạn làm việc nhà ngay bây giờ, bạn sẽ hoàn thành nó trong 2 giờ.)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với câu mệnh lệnh (chủ ngữ ẩn ở mệnh đề chính):"/>
+                    <Label Text="If + hiện tại đơn, (do not) V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you are hungry, go to a restaurant."/>
+                    <Label Text="(Nếu bạn đói, hãy đi đến nhà hàng.)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label>* Đối với câu khuyên răn, trong trường hợp này không thực sự là một câu điều kiện bởi "if" mang nghĩa như "as, since, because":</Label>
+                    <Label Text="If + hiện tại đơn, why do (not) + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you like the movie, why don't you go to the cinema?"/>
+                    <Label Text="(Nếu bạn thích bộ phim, tại sao bạn không đi xem phim?)" FontAttributes="Italic"/>
+                </StackLayout>
+
+
+                <StackLayout>
+                    <Label Text="B. Biến thể của cụm động từ trong mệnh đề điều kiện (if-clause)" FontAttributes="Bold"/>
+                    <Label Text="* Đối với trường hợp đang xảy ra ngay trong hiện tại:"/>
+                    <Label Text="If + hiện tại tiếp diễn, tương lai đơn" FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If he is working, I won't disturb him."/>
+                    <Label Text="(Nếu anh ta làm việc, tôi sẽ không làm phiền anh ta.)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với trường hợp không chắc về thời gian của điều kiện có thật mà nhấn mạnh tính hoàn tất của nó:"/>
+                    <Label Text="If + hiện tại hoàn thành, tương lai đơn." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you have finished your homework, I shall ask for your help."/>
+                    <Label Text="(Nếu bạn đã hoàn thành bài tập về nhà, tôi sẽ yêu cầu sự giúp đỡ của bạn)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với câu gợi ý nhưng nhấn mạnh về điều kiện:"/>
+                    <Label Text="If + would like to + V(nguyên thể),... will/can/must/nothing + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you would like to go to the library today, I can/will go with you."/>
+                    <Label Text="(Nếu bạn muốn đi đến thư viện ngày hôm nay, tôi có thể/sẽ đi với bạn.)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* Đối với câu đề nghị, gợi ý, bày tỏ ý kiến mang tính lịch sự:"/>
+                    <Label Text="If + can/may/must/have to/should/be going to + V(nguyên thể), tương lai đơn." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If I can help you, I will."/>
+                    <Label Text="(Nếu tôi có thể giúp bạn, tôi sẽ giúp)" FontAttributes="Italic"/>
+                    <Label Text="- If I may get into the room now, I shan't feel cold."/>
+                    <Label Text="(Nếu bây giờ tôi có thể vào phòng, tôi sẽ không cảm thấy lạnh)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Lưu ý: " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="Trong câu "/>
+                                    <Span FontAttributes="Bold" FontSize="20">
+                                        "if + S + should + V(nguyên thể)."
+                                    </Span>
+                                    <Span>
+                                        , should có thể được đưa lên đầu câu thay "if":
+                                    </Span>
+                                    <Span Text=" Should + S + V(nguyên thể), tương lai đơn." FontAttributes="Bold" FontSize="20"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- Should you see him on the way home from work, please tell him to call on me"/>
+                    <Label Text="(Nếu bạn nhìn thấy anh ta trên đường về nhà từ nơi làm việc, xin hãy nói với anh ấy để gọi cho tôi)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="* Tương tự như vậy, ta có một số biến thể ít phổ biến hơn của cụm động từ đối với "/>
+                                    <Span Text="GIẢ ĐỊNH KHÔNG CÓ THỰC (unreal conditions loại II và III)" FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text=", tuỳ vào việc muốn nhấn mạnh và trạng thái diễn tiến hay hoàn thành của sự việc trong mệnh đề điều kiện hoặc sự việc trong mệnh đề chính."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + LOẠI 2" FontAttributes="Bold"></Label>
+                    <Label Text="A. Mệnh đề chính (main clause)" FontAttributes="Bold"/>
+                    <Label Text="If + quá khứ đơn, ... would/should/could/might/had to/ought to + be V_ing." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If we left Hanoi for Hue this morning, we would be staying in Hue tomorrow."/>
+                    <Label Text="(Nếu chúng tôi rời Hà Nội vào Huế sáng nay, chúng tôi sẽ ở Huế vào ngày mai)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="If + quá khứ đơn, quá khứ đơn. (việc đã xảy ra)" FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If the goalkeeper didn't catch the ball, they lost."/>
+                    <Label Text="(Nếu thủ môn không bắt bóng, họ đã thua)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="If + quá khứ đơn, ... would be + V_ing." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If I were on holiday with him, I would/might be touring Italy now."/>
+                    <Label Text="(Nếu tôi đi nghỉ cùng anh ấy, tôi sẽ/có thể đi lưu diễn tại Ý bây giờ)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label FontAttributes="Bold">If dùng như "as, since, because" có thể kết hợp với động từ ở nhiều thì khác nhau trong mệnh đề chính và không thực sự là một câu điều kiện.</Label>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you knew her troubles, why didn't you tell me?"/>
+                    <Label Text="(Nếu bạn biết rắc rối của mình, tại sao bạn không nói với tôi?)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="B. Mệnh đề phụ (if-clause)" FontAttributes="Bold"/>
+                    <Label Text="If + quá khứ tiếp diễn, ... would/could + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If we were studying English in London now, we could speak English much better."/>
+                    <Label Text="(Nếu bây giờ chúng ta học tiếng Anh ở London, chúng ta có thể nói tiếng Anh tốt hơn)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="If + quá khứ hoàn thành, ... would/could + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you had taken my advice, you would be a millionaire now."/>
+                    <Label Text="(Nếu bạn đã lấy lời khuyên của tôi, bây giờ bạn sẽ là một triệu phú)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + LOẠI 3" FontAttributes="Bold"></Label>
+                    <Label Text="A. Mệnh đề chính (main clause)" FontAttributes="Bold"/>
+                    <Label Text="If + quá khứ hoàn thành, ... could/might + hiện tại hoàn thành." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If we had found him earlier, we could have saved his life."/>
+                    <Label Text="(Nếu chúng tôi đã tìm thấy anh ta trước đó, chúng tôi có thể đã cứu sống anh ta)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="If + quá khứ hoàn thành, hiện tại hoàn thành tiếp diễn." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If you had left Hanoi for Haiphong last Saturday, you would have been swimming in Doson last Sunday."/>
+                    <Label Text="(Nếu bạn rời Hà Nội cho Hải Phòng vào ngày thứ bảy tuần trước, bạn sẽ bơi ở Doson vào Chủ nhật tuần trước.)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="If + quá khứ hoàn thành, ... would + V(nguyên thể)." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If she had followedmy advice, she would be richer now."/>
+                    <Label Text="(Nếu cô ấy đã theo tôi lời khuyên, cô ấy sẽ giàu có hơn bây giờ)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="B. Mệnh đề phụ (if-clause)" FontAttributes="Bold"/>
+                    <Label Text="If + quá khứ hoàn thành tiếp diễn, ... would + hiện tại hoàn thành." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- If it hadn't been raining the whole week, I would have finished the laundry."/>
+                    <Label Text="(Nếu trời mưa suốt cả tuần, tôi sẽ hoàn tất việc giặt quần áo)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label FontAttributes="Bold">Đối với trường hợp "if" được sử dụng như một liên từ dùng để bắt đầu một mệnh đề phụ trạng ngữ chỉ điều kiện về thời gian, lúc này "if = when". Vậy "if" và "when" khác nhau thế nào?</Label>
+                    <Label Text="* WHEN: được dùng khi diễn tả một điều gì đó chắc chắn xảy ra." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- I am going to do some shopping today. When I go shopping, I'll buy you some coffee."/>
+                    <Label Text="(Tôi sẽ đi mua sắm ngày hôm nay. Khi tôi đi mua sắm, tôi sẽ mua cho bạn một ít cà phê.)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="* IF: được dùng khi diễn tả một điều không chắc chắn (có thể hoặc không thể) xảy ra trong tương lai." FontAttributes="Bold"/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- I may go shopping today. If I go shopping, I'll buy you some coffee."/>
+                    <Label Text="(Hôm nay tôi có thể đi mua sắm. Nếu tôi đi mua sắm, tôi sẽ mua cho bạn một ít cà phê)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label FontAttributes="Bold">* Lưu ý: Động từ chính trong mệnh đề phụ trạng ngữ bắt đầu bằng "when" hoặc "if" luôn ở thì present simple mặc dù hành động sẽ xảy ra trong tương lai.</Label>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- When/If he arrives tomorrow, I'll tell him about it"/>
+                    <Label Text="(Khi nào/Nếu anh ấy đến vào ngày mai, tôi sẽ nói với anh ấy về nó)" FontAttributes="Italic"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

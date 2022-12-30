@@ -115,6 +115,18 @@ CREATE TABLE [dbo].[lst_study_topic_vocab](
 	[LessonID] [int] NULL,
 )
 
+/*create table conditional_sentence_type*/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[conditional_sentence_type](
+	[ID] [int] NOT NULL Primary key,
+	[Define] [nvarchar](max) NULL,
+	[Formula] [nvarchar](max) NULL,
+	[HowToUse] [nvarchar](max) NULL,
+)
+
 
 alter table lst_vocab add constraint fk_TopicID foreign key (TopicID) references lst_vocab_topic (TopicID)
 alter table lst_vocab add constraint pk_lstvocan primary key (ID, TopicID)
@@ -122,12 +134,68 @@ alter table lst_study_topic_lesson add constraint fk_Study_TopicID foreign key (
 alter table lst_study_topic_vocab add constraint fk_LessonID foreign key (LessonID) references lst_study_topic_lesson (LessonID)
 
 SET ANSI_WARNINGS OFF;
+insert into conditional_sentence_type values( 1, N' + Câu điều kiện loại 1 còn có thể được gọi là câu điều kiện hiện tại có thể có thật. Ta sử dụng câu điều kiện loại 1 để đặt ra một điều kiện có thể thực hiện được trong hiện tại và nêu kết quả có thể xảy ra ở hiện tại hoặc tương lai.', N'If + S + V, S + will + V
+Chú thích: S - chủ ngữ, V - động từ.
+
+ + Ở câu điều kiện loại 1, mệnh đề "IF" dùng thì hiện tại đơn, mệnh đề chính dùng thì tương lai đơn.', N' + Chỉ một sự thật hiển nhiên, một quy luật tự nhiên hoặc một hành động xảy ra thường xuyên
+  Ví dụ:
+- If you heat ice, it turns to water.
+(Nếu bạn đun nóng nước đá nó sẽ tan thành nước)
+- If you press this switch, the computer comes on.
+(Nếu bạn nhấn vào nút này, máy tính sẽ bật)
+
+ + Đặt ra một điều kiện có thể thực hiện được trong hiện tại hoặc tương lai
+ Ví dụ:
+- If you come into my garden, my dog will bite you.
+(Nếu anh bước vào vườn của tôi, con chó của tôi sẽ cắn anh)
+- If it is sunny, I will go fishing.
+(Nếu trời nắng tốt, tôi sẽ đi câu cá)
+
+ + Ngoài ra, các động từ tình thái như: can, may, might, should, ought to, must có thể được dùng trong mệnh đề chính để nói đến khả năng, sự chắc chắn, sự cho phép, sự bắt buộc hoặc cần thiết
+ Ví dụ:
+- If you need a ticket, I can get you one
+(Nếu bạn cần vé, tôi có thể mua cho bạn một cái)')
+insert into conditional_sentence_type values( 2, N' + Câu điều kiện loại 2 là câu điều kiện không có thực ở hiện tại. Ta sử dụng câu điều kiện loại 2 để diễn tả điều không thể xảy ra ở hiện tại hoặc tương lai, chỉ là một giả thiết, một ước muốn trái ngược với thực trạng hiện tại.', N'If + S + Ved, S + would + V
+Chú thích: S - chủ ngữ, V - động từ.
+
+ + Ở câu điều kiện loại 2, mệnh đề "IF" dùng thì quá khứ đơn, mệnh đề chính dùng thì hiện tại đơn.
+ 
+ + Trong câu điều kiện loại 2, ở mệnh đề "IF" riêng động từ "to be" luôn dùng "were" cho tất cả các ngôi.', N' + Diễn tả điều không thể xảy ra ở hiện tại hoặc tương lai, chỉ là một giả thiết, một ước muốn trái ngược với thực trạng hiện tại.
+  Ví dụ:
+- If I were a bird, I would be very happy.
+(Nếu tôi là một con chim, tôi sẽ rất hạnh phúc) => tôi không thể là con chim được
+- If I had a million USD, I would buy that car.
+(Nếu tôi có một triệu đô la, tôi sẽ mua chiếc xe đó.) => hiện tại tôi không có
+
+ + Với "could" và "might" có thể được dùng trong mệnh đề chính để nói đến khả năng có thể xảy ra
+ Ví dụ:
+- If she had a camera, she could take some photos.
+(Giá như có máy ảnh, cô ấy có thể chụp vài tấm hình)
+- If he worked harder, he might do even better at her studies.
+(Giá như anh ta học chăm hơn thì kết quả học tập có thể còn tốt hơn nữa)
+
+ + Dùng để khuyên bảo (If I were you. . .)
+ Ví dụ:
+- If I were you, I would never buy that car.
+(Nếu tôi là bạn, tôi sẽ không bao giờ mua chiếc xe đó)')
+insert into conditional_sentence_type values( 3, N' + Câu điều kiện loại 3 là câu điều kiện không có thực trong quá khứ. Ta sử dụng câu điều kiện loại 3 để diễn tả một điều không thể xảy ra trong quá khứ, chỉ mang tính ước muốn trong quá khứ, một giả thiết trái ngược với thực trạng ở quá khứ.', N'If + S + had + V3/-ed, S + have + V3/-ed.
+Chú thích: S - chủ ngữ, V3/-ed(Vpp/-ed) - động từ cột 3 trong bảng bất quy tắc hoặc động từ đuôi "ed".
+
+ + Ở câu điều kiện loại 3, mệnh đề "IF" chia ở quá khứ phân từ, mệnh đề chính chia ở điều kiện hoàn thành (perfect conditional)', N' + Diễn tả một điều không thể xảy ra trong quá khứ, chỉ mang tính ước muốn trong quá khứ, một sự hối tiếc, một giả thiết trái ngược với thực trạng ở quá khứ.
+ Ví dụ:
+- If I hadn’t been absent yesterday, I would have met him.
+(Nếu hôm qua tôi không vắng mặt thì tôi đã gặp mặt anh ta rồi)
+- If I had known of your arrival, I would have met you.
+(Giá mà tôi biết anh đến thì tôi đã đi đón rồi)')
+SET ANSI_WARNINGS ON;
+
+SET ANSI_WARNINGS OFF;
 insert into lst_study_topic values(1, N'900 từ vựng luyện IELTS', 50)
 insert into lst_study_topic values(2, N'600 từ vựng TOEIC', 50)
 insert into lst_study_topic values(3, N'1000 từ vựng TOEFL', 50)
 insert into lst_study_topic values(4, N'900 từ vựng luyện thi SAT', 59)
 SET ANSI_WARNINGS ON;
-/*haven't execute*/
+/*haven't executed*/
 SET ANSI_WARNINGS OFF;
 insert into lst_study_topic_lesson values(1, N'Health problems', 1) 
 insert into lst_study_topic_lesson values(2, N'Academic subjects', 1) 
@@ -140,7 +208,7 @@ insert into lst_study_topic_lesson values(1, N'Food crops', 3)
 insert into lst_study_topic_lesson values(1, N'', 4) 
 insert into lst_study_topic_lesson values(2, N'', 4) 
 SET ANSI_WARNINGS ON;
-/*haven't execute*/
+/*haven't executed*/
 SET ANSI_WARNINGS OFF;
 insert into lst_study_topic_vocab values(1, 'vaccinate', N'/ˈvæksɪneɪt/', 'verb', N'chủng ngừa, tiêm chủng', N'All children under 6 years old are vaccinated for free.', N'Tất cả trẻ am dưới 6 tuổi được tiêm phòng miễn phí.', 1)
 SET ANSI_WARNINGS ON;
@@ -1429,4 +1497,14 @@ GO
 CREATE proc [dbo].[Proc_GetWishSentence](@ID int)
 as
 select * from lst_wish_sentence_content where ID=@ID
+GO
+
+/* Proc_GetConditionalSentenceTypes */
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[Proc_GetConditionalSentenceTypes](@ID int)
+as
+select * from conditional_sentence_type where ID=@ID
 GO
