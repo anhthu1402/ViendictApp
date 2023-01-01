@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.ComparisonSentence.PageID2">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Margin="7" Spacing="20">
+                <Label Text="1. So sánh hơn kém" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+
+                <StackLayout>
+                    <Label Text="- Chú thích: S - chủ ngữ, V - động từ, adj - tính từ, adv - trạng từ, N(noun) - danh từ, Pronoun - đại từ"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + So sánh kém:" FontAttributes="Bold"></Label>
+                    <Label Text="S + V + less + adj/adv + than + N/Pronoun."/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- Nga is less young than I"/>
+                    <Label Text="(Nga không trẻ hơn tôi)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + So sánh hơn với tính từ và phó từ ngắn:" FontAttributes="Bold"></Label>
+                    <Label Text="S + V + adj/adv_er + than + N/Pronoun."/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- Nga is younger than I"/>
+                    <Label Text="(Nga trẻ hơn tôi)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Để nhấn mạnh so sánh" FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text=", có thể thêm much/far trước so sánh, công thức:"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="S + V + far/much + Adj/Adv_er + than + N/Pronoun."/>
+                    <Label Text="S + V + far/much + more + Adj/Adv + than + N/Pronoun."/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- Harry's watch is far more expensive than mine"/>
+                    <Label Text="(Đồng hồ của Harry đắt hơn tôi rất nhiều)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + So sánh hơn với tính từ và phó từ dài:" FontAttributes="Bold"></Label>
+                    <Label Text="S + V + more + adj/adv + than + N/Pronoun."/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- She cooks more delicious than I (do)"/>
+                    <Label Text="(Cô nấu ăn ngon hơn tôi)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + So sánh hơn, kém thường được dùng khi so sánh 2 chủ thể với nhau, không mang tính tuyệt đối." FontAttributes="Bold"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Trong loại so sánh này người ta chia làm hai dạng: tính từ và phó từ ngắn (đọc lên chỉ có một vần). Tính từ và phó từ dài (2 vần trở lên)." FontAttributes="Bold"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label FontAttributes="Bold">+ Đối với tính từ và phó từ ngắn chỉ cần cộng đuôi "er", chỉ có một nguyên âm kẹp giữa hai phụ âm tận cùng, phải gấp đôi phụ âm cuối để tránh thay đổi cách đọc.</Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Đối với tính từ tận cùng là y, dù có 2 vần vẫn bị coi là tính từ ngắn và phải đổi thành Y -IER (happy - happier; dry - drier; pretty - prettier)." FontAttributes="Bold"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Đối với tính từ và phó từ dài phải dùng more/less" FontAttributes="Bold"></Label>
+                    <Label Text="Sau THAN phải là đại từ nhân xưng chủ ngữ, không được là tân ngữ."/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Cũng tương tự như so sánh bằng, danh từ cũng được dùng để so sánh, nhưng trước khi so sánh cần xác định trước danh từ đó là đếm được hay không đếm được và dùng với công thức sau:" FontAttributes="Bold"></Label>
+                    <Label Text="S + V + more/fewer/less + N + than + N/Pronoun" FontAttributes="Bold"/>
+                    <Label Text="Nếu chủ ngữ sau THAN trùng với chủ ngữ thứ nhất, đặc biệt khi động từ sau THAN ở dạng bị động thì có thể loại bỏ danh từ đó."/>
+                    <Label Text=" Ví dụ:" FontAttributes="Bold"></Label>
+                    <Label Text="- February has fewer day than March."/>
+                    <Label Text="(Tháng hai có ít ngày hơn tháng ba)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <Label TextColor="Red" FontSize="24" FontAttributes="Bold">2. So sánh hơn kém không dùng "than" (giữa 2 đối tượng)</Label>
+                <StackLayout>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text=" + Khi so sánh hơn kém giữa 2 người hoặc 2 vật mà không dùng "/>
+                                    <Span Text="than" FontAttributes="Italic" FontSize="20"/>
+                                    <Span Text=", muốn nói đối tượng nào đó là tốt hơn, giỏi hơn, đẹp hơn,... thì trước adj và adv so sánh phải có "/>
+                                    <Span Text="the." FontAttributes="Italic" FontSize="20"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text=" + Chú ý phân biệt trường hợp này với trường hợp so sánh bậc nhất dưới đây (khi có 3 đối tượng trở lên). Trong câu thường có cụm từ "/>
+                                    <Span Text="of the two + noun" FontAttributes="Italic" FontSize="20"/>
+                                    <Span Text=", nó có thể đứng đầu hoặc cuối câu."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Ví dụ:" FontAttributes="Bold"></Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="- Harvey is "/>
+                                    <Span Text="the smarter of the two boys."  TextDecorations="Underline" FontSize="20"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="- "/>
+                                    <Span Text="Of the two shirts"  TextDecorations="Underline" FontSize="20"/>
+                                    <Span Text=", this one is "/>
+                                    <Span Text="the prettier."  TextDecorations="Underline" FontSize="20"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="- Pealse give me "/>
+                                    <Span Text="the smaller of the two cakes."  TextDecorations="Underline" FontSize="20"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="- "/>
+                                    <Span Text="Of the two books"  TextDecorations="Underline" FontSize="20"/>
+                                    <Span Text=", this one is "/>
+                                    <Span Text="the more interesting."  TextDecorations="Underline" FontSize="20"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

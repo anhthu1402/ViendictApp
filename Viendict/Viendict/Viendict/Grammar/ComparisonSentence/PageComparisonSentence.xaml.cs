@@ -18,10 +18,8 @@ namespace Viendict.Grammar.ComparisonSentence
         {
             titles = new List<Title>();
             titles.Add(new Title { ID = 1, Name = "So sánh bằng, so sánh bội số", Describe = "So sánh bằng, so sánh bội số" });
-            titles.Add(new Title { ID = 2, Name = "So sánh hơn", Describe = "So sánh hơn kém, so sánh hơn kém không dùng 'than'" });
+            titles.Add(new Title { ID = 2, Name = "So sánh hơn", Describe = "So sánh hơn kém, ..." });
             titles.Add(new Title { ID = 3, Name = "So sánh hơn nhất", Describe = "Cách dùng, các công thức liên quan" });
-            titles.Add(new Title { ID = 4, Name = "So sánh kép", Describe = "Cách dùng, một số lưu ý" });
-            titles.Add(new Title { ID = 5, Name = "So sánh hơn gấp nhiều lần", Describe = "So sánh hơn gấp nhiều lần, công thức, ví dụ, lưu ý" });
         }
         public PageComparisonSentence()
         {
@@ -37,7 +35,22 @@ namespace Viendict.Grammar.ComparisonSentence
 
         private void lstComparisonTitle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-
+            if(lstComparisonTitle.SelectedItem!=null)
+            {
+                Title title = (Title)lstComparisonTitle.SelectedItem;
+                switch(title.ID)
+                {
+                    case 1:
+                        Navigation.PushAsync(new PageID1(title));
+                        break;
+                    case 2:
+                        Navigation.PushAsync(new PageID2(title));
+                        break;
+                    default:
+                        Navigation.PushAsync(new PageID3(title));
+                        break;
+                }
+            }
         }
     }
 }

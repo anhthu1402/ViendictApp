@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.ComparisonSentence.PageID3">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Margin="7" Spacing="20">
+                <Label Text="1. So sánh nhất" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+
+                <StackLayout>
+                    <Label Text=" + Dùng trong các trường hợp so sánh 3 trở lên, để so sánh người (hoặc vật) với tất cả người (hoặc vật) trong nhóm." FontAttributes="Bold"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" Chú thích: S - chủ ngữ, V - động từ, adj - tính từ, adv - trạng từ, N(noun) - danh từ, Pronoun - đại từ"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Tính từ và phó từ ngắn:" FontAttributes="Bold"></Label>
+                    <Label Text=" Công thức:"/>
+                    <Label Text="S + V + the adj/adv_est + N/Pronoun."/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- Nam is the tallest in my class"/>
+                    <Label Text="(Nam là người cao nhất trong lớp)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Tính từ và phó từ dài:" FontAttributes="Bold"></Label>
+                    <Label Text=" Công thức:"/>
+                    <Label Text="S + V + the most adj/adv + N/Pronoun."/>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- This jacket is the most expensive in our shop."/>
+                    <Label Text="(Áo khoác này đắt nhất trong cửa hàng)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label FontAttributes="Bold"> Dùng "in" với danh từ số ít.</Label>
+                    <Label FontAttributes="Bold">Dùng "of" với danh từ số nhiều.</Label>
+                    <Label Text=" Ví dụ:" />
+                    <Label Text="- This dress is the most beautiful of the dresses."/>
+                    <Label Text="(Trang phục này là đẹp nhất trong các trang phục)" FontAttributes="Italic"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

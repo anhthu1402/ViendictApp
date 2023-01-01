@@ -11,13 +11,13 @@ using Viendict.Grammar.ConditionalSentence;
 namespace Viendict.Grammar.ComparisonSentence
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageID1 : ContentPage
+    public partial class PageID2 : ContentPage
     {
-        public PageID1()
+        public PageID2()
         {
             InitializeComponent();
         }
-        public PageID1(Title title) 
+        public PageID2(Title title)
         {
             InitializeComponent();
             this.Title = title.Name;

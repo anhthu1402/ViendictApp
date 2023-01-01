@@ -2,11 +2,191 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viendict.Grammar.ComparisonSentence.PageID1">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="5" Margin="7" Spacing="20">
+                <Label Text="1. So sánh bằng (Equality)" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+
+                <StackLayout>
+                    <Label Text=" + Cấu trúc as...as:" FontAttributes="Bold"></Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Khẳng định (positive): " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="S + V + as + adj/adv + as + N/Pronoun."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <StackLayout>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Phủ định (negative): " FontAttributes="Bold" FontSize="20"/>
+                                        <Span Text="S + V + not + so/as + adj/adv + N/Pronoun."/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                    <Label Text="Chú thích: S - chủ ngữ, V - động từ, adj - tính từ, adv - trạng từ, N(noun) - danh từ, Pronoun - đại từ" />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" Chú ý:" FontAttributes="Bold"></Label>
+                    <Label>* Sau “as” thứ hai nhất thiết phải là đại từ nhân xưng chủ ngữ, không được là tân ngữ</Label>
+                    <Label Text="* Danh từ cũng có thể dùng so sánh trong trường hợp này nhưng đảm bảo danh từ đó phải có tính từ tương đương."/>
+                    <Label>* Nếu là câu phủ định, “as” thứ nhất có thể thay bằng “so”</Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="* Danh từ cũng được dùng để so sánh, nhưng trước khi so sánh thì cần xác định danh từ đó là đếm được hay là không đếm được và sử dụng công thức so sánh sau: "/>
+                                    <Span Text="S + V + as + many/much/little/few + noun + as + noun/pronoun" FontAttributes="Bold" FontSize="20"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" Ví dụ:" FontAttributes="Bold"></Label>
+                    <Label Text="- Bin is as tall as Bon"/>
+                    <Label Text="(Bin cao như Bon)" FontAttributes="Italic"/>
+                    <Label Text="- Bin is not so tall as Bon"/>
+                    <Label Text="(Bin không cao như Bon)" FontAttributes="Italic"/>
+                    <Label Text="- Johh earns as much money as his wife"/>
+                    <Label Text="(John kiếm được nhiều tiền như vợ mình)" FontAttributes="Italic"/>
+                    <Label Text="- This flat isn't as/ so big as our old one."/>
+                    <Label Text="(Căn hộ này không lớn bằng căn hộ cũ của chúng tôi)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" + Cấu trúc the same...as:" FontAttributes="Bold"></Label>
+                    <Label Text=" Công thức:" FontAttributes="Bold"/>
+                    <Label Text="S + V + the same + (N) + as + N/Pronoun. Chú thích: S - chủ ngữ, V - động từ, adj - tính từ, adv - trạng từ, N - danh từ, Pronoun - đại từ" />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" Chú ý:" FontAttributes="Bold"></Label>
+                    <Label>* Trái nghĩa với “the same...as...” là “different from...”, không dùng “different than...”</Label>
+                    <Label Text="* Nếu chủ ngữ sau as trùng với chủ ngữ thứ nhất hoặc động từ sau as ở dạnh bị động thì có thể loại bỏ danh từ đó"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" Ví dụ:" FontAttributes="Bold"></Label>
+                    <Label Text="- Your house is the same height as mine"/>
+                    <Label Text="(Ngôi nhà của bạn có chiều ngang giống với của tôi)" FontAttributes="Italic"/>
+                    <Label Text="- Your house is different from mine"/>
+                    <Label Text="(Ngôi nhà của bạn khác với của tôi)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <Label Text="2. So sánh bội số" TextColor="Red" FontSize="24" FontAttributes="Bold"></Label>
+                <StackLayout>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text=" + So sánh bội số " FontAttributes="Bold" FontSize="20"/>
+                                    <Span Text="là so sánh: bằng nửa (half), gấp đôi (twice), gấp ba (three times),..."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="* Không được sử dụng so sánh hơn kém mà sử dụng so sánh bằng, khi so sánh phải xác định danh từ là đếm được hay không đếm được, vì đằng trước chúng có "/>
+                                    <Span Text="many/much"  FontAttributes="Italic" FontSize="20"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" Ví dụ:" FontAttributes="Bold"></Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="- This encyclopedy costs "/>
+                                    <Span Text="twice as much as"  TextDecorations="Underline" FontSize="20"/>
+                                    <Span Text=" the other one."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="(Bách khoa toàn thư này chi phí gấp hai lần số khác)" FontAttributes="Italic"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="- Jerome has "/>
+                                    <Span Text="half as many"  TextDecorations="Underline" FontSize="20"/>
+                                    <Span Text=" records now "/>
+                                    <Span Text="as"  TextDecorations="Underline" FontSize="20"/>
+                                    <Span Text=" I had last year."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="(Jerome có một nửa số người ghi nhận như tôi đã có năm ngoái)" FontAttributes="Italic"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="- At the clambake last week, Fred ate "/>
+                                    <Span Text="three times as many"  TextDecorations="Underline" FontSize="20"/>
+                                    <Span Text=" oysters "/>
+                                    <Span Text="as"  TextDecorations="Underline" FontSize="20"/>
+                                    <Span Text=" Bob."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="(Vào tuần trước, Fred ăn hơn ba lần so với Bob)" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Các lối nói: "/>
+                                    <Span Text="twice that many/twice that much"  FontAttributes="Italic" FontSize="20"/>
+                                    <Span Text=" = gấp đôi ngần ấy... chỉ được dùng trong khẩu ngữ, không được dùng trong văn viết."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text=" Ví dụ:" FontAttributes="Bold"></Label>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="- We have expected 80 people at that rally, but "/>
+                                    <Span Text="twice that many"  TextDecorations="Underline" FontSize="20"/>
+                                    <Span Text=" showned up. (twice as many as that number)."/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="(Chúng tôi đã dự đoán 80 người trong cuộc mít tinh đó, nhưng hai lần đó đã xuất hiện. (gấp đôi số đó))" FontAttributes="Italic"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
