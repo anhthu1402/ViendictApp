@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "2mJhG8MI7L4LxZHpIkE+skltkGzoCzZlzWZkQj1i/GqN2+vpyhvW1wEk4RHXnIsYfr8OqV8XnRy/6LDgosVJoA==",
+  "success": true,
+  "projectFilePath": "D:\\HKV\\3_IE307\\project\\ViendictApp\\Viendict\\Viendict\\Viendict.iOS\\Viendict.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -78,7 +78,7 @@ namespace WebAPI.Database
                         }
                     }
                 }
-                SqlCmd.Parameters.AddWithValue("@CurrentID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                SqlCmd.Parameters.Add("@CurrentID", SqlDbType.Int).Direction = ParameterDirection.Output;
                 try
                 {
                     SqlCmd.ExecuteNonQuery();
@@ -90,6 +90,35 @@ namespace WebAPI.Database
                     result = null;
                 }
             }
+            return result;
+        }
+        public static UserAccount UserSignup(UserAccount user)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("UserLoginName", user.UserLoginName);
+            param.Add("Password", user.Password);
+            param.Add("Email", user.Email);
+            int kq = int.Parse(Exec_Command("UserSignup", param).ToString());
+            if (kq > -1)
+                user.UserID = kq;
+            return user;
+        }
+        public static UserAccount UserSignin(string Email, string Password)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("Email", Email);
+            param.Add("Password", Password);
+            DataTable notify = ReadTable("UserSignin", param);
+            UserAccount result = new UserAccount();
+            if (notify.Rows.Count > 0)
+            {
+                result.UserID = int.Parse(notify.Rows[0]["UserID"].ToString());
+                result.UserLoginName = notify.Rows[0]["UserLoginName"].ToString();
+                result.Email = notify.Rows[0]["Email"].ToString();
+                result.Password = notify.Rows[0]["Password"].ToString();
+            }
+            else
+                result.UserID = 0;
             return result;
         }
     }

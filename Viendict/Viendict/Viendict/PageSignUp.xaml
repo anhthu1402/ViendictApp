@@ -20,17 +20,20 @@
                 <Label Text="OR" HorizontalOptions="Center" FontSize="18" Margin="0,20,0,0"/>
                 <StackLayout Padding="15,25" Spacing="20">
                     <Label Text="Địa chỉ email" TextColor="CornflowerBlue" FontSize="20" FontAttributes="Bold"/>
-                    <Entry x:Name="email" Keyboard="Email" Placeholder="example@gmail.com"
+                    <Entry x:Name="useremail" Keyboard="Email" Placeholder="example@gmail.com"
                            Margin="-5,0,0,0"/>
                     <Label Text="Tên đăng nhập" TextColor="CornflowerBlue" FontSize="20" FontAttributes="Bold"/>
-                    <Entry x:Name="nickname" Keyboard="Text"
+                    <Entry x:Name="userloginname" Keyboard="Text"
                            Margin="-5,0,0,0"/>
                     <Label Text="Mật khẩu" TextColor="CornflowerBlue" FontSize="20" FontAttributes="Bold"/>
-                    <local:PageSecurityPwEntry WidthRequest="100" HeightRequest="50"/>
+                    <!--<local:PageSecurityPwEntry x:Name="userPassword" WidthRequest="100" HeightRequest="50"/>-->
+                    <Entry x:Name="userpassword" IsPassword="True" Keyboard="Text"
+                           Margin="-5,0,0,0"/>
                 </StackLayout>
-                <Button x:Name="Submit_Signup" Text="Đăng ký" BackgroundColor="CornflowerBlue"
+                <Button x:Name="cmdSignup" Text="Đăng ký" BackgroundColor="CornflowerBlue"
                         FontSize="20" TextColor="White" FontAttributes="Bold"
-                        CornerRadius="15" Margin="20" Padding="0,15"/>
+                        CornerRadius="15" Margin="20" Padding="0,15"
+                        Clicked="cmdSignup_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

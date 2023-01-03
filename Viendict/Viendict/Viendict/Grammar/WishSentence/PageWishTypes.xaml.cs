@@ -17,7 +17,7 @@ namespace Viendict.Grammar.WishSentence
         async void GetAllWishTypes()
         {
             HttpClient httpClient = new HttpClient();
-            var types = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/AppController/GetAllWishTypes");
+            var types = await httpClient.GetStringAsync("http://192.168.1.8/ViendictAPI/api/AppController/GetAllWishTypes");
             var typesConverted = JsonConvert.DeserializeObject<List<WishType>>(types);
             lstWishTypes.ItemsSource = typesConverted;
         }

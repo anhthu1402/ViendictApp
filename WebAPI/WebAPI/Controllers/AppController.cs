@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebAPI.Database;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -130,6 +131,36 @@ namespace WebAPI.Controllers
                 Dictionary<string, object> param = new Dictionary<string, object>();
                 param.Add("ID", ID);
                 DataTable result = Database.Database.ReadTable("Proc_GetConditionalSentenceTypes", param);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/UserSignup")]
+        [HttpPost]
+        public IHttpActionResult UserSignup(UserAccount user)
+        {
+            try
+            {
+                UserAccount result = Database.Database.UserSignup(user);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/UserSignin")]
+        [HttpGet]
+        public IHttpActionResult DangNhap(string Email, string Password)
+        {
+            try
+            {
+                UserAccount result = Database.Database.UserSignin(Email, Password);
                 return Ok(result);
             }
             catch

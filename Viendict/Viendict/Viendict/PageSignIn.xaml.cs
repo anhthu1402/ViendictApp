@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +22,22 @@ namespace Viendict
         private void ForgotPwd_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new PageForgotPw());
+        }
+
+        private async void cmdSignin_Clicked(object sender, EventArgs e)
+        {
+            HttpClient http = new HttpClient();
+            var kq = await http.GetStringAsync
+                ("http://172.17.22.197/ViendictAPI/api/AppController/UserSignin?Email=" +
+                useremail.Text + "&&Password=" + userpassword.Text);
+            var user = JsonConvert.DeserializeObject<UserAccount>(kq);
+            if (user.Email != "" && user.Email != null)
+            {
+                await DisplayAlert("", "Hello " + user.UserLoginName, "OK");
+                UserAccount.user = user;
+            }
+            else
+                await DisplayAlert("Thông báo", "Email hoặc mật khẩu chưa chính xác!", "Ok");
         }
     }
 }

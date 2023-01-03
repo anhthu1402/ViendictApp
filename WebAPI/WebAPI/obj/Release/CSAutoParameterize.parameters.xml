@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ViendictConnectionString-Web.config Connection String" description="ViendictConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=DESKTOP-FII0KDB;Initial Catalog=viendict;Persist Security Info=True;User ID=user_viendict;Password=user" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\HKV\\3_IE307\\project\\ViendictApp\\WebAPI\\WebAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ViendictConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

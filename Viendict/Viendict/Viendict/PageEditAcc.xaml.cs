@@ -15,6 +15,11 @@ namespace Viendict
         public PageEditAcc()
         {
             InitializeComponent();
+            if (UserAccount.user.UserID > 0)
+            {
+                userloginname.Text = UserAccount.user.UserLoginName;
+                useremail.Text = UserAccount.user.Email;
+            }
         }
 
         private void dpkDob_DateSelected(object sender, DateChangedEventArgs e)

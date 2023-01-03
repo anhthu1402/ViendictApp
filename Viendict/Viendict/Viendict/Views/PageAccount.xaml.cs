@@ -16,6 +16,8 @@ namespace Viendict.Views
         {
             InitializeComponent();
             Shell.SetNavBarIsVisible(this, false);
+            if (UserAccount.user.UserID > 0)
+                UserName.Text = UserAccount.user.UserLoginName;
         }
 
         private void cmdEditProfile_Clicked(object sender, EventArgs e)

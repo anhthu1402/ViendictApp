@@ -1,4 +1,6 @@
-﻿use viendict
+﻿create database viendict
+
+use viendict
 go
 /*create table grammar_tense*/
 SET ANSI_NULLS ON
