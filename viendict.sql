@@ -96,10 +96,12 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[lst_study_topic_lesson](
-	[LessonID] [int] NOT NULL Primary key,
+	[LessonID] [int] NOT NULL ,
 	[Name] [nvarchar](100) NULL,
-	[TopicID] [int] NULL,
+	[TopicID] [int] NOT NULL,
+	Primary key (LessonID, TopicID),
 )
+
 
 /*create table lst_study_topic_vocab*/
 SET ANSI_NULLS ON
@@ -133,7 +135,8 @@ CREATE TABLE [dbo].[conditional_sentence_type](
 alter table lst_vocab add constraint fk_TopicID foreign key (TopicID) references lst_vocab_topic (TopicID)
 alter table lst_vocab add constraint pk_lstvocan primary key (ID, TopicID)
 alter table lst_study_topic_lesson add constraint fk_Study_TopicID foreign key (TopicID) references lst_study_topic (TopicID)
-alter table lst_study_topic_vocab add constraint fk_LessonID foreign key (LessonID) references lst_study_topic_lesson (LessonID)
+
+--alter table lst_study_topic_vocab add constraint fk_LessonID foreign key (LessonID) references lst_study_topic_lesson (LessonID)
 
 SET ANSI_WARNINGS OFF;
 insert into conditional_sentence_type values( 1, N' + Câu điều kiện loại 1 còn có thể được gọi là câu điều kiện hiện tại có thể có thật. Ta sử dụng câu điều kiện loại 1 để đặt ra một điều kiện có thể thực hiện được trong hiện tại và nêu kết quả có thể xảy ra ở hiện tại hoặc tương lai.', N'If + S + V, S + will + V
@@ -209,6 +212,8 @@ insert into lst_study_topic_lesson values(1, N'Food crops', 3)
 
 insert into lst_study_topic_lesson values(1, N'', 4) 
 insert into lst_study_topic_lesson values(2, N'', 4) 
+
+select * from lst_study_topic_lesson
 SET ANSI_WARNINGS ON;
 /*haven't executed*/
 SET ANSI_WARNINGS OFF;
@@ -1509,4 +1514,48 @@ GO
 CREATE proc [dbo].[Proc_GetConditionalSentenceTypes](@ID int)
 as
 select * from conditional_sentence_type where ID=@ID
+GO
+
+---Sửa khóa chính bảng lst_study_topic_lesson---
+alter table lst_study_topic_vocab drop constraint fk_LessonID;
+
+drop table lst_study_topic_lesson;
+
+CREATE TABLE [dbo].[lst_study_topic_lesson](
+	[LessonID] [int] NOT NULL ,
+	[Name] [nvarchar](100) NULL,
+	[TopicID] [int] NOT NULL,
+	Primary key (LessonID, TopicID),
+)
+
+alter table lst_study_topic_lesson add constraint fk_Study_TopicID foreign key (TopicID) references lst_study_topic (TopicID)
+
+---kết thúc sửa khóa chính bảng lst_..._lesson---
+
+--create table user--
+CREATE TABLE [dbo].[UserAccount](
+	[UserID] [int] IDENTITY(1,1) NOT NULL,
+	[UserLoginName] [nvarchar](100) NULL,
+	[Password] [nvarchar](100) NULL,
+	[Email] [nvarchar](100) NULL,
+	CONSTRAINT [PK_NguoiDung] PRIMARY KEY CLUSTERED ([UserID] ASC) 
+	WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) 
+	ON [PRIMARY]
+) ON [PRIMARY]
+--create procedure User Signup--
+create proc [dbo].[UserSignup](@userloginname nvarchar(100), @password nvarchar(100), @email nvarchar(100), @CurrentID int output)
+as
+	if(exists(select * from UserAccount where UserLoginName = @userloginname or Email = @email))
+	begin
+		set @CurrentID=-1
+		return
+	end
+	insert into UserAccount(UserLoginName, Password, Email) values(@userloginname, @password, @email)
+	set @CurrentID=@@IDENTITY
+GO
+select * from UserAccount
+--create procedure User Login--
+create proc [dbo].[UserSignin](@email nvarchar(100), @password nvarchar(100))
+as
+	select * from UserAccount where Email = @email and Password = @password
 GO

@@ -34,7 +34,10 @@ namespace Viendict
             var kqtb = await kq.Content.ReadAsStringAsync();
             user = JsonConvert.DeserializeObject<UserAccount>(kqtb);
             if (user.UserID > 0)
+            {
                 await DisplayAlert("", "Chào mừng " + user.UserLoginName + " đến với Viendict!", "Ok");
+                await Navigation.PushAsync(new PageSignIn());
+            }
             else
                 await DisplayAlert("Thông báo", "Tên đăng nhập hoặc email đã tồn tại!", "Ok");
         }
