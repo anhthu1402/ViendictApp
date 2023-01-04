@@ -5,12 +5,28 @@
              Title="Search"
              BackgroundImageSource="bg_ocean">
     <ContentPage.Content>
-        <StackLayout Padding="15">
-            <Frame BackgroundColor="WhiteSmoke" CornerRadius="10">
-                <SearchBar Placeholder="Type a word to look up..." PlaceholderColor="Gray"
+        <StackLayout>
+            <!--<Frame BackgroundColor="Transparent" CornerRadius="10">
+                <SearchBar x:Name="search" Placeholder="Type a word to look up..." PlaceholderColor="Gray"
                            TextColor="CornflowerBlue" TextTransform="Lowercase"
                            FontSize="Medium" CancelButtonColor="CornflowerBlue"></SearchBar>
-            </Frame>
+            </Frame>-->
+            <StackLayout Spacing="10">
+                <SearchBar x:Name="search" Placeholder="Type a word to look up..." PlaceholderColor="Gray"
+                           TextColor="CornflowerBlue" TextTransform="Lowercase"
+                           FontSize="Medium" CancelButtonColor="CornflowerBlue" TextChanged="search_TextChanged"></SearchBar>
+                <Button x:Name="cmdSearch" Text="Search" Clicked="cmdSearch_Clicked"/>
+            </StackLayout>
+            <ListView x:Name="searchResults">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout></StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

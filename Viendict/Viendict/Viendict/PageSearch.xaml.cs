@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Viendict.WordDetail;
 
 namespace Viendict
 {
@@ -15,6 +16,22 @@ namespace Viendict
         public PageSearch()
         {
             InitializeComponent();
+        }
+        public PageSearch(string word)
+        {
+            InitializeComponent();
+            search.Text = word;
+        }
+
+        private void cmdSearch_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PageWordDetail(search.Text));
+        }
+
+        private void search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchBar searchBar = (SearchBar)sender;
+            
         }
     }
 }

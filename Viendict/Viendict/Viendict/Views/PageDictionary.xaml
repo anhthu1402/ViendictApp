@@ -8,7 +8,8 @@
             <Frame BackgroundColor="WhiteSmoke">
                 <SearchBar Placeholder="Nhập từ để tra" PlaceholderColor="Gray"
                            TextColor="CornflowerBlue" TextTransform="Lowercase"
-                           FontSize="Medium" CancelButtonColor="CornflowerBlue"></SearchBar>
+                           FontSize="Medium" CancelButtonColor="CornflowerBlue" 
+                           TextChanged="SearchBar_TextChanged" SearchButtonPressed="SearchBar_SearchButtonPressed"></SearchBar>
             </Frame>
             <StackLayout Margin="2,50" Spacing="20">
                 <ScrollView>

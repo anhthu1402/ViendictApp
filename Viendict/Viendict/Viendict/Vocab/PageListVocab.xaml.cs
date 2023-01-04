@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Viendict.WordDetail;
 
 namespace Viendict.Vocab
 {
@@ -17,7 +18,7 @@ namespace Viendict.Vocab
         async void GetVocabByTopic(int topicID)
         {
             HttpClient httpClient = new HttpClient();
-            var topic_content = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/AppController/GetVocabByTopic?TopicID=" + topicID.ToString());
+            var topic_content = await httpClient.GetStringAsync("http://192.168.1.84/ViendictAPI/api/AppController/GetVocabByTopic?TopicID=" + topicID.ToString());
             var topic_contentConverted = JsonConvert.DeserializeObject<List<ListVocab>>(topic_content);
             lstWord.ItemsSource = topic_contentConverted;
         }
@@ -35,7 +36,11 @@ namespace Viendict.Vocab
 
         private void lstWord_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-
+            if(lstWord.SelectedItem!=null)
+            {
+                ListVocab vocab = (ListVocab)lstWord.SelectedItem;
+                Navigation.PushAsync(new PageWordDetail(vocab.Word));
+            }
         }
     }
 }
