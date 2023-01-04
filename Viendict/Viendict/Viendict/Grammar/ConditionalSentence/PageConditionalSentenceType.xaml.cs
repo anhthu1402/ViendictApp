@@ -17,7 +17,7 @@ namespace Viendict.Grammar.ConditionalSentence
         async void GetConditionalSentenceTypes(int ID)
         {
             HttpClient httpClient = new HttpClient();
-            var content = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/AppController/GetConditionalSentenceTypes?ID=" + ID.ToString());
+            var content = await httpClient.GetStringAsync("http://192.168.1.8/ViendictAPI/api/AppController/GetConditionalSentenceTypes?ID=" + ID.ToString());
             var contentConverted = JsonConvert.DeserializeObject<List<ConditionalSentenceType>>(content);
             lstContent.ItemsSource = contentConverted;
         }
