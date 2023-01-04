@@ -11,6 +11,7 @@ namespace Viendict
             InitializeComponent();
             
             MainPage = new NavigationPage(new MainPage());
+            UserAccount.user = new UserAccount();
         }
 
         protected override void OnStart()

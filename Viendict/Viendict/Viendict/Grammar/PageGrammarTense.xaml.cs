@@ -17,7 +17,7 @@ namespace Viendict.Grammar
         async void GetAllGrammarTenses()
         {
             HttpClient httpClient = new HttpClient();
-            var tenses = await httpClient.GetStringAsync("http://192.168.1.85/ViendictAPI/api/AppController/GetAllGrammarTenses");
+            var tenses = await httpClient.GetStringAsync("http://192.168.1.8/ViendictAPI/api/AppController/GetAllGrammarTenses");
             var tensesConverted = JsonConvert.DeserializeObject<List<GrammarTenseTitle>>(tenses);
             lstGrammarTenseTitle.ItemsSource = tensesConverted;
         }

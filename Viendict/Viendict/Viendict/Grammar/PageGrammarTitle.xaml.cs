@@ -23,7 +23,7 @@ namespace Viendict.Grammar
         async void GetAllGrammarTitle()
         {
             HttpClient httpClient = new HttpClient();
-            var titles = await httpClient.GetStringAsync("http://192.168.1.84/ViendictAPI/api/AppController/GetAllGrammarTitle");
+            var titles = await httpClient.GetStringAsync("http://192.168.1.8/ViendictAPI/api/AppController/GetAllGrammarTitle");
             var titlesConverted = JsonConvert.DeserializeObject<List<GrammarTitle>>(titles);
             lstGrammarTitle.ItemsSource = titlesConverted;
         }

@@ -18,7 +18,7 @@ namespace Viendict.Vocab
         async void GetVocabByTopic(int topicID)
         {
             HttpClient httpClient = new HttpClient();
-            var topic_content = await httpClient.GetStringAsync("http://192.168.1.84/ViendictAPI/api/AppController/GetVocabByTopic?TopicID=" + topicID.ToString());
+            var topic_content = await httpClient.GetStringAsync("http://172.17.22.197/ViendictAPI/api/AppController/GetVocabByTopic?TopicID=" + topicID.ToString());
             var topic_contentConverted = JsonConvert.DeserializeObject<List<ListVocab>>(topic_content);
             lstWord.ItemsSource = topic_contentConverted;
         }

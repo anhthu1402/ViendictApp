@@ -20,17 +20,19 @@
                 <Label Text="OR" HorizontalOptions="Center" FontSize="18" Margin="0,20,0,0"/>
                 <StackLayout Padding="15,25" Spacing="20">
                     <Label Text="Địa chỉ email" TextColor="CornflowerBlue" FontSize="20" FontAttributes="Bold"/>
-                    <Entry x:Name="email" Keyboard="Email" Placeholder="example@gmail.com"
+                    <Entry x:Name="useremail" Keyboard="Email" Placeholder="example@gmail.com"
                            Margin="-5,0,0,0"/>
                     <Label Text="Mật khẩu" TextColor="CornflowerBlue" FontSize="20" FontAttributes="Bold"/>
-                    <local:PageSecurityPwEntry WidthRequest="100" HeightRequest="50"/>
+                    <!--<local:PageSecurityPwEntry WidthRequest="100" HeightRequest="50"/>-->
+                    <Entry x:Name="userpassword" IsPassword="True" Margin="-5,0,0,0"/>
                     <Button x:Name="ForgotPwd" Text="Quên mật khẩu?" BackgroundColor="Transparent" 
                         FontSize="20" TextColor="MintCream" FontAttributes="Italic"
                         HorizontalOptions="EndAndExpand" Clicked="ForgotPwd_Clicked"/>
                 </StackLayout>
-                <Button x:Name="Submit_Signin" Text="Đăng nhập" BackgroundColor="CornflowerBlue"
+                <Button x:Name="cmdSignin" Text="Đăng nhập" BackgroundColor="CornflowerBlue"
                         FontSize="20" TextColor="White" FontAttributes="Bold"
-                        CornerRadius="15" Margin="20" Padding="0,15"/>
+                        CornerRadius="15" Margin="20" Padding="0,15"
+                        Clicked="cmdSignin_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

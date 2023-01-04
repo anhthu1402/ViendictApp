@@ -16,12 +16,12 @@
                 <StackLayout VerticalOptions="CenterAndExpand" Spacing="10">
                     <Label Padding="15,0" Text="Tên đăng nhập:" FontSize="Medium" TextColor="#26428b" FontAttributes="Bold"/>
                     <Frame Padding="15,0,15,5" Margin="10,0,10,5" CornerRadius="10" HasShadow="True">
-                        <Entry x:Name="entUserName" Keyboard="Text" Placeholder="Vi nho" FontSize="Medium" 
+                        <Entry x:Name="userloginname" Keyboard="Text" Placeholder="Vi nho" FontSize="Medium" 
                                VerticalOptions="Center" HeightRequest="55"/>
                     </Frame>
                     <Label Padding="15,0" Text="Email:" FontSize="Medium" TextColor="#26428b" FontAttributes="Bold"/>
                     <Frame Padding="15,0,15,5" Margin="10,0,10,5" CornerRadius="10" HasShadow="True">
-                        <Entry x:Name="entEmail" Keyboard="Email" Placeholder="vinho@gmail.com" FontSize="Medium" 
+                        <Entry x:Name="useremail" Keyboard="Email" Placeholder="vinho@gmail.com" FontSize="Medium" 
                                VerticalOptions="Center"  HeightRequest="55"/>
                     </Frame>
                     <Label Padding="15,0" Text="Ngày sinh:" FontSize="Medium" TextColor="#26428b" FontAttributes="Bold"/>
