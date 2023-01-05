@@ -47,6 +47,10 @@ namespace Viendict.Grammar.ConditionalSentence
                 {
                     Navigation.PushAsync(new PageID4(title));
                 }
+                else if(title.ID==5)
+                {
+                    Navigation.PushAsync(new PageID5(title));
+                }
             }
         }
     }
