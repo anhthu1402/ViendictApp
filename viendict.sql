@@ -1,5 +1,4 @@
-﻿create database viendict
-
+﻿
 use viendict
 go
 /*create table grammar_tense*/
@@ -37,15 +36,7 @@ CREATE TABLE [dbo].[lst_vocab](
 	[Word] [nvarchar](50) NULL,
 	[TopicID] [int] NOT NULL
 )	
-/*create table Favorite*/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Favorite](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[UserID] [int] NULL,
-)
+
 /*create table lst_grammar_title*/
 SET ANSI_NULLS ON
 GO
@@ -101,8 +92,6 @@ CREATE TABLE [dbo].[lst_study_topic_lesson](
 	[TopicID] [int] NOT NULL,
 	Primary key (LessonID, TopicID),
 )
-
-
 /*create table lst_study_topic_vocab*/
 SET ANSI_NULLS ON
 GO
@@ -132,9 +121,7 @@ CREATE TABLE [dbo].[conditional_sentence_type](
 )
 
 
-alter table lst_vocab add constraint fk_TopicID foreign key (TopicID) references lst_vocab_topic (TopicID)
 alter table lst_vocab add constraint pk_lstvocan primary key (ID, TopicID)
-alter table lst_study_topic_lesson add constraint fk_Study_TopicID foreign key (TopicID) references lst_study_topic (TopicID)
 
 --alter table lst_study_topic_vocab add constraint fk_LessonID foreign key (LessonID) references lst_study_topic_lesson (LessonID)
 
@@ -201,20 +188,20 @@ insert into lst_study_topic values(3, N'1000 từ vựng TOEFL', 50)
 insert into lst_study_topic values(4, N'900 từ vựng luyện thi SAT', 59)
 SET ANSI_WARNINGS ON;
 /*haven't executed*/
-SET ANSI_WARNINGS OFF;
-insert into lst_study_topic_lesson values(1, N'Health problems', 1) 
-insert into lst_study_topic_lesson values(2, N'Academic subjects', 1) 
+--SET ANSI_WARNINGS OFF;
+--insert into lst_study_topic_lesson values(1, N'Health problems', 1) 
+--insert into lst_study_topic_lesson values(2, N'Academic subjects', 1) 
 
-insert into lst_study_topic_lesson values(1, N'Contracts', 2) 
-insert into lst_study_topic_lesson values(2, N'Marketing', 2) 
+--insert into lst_study_topic_lesson values(1, N'Contracts', 2) 
+--insert into lst_study_topic_lesson values(2, N'Marketing', 2) 
 
-insert into lst_study_topic_lesson values(1, N'Food crops', 3)
+--insert into lst_study_topic_lesson values(1, N'Food crops', 3)
 
-insert into lst_study_topic_lesson values(1, N'', 4) 
-insert into lst_study_topic_lesson values(2, N'', 4) 
+--insert into lst_study_topic_lesson values(1, N'', 4) 
+--insert into lst_study_topic_lesson values(2, N'', 4) 
 
-select * from lst_study_topic_lesson
-SET ANSI_WARNINGS ON;
+--select * from lst_study_topic_lesson
+--SET ANSI_WARNINGS ON;
 /*haven't executed*/
 SET ANSI_WARNINGS OFF;
 insert into lst_study_topic_vocab values(1, 'vaccinate', N'/ˈvæksɪneɪt/', 'verb', N'chủng ngừa, tiêm chủng', N'All children under 6 years old are vaccinated for free.', N'Tất cả trẻ am dưới 6 tuổi được tiêm phòng miễn phí.', 1)
@@ -1516,22 +1503,6 @@ as
 select * from conditional_sentence_type where ID=@ID
 GO
 
----Sửa khóa chính bảng lst_study_topic_lesson---
-alter table lst_study_topic_vocab drop constraint fk_LessonID;
-
-drop table lst_study_topic_lesson;
-
-CREATE TABLE [dbo].[lst_study_topic_lesson](
-	[LessonID] [int] NOT NULL ,
-	[Name] [nvarchar](100) NULL,
-	[TopicID] [int] NOT NULL,
-	Primary key (LessonID, TopicID),
-)
-
-alter table lst_study_topic_lesson add constraint fk_Study_TopicID foreign key (TopicID) references lst_study_topic (TopicID)
-
----kết thúc sửa khóa chính bảng lst_..._lesson---
-
 --create table user--
 CREATE TABLE [dbo].[UserAccount](
 	[UserID] [int] IDENTITY(1,1) NOT NULL,
@@ -1542,6 +1513,13 @@ CREATE TABLE [dbo].[UserAccount](
 	WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) 
 	ON [PRIMARY]
 ) ON [PRIMARY]
+
+--insert values into [dbo].[UserAccount]
+set IDENTITY_INSERT UserAccount on
+insert into [dbo].[UserAccount] ([UserID], [UserLoginName], [Password], [Email]) values(1, 'anhthu', '123456', N'20520792@gm.uit.edu.vn');
+set IDENTITY_INSERT UserAccount off
+go
+
 --create procedure User Signup--
 create proc [dbo].[UserSignup](@userloginname nvarchar(100), @password nvarchar(100), @email nvarchar(100), @CurrentID int output)
 as
@@ -1554,6 +1532,8 @@ as
 	set @CurrentID=@@IDENTITY
 GO
 select * from UserAccount
+
+
 --create procedure User Login--
 create proc [dbo].[UserSignin](@email nvarchar(100), @password nvarchar(100))
 as

@@ -36,5 +36,16 @@ namespace Viendict.Views
         {
 
         }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+        private void SearchBar_SearchButtonPressed(object sender, EventArgs e)
+        {
+            SearchBar searchBar = (SearchBar)sender;
+            Navigation.PushAsync(new PageSearch(searchBar.Text));
+        }
     }
 }
