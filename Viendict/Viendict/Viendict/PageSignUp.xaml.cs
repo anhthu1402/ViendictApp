@@ -36,7 +36,13 @@ namespace Viendict
             if (user.UserID > 0)
             {
                 await DisplayAlert("", "Chào mừng " + user.UserLoginName + " đến với Viendict!", "Ok");
-                await Navigation.PushAsync(new PageSignIn());
+                var login = await http.GetStringAsync
+                ("http://viendictapi.somee.com/api/AppController/UserSignin?Email=" +
+                user.Email + "&&Password=" + user.Password);
+                var userlogin = JsonConvert.DeserializeObject<UserAccount>(login);
+                UserAccount.user = userlogin;
+                await Application.Current.MainPage.Navigation.PopAsync();
+                Application.Current.MainPage = new AppShell();
             }
             else
                 await DisplayAlert("Thông báo", "Tên đăng nhập hoặc email đã tồn tại!", "Ok");

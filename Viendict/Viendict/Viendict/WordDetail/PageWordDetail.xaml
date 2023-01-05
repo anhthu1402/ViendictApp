@@ -35,7 +35,7 @@
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="10" Margin="0,0,15,10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="10" Margin="0,0,15,10" VerticalOptions="EndAndExpand">
                 <ImageButton x:Name="AddToFavorite" Source="FavouriteBlack.png"  BackgroundColor="Transparent" WidthRequest="25" Clicked="AddToFavorite_Clicked"/>
                 <ImageButton x:Name="cmdSearch" Source="search.png" BackgroundColor="Transparent"  WidthRequest="40" Clicked="cmdSearch_Clicked"/>
             </StackLayout>
