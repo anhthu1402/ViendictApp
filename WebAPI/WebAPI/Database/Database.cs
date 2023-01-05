@@ -103,6 +103,13 @@ namespace WebAPI.Database
                 user.UserID = kq;
             return user;
         }
+        public static int AddToFavorite(Favorite favorite)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("Word", favorite.Word);
+            int kq = int.Parse(Exec_Command("Proc_AddToFavorite", param).ToString());
+            return kq;
+        }
         public static UserAccount UserSignin(string Email, string Password)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();

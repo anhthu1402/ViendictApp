@@ -14,6 +14,7 @@ namespace Viendict.WordDetail
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageWordDetail : ContentPage
     {
+        string Word;
         List<Word> w;
         List<WordDetail> wd;
         async void GetWordDetail(string Word)
@@ -58,6 +59,19 @@ namespace Viendict.WordDetail
             BindableLayout.SetItemsSource(Header, w);
             BindableLayout.SetItemsSource(Detail, wd);
         }
+        async void IsInFavorite(string Word)
+        {
+            HttpClient httpClient = new HttpClient();
+            var lstword = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetListFavorite");
+            var lstwordConverted = JsonConvert.DeserializeObject<List<Favorite>>(lstword);
+            foreach (Favorite favorite in lstwordConverted)
+            {
+                if (favorite.Word == Word)
+                {
+                    AddToFavorite.Source = "FavouriteRed.png";
+                }
+            }
+        }
         public PageWordDetail()
         {
             InitializeComponent();
@@ -67,11 +81,27 @@ namespace Viendict.WordDetail
             InitializeComponent();
             GetWordDetail(toSearch);
             this.Title = toSearch;
+            IsInFavorite(toSearch);
+            Word = toSearch;
         }
 
-        private void AddToFavorite_Clicked(object sender, EventArgs e)
+        private async void AddToFavorite_Clicked(object sender, EventArgs e)
         {
-
+            ImageButton imageButton = (ImageButton)sender;
+            Favorite favorite = new Favorite { Word = Word };
+            //if (imageButton.Source.ToString() == "FavouriteBlack.png")
+            //{
+                AddToFavorite.Source = "FavouriteRed.png";
+                HttpClient http = new HttpClient();
+                string jsonFav = JsonConvert.SerializeObject(favorite);
+                StringContent httpcontent = new StringContent(jsonFav, Encoding.Default, "application/json");
+                HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToFavorite", httpcontent);
+                var kqtb = await kq.Content.ReadAsStringAsync();
+                if(int.Parse(kqtb.ToString())>0)
+                {
+                    await DisplayAlert("", "Đã thêm " + Word + " vào mục yêu thích", "OK");
+                }
+            //}
         }
 
         private void cmdSearch_Clicked(object sender, EventArgs e)

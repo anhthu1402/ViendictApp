@@ -168,5 +168,35 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
         }
+
+        [Route("api/AppController/AddToFavorite")]
+        [HttpPost]
+        public IHttpActionResult AddToFavorite(Favorite favorite)
+        {
+            try
+            {
+                int kq = Database.Database.AddToFavorite(favorite);
+                return Ok(kq);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/GetListFavorite")]
+        [HttpGet]
+        public IHttpActionResult GetListFavorite()
+        {
+            try
+            {
+                DataTable result = Database.Database.ReadTable("Proc_GetListFavorite");
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

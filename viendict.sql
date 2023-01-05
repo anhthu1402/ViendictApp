@@ -1539,3 +1539,43 @@ create proc [dbo].[UserSignin](@email nvarchar(100), @password nvarchar(100))
 as
 	select * from UserAccount where Email = @email and Password = @password
 GO
+
+--create table Favorite
+CREATE TABLE [dbo].[Favorite](
+	[ID] int IDENTITY(1,1) NOT NULL,
+	[Word] varchar(50) NULL ,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+--create procedure Proc_AddToFavorite
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[Proc_AddToFavorite](@word varchar(50), @CurrentID int output)
+as
+begin try
+
+if(exists(select * from Favorite where Word=@word))
+ begin
+  set @CurrentID=0
+  return
+ end
+insert into Favorite values (@word)
+set @CurrentID=@@IDENTITY
+end try
+begin catch
+ set @CurrentID=0
+ end catch
+GO
+
+--create procedure Proc_GetListFavorite
+create proc [dbo].[Proc_GetListFavorite]
+as
+	select * from Favorite
+Go
+
