@@ -1,38 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CarouselPage  xmlns="http://xamarin.com/schemas/2014/forms"
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Viendict.Study.PageDetail">
+             x:Class="Viendict.Study.PageDetail" x:Name="lstContent">
+    <CarouselPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+    </CarouselPage.Resources>
     <CarouselPage.ItemTemplate>
         <DataTemplate>
             <ContentPage>
-                <Frame>
+                <Frame VerticalOptions="Center" BorderColor="#0066CC" Margin="15" CornerRadius="10" HasShadow="True">
                     <StackLayout>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <!--<Label Text="Word" Grid.Row="0" Grid.Column="0" TextColor="DarkBlue" FontSize="20"></Label>
-                            <Label Text="IPA" Grid.Row="1" Grid.Column="0" TextColor="Blue"></Label>
-                            <Label Text="Type" Grid.Row="2" Grid.Column="0" TextColor="Gray"></Label>
-                            <Label Text="Meaning" Grid.Row="3" Grid.Column="0"></Label>
-                            <Label Text="EnExample" Grid.Row="4" Grid.Column="0" TextColor="Blue"></Label>-->
-                            
-                                <Label Text="{Binding Word}" Grid.Row="0" Grid.Column="0" TextColor="DarkBlue" FontSize="20"></Label>
-                                <Label Text="{Binding IPA}" Grid.Row="1" Grid.Column="0" TextColor="Blue"></Label>
-                                <Label Text="{Binding Type}" Grid.Row="2" Grid.Column="0" TextColor="Gray"></Label>
-                                <Label Text="{Binding Meaning}" Grid.Row="3" Grid.Column="0"></Label>
-                                <Label Text="{Binding EnExample}" Grid.Row="4" Grid.Column="0" TextColor="Blue"></Label>
-                                <Label Text="{Binding ViExample}" Grid.Row="5" Grid.Column="0" TextColor="Gray" ></Label>
-                                
-                        </Grid>
+                        <Label Text="{Binding Word}"  TextColor="DarkBlue" FontSize="28" FontAttributes="Bold"/>
+                        <Label Text="{Binding IPA}" />
+                        <Label Text="{Binding Type, StringFormat='» {0}'}"  TextColor="#0033CC"/>
+                        <Label Text="{Binding Meaning,StringFormat='    {0}'}" TextColor="#333366"/>
+                        <Label Text="» Ví dụ" TextColor="#0033CC"/>
+                        <Label Text="{Binding EnExample,StringFormat='    {0}'}" TextColor="#6699FF"/>
+                        <Label Text="{Binding ViExample,StringFormat='    {0}'}" TextColor="#999999"/>
                     </StackLayout>
                 </Frame>
             </ContentPage>
