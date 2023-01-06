@@ -156,12 +156,27 @@ namespace WebAPI.Controllers
 
         [Route("api/AppController/UserSignin")]
         [HttpGet]
-        public IHttpActionResult DangNhap(string Email, string Password)
+        public IHttpActionResult UserSignin(string Email, string Password)
         {
             try
             {
                 UserAccount result = Database.Database.UserSignin(Email, Password);
                 return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/UpdateAccount")]
+        [HttpPost]
+        public IHttpActionResult UpdateAccount(UserAccount user)
+        {
+            try
+            {
+                int kq = Database.Database.UpdateAccount(user);
+                return Ok(kq);
             }
             catch
             {

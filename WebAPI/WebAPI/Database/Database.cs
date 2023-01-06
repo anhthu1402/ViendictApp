@@ -121,5 +121,14 @@ namespace WebAPI.Database
                 result.UserID = 0;
             return result;
         }
+        public static int UpdateAccount(UserAccount user)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("UserID", user.UserID);
+            param.Add("UserLoginName", user.UserLoginName);
+            param.Add("Email", user.Email);
+            int kq = int.Parse(Exec_Command("UpdateAccount", param).ToString());
+            return kq;
+        }
     }
 }

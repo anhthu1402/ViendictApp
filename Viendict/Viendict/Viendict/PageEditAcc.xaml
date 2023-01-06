@@ -24,16 +24,17 @@
                         <Entry x:Name="useremail" Keyboard="Email" Placeholder="vinho@gmail.com" FontSize="Medium" 
                                VerticalOptions="Center"  HeightRequest="55"/>
                     </Frame>
-                    <Label Padding="15,0" Text="Ngày sinh:" FontSize="Medium" TextColor="#26428b" FontAttributes="Bold"/>
+                    <!--<Label Padding="15,0" Text="Ngày sinh:" FontSize="Medium" TextColor="#26428b" FontAttributes="Bold"/>
                     <Frame Padding="15,0,15,5" Margin="10,0,10,5" CornerRadius="10" HasShadow="True">
-                        <!--<Entry x:Name="entDoB" Keyboard="Ti" Placeholder="05/05/2002" FontSize="Medium" VerticalOptions="Center"/>-->
+                        --><!--<Entry x:Name="entDoB" Keyboard="Ti" Placeholder="05/05/2002" FontSize="Medium" VerticalOptions="Center"/>--><!--
                         <DatePicker x:Name="dpkDob" MinimumDate="1/1/1950" MaximumDate="12/31/2015" 
                                     Date="5/5/2002" Format="D" DateSelected="dpkDob_DateSelected"  HeightRequest="55"/>
-                    </Frame>
+                    </Frame>-->
                 </StackLayout>
-                <Button x:Name="Submit" Text="Cập nhật" BackgroundColor="CornflowerBlue"
+                <Button x:Name="cmdSubmit" Text="Cập nhật" BackgroundColor="CornflowerBlue"
                         FontSize="20" TextColor="White" FontAttributes="Bold"
-                        CornerRadius="15" Margin="20" Padding="0,15" VerticalOptions="Center"/>
+                        CornerRadius="15" Margin="20" Padding="0,15" VerticalOptions="Center"
+                        Clicked="cmdSubmit_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

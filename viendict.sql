@@ -1539,3 +1539,21 @@ create proc [dbo].[UserSignin](@email nvarchar(100), @password nvarchar(100))
 as
 	select * from UserAccount where Email = @email and Password = @password
 GO
+--create procedure User Update--
+CREATE PROC [dbo].[UpdateAccount](@userid int, @userloginname nvarchar(100), @email nvarchar(100), @CurrentID int output)
+as
+begin try
+	if(exists(select * from UserAccount where UserID<>@userid))
+	begin
+		set @CurrentID=-1
+		return
+	end
+	update UserAccount set UserLoginName = @userloginname, Email = @email
+	where UserID=@userid
+	set @CurrentID=@userid
+end try
+begin catch
+	set @CurrentID=0
+end catch
+
+exec UpdateAccount @userid = 1, @userloginname = 'vivivi', @email = 'vi', @CurrentID = @userid

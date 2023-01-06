@@ -28,7 +28,7 @@ namespace Viendict
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-                ("http://viendictapi.somee.com/api/AppController/UserSignin?Email=" +
+                ("http://172.17.18.125/ViendictAPI/api/AppController/UserSignin?Email=" +
                 useremail.Text + "&&Password=" + userpassword.Text);
             var user = JsonConvert.DeserializeObject<UserAccount>(kq);
             if (user.Email != "" && user.Email != null)

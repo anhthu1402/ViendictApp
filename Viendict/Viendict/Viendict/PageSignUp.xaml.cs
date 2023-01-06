@@ -30,14 +30,14 @@ namespace Viendict
             HttpClient http = new HttpClient();
             string jsonuser = JsonConvert.SerializeObject(user);
             StringContent httpcontent = new StringContent(jsonuser, Encoding.UTF8, "application/json");
-            HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/UserSignup", httpcontent);
+            HttpResponseMessage kq = await http.PostAsync("http://172.17.18.125/ViendictAPI/api/AppController/UserSignup", httpcontent);
             var kqtb = await kq.Content.ReadAsStringAsync();
             user = JsonConvert.DeserializeObject<UserAccount>(kqtb);
             if (user.UserID > 0)
             {
                 await DisplayAlert("", "Chào mừng " + user.UserLoginName + " đến với Viendict!", "Ok");
                 var login = await http.GetStringAsync
-                ("http://viendictapi.somee.com/api/AppController/UserSignin?Email=" +
+                ("http://172.17.18.125/ViendictAPI/api/AppController/UserSignin?Email=" +
                 user.Email + "&&Password=" + user.Password);
                 var userlogin = JsonConvert.DeserializeObject<UserAccount>(login);
                 UserAccount.user = userlogin;
