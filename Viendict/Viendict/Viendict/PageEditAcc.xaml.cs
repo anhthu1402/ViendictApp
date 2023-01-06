@@ -21,7 +21,7 @@ namespace Viendict
             {
                 userloginname.Text = UserAccount.user.UserLoginName;
                 useremail.Text = UserAccount.user.Email;
-            }
+			}
         }
 
         //private void dpkDob_DateSelected(object sender, DateChangedEventArgs e)
@@ -42,6 +42,7 @@ namespace Viendict
 				UserAccount.user.Email = useremail.Text;
 				HttpClient http = new HttpClient();
 				string jsonlh = JsonConvert.SerializeObject(UserAccount.user);
+				var usertemp = JsonConvert.DeserializeObject(jsonlh);
 				StringContent httpcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
 				HttpResponseMessage kq;
 				kq = await http.PostAsync("http://172.17.18.125/ViendictAPI/api/AppController/UpdateAccount", httpcontent);
@@ -49,7 +50,7 @@ namespace Viendict
 				if (int.Parse(result.ToString()) > 0)
 				{
 					await DisplayAlert("Thông báo", "Cập nhật thành công", "Ok");
-					await Navigation.PopAsync();
+					await Shell.Current.Navigation.PopAsync();
 				}
 				else
 					await DisplayAlert("Thông báo", "Đã xảy ra lỗi, vui lòng thử lại!", "Ok");

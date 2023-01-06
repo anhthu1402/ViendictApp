@@ -9,7 +9,6 @@ namespace Viendict
         public App()
         {
             InitializeComponent();
-            
             MainPage = new NavigationPage(new MainPage());
             UserAccount.user = new UserAccount();
         }

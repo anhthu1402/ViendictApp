@@ -6,7 +6,7 @@
              BackgroundImageSource="bg_forest">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="15,20">
+            <StackLayout x:Name="stEditAccount" Padding="15,20">
                 <StackLayout>
                     <Frame HeightRequest="150" WidthRequest="150" IsClippedToBounds="True" CornerRadius="100" HorizontalOptions="CenterAndExpand" HasShadow="True">
                         <Image Source="avt.png" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center"/>
