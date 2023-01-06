@@ -10,19 +10,23 @@
             <StackLayout Spacing="15" Padding="15">
                 <Label Padding="15,0" Text="Mật khẩu cũ:" FontSize="Medium" TextColor="#26428b" FontAttributes="Bold"/>
                 <Frame Padding="15,0,15,5" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
-                    <local:PageSecurityPwEntry WidthRequest="100" HeightRequest="50"/>
+                    <!--<local:PageSecurityPwEntry x:Name="currentpassword" WidthRequest="100" HeightRequest="50"/>-->
+                    <Entry x:Name="currentpassword" FontSize="Medium" IsPassword="True"/>
                 </Frame>
                 <Label Padding="15,0" Text="Mật khẩu mới:" FontSize="Medium" TextColor="#26428b" FontAttributes="Bold"/>
                 <Frame Padding="15,0,15,5" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
-                    <local:PageSecurityPwEntry WidthRequest="100" HeightRequest="50"/>
+                    <!--<local:PageSecurityPwEntry x:Name="newpassword"  WidthRequest="100" HeightRequest="50"/>-->
+                    <Entry x:Name="newpassword" FontSize="Medium" IsPassword="True"/>
                 </Frame>
                 <Label Padding="15,0" Text="Xác nhận lại mật khẩu:" FontSize="Medium" TextColor="#26428b" FontAttributes="Bold"/>
                 <Frame Padding="15,0,15,5" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
-                    <local:PageSecurityPwEntry WidthRequest="100" HeightRequest="50"/>
+                    <!--<local:PageSecurityPwEntry x:Name="confirm_newpassword" WidthRequest="100" HeightRequest="50"/>-->
+                    <Entry x:Name="confirm_newpassword" FontSize="Medium" IsPassword="True"/>
                 </Frame>
-                <Button x:Name="Submit" Text="Cập nhật" BackgroundColor="CornflowerBlue" VerticalOptions="EndAndExpand"
+                <Button x:Name="cmdSubmit" Text="Cập nhật" BackgroundColor="CornflowerBlue" VerticalOptions="EndAndExpand"
                         FontSize="20" TextColor="White" FontAttributes="Bold"
-                        CornerRadius="15" Margin="20" Padding="0,15"/>
+                        CornerRadius="15" Margin="20" Padding="0,15"
+                        Clicked="cmdSubmit_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

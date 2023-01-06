@@ -24,10 +24,10 @@ namespace Viendict
             Application.Current.MainPage = new PageSignIn();
         }
 
-        private async void NoAccount_Clicked(object sender, EventArgs e)
+        private void NoAccount_Clicked(object sender, EventArgs e)
         {
             // await Application.Current.MainPage.Navigation.PopAsync();
-            UserAccount.user.UserID = 0;
+            UserAccount.user.UserID = 0; 
             Application.Current.MainPage = new AppShell();
         }
     }

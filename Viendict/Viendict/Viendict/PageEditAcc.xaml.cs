@@ -41,9 +41,8 @@ namespace Viendict
 				UserAccount.user.UserLoginName = userloginname.Text;
 				UserAccount.user.Email = useremail.Text;
 				HttpClient http = new HttpClient();
-				string jsonlh = JsonConvert.SerializeObject(UserAccount.user);
-				var usertemp = JsonConvert.DeserializeObject(jsonlh);
-				StringContent httpcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
+				string jsonuser = JsonConvert.SerializeObject(UserAccount.user);
+				StringContent httpcontent = new StringContent(jsonuser, Encoding.UTF8, "application/json");
 				HttpResponseMessage kq;
 				kq = await http.PostAsync("http://172.17.18.125/ViendictAPI/api/AppController/UpdateAccount", httpcontent);
 				var result = await kq.Content.ReadAsStringAsync();

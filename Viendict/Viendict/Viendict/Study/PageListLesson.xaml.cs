@@ -43,4 +43,3 @@ namespace Viendict.Study
         }
     }
 }
-}

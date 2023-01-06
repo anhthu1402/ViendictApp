@@ -137,5 +137,14 @@ namespace WebAPI.Database
             int kq = int.Parse(Exec_Command("UpdateAccount", param).ToString());
             return kq;
         }
+        public static int ChangePassword(UserAccount user)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("UserID", user.UserID);
+            param.Add("Email", user.Email);
+            param.Add("Password", user.Password);
+            int kq = int.Parse(Exec_Command("Proc_ChangePassword", param).ToString());
+            return kq;
+        }
     }
 }
