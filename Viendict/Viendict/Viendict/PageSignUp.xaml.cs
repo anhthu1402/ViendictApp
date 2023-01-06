@@ -26,26 +26,33 @@ namespace Viendict
         }
         private async void cmdSignup_Clicked(object sender, EventArgs e)
         {
-            UserAccount user = new UserAccount { UserLoginName = userloginname.Text, Password = userpassword.Text, Email = useremail.Text };
-            HttpClient http = new HttpClient();
-            string jsonuser = JsonConvert.SerializeObject(user);
-            StringContent httpcontent = new StringContent(jsonuser, Encoding.UTF8, "application/json");
-            HttpResponseMessage kq = await http.PostAsync("http://172.17.18.125/ViendictAPI/api/AppController/UserSignup", httpcontent);
-            var kqtb = await kq.Content.ReadAsStringAsync();
-            user = JsonConvert.DeserializeObject<UserAccount>(kqtb);
-            if (user.UserID > 0)
+            if (useremail.Text != "" && useremail.Text != null && useremail.Text.ToLower().Contains('@') && userpassword.Text.Length >= 8)
             {
-                await DisplayAlert("", "Chào mừng " + user.UserLoginName + " đến với Viendict!", "Ok");
-                var login = await http.GetStringAsync
-                ("http://172.17.18.125/ViendictAPI/api/AppController/UserSignin?Email=" +
-                user.Email + "&&Password=" + user.Password);
-                var userlogin = JsonConvert.DeserializeObject<UserAccount>(login);
-                UserAccount.user = userlogin;
-                await Application.Current.MainPage.Navigation.PopAsync();
-                Application.Current.MainPage = new AppShell();
+                UserAccount user = new UserAccount { UserLoginName = userloginname.Text, Password = userpassword.Text, Email = useremail.Text };
+                HttpClient http = new HttpClient();
+                string jsonuser = JsonConvert.SerializeObject(user);
+                StringContent httpcontent = new StringContent(jsonuser, Encoding.UTF8, "application/json");
+                HttpResponseMessage kq = await http.PostAsync("http://172.17.18.125/ViendictAPI/api/AppController/UserSignup", httpcontent);
+                var kqtb = await kq.Content.ReadAsStringAsync();
+                user = JsonConvert.DeserializeObject<UserAccount>(kqtb);
+                if (user.UserID > 0)
+                {
+                    await DisplayAlert("", "Chào mừng " + user.UserLoginName + " đến với Viendict!", "Ok");
+                    var login = await http.GetStringAsync
+                    ("http://172.17.18.125/ViendictAPI/api/AppController/UserSignin?Email=" +
+                    user.Email + "&&Password=" + user.Password);
+                    var userlogin = JsonConvert.DeserializeObject<UserAccount>(login);
+                    UserAccount.user = userlogin;
+                    Application.Current.MainPage = new AppShell();
+                }
+                else
+                    await DisplayAlert("Thông báo", "Tên đăng nhập hoặc email đã tồn tại!", "Ok");
             }
-            else
-                await DisplayAlert("Thông báo", "Tên đăng nhập hoặc email đã tồn tại!", "Ok");
+            else if (useremail.Text == "" || useremail.Text == null || useremail.Text.ToLower().Contains('@') == false)
+            {
+                await DisplayAlert("Thông báo", "Email chưa nhập hoặc chưa đúng định dạng!", "Ok");
+            }
+            else await DisplayAlert("Thông báo", "Mật khẩu phải chứa ít nhất 8 kí tự!", "Ok");
         }
     }
 }

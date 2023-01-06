@@ -14,20 +14,20 @@ namespace Viendict
         {
             InitializeComponent();
         }
-
         private void Signup_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PageSignUp());
+            Application.Current.MainPage = new PageSignUp();
         }
 
         private void Signin_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PageSignIn());
+            Application.Current.MainPage = new PageSignIn();
         }
 
         private async void NoAccount_Clicked(object sender, EventArgs e)
         {
-            await Application.Current.MainPage.Navigation.PopAsync();
+            // await Application.Current.MainPage.Navigation.PopAsync();
+            UserAccount.user.UserID = 0;
             Application.Current.MainPage = new AppShell();
         }
     }

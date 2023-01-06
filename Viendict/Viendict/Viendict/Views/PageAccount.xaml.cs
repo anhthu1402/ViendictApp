@@ -19,6 +19,12 @@ namespace Viendict.Views
             if (UserAccount.user.UserID > 0)
                 UserName.Text = UserAccount.user.UserLoginName;
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (UserAccount.user.UserID > 0)
+                UserName.Text = UserAccount.user.UserLoginName;
+        }
 
         private void cmdEditProfile_Clicked(object sender, EventArgs e)
         {
@@ -30,9 +36,14 @@ namespace Viendict.Views
             Navigation.PushAsync(new PageChangePw());
         }
 
-        private void cmdSignout_Clicked(object sender, EventArgs e)
+        private async void cmdSignout_Clicked(object sender, EventArgs e)
         {
-
+            bool ans = await DisplayAlert("Thông báo", $"{UserAccount.user.UserLoginName}, bạn có chắc chắn muốn đăng xuất không?", "Có", "Không");
+            if (ans)
+            {
+                await Application.Current.MainPage.Navigation.PopToRootAsync();
+                Application.Current.MainPage = new MainPage();
+            }
         }
     }
 }

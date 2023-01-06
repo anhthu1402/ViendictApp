@@ -35,7 +35,6 @@ namespace Viendict
             {
                 await DisplayAlert("", "Hello " + user.UserLoginName, "OK");
                 UserAccount.user = user;
-                await Application.Current.MainPage.Navigation.PopAsync();
                 Application.Current.MainPage = new AppShell();
             }
             else

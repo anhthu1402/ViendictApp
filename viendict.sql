@@ -1531,7 +1531,7 @@ as
 	insert into UserAccount(UserLoginName, Password, Email) values(@userloginname, @password, @email)
 	set @CurrentID=@@IDENTITY
 GO
-select * from UserAccount
+
 
 
 --create procedure User Login--
@@ -1584,7 +1584,7 @@ GO
 CREATE PROC [dbo].[UpdateAccount](@userid int, @userloginname nvarchar(100), @email nvarchar(100), @CurrentID int output)
 as
 begin try
-	if(exists(select * from UserAccount where UserID<>@userid))
+	if(exists(select * from UserAccount where UserLoginName=@userloginname and UserID<>@userid))
 	begin
 		set @CurrentID=-1
 		return
@@ -1597,4 +1597,20 @@ begin catch
 	set @CurrentID=0
 end catch
 
-exec UpdateAccount @userid = 1, @userloginname = 'vivivi', @email = 'vi', @CurrentID = @userid
+CREATE PROC [dbo].[Proc_ChangePassword](@userid int, @email nvarchar(100), @password nvarchar(100), @CurrentID int output)
+as
+begin try
+	if(exists(select * from UserAccount where Email=@email and UserID<>@userid))
+	begin
+		set @CurrentID=-1
+		return
+	end
+	update UserAccount set Password = @password where UserID=@userid
+	set @CurrentID=@userid
+end try
+begin catch
+	set @CurrentID=0
+end catch
+
+exec Proc_ChangePassword @userid = 1, @email = 'vi', @password = '000', @CurrentID = 1
+select * from UserAccount
