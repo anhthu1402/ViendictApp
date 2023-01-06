@@ -16,6 +16,7 @@ namespace Viendict.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageStudy : ContentPage
     {
+        public StudyListTopic topicDefault = new StudyListTopic { TopicID = 1 };
         async void GetAllStudyLessonByTopic(int topicID)
         {
 
@@ -25,39 +26,29 @@ namespace Viendict.Views
             lstStudyLesson.ItemsSource = lessonConverted;
         }
 
-        //void ListStudyLesson()
-        //{
-        //    List<StudyListLesson> lstLesson = new List<StudyListLesson>();
-        //    lstLesson.Add(new StudyListLesson { LessonID = 1, Name = "Health problems", TopicID = 1 });
-        //    lstLesson.Add(new StudyListLesson { LessonID = 2, Name = "Academic subjects", TopicID = 1 });
-        //    lstLesson.Add(new StudyListLesson { LessonID = 3, Name = "Travel and adventure", TopicID = 1 });
-        //    lstLesson.Add(new StudyListLesson { LessonID = 4, Name = "Dimensions", TopicID = 1 });
-        //    lstLesson.Add(new StudyListLesson { LessonID = 5, Name = "City life", TopicID = 1 });
-        //    lstStudyLesson.ItemsSource = lstLesson;
-        //}
         public PageStudy()
         {
             InitializeComponent();
             Shell.SetNavBarIsVisible(this, false);
+            GetAllStudyLessonByTopic(topicDefault.TopicID);
         }
         public PageStudy(StudyListTopic topic)
         {
             InitializeComponent();
             GetAllStudyLessonByTopic(topic.TopicID);
-            this.Title = topic.Name;
         }
 
 
         private void cmdChangeTopic_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PageTopicStudy());
+            Navigation.PushModalAsync(new PageTopicStudy());
         }
 
         private void lstStudyLesson_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (lstStudyLesson.SelectedItem != null)
             {
-                StudyListVocab lesson = (StudyListVocab)lstStudyLesson.SelectedItem;
+                StudyListLesson lesson = (StudyListLesson)lstStudyLesson.SelectedItem;
                 Navigation.PushAsync(new PageListStudy(lesson));
             }
         }

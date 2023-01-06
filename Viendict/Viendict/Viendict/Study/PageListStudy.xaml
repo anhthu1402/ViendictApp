@@ -4,25 +4,20 @@
              x:Class="Viendict.Study.PageListStudy">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="LstStudy">
+            <ListView x:Name="LstStudy" RowHeight="160">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Margin="10" Padding="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Word}" Grid.Row="0" Grid.Column="0" TextColor="DarkBlue" FontSize="20"></Label>
-                                <Label Text="{Binding IPA}" Grid.Row="1" Grid.Column="0" TextColor="Blue"></Label>
-                                <Label Text="{Binding Type}" Grid.Row="2" Grid.Column="0" TextColor="Gray"></Label>
-                                <Label Text="{Binding Meaning}" Grid.Row="3" Grid.Column="0"></Label>
-                            </Grid>
+                            <Frame BorderColor="#0066CC" Margin="10" CornerRadius="10" HasShadow="True" >
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text="{Binding Word}" TextColor="DarkBlue" FontSize="20" FontAttributes="Bold"></Label>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding IPA}" TextColor="#3399FF" FontAttributes="Bold" FontSize="16"></Label>
+                                        <Label Text="{Binding Type}" TextColor="#666666" FontSize="16"></Label>
+                                    </StackLayout>
+                                    <Label Text="{Binding Meaning}"  TextColor="#222222" FontSize="16"></Label>
+                                </StackLayout>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -35,7 +30,8 @@
                     FontAttributes="Bold"
                     FontSize="Large"
                     HorizontalOptions="Center"
-                    Clicked="Study_Clicked"></Button>
+                    Clicked="Study_Clicked" Margin="0,0,0,10"></Button>
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

@@ -17,8 +17,12 @@ namespace Viendict.Study {
     public partial class PageDetail : global::Xamarin.Forms.CarouselPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.CarouselPage lstContent;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(PageDetail));
+            lstContent = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.CarouselPage>(this, "lstContent");
         }
     }
 }
