@@ -15,6 +15,7 @@ namespace Viendict.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageFavorite : ContentPage
     {
+        
         async void GetListFavorite()
         {
             HttpClient httpClient = new HttpClient();
@@ -30,7 +31,11 @@ namespace Viendict.Views
             Shell.SetNavBarIsVisible(this, false);
             GetListFavorite();
         }
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GetListFavorite();
+        }
         private void TurnOnSpeaker_Tapped(object sender, EventArgs e)
         {
             tapSpeakerCount++;
@@ -52,6 +57,13 @@ namespace Viendict.Views
                 Favorite fv = (Favorite)lstFavorite.SelectedItem;
                 Navigation.PushAsync(new PageWordDetail(fv.Word));
             }
+        }
+
+        private void lstFavorite_Refreshing(object sender, EventArgs e)
+        {
+            lstFavorite.ItemsSource = null;
+            lstFavorite.BeginRefresh();
+            lstFavorite.EndRefresh();
         }
     }
 }
