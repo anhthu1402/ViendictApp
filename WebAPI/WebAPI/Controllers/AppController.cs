@@ -198,5 +198,55 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
         }
+
+        [Route("api/AppController/GetAllStudyTopic")]
+        [HttpGet]
+        public IHttpActionResult GetAllStudyTopic()
+        {
+            try
+            {
+                DataTable result = Database.Database.ReadTable("Proc_GetAllStudyTopic");
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/GetAllStudyLessonByTopic")]
+        [HttpGet]
+        public IHttpActionResult GetAllStudyLessonByTopic(int TopicID)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("TopicID", TopicID);
+                DataTable result = Database.Database.ReadTable("Proc_GetAllStudyLessonByTopic", param);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/GetContentByLesson")]
+        [HttpGet]
+        public IHttpActionResult GetContentByLesson(int TopicID, int LessonID)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("LessonID", LessonID);
+                param.Add("TopicID", TopicID);
+                DataTable result = Database.Database.ReadTable("Proc_GetContentByLesson", param);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

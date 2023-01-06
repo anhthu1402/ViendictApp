@@ -4,7 +4,7 @@
              x:Class="Viendict.Study.PageTopicStudy">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lstTopicStudy" HasUnevenRows="True" RowHeight="60" SelectionMode="Single">
+            <ListView x:Name="lstTopicStudy" ItemTapped="lstTopicStudy_ItemTapped" HasUnevenRows="True" RowHeight="60" SelectionMode="Single">
                 <!--<ListView.Header>
                     <Label Text="{Binding TopicName}" TextColor="Black" FontSize="Medium"/>
                 </ListView.Header>-->

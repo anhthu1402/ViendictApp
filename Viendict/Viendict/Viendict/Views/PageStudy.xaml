@@ -31,7 +31,7 @@
                     </Grid>
                 </StackLayout>
                 <StackLayout>
-                    <ListView x:Name="lstStudyLesson" HasUnevenRows="True" RowHeight="100">
+                    <ListView x:Name="lstStudyLesson" ItemTapped="lstStudyLesson_ItemTapped" HasUnevenRows="True" RowHeight="100">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

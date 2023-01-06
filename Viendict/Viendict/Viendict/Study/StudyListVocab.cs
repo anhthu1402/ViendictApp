@@ -14,5 +14,6 @@ namespace Viendict.Study
         public string EnExample { get; set; }
         public string ViExample { get; set; }
         public int LessonID { get; set; }
+        public int TopicID { get; set; }
     }
 }
