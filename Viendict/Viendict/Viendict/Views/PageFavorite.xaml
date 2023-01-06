@@ -5,7 +5,7 @@
              BackgroundImageSource="bg_beige.png">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lstFavorite" ItemTapped="lstFavorite_ItemTapped" RowHeight="100" SeparatorColor="Cornflowerblue" Refreshing="lstFavorite_Refreshing">
+            <ListView x:Name="lstFavorite" ItemTapped="lstFavorite_ItemTapped" RowHeight="100" SeparatorColor="Cornflowerblue">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

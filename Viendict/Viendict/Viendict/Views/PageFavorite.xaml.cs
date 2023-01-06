@@ -59,11 +59,5 @@ namespace Viendict.Views
             }
         }
 
-        private void lstFavorite_Refreshing(object sender, EventArgs e)
-        {
-            lstFavorite.ItemsSource = null;
-            lstFavorite.BeginRefresh();
-            lstFavorite.EndRefresh();
-        }
     }
 }
