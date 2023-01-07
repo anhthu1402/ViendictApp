@@ -245,5 +245,20 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
         }
+
+        [Route("api/AppController/GetUserByEmail")]
+        [HttpGet]
+        public IHttpActionResult GetUserByEmail(string Email)
+        {
+            try
+            {
+                UserAccount result = Database.Database.GetUserByEmail(Email);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

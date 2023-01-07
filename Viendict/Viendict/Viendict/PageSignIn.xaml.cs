@@ -21,19 +21,18 @@ namespace Viendict
 
         private void ForgotPwd_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PageForgotPw());
+            Navigation.PushModalAsync(new PageForgotPw());
         }
 
         private async void cmdSignin_Clicked(object sender, EventArgs e)
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-                ("http://172.17.18.125/ViendictAPI/api/AppController/UserSignin?Email=" +
+                ("http://192.168.1.5/ViendictAPI/api/AppController/UserSignin?Email=" +
                 useremail.Text + "&&Password=" + userpassword.Text);
             var user = JsonConvert.DeserializeObject<UserAccount>(kq);
             if (user.Email != "" && user.Email != null)
             {
-                await DisplayAlert("", "Hello " + user.UserLoginName, "OK");
                 UserAccount.user = user;
                 Application.Current.MainPage = new AppShell();
             }

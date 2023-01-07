@@ -146,5 +146,22 @@ namespace WebAPI.Database
             int kq = int.Parse(Exec_Command("Proc_ChangePassword", param).ToString());
             return kq;
         }
+        public static UserAccount GetUserByEmail(string Email)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("Email", Email);
+            DataTable record = ReadTable("Proc_GetUserByEmail", param);
+            UserAccount user = new UserAccount();
+            if (record.Rows.Count > 0)
+            {
+                user.UserID = int.Parse(record.Rows[0]["UserID"].ToString());
+                user.UserLoginName = record.Rows[0]["UserLoginName"].ToString();
+                user.Email = record.Rows[0]["Email"].ToString();
+                user.Password = record.Rows[0]["Password"].ToString();
+            }
+            else
+                user.UserID = 0;
+            return user;
+        }
     }
 }
