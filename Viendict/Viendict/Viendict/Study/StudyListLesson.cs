@@ -9,5 +9,7 @@ namespace Viendict.Study
         public int LessonID { get; set; }
         public string Name { get; set; }
         public int TopicID { get; set; }
+        public int Learnt { get; set; }
+        public int TotalWords { get; set; }
     }
 }

@@ -40,7 +40,7 @@ namespace Viendict.Views
             if (lstVocabTopic.SelectedItem != null)
             {
                 ListVocabTopic topic = (ListVocabTopic)lstVocabTopic.SelectedItem;
-                Navigation.PushAsync(new PageListVocab(topic));
+                Navigation.PushModalAsync(new NavigationPage(new PageListVocab(topic)));
             }
         }
     }

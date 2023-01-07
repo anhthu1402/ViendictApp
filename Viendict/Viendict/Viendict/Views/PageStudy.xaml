@@ -5,23 +5,29 @@
              BackgroundImageSource="about">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Padding="10" Spacing="10">
-                <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Frame WidthRequest="70" HeightRequest="70" IsClippedToBounds="True" CornerRadius="100" Padding="0">
-                        <Image Source="ielts900" Aspect="AspectFit"/>
-                    </Frame>
-                    <Label x:Name="TopicName" Text="900 Essential IELTS Vocabularies" VerticalOptions="Center"
-                               FontSize="Medium" TextColor="#26428b" FontAttributes="Bold"/>
-                </StackLayout>
-                <Frame Padding="15,0" Margin="0,15" CornerRadius="10" HasShadow="True" HorizontalOptions="EndAndExpand">
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Image Source="exchange" WidthRequest="25" HeightRequest="25"/>
-                        <Button x:Name="cmdChangeTopic" Text="Đổi chủ đề" HorizontalOptions="Start" Padding="10,0" 
+            <CollectionView x:Name="lstStudyTopic" HeightRequest="270">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="10">
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <Frame WidthRequest="70" HeightRequest="70" IsClippedToBounds="True" CornerRadius="100" Padding="0" Margin="15">
+                                    <Image Source="{Binding Img}" Aspect="AspectFit"/>
+                                </Frame>
+                                <Label Text="{Binding Name}" VerticalOptions="Center"
+                               FontSize="22" TextColor="#26428b" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <Frame Padding="15,0" Margin="15,10" CornerRadius="10" HasShadow="True" HorizontalOptions="EndAndExpand">
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Image Source="exchange" WidthRequest="25" HeightRequest="25"/>
+                                    <Button x:Name="cmdChangeTopic" Text="Đổi chủ đề" HorizontalOptions="Start" Padding="10,0" 
                                         BackgroundColor="Transparent" TextColor="#26428b" FontSize="Medium" Clicked="cmdChangeTopic_Clicked"/>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-            <ListView x:Name="lstStudyLesson" ItemTapped="lstStudyLesson_ItemTapped" HasUnevenRows="True" RowHeight="100">
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <ListView x:Name="lstStudyLesson" ItemTapped="lstStudyLesson_ItemTapped" HasUnevenRows="True" RowHeight="100" SelectionMode="Single">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -33,7 +39,14 @@
                                         <Label x:Name="LessonName" Text="{Binding Name, StringFormat=' {0}'}" TextColor="CornflowerBlue" 
                                                                             FontAttributes="Bold" FontSize="20"/>
                                     </StackLayout>
-                                    <Label x:Name="Learnt" Text="Đã học: 3/10" FontSize="18" HorizontalOptions="EndAndExpand"/>
+                                    <Label  FontSize="18" HorizontalOptions="EndAndExpand">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Learnt, StringFormat='Đã học: {0}/'}"/>
+                                                <Span Text="{Binding TotalWords}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                 </StackLayout>
                             </Frame>
                         </ViewCell>

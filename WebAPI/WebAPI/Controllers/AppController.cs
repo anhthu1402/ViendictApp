@@ -248,5 +248,22 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
         }
+
+        [Route("api/AppController/GetStudyTopicByTopicID")]
+        [HttpGet]
+        public IHttpActionResult GetStudyTopicByTopicID(int TopicID)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("TopicID", TopicID);
+                DataTable result = Database.Database.ReadTable("[Proc_GetStudyTopicByTopicID]", param);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

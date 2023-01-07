@@ -8,7 +8,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame BorderColor="#0066CC" Margin="10" CornerRadius="10" HasShadow="True" >
+                            <Frame BorderColor="#0066CC" Margin="10" CornerRadius="10" HasShadow="True">
                                 <StackLayout VerticalOptions="Center">
                                     <Label Text="{Binding Word}" TextColor="DarkBlue" FontSize="20" FontAttributes="Bold"></Label>
                                     <StackLayout Orientation="Horizontal">

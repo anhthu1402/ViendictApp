@@ -1,19 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Viendict.Study.PageTopicStudy">
+             x:Class="Viendict.Study.PageTopicStudy" Title="Danh sách các chủ đề">
+    
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="lstTopicStudy" ItemTapped="lstTopicStudy_ItemTapped" HasUnevenRows="True" RowHeight="60" SelectionMode="Single">
-                <!--<ListView.Header>
-                    <Label Text="{Binding TopicName}" TextColor="Black" FontSize="Medium"/>
-                </ListView.Header>-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid Padding="10">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
@@ -23,8 +21,8 @@
                                 <Frame WidthRequest="48" HeightRequest="48" Padding="2" Margin="10,0" CornerRadius="5" BorderColor="CornflowerBlue" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
                                     <Image Source="{Binding Img}"/>
                                 </Frame>
-                                <Label Text="{Binding Name}" FontSize="Large" TextColor="Maroon" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"/>
-                                <Label Text="{Binding TotalLessons, StringFormat='Số bài học: {0}'}" FontSize="Caption" TextColor="Gray" Grid.Column="1" Grid.Row="1"/>
+                                <Label Text="{Binding Name}" FontSize="Large" TextColor="Maroon" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding TotalLessons, StringFormat='Số bài học: {0}'}" FontSize="Medium" TextColor="Gray" Grid.Column="1" Grid.Row="1" VerticalTextAlignment="Center"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
