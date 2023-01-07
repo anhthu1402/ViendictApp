@@ -25,23 +25,39 @@ namespace Viendict.Views
             var lessonConverted = JsonConvert.DeserializeObject<List<StudyListLesson>>(lesson);
             lstStudyLesson.ItemsSource = lessonConverted;
         }
-
+        async void GetStudyTopicByTopicID(int topicID)
+        {
+            HttpClient httpClient = new HttpClient();
+            var topic = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetStudyTopicByTopicID?TopicID=" + topicID.ToString());
+            var topicConverted = JsonConvert.DeserializeObject<List<StudyListTopic>>(topic);
+            lstStudyTopic.ItemsSource = topicConverted;
+        }
         public PageStudy()
         {
             InitializeComponent();
             Shell.SetNavBarIsVisible(this, false);
             GetAllStudyLessonByTopic(topicDefault.TopicID);
+            GetStudyTopicByTopicID(topicDefault.TopicID);
         }
         public PageStudy(StudyListTopic topic)
         {
             InitializeComponent();
             GetAllStudyLessonByTopic(topic.TopicID);
+            GetStudyTopicByTopicID(topicDefault.TopicID);
         }
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            MessagingCenter.Subscribe<PageStudy, int>(this, "Hi", (sender, arg) =>
+            {
+                GetAllStudyLessonByTopic(arg);
+                GetStudyTopicByTopicID(arg);
+            });
+        }
 
         private void cmdChangeTopic_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new PageTopicStudy());
+            Navigation.PushModalAsync(new NavigationPage(new PageTopicStudy()));
         }
 
         private void lstStudyLesson_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -49,7 +65,7 @@ namespace Viendict.Views
             if (lstStudyLesson.SelectedItem != null)
             {
                 StudyListLesson lesson = (StudyListLesson)lstStudyLesson.SelectedItem;
-                Navigation.PushAsync(new PageListStudy(lesson));
+                Navigation.PushModalAsync(new NavigationPage(new PageListStudy(lesson)));
             }
         }
     }

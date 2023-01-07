@@ -16,6 +16,7 @@ namespace Viendict.Study
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageTopicStudy : ContentPage
     {
+        List<StudyListLesson> studyListLessons;
         async void GetAllStudyTopic()
         {
             HttpClient httpClient = new HttpClient();
@@ -29,13 +30,22 @@ namespace Viendict.Study
             InitializeComponent();
             GetAllStudyTopic();
         }
-
+        async void GetAllStudyLessonByTopic(int topicID)
+        {
+            studyListLessons = new List<StudyListLesson>();
+            HttpClient httpClient = new HttpClient();
+            var lesson = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetAllStudyLessonByTopic?TopicID=" + topicID.ToString());
+            var lessonConverted = JsonConvert.DeserializeObject<List<StudyListLesson>>(lesson);
+            studyListLessons = lessonConverted;
+        }
         private void lstTopicStudy_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (lstTopicStudy.SelectedItem != null)
             {
                 StudyListTopic topic = (StudyListTopic)lstTopicStudy.SelectedItem;
-                
+                PageStudy pageStudy = new PageStudy();
+                MessagingCenter.Send<PageStudy, int>(pageStudy, "Hi", topic.TopicID);
+                Navigation.PopModalAsync();
             }
         }
     }

@@ -91,6 +91,7 @@ CREATE TABLE [dbo].[lst_study_topic_lesson](
 	[TopicID] [int] NOT NULL,
 	Primary key (LessonID, TopicID),
 )
+
 /*create table lst_study_topic_vocab*/
 SET ANSI_NULLS ON
 GO
@@ -185,7 +186,6 @@ SET ANSI_WARNINGS OFF;
 insert into lst_study_topic values(1, N'900 từ vựng luyện IELTS', 50)
 insert into lst_study_topic values(2, N'600 từ vựng TOEIC', 50)
 insert into lst_study_topic values(3, N'1000 từ vựng TOEFL', 50)
-insert into lst_study_topic values(4, N'900 từ vựng luyện thi SAT', 59)
 SET ANSI_WARNINGS ON;
 
 SET ANSI_WARNINGS OFF;
@@ -1934,6 +1934,30 @@ CREATE proc [dbo].[Proc_GetContentByLesson](@topicID int, @lessonID int)
 as
 select * from [dbo].[lst_study_topic_vocab] 
 where LessonID=@lessonID and TopicID=@topicID
+GO
+
+/* Proc_GetStudyTopicByTopicID*/
+create proc [dbo].[Proc_GetStudyTopicByTopicID](@topicID int)
+as
+select * from [dbo].lst_study_topic where TopicID=@topicID
+
+
+/* Remember to execute*/
+alter table lst_study_topic add Img varchar(50)
+update lst_study_topic set Img='ielts900.png' where TopicID=1
+update lst_study_topic set Img='toeic600.png' where TopicID=2
+update lst_study_topic set Img='toefl1000.jpg' where TopicID=3
+delete from lst_study_topic where TopicID=4
+----
+alter table lst_study_topic_lesson add Learnt int
+alter table lst_study_topic_lesson add TotalWords int
+update lst_study_topic_lesson set Learnt=0
+update lst_study_topic_lesson set TotalWords=20 where TopicID=1
+update lst_study_topic_lesson set TotalWords=12 where TopicID=2
+update lst_study_topic_lesson set TotalWords=20 where TopicID=3
+select * from lst_study_topic_lesson
+----
+update lst_study_topic set TotalLessons=15
 GO
 GO
 --create procedure User Update--
