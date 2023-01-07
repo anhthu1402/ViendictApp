@@ -10,14 +10,15 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Padding="10,50,10,20">
-            <Frame HeightRequest="50" CornerRadius="15" BackgroundColor="white" HasShadow="True" Padding="20,0,20,10" Margin="10,120">
+            <Frame HeightRequest="50" CornerRadius="10" BackgroundColor="white" HasShadow="True" Padding="20,0,20,10" Margin="10,120">
                 <Entry x:Name="email" Keyboard="Email" Placeholder="Enter your email to reset password" TextColor="CornflowerBlue"
                    Margin="-5,0,0,0"/>
             </Frame>
 
-            <Button x:Name="ResetPw" Text="Reset Password" BackgroundColor="CornflowerBlue"
+            <Button x:Name="cmdResetPassword" Text="Reset Password" BackgroundColor="CornflowerBlue"
                     FontSize="20" TextColor="White" FontAttributes="Bold"
-                    CornerRadius="15" Margin="20" Padding="0,15" VerticalOptions="EndAndExpand"/>
+                    CornerRadius="15" Margin="20" Padding="0,15" VerticalOptions="EndAndExpand"
+                    Clicked="cmdResetPassword_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

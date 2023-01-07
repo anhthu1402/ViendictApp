@@ -1953,6 +1953,7 @@ begin catch
 	set @CurrentID=0
 end catch
 
+--Create procedure Change password--
 CREATE PROC [dbo].[Proc_ChangePassword](@userid int, @email nvarchar(100), @password nvarchar(100), @CurrentID int output)
 as
 begin try
@@ -1970,3 +1971,5 @@ end catch
 
 exec Proc_ChangePassword @userid = 1, @email = 'vi', @password = '000', @CurrentID = 1
 select * from UserAccount
+
+if(exists(select * from UserAccount where Email=@email))

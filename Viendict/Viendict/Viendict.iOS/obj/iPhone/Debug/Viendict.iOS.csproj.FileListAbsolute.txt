@@ -61,3 +61,4 @@ D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict.iOS\obj\iPhone\Deb
 D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict.iOS\obj\iPhone\Debug\Viendict.iOS.csproj.CopyComplete
 D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict.iOS\obj\iPhone\Debug\Viendict.iOS.exe
 D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict.iOS\obj\iPhone\Debug\Viendict.iOS.pdb
+D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict.iOS\obj\iPhone\Debug\Viendict.iOS.csproj.AssemblyReference.cache

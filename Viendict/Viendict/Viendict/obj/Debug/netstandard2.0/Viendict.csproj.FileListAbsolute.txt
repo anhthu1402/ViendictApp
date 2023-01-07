@@ -49,3 +49,5 @@ D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict\obj\Debug\netstand
 D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict\obj\Debug\netstandard2.0\Viendict.dll
 D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict\obj\Debug\netstandard2.0\ref\Viendict.dll
 D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict\obj\Debug\netstandard2.0\Viendict.pdb
+D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict\obj\Debug\netstandard2.0\Study\PageDetail.xaml.g.cs
+D:\HKV\3_IE307\project\ViendictApp\Viendict\Viendict\Viendict\obj\Debug\netstandard2.0\Study\PageListStudy.xaml.g.cs
