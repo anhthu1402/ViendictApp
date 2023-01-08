@@ -329,5 +329,24 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
         }
+
+        [Route("api/AppController/StudyLessonFinished")]
+        [HttpGet]
+        public IHttpActionResult StudyLessonFinished(int TopicID, int LessonID)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("TopicID", TopicID);
+                param.Add("LessonID", LessonID);
+                DataTable result = Database.Database.ReadTable("Proc_StudyLessonFinished", param);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
     }
 }

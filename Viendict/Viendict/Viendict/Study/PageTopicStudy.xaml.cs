@@ -44,7 +44,7 @@ namespace Viendict.Study
             {
                 StudyListTopic topic = (StudyListTopic)lstTopicStudy.SelectedItem;
                 PageStudy pageStudy = new PageStudy();
-                MessagingCenter.Send<PageStudy, int>(pageStudy, "Hi", topic.TopicID);
+                MessagingCenter.Send<PageStudy, int>(pageStudy, "Update Topic", topic.TopicID);
                 Navigation.PopModalAsync();
             }
         }

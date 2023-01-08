@@ -9,15 +9,15 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <CollectionView x:Name="lstcontent" VerticalOptions="CenterAndExpand">
+            <CollectionView x:Name="lstcontent" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
-                            <StackLayout VerticalOptions="StartAndExpand" Margin="10">
-                                <ProgressBar x:Name="progressBar" ProgressColor="Orange" PropertyChanging="progressBar_PropertyChanging"/>
+                        <StackLayout Spacing="30">
+                            <StackLayout VerticalOptions="StartAndExpand" Margin="15,25">
+                                <ProgressBar x:Name="progressBar" ProgressColor="Orange" PropertyChanging="progressBar_PropertyChanging" />
                             </StackLayout>
-                            <Frame VerticalOptions="CenterAndExpand" BorderColor="#0066CC" Margin="15" CornerRadius="10" HasShadow="True">
-                                <StackLayout>
+                            <Frame BorderColor="#0066CC" Margin="15,30" CornerRadius="10" HasShadow="True">
+                                <StackLayout >
                                     <Label Text="{Binding Word}"  TextColor="DarkBlue" FontSize="28" FontAttributes="Bold"/>
                                     <Label Text="{Binding IPA}" />
                                     <Label Text="{Binding Type, StringFormat='» {0}'}"  TextColor="#0033CC"/>
@@ -27,12 +27,12 @@
                                     <Label Text="{Binding ViExample,StringFormat='    {0}'}" TextColor="#999999"/>
                                 </StackLayout>
                             </Frame>
-                            
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <Button x:Name="cmdNextPage" Text="Tiếp tục" Clicked="cmdNextPage_Clicked" VerticalOptions="EndAndExpand"/>
+            <Button x:Name="cmdNextPage" Text="Tiếp tục" Clicked="cmdNextPage_Clicked" VerticalOptions="EndAndExpand" Margin="20" BackgroundColor="CornflowerBlue" CornerRadius="10"
+                    FontSize="Large" FontAttributes="Bold" TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

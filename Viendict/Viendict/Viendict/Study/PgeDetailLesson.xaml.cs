@@ -23,6 +23,12 @@ namespace Viendict.Study
             var contentConverted = JsonConvert.DeserializeObject<List<StudyListVocab>>(content);
             lstcontent.ItemsSource = contentConverted;
         }
+        async void StudyLessonFinished(int topicID, int lessonID)
+        {
+            HttpClient httpClient = new HttpClient();
+            var content = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/StudyLessonFinished?TopicID=" + topicID.ToString() + "&LessonID=" + lessonID.ToString());
+            var contentConverted = JsonConvert.DeserializeObject<List<StudyListLesson>>(content);
+        }
 
         public PgeDetailLesson()
         {
@@ -34,6 +40,16 @@ namespace Viendict.Study
             GetDetailContentLessonByID(lesson.TopicID, lesson.LessonID, index);
             Lesson = lesson;
             count = index+1;
+            this.Title = "Bài " + lesson.LessonID;
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                var result = await this.DisplayAlert("Thông báo", "Bạn chưa hoàn thành bài học. Bạn có thật sự muốn thoát?", "Thoát", "Không");
+                if (result) await Navigation.PopModalAsync();
+            });
+            return true;
         }
 
         private async void cmdNextPage_Clicked(object sender, EventArgs e)
@@ -42,8 +58,16 @@ namespace Viendict.Study
             
             if(count>Lesson.TotalWords)
             {
-                await DisplayAlert("Tuyệt vời", "Bạn đã hoàn thành Bài " + Lesson.LessonID, "OK");
-                await Navigation.PopAsync();
+                if(Lesson.Learnt=="Chưa hoàn thành")
+                {
+                    await DisplayAlert("Tuyệt vời", "Bạn đã hoàn thành Bài " + Lesson.LessonID, "OK");
+                    StudyLessonFinished(Lesson.TopicID, Lesson.LessonID);
+                }
+                else
+                {
+                    await DisplayAlert("Tuyệt vời", "Bạn vừa luyện tập Bài " + Lesson.LessonID + ". Hãy quay lại để luyện tập nhiều hơn nhé!", "OK");
+                }
+                await Navigation.PopModalAsync();
             }
             count++;
         }

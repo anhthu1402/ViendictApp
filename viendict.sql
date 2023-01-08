@@ -2015,3 +2015,12 @@ as
 select * from [dbo].[lst_study_topic_vocab] 
 where LessonID=@lessonID and TopicID=@topicID and ID=@id
 GO
+
+----- remember to execute
+alter table lst_study_topic_lesson alter column Learnt nvarchar(50)
+update lst_study_topic_lesson set Learnt=N'Chưa hoàn thành'
+/* Proc_StudyLessonFinished*/
+create proc [dbo].[Proc_StudyLessonFinished] (@topicID int, @lessonID int)
+as 
+update lst_study_topic_lesson set Learnt=N'Đã hoàn thành' where TopicID=@topicID and LessonID=@lessonID
+go

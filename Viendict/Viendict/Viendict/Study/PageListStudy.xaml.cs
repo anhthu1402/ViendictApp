@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Viendict.Views;
 
 namespace Viendict.Study
 {
@@ -31,13 +32,21 @@ namespace Viendict.Study
         {
             InitializeComponent();
             GetContentByLesson(lesson.TopicID, lesson.LessonID);
-            this.Title = "Lesson " + lesson.LessonID;
+            this.Title = lesson.Name;
             Lesson = lesson;
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            PageStudy pageStudy = new PageStudy();
+            MessagingCenter.Send<PageStudy, int>(pageStudy, "Update Lessons' status", Lesson.TopicID);
+            Navigation.PopModalAsync();
+            return true;
         }
 
         private void Study_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PgeDetailLesson(Lesson, 1));
+            Navigation.PushModalAsync(new PgeDetailLesson(Lesson, 1));
         }
     }
 }
