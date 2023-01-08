@@ -4,19 +4,14 @@
              xmlns:local="clr-namespace:Viendict"
              BackgroundImageSource="bg_signup.png"
              x:Class="Viendict.PageSignUp">
-    <NavigationPage.TitleView>
-        <StackLayout>
-            <Label Text="Đăng ký" TextColor="White" HorizontalTextAlignment="Center" FontSize="25" Margin="0,0,75, 0"/>
-        </StackLayout>
-    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="cmdBack" Text="←" Clicked="cmdBack_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10,50,10,20" Spacing="20">
                 <Label Text="Tiếp tục với tài khoản mạng xã hội" HorizontalOptions="CenterAndExpand" FontSize="20" TextColor="Black"/>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
-                    <ImageButton x:Name="signup_fb" Source="logo_fb.png" WidthRequest="60" Margin="0,0,30,0" BackgroundColor="Transparent"/>
-                    <ImageButton x:Name="signup_gg" Source="logo_gg.png" WidthRequest="60" Margin="30,0,0,0" BackgroundColor="Transparent"/>
-                </StackLayout>
+                
                 <Label Text="OR" HorizontalOptions="Center" FontSize="18" Margin="0,20,0,0"/>
                 <StackLayout Padding="15,25" Spacing="20">
                     <Label Text="Địa chỉ email" TextColor="CornflowerBlue" FontSize="20" FontAttributes="Bold"/>

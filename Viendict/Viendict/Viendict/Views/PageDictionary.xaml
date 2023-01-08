@@ -5,12 +5,9 @@
              BackgroundImageSource="bg_loang.png">
     <ContentPage.Content>
         <StackLayout>
-            <Frame BackgroundColor="WhiteSmoke">
-                <SearchBar Placeholder="Nhập từ để tra" PlaceholderColor="Gray"
-                           TextColor="CornflowerBlue" TextTransform="Lowercase"
-                           FontSize="Medium" CancelButtonColor="CornflowerBlue" 
-                           TextChanged="SearchBar_TextChanged" SearchButtonPressed="SearchBar_SearchButtonPressed"></SearchBar>
-            </Frame>
+            <Button x:Name="cmdSearch" ImageSource="search" BackgroundColor="white"
+                    Padding="7" Margin="10,15"
+                    VerticalOptions="Start" HorizontalOptions="End" Clicked="cmdSearch_Clicked"/>
             <StackLayout Margin="2,50" Spacing="20">
                 <ScrollView>
                     <StackLayout Spacing="20" >

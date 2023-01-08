@@ -54,5 +54,10 @@ namespace Viendict
             }
             else await DisplayAlert("Thông báo", "Mật khẩu phải chứa ít nhất 8 kí tự!", "Ok");
         }
+
+        private void cmdBack_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PopModalAsync();
+        }
     }
 }

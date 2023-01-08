@@ -4,20 +4,13 @@
              xmlns:local="clr-namespace:Viendict"
              x:Class="Viendict.PageSignIn"
              BackgroundImageSource="bg_signin.png">
-    <NavigationPage.TitleView>
-        <StackLayout>
-            <Label Text="Đăng nhập" TextColor="White" HorizontalTextAlignment="Center" FontSize="25" Margin="0,0,75, 0"/>
-        </StackLayout>
-    </NavigationPage.TitleView>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="10,50,10,20" Spacing="20">
-                <Label Text="Tiếp tục với tài khoản mạng xã hội" HorizontalOptions="CenterAndExpand" FontSize="20" TextColor="Black"/>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
-                    <ImageButton x:Name="signup_fb" Source="logo_fb.png" WidthRequest="60" Margin="0,0,30,0" BackgroundColor="Transparent"/>
-                    <ImageButton x:Name="signup_gg" Source="logo_gg.png" WidthRequest="60" Margin="30,0,0,0" BackgroundColor="Transparent"/>
-                </StackLayout>
-                <Label Text="OR" HorizontalOptions="Center" FontSize="18" Margin="0,20,0,0"/>
+            <StackLayout Padding="10,10,10,20" Spacing="20">
+                <Frame BackgroundColor="CornflowerBlue" VerticalOptions="StartAndExpand" Padding="0" Margin="-10">
+                    <Button x:Name="cmdBack" Text="←" FontSize="40" TextColor="White" HorizontalOptions="Start"
+                            Background="Transparent" VerticalOptions="Center"/>
+                </Frame>
                 <StackLayout Padding="15,25" Spacing="20">
                     <Label Text="Địa chỉ email" TextColor="CornflowerBlue" FontSize="20" FontAttributes="Bold"/>
                     <Entry x:Name="useremail" Keyboard="Email" Placeholder="example@gmail.com"

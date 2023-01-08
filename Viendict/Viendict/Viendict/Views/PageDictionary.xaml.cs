@@ -42,10 +42,15 @@ namespace Viendict.Views
             
         }
 
-        private void SearchBar_SearchButtonPressed(object sender, EventArgs e)
+        //private void SearchBar_SearchButtonPressed(object sender, EventArgs e)
+        //{
+        //    SearchBar searchBar = (SearchBar)sender;
+        //    Navigation.PushAsync(new PageSearch(searchBar.Text));
+        //}
+
+        private void cmdSearch_Clicked(object sender, EventArgs e)
         {
-            SearchBar searchBar = (SearchBar)sender;
-            Navigation.PushAsync(new PageSearch(searchBar.Text));
+            Navigation.PushModalAsync(new PageSearch());
         }
     }
 }

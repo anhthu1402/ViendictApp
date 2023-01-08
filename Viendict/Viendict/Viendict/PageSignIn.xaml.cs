@@ -39,5 +39,10 @@ namespace Viendict
             else
                 await DisplayAlert("Thông báo", "Email hoặc mật khẩu chưa chính xác!", "Ok");
         }
+
+        private void cmdBack_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PopModalAsync();
+        }
     }
 }
