@@ -19,7 +19,6 @@ namespace Viendict.Views
         public StudyListTopic topicDefault = new StudyListTopic { TopicID = 1 };
         async void GetAllStudyLessonByTopic(int topicID)
         {
-
             HttpClient httpClient = new HttpClient();
             var lesson = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetAllStudyLessonByTopic?TopicID=" + topicID.ToString());
             var lessonConverted = JsonConvert.DeserializeObject<List<StudyListLesson>>(lesson);
