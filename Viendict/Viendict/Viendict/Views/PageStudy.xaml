@@ -33,20 +33,15 @@
                         <ViewCell>
                             <Frame CornerRadius="10" HasShadow="True" Margin="10">
                                 <StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding LessonID, StringFormat='Bài: {0}'}" TextColor="CornflowerBlue" 
-                                                                            FontAttributes="Bold" FontSize="20"/>
-                                        <Label x:Name="LessonName" Text="{Binding Name, StringFormat=' {0}'}" TextColor="CornflowerBlue" 
-                                                                            FontAttributes="Bold" FontSize="20"/>
-                                    </StackLayout>
-                                    <Label  FontSize="18" HorizontalOptions="EndAndExpand">
+                                    <Label TextColor="CornflowerBlue" FontAttributes="Bold" FontSize="20">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="{Binding Learnt, StringFormat='Đã học: {0}/'}"/>
-                                                <Span Text="{Binding TotalWords}"/>
+                                                <Span Text="{Binding LessonID, StringFormat='Bài {0}:'}"></Span>
+                                                <Span Text="{Binding Name, StringFormat=' {0}'}"></Span>
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
+                                    <Label Text="{Binding Learnt}" FontSize="18" HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
                             </Frame>
                         </ViewCell>

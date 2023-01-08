@@ -2004,3 +2004,23 @@ as
 --if(exists(select * from UserAccount where Email=@email))
 
 --exec Proc_GetUserByEmail @email = 'vi'
+
+/* Proc_GetDetailContentLessonByID */
+SET ANSI_NULLS ON	
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[Proc_GetDetailContentLessonByID](@topicID int, @lessonID int, @id int)
+as
+select * from [dbo].[lst_study_topic_vocab] 
+where LessonID=@lessonID and TopicID=@topicID and ID=@id
+GO
+
+----- remember to execute
+alter table lst_study_topic_lesson alter column Learnt nvarchar(50)
+update lst_study_topic_lesson set Learnt=N'Chưa hoàn thành'
+/* Proc_StudyLessonFinished*/
+create proc [dbo].[Proc_StudyLessonFinished] (@topicID int, @lessonID int)
+as 
+update lst_study_topic_lesson set Learnt=N'Đã hoàn thành' where TopicID=@topicID and LessonID=@lessonID
+go

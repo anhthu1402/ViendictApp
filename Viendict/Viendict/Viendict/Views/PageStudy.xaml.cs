@@ -47,10 +47,14 @@ namespace Viendict.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MessagingCenter.Subscribe<PageStudy, int>(this, "Hi", (sender, arg) =>
+            MessagingCenter.Subscribe<PageStudy, int>(this, "Update Topic", (sender, arg) =>
             {
                 GetAllStudyLessonByTopic(arg);
                 GetStudyTopicByTopicID(arg);
+            });
+            MessagingCenter.Subscribe<PageStudy, int>(this, "Update Lessons' status", (sender, arg) =>
+            {
+                GetAllStudyLessonByTopic(arg);
             });
         }
 
