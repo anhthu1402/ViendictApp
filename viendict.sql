@@ -1998,9 +1998,9 @@ CREATE PROC [dbo].[Proc_GetUserByEmail](@email nvarchar(100))
 as
 	select * from UserAccount where Email=@email
 
-exec Proc_ChangePassword @userid = 1, @email = 'vi', @password = '000', @CurrentID = 1
-select * from UserAccount
+--exec Proc_ChangePassword @userid = 1, @email = 'vi', @password = '000', @CurrentID = 1
+--select * from UserAccount
 
-if(exists(select * from UserAccount where Email=@email))
+--if(exists(select * from UserAccount where Email=@email))
 
-exec Proc_GetUserByEmail @email = 'vi'
+--exec Proc_GetUserByEmail @email = 'vi'

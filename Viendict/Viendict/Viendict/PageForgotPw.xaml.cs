@@ -38,7 +38,7 @@ namespace Viendict
             {
                 HttpClient http = new HttpClient();
                 var sql = await http.GetStringAsync
-                    ("http://192.168.1.5/ViendictAPI/api/AppController/GetUserByEmail?Email=" +
+                    ("http://viendictapi.somee.com/api/AppController/GetUserByEmail?Email=" +
                     email.Text);
                 var user = JsonConvert.DeserializeObject<UserAccount>(sql);
 
@@ -54,7 +54,7 @@ namespace Viendict
                 string jsonuser = JsonConvert.SerializeObject(user);
                 StringContent httpcontent = new StringContent(jsonuser, Encoding.UTF8, "application/json");
                 HttpClient http2 = new HttpClient();
-                await http2.PostAsync("http://192.168.1.5/ViendictAPI/api/AppController/ChangePassword", httpcontent);
+                await http2.PostAsync("http://viendictapi.somee.com/api/AppController/ChangePassword", httpcontent);
 
                 MailMessage mail = new MailMessage();
                 SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");

@@ -43,7 +43,7 @@ namespace Viendict
 				string jsonuser = JsonConvert.SerializeObject(UserAccount.user);
 				StringContent httpcontent = new StringContent(jsonuser, Encoding.UTF8, "application/json");
 				HttpResponseMessage kq;
-				kq = await http.PostAsync("http://192.168.1.5/ViendictAPI/api/AppController/ChangePassword", httpcontent);
+				kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/ChangePassword", httpcontent);
 				var result = await kq.Content.ReadAsStringAsync();
 				if (int.Parse(result.ToString()) > 0)
 				{
