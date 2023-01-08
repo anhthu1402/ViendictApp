@@ -37,7 +37,7 @@ namespace Viendict.Study
 
         private void Study_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new PageDetail(Lesson));
+            Navigation.PushAsync(new PgeDetailLesson(Lesson, 1));
         }
     }
 }
