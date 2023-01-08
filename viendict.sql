@@ -2024,3 +2024,54 @@ create proc [dbo].[Proc_StudyLessonFinished] (@topicID int, @lessonID int)
 as 
 update lst_study_topic_lesson set Learnt=N'Đã hoàn thành' where TopicID=@topicID and LessonID=@lessonID
 go
+
+----Create table SearchHistory----
+create table SearchHistory
+(
+	[ID] int IDENTITY(1,1) NOT NULL,
+	[UserID] int not null,
+	[WordID] int null,
+	[Word] varchar(50) NULL,
+	PRIMARY KEY CLUSTERED ([ID] ASC) 
+	WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF)
+	ON [PRIMARY]
+) ON [PRIMARY]
+GO
+----Procedure Add word to Search History----
+create proc [dbo].[AddToHistory] (@userid int, @wordid int, @word varchar(50), @CurrentID int output)
+as
+begin try
+	if(exists(select * from SearchHistory where Word=@word))
+	begin
+		set @CurrentID=0
+		return
+	end
+	insert into SearchHistory values (@userid, @wordid, @word)
+	set @CurrentID=@@IDENTITY
+end try
+begin catch
+	set @CurrentID=0
+end catch
+GO
+----Procedure Get list Search History by UserID----
+create proc [dbo].[Proc_GetListHistoryByUserID] (@userid int)
+as
+	select * from SearchHistory where UserID = @userid
+Go
+----Procedure Delete word from Search History----
+create PROC [dbo].[DeleteFromHistory](@id int, @CurrentID int output)
+as
+begin try
+	if(exists(select * from SearchHistory where ID=@id))
+	begin
+		set @CurrentID=-1
+		return
+	end
+	delete SearchHistory where ID=@id
+	set @CurrentID=@id
+end try
+begin catch
+	set @CurrentID=0
+end catch
+
+--exec Proc_GetListHistoryByUserID @userid = 1, @wordid = 90, @word = 'abolish', @CurrentID = 1

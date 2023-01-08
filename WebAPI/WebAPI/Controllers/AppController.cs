@@ -348,5 +348,49 @@ namespace WebAPI.Controllers
             }
         }
 
+        [Route("api/AppController/AddToHistory")]
+        [HttpPost]
+        public IHttpActionResult AddToHistory(SearchHistory word)
+        {
+            try
+            {
+                int kq = Database.Database.AddToHistory(word);
+                return Ok(kq);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/GetListHistoryByUserID")]
+        [HttpGet]
+        public IHttpActionResult GetListHistory(int UserID)
+        {
+            try
+            {
+                DataTable result = Database.Database.GetListHistoryByUserID(UserID);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/DeleteFromHistory")]
+        [HttpPost]
+        public IHttpActionResult DeleteFromHistory(SearchHistory word)
+        {
+            try
+            {
+                int result = Database.Database.DeleteFromHistory(word);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

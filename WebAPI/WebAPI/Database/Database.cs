@@ -163,5 +163,27 @@ namespace WebAPI.Database
                 user.UserID = 0;
             return user;
         }
+        public static int AddToHistory(SearchHistory word)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("userid", word.UserID);
+            param.Add("wordid", word.WordID);
+            param.Add("Word", word.Word);
+            int result = int.Parse(Exec_Command("Proc_AddToHistory", param).ToString());
+            return result;
+        }
+        public static DataTable GetListHistoryByUserID(int UserID)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("userid", UserID);
+            return ReadTable("Proc_GetListHistoryByUserID", param);
+        }
+        public static int DeleteFromHistory(SearchHistory word)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("ID", word.ID);
+            int kq = int.Parse(Exec_Command("Proc_DeleteFromHistory", param).ToString());
+            return kq;
+        }
     }
 }
