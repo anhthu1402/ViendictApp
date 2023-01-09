@@ -20,7 +20,7 @@ namespace Viendict
             if (UserAccount.user.UserID > 0)
             {
                 HttpClient httpClient = new HttpClient();
-                var lstword = await httpClient.GetStringAsync("http://192.168.1.8/ViendictAPI/api/AppController/GetListHistoryByUserID?UserID=" + UserAccount.user.UserID.ToString());
+                var lstword = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetListHistoryByUserID?UserID=" + UserAccount.user.UserID.ToString());
                 var jsonlstword = JsonConvert.DeserializeObject<List<SearchHistory>>(lstword);
                 lstSearchHistory.ItemsSource = jsonlstword;
                 txthistory.IsVisible = true;
