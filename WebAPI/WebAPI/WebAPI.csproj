@@ -160,7 +160,6 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\Favorite.cs" />
-    <Compile Include="Database\SearchHistory.cs" />
     <Compile Include="Database\UserAccount.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

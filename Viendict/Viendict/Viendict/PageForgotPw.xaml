@@ -14,7 +14,7 @@
                 <Entry x:Name="email" Keyboard="Email" Placeholder="Enter your email to reset password" TextColor="CornflowerBlue"
                    Margin="-5,0,0,0"/>
             </Frame>
-            <Label x:Name="txtMessg" FontSize="Medium" TextColor="Orange" IsVisible="False"/>
+
             <Button x:Name="cmdResetPassword" Text="Reset Password" BackgroundColor="CornflowerBlue"
                     FontSize="20" TextColor="White" FontAttributes="Bold"
                     CornerRadius="15" Margin="20" Padding="0,15" VerticalOptions="EndAndExpand"

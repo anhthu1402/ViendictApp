@@ -48,6 +48,7 @@ namespace Viendict.Views
             tapHeartCount++;
             var imageSender = (Image)sender;
             imageSender.Source = (tapHeartCount % 2 == 0) ? "FavouriteRed.png" : "FavouriteBlack.png";
+
         }
 
         private void lstFavorite_ItemTapped(object sender, ItemTappedEventArgs e)

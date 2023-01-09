@@ -17,7 +17,16 @@ namespace Viendict.Views
             InitializeComponent();
             Shell.SetNavBarIsVisible(this, false);
             if (UserAccount.user.UserID > 0)
+            {
                 UserName.Text = UserAccount.user.UserLoginName;
+                IsUser.IsVisible = true;
+                IsGuest.IsVisible = false;
+            }
+            else
+            {
+                IsUser.IsVisible = false;
+                IsGuest.IsVisible = true;
+            }
         }
         protected override void OnAppearing()
         {
@@ -44,6 +53,17 @@ namespace Viendict.Views
                 await Application.Current.MainPage.Navigation.PopToRootAsync();
                 Application.Current.MainPage = new MainPage();
             }
+        }
+
+        private void cmdSignup_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage.Navigation.PopToRootAsync();
+            Application.Current.MainPage = new PageSignUp();
+        }
+
+        private void cmdSignin_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

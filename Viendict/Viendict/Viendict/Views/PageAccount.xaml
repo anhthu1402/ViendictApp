@@ -5,58 +5,60 @@
              BackgroundImageSource="bg_forest">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="15,20">
-                <Frame BackgroundColor="Transparent" Margin="0,40,0,0" Padding="20" CornerRadius="15">
-                    <StackLayout>
-                        <Frame HeightRequest="150" WidthRequest="150" IsClippedToBounds="True" CornerRadius="100" HorizontalOptions="CenterAndExpand" HasShadow="True">
-                            <Image Source="avt.png" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center"/>
-                        </Frame>
-                        <Label x:Name="UserName" Text="Vi nhó" TextColor="#26428b" FontSize="Title" FontAttributes="Bold"
+            <StackLayout>
+                <StackLayout x:Name="IsUser" Padding="15,20">
+                    <Frame BackgroundColor="Transparent" Margin="0,40,0,0" Padding="20" CornerRadius="15">
+                        <StackLayout>
+                            <Frame HeightRequest="150" WidthRequest="150" IsClippedToBounds="True" CornerRadius="100" HorizontalOptions="CenterAndExpand" HasShadow="True">
+                                <Image Source="avt.png" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+                            <Label x:Name="UserName" Text="Vi nhó" TextColor="#26428b" FontSize="Title" FontAttributes="Bold"
                                HorizontalTextAlignment="Center" Padding="15"/>
-                    </StackLayout>
-                </Frame>
-                <StackLayout VerticalOptions="CenterAndExpand" Spacing="20">
-                    <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
-                        <StackLayout Orientation="Horizontal" Spacing="25">
-                            <Image Source="icon_edit" WidthRequest="25" HeightRequest="25"/>
-                            <Button x:Name="cmdEditProfile" Text="Sửa hồ sơ" HorizontalOptions="Start" Padding="0,15,200,15" 
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout VerticalOptions="CenterAndExpand" Spacing="20">
+                        <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
+                            <StackLayout Orientation="Horizontal" Spacing="25">
+                                <Image Source="icon_edit" WidthRequest="25" HeightRequest="25"/>
+                                <Button x:Name="cmdEditProfile" Text="Sửa hồ sơ" HorizontalOptions="Start" Padding="0,15,200,15" 
                                     BackgroundColor="Transparent" TextColor="Black" FontSize="Medium" Clicked="cmdEditProfile_Clicked"/>
-                        </StackLayout>
-                    </Frame>
-                    <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
-                        <StackLayout Orientation="Horizontal" Spacing="25">
-                            <Image Source="icon_changepw" WidthRequest="25" HeightRequest="25"/>
-                            <Button x:Name="cmdChangePw" Text="Đổi mật khẩu" HorizontalOptions="Start" Padding="0,15,150,15" 
+                            </StackLayout>
+                        </Frame>
+                        <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
+                            <StackLayout Orientation="Horizontal" Spacing="25">
+                                <Image Source="icon_changepw" WidthRequest="25" HeightRequest="25"/>
+                                <Button x:Name="cmdChangePw" Text="Đổi mật khẩu" HorizontalOptions="Start" Padding="0,15,150,15" 
                                     BackgroundColor="Transparent" TextColor="Black" FontSize="Medium" Clicked="cmdChangePw_Clicked"/>
-                        </StackLayout>
-                    </Frame>
-                    <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
-                        <StackLayout Orientation="Horizontal" Spacing="25">
-                            <Image Source="icon_signout_red" WidthRequest="25" HeightRequest="25"/>
-                            <Button x:Name="cmdSignout" Text="Đăng xuất" HorizontalOptions="Start" Padding="0,15,220,15" 
+                            </StackLayout>
+                        </Frame>
+                        <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
+                            <StackLayout Orientation="Horizontal" Spacing="25">
+                                <Image Source="icon_signout_red" WidthRequest="25" HeightRequest="25"/>
+                                <Button x:Name="cmdSignout" Text="Đăng xuất" HorizontalOptions="Start" Padding="0,15,220,15" 
                                     BackgroundColor="Transparent" TextColor="Red" FontSize="Medium" Clicked="cmdSignout_Clicked"/>
-                        </StackLayout>
-                    </Frame>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-            <!--<StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20" Spacing="20">
+                <StackLayout x:Name="IsGuest" HorizontalOptions="Center" VerticalOptions="Center" Padding="20" Spacing="20">
                 <Label Text="Đăng ký tài khoản ngay để sử dụng đầy đủ các tính năng của ứng dụng!" Padding="25,10" HorizontalTextAlignment="Center"
                        FontSize="Large" TextColor="Maroon" LineHeight="1.5"/>
                 <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
                     <StackLayout Orientation="Horizontal" Spacing="25">
                         <Image Source="icon_signup" WidthRequest="25" HeightRequest="25"/>
-                        <Button x:Name="cmdSignup" Text="Sign up" HorizontalOptions="Start" Padding="0,15,220,15" 
+                        <Button x:Name="cmdSignup" Text="Đăng ký" HorizontalOptions="Start" Padding="0,15,220,15" 
                                     BackgroundColor="Transparent" TextColor="Black" FontSize="Medium" Clicked="cmdSignup_Clicked"/>
                     </StackLayout>
                 </Frame>
                 <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
                     <StackLayout Orientation="Horizontal" Spacing="25">
                         <Image Source="icon_signin" WidthRequest="25" HeightRequest="25"/>
-                        <Button x:Name="cmdSignin" Text="Sign in" HorizontalOptions="Start" Padding="0,15,220,15" 
+                        <Button x:Name="cmdSignin" Text="Đăng nhập" HorizontalOptions="Start" Padding="0,15,220,15" 
                                     BackgroundColor="Transparent" TextColor="Black" FontSize="Medium" Clicked="cmdSignin_Clicked"/>
                     </StackLayout>
                 </Frame>
-            </StackLayout>-->
+            </StackLayout>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

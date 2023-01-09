@@ -23,8 +23,9 @@ namespace Viendict
                 var lstword = await httpClient.GetStringAsync("http://192.168.1.8/ViendictAPI/api/AppController/GetListHistoryByUserID?UserID=" + UserAccount.user.UserID.ToString());
                 var jsonlstword = JsonConvert.DeserializeObject<List<SearchHistory>>(lstword);
                 lstSearchHistory.ItemsSource = jsonlstword;
+                txthistory.IsVisible = true;
             }
-            
+            else txthistory.IsVisible = false;
         }
         public PageSearch()
         {

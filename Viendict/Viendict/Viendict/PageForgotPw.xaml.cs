@@ -70,13 +70,11 @@ namespace Viendict
                 smtpServer.UseDefaultCredentials = false;
                 smtpServer.Credentials = new System.Net.NetworkCredential("ie307viendict@gmail.com", "hpdhmjegpownndbj");
 
-                txtMessg.IsVisible = true;
-
-                // await DisplayAlert("", "Mật khẩu mới đã được gửi đến email của bạn. Quá trình này sẽ mất vài giây.", "Ok");
                 smtpServer.Send(mail);
 
                 await Navigation.PopModalAsync();
             }
+
         }
     }
 }

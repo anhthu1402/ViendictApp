@@ -24,7 +24,7 @@
                                             <TapGestureRecognizer  x:Name="TurnOnSpeaker" Tapped="TurnOnSpeaker_Tapped"/>
                                         </Image.GestureRecognizers>
                                     </Image>
-                                    <Image Source="FavouriteRed.png" WidthRequest="24" HeightRequest="24" Margin="0" BackgroundColor="Transparent">
+                                    <Image Source="FavouriteRed.png" WidthRequest="24" HeightRequest="24" Margin="0" BackgroundColor="Transparent" x:Name="{Binding Word}" BindingContext="{Binding Word}">
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer  x:Name="RemoveFromFavourite" Tapped="RemoveFromFavourite_Tapped"/>
                                         </Image.GestureRecognizers>
