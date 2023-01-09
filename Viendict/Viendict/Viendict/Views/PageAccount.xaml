@@ -6,16 +6,13 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <StackLayout x:Name="IsUser" Padding="15,20">
-                    <Frame BackgroundColor="Transparent" Margin="0,40,0,0" Padding="20" CornerRadius="15">
-                        <StackLayout>
-                            <Frame HeightRequest="150" WidthRequest="150" IsClippedToBounds="True" CornerRadius="100" HorizontalOptions="CenterAndExpand" HasShadow="True">
-                                <Image Source="avt.png" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center"/>
-                            </Frame>
-                            <Label x:Name="UserName" Text="Vi nhó" TextColor="#26428b" FontSize="Title" FontAttributes="Bold"
-                               HorizontalTextAlignment="Center" Padding="15"/>
-                        </StackLayout>
-                    </Frame>
+                <StackLayout x:Name="IsUser" Padding="15,50">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="40" Spacing="5">
+                        <Label Text="Xin chào " TextColor="#26428b" FontSize="Title" FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"/>
+                        <Label x:Name="UserName" TextColor="#26428b" FontSize="Title" FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"/>
+                    </StackLayout>
                     <StackLayout VerticalOptions="CenterAndExpand" Spacing="20">
                         <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
                             <StackLayout Orientation="Horizontal" Spacing="25">

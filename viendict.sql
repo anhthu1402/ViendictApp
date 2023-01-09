@@ -108,7 +108,6 @@ CREATE TABLE [dbo].[lst_study_topic_vocab](
 	[LessonID] [int] NOT NULL,
 	[TopicID] [int] NOT NULL,
 )
-
 /*create table conditional_sentence_type*/
 SET ANSI_NULLS ON
 GO
@@ -1869,40 +1868,44 @@ GO
 --create table Favorite
 CREATE TABLE [dbo].[Favorite](
 	[ID] int IDENTITY(1,1) NOT NULL,
+	[UserID] int not null,
 	[Word] varchar(50) NULL ,
-PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+	PRIMARY KEY CLUSTERED ([ID] ASC)
+	WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) 
+	ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+----select * from Favorite
+----Alter table Favorite add Word varchar(50)
+
 
 --create procedure Proc_AddToFavorite
+--exec Proc_AddToFavorite @userid=2, @word='worm', @CurrentID = 1
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROC [dbo].[Proc_AddToFavorite](@word varchar(50), @CurrentID int output)
+CREATE PROC [dbo].[Proc_AddToFavorite](@userid int, @word varchar(50), @CurrentID int output)
 as
 begin try
-
-if(exists(select * from Favorite where Word=@word))
- begin
-  set @CurrentID=0
-  return
- end
-insert into Favorite values (@word)
-set @CurrentID=@@IDENTITY
+	if(exists(select * from Favorite where UserID=@userid and Word=@word))
+	begin
+		set @CurrentID=0
+		return
+	end
+	insert into Favorite values (@userid, @word)
+	set @CurrentID=@@IDENTITY
 end try
 begin catch
- set @CurrentID=0
- end catch
+	set @CurrentID=0
+end catch
 GO
 
 --create procedure Proc_GetListFavorite
-create proc [dbo].[Proc_GetListFavorite]
+--exec Proc_GetListFavorite @userid=1
+create proc [dbo].[Proc_GetListFavorite] (@userid int)
 as
-	select * from Favorite
+	select * from Favorite where UserID=@userid
 Go
 
 /* Proc_GetAllVocabTopic */
@@ -1947,11 +1950,10 @@ alter table lst_study_topic add Img varchar(50)
 update lst_study_topic set Img='ielts900.png' where TopicID=1
 update lst_study_topic set Img='toeic600.png' where TopicID=2
 update lst_study_topic set Img='toefl1000.jpg' where TopicID=3
-delete from lst_study_topic where TopicID=4
 ----
-alter table lst_study_topic_lesson add Learnt int
+--alter table lst_study_topic_lesson add Learnt int
 alter table lst_study_topic_lesson add TotalWords int
-update lst_study_topic_lesson set Learnt=0
+--update lst_study_topic_lesson set Learnt=0
 update lst_study_topic_lesson set TotalWords=20 where TopicID=1
 update lst_study_topic_lesson set TotalWords=12 where TopicID=2
 update lst_study_topic_lesson set TotalWords=20 where TopicID=3
@@ -2017,8 +2019,9 @@ where LessonID=@lessonID and TopicID=@topicID and ID=@id
 GO
 
 ----- remember to execute
-alter table lst_study_topic_lesson alter column Learnt nvarchar(50)
-update lst_study_topic_lesson set Learnt=N'Chưa hoàn thành'
+--alter table lst_study_topic_lesson alter column Learnt nvarchar(50)
+--alter table lst_study_topic_lesson drop column Learnt
+--update lst_study_topic_lesson set Learnt=N'Chưa hoàn thành'
 /* Proc_StudyLessonFinished*/
 create proc [dbo].[Proc_StudyLessonFinished] (@topicID int, @lessonID int)
 as 
@@ -2083,3 +2086,20 @@ end catch
 --update UserAccount
 --set Email = 'a5'
 --where Email = 'attv552@gmail.com'
+
+----Procedure Delete word from Favorite----
+--exec Proc_DeleteFromFavorite @id=3, @CurrentID=1
+create PROC [dbo].[Proc_DeleteFromFavorite](@id int, @CurrentID int output)
+as
+begin try
+	if(not exists(select * from Favorite where ID=@id))
+	begin
+		set @CurrentID=-1
+		return
+	end
+	delete Favorite where ID=@id
+	set @CurrentID=@id
+end try
+begin catch
+	set @CurrentID=0
+end catch

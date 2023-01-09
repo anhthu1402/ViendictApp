@@ -17,6 +17,8 @@ namespace Viendict.WordDetail
         string Word;
         List<Word> w;
         List<WordDetail> wd;
+        int isFav = 0;
+        int IDFav = 0;
         async void GetWordDetail(string Word)
         {
             HttpClient client = new HttpClient();
@@ -62,14 +64,17 @@ namespace Viendict.WordDetail
         async void IsInFavorite(string Word)
         {
             HttpClient httpClient = new HttpClient();
-            var lstword = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetListFavorite");
+            var lstword = await httpClient.GetStringAsync("http://192.168.1.8/ViendictAPI/api/AppController/GetListFavorite?UserID=" + UserAccount.user.UserID.ToString());
             var lstwordConverted = JsonConvert.DeserializeObject<List<Favorite>>(lstword);
             foreach (Favorite favorite in lstwordConverted)
             {
                 if (favorite.Word == Word)
                 {
                     AddToFavorite.Source = "FavouriteRed.png";
+                    isFav = 1;
+                    IDFav = favorite.ID;
                 }
+                else isFav = 2;
             }
         }
         public PageWordDetail()
@@ -84,24 +89,46 @@ namespace Viendict.WordDetail
             IsInFavorite(toSearch);
             Word = toSearch;
         }
-
         private async void AddToFavorite_Clicked(object sender, EventArgs e)
         {
-            ImageButton imageButton = (ImageButton)sender;
-            Favorite favorite = new Favorite { Word = Word };
-            //if (imageButton.Source.ToString() == "FavouriteBlack.png")
-            //{
-                AddToFavorite.Source = "FavouriteRed.png";
-                HttpClient http = new HttpClient();
-                string jsonFav = JsonConvert.SerializeObject(favorite);
-                StringContent httpcontent = new StringContent(jsonFav, Encoding.Default, "application/json");
-                HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToFavorite", httpcontent);
-                var kqtb = await kq.Content.ReadAsStringAsync();
-                if(int.Parse(kqtb.ToString())>0)
+            ImageButton rm = (ImageButton)sender;
+            Favorite favorite;
+            HttpClient http = new HttpClient();
+            string jsonFav;
+            StringContent httpcontent;
+            if (UserAccount.user.UserID > 0)
+            {
+                if (isFav == 2)
                 {
-                    await DisplayAlert("", "Đã thêm " + Word + " vào mục yêu thích", "OK");
+                    favorite = new Favorite { UserID = UserAccount.user.UserID, Word = Word };
+                    AddToFavorite.Source = "FavouriteRed.png";
+                    jsonFav = JsonConvert.SerializeObject(favorite);
+                    httpcontent = new StringContent(jsonFav, Encoding.Default, "application/json");
+                    //HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToFavorite", httpcontent);
+                    HttpResponseMessage kq = await http.PostAsync("http://192.168.1.8/ViendictAPI/api/AppController/AddToFavorite", httpcontent);
+                    var kqtb = await kq.Content.ReadAsStringAsync();
+                    if (int.Parse(kqtb.ToString()) > 0)
+                    {
+                        await DisplayAlert("", "Đã thêm " + Word + " vào mục yêu thích", "OK");
+                    }
+                    isFav = 1;
                 }
-            //}
+                else if (isFav == 1)
+                {
+                    bool ans = await DisplayAlert("Thông báo", $"Bạn có chắc chắn muốn xóa từ {Word} khỏi mục yêu thích?", "Có", "Không");
+                    if (ans)
+                    {
+                        AddToFavorite.Source = "FavouriteBlack.png";
+                        favorite = new Favorite { ID = IDFav, UserID = UserAccount.user.UserID, Word = Word };
+                        jsonFav = JsonConvert.SerializeObject(favorite);
+                        httpcontent = new StringContent(jsonFav, Encoding.UTF8, "application/json");
+                        await http.PostAsync("http://192.168.1.8/ViendictAPI/api/AppController/DeleteFromFavorite", httpcontent);
+                        isFav = 2;
+                    }
+                }
+            }
+
+            else await DisplayAlert("Thông báo", "Vui lòng đăng nhập để sử dụng tính năng này!", "Ok");
         }
 
         private void cmdSearch_Clicked(object sender, EventArgs e)

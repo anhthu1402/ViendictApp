@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viendict.Views.PageFavorite"
-             BackgroundImageSource="bg_beige.png">
+             BackgroundImageSource="bg_note.png">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="lstFavorite" ItemTapped="lstFavorite_ItemTapped" RowHeight="100" SeparatorColor="Cornflowerblue">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Padding="15, 10" RowSpacing="7">
+                            <Grid Padding="22, 10" RowSpacing="7">
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
@@ -18,18 +18,9 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Word}" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="18" TextColor="Black"/>
-                                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0" HorizontalOptions="EndAndExpand">
-                                    <Image Source="speakeroff.png" WidthRequest="24" HeightRequest="24" BackgroundColor="Transparent">
-                                        <Image.GestureRecognizers>
-                                            <TapGestureRecognizer  x:Name="TurnOnSpeaker" Tapped="TurnOnSpeaker_Tapped"/>
-                                        </Image.GestureRecognizers>
-                                    </Image>
-                                    <Image Source="FavouriteRed.png" WidthRequest="24" HeightRequest="24" Margin="0" BackgroundColor="Transparent" x:Name="{Binding Word}" BindingContext="{Binding Word}">
-                                        <Image.GestureRecognizers>
-                                            <TapGestureRecognizer  x:Name="RemoveFromFavourite" Tapped="RemoveFromFavourite_Tapped"/>
-                                        </Image.GestureRecognizers>
-                                    </Image>
-                                </StackLayout>
+                                <ImageButton x:Name="RemoveFromFavourite" Source="FavouriteRed.png"  BackgroundColor="Transparent" WidthRequest="25"
+                                             CommandParameter="{Binding .}" Clicked="RemoveFromFavourite_Clicked"
+                                             Grid.Column="1" Grid.Row="0" HorizontalOptions="EndAndExpand"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

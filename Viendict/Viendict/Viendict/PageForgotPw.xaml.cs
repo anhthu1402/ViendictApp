@@ -76,5 +76,10 @@ namespace Viendict
             }
 
         }
+
+        private void cmdBack_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
     }
 }

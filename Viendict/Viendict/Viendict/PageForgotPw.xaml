@@ -3,21 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viendict.PageForgotPw"
              BackgroundImageSource="bg_forgotpwd">
-    <NavigationPage.TitleView>
-        <StackLayout>
-            <Label Text="Forgot Password" TextColor="White" HorizontalTextAlignment="Center" FontSize="25" Margin="0,0,75,0"/>
-        </StackLayout>
-    </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout Padding="10,50,10,20">
-            <Frame HeightRequest="50" CornerRadius="10" BackgroundColor="white" HasShadow="True" Padding="20,0,20,10" Margin="10,120">
-                <Entry x:Name="email" Keyboard="Email" Placeholder="Enter your email to reset password" TextColor="CornflowerBlue"
+        <StackLayout Padding="10,10,10,20">
+            <ImageButton Source="icon_back" HeightRequest="45" WidthRequest="45" BackgroundColor="Transparent" Margin="5" VerticalOptions="Start" HorizontalOptions="Start"
+                             x:Name="cmdBack" Clicked="cmdBack_Clicked"/>
+
+            <Frame HeightRequest="50" CornerRadius="10" BackgroundColor="white" HasShadow="True" Padding="20,0,20,10" Margin="10">
+                <Entry x:Name="email" Keyboard="Email" Placeholder="Nhập email bạn muốn đặt lại mật khẩu" TextColor="CornflowerBlue"
                    Margin="-5,0,0,0"/>
             </Frame>
-
             <Button x:Name="cmdResetPassword" Text="Reset Password" BackgroundColor="CornflowerBlue"
                     FontSize="20" TextColor="White" FontAttributes="Bold"
-                    CornerRadius="15" Margin="20" Padding="0,15" VerticalOptions="EndAndExpand"
+                    CornerRadius="15" Margin="20" Padding="0,15"
                     Clicked="cmdResetPassword_Clicked"/>
         </StackLayout>
     </ContentPage.Content>

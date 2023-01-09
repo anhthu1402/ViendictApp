@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Viendict.Grammar.ConditionalSentence.PageConditionalSentenceType">
+             x:Class="Viendict.Grammar.ConditionalSentence.PageConditionalSentenceType"
+             BackgroundImageSource="bg_vg">
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="Black"/>
@@ -14,11 +15,11 @@
                 <DataTemplate>
                     <StackLayout Padding="10">
                         <Label Text="1. Khái niệm, công thức" TextColor="red" FontAttributes="Bold" FontSize="24"></Label>
-                        <Label Text="{Binding Define}"/>
+                        <Label Text="{Binding Define}"  LineHeight="1.5"/>
                         <Label Text=" + Công thức" FontAttributes="Bold"/>
-                        <Label Text="{Binding Formula}"/>
+                        <Label Text="{Binding Formula}"  LineHeight="1.5"/>
                         <Label Text="2. Cách dùng" TextColor="red" FontAttributes="Bold" FontSize="24"></Label>
-                        <Label Text="{Binding HowToUse}"/>
+                        <Label Text="{Binding HowToUse}"  LineHeight="1.5"/>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

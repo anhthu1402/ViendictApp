@@ -106,9 +106,10 @@ namespace WebAPI.Database
         public static int AddToFavorite(Favorite favorite)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("userid", favorite.UserID);
             param.Add("Word", favorite.Word);
-            int kq = int.Parse(Exec_Command("Proc_AddToFavorite", param).ToString());
-            return kq;
+            int result = int.Parse(Exec_Command("Proc_AddToFavorite", param).ToString());
+            return result;
         }
         public static UserAccount UserSignin(string Email, string Password)
         {
@@ -182,6 +183,19 @@ namespace WebAPI.Database
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("ID", word.ID);
             int kq = int.Parse(Exec_Command("Proc_DeleteFromHistory", param).ToString());
+            return kq;
+        }
+        public static DataTable GetListFavorite(int UserID)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("userid", UserID);
+            return ReadTable("Proc_GetListFavorite", param);
+        }
+        public static int DeleteFromFavorite(Favorite favorite)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("ID", favorite.ID);
+            int kq = int.Parse(Exec_Command("Proc_DeleteFromFavorite", param).ToString());
             return kq;
         }
     }

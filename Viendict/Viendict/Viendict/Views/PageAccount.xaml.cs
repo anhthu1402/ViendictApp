@@ -63,7 +63,8 @@ namespace Viendict.Views
 
         private void cmdSignin_Clicked(object sender, EventArgs e)
         {
-
+            Application.Current.MainPage.Navigation.PopToRootAsync();
+            Application.Current.MainPage = new PageSignUp();
         }
     }
 }

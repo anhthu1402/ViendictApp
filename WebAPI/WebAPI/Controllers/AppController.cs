@@ -186,11 +186,11 @@ namespace WebAPI.Controllers
 
         [Route("api/AppController/GetListFavorite")]
         [HttpGet]
-        public IHttpActionResult GetListFavorite()
+        public IHttpActionResult GetListFavorite(int userid)
         {
             try
             {
-                DataTable result = Database.Database.ReadTable("Proc_GetListFavorite");
+                DataTable result = Database.Database.GetListFavorite((userid));
                 return Ok(result);
             }
             catch
@@ -393,5 +393,19 @@ namespace WebAPI.Controllers
             }
         }
 
+        [Route("api/AppController/DeleteFromFavorite")]
+        [HttpPost]
+        public IHttpActionResult DeleteFromFavorite(Favorite favorite)
+        {
+            try
+            {
+                int result = Database.Database.DeleteFromFavorite(favorite);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }

@@ -15,13 +15,15 @@ namespace Viendict.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageFavorite : ContentPage
     {
-        
-        async void GetListFavorite()
+        public async void GetListFavorite()
         {
-            HttpClient httpClient = new HttpClient();
-            var lstword = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetListFavorite");
-            var lstwordConverted = JsonConvert.DeserializeObject<List<Favorite>>(lstword);
-            lstFavorite.ItemsSource = lstwordConverted;
+            if (UserAccount.user.UserID > 0)
+            {
+                HttpClient httpClient = new HttpClient();
+                var lstword = await httpClient.GetStringAsync("http://192.168.1.8/ViendictAPI/api/AppController/GetListFavorite?UserID=" + UserAccount.user.UserID.ToString());
+                var lstwordConverted = JsonConvert.DeserializeObject<List<Favorite>>(lstword);
+                lstFavorite.ItemsSource = lstwordConverted;
+            }
         }
         public int tapHeartCount = 0;
         public int tapSpeakerCount = 0;
@@ -43,14 +45,6 @@ namespace Viendict.Views
             imageSender.Source = (tapSpeakerCount % 2 == 0) ? "speakeroff.png" : "speakeron.png";
         }
 
-        private void RemoveFromFavourite_Tapped(object sender, EventArgs e)
-        {
-            tapHeartCount++;
-            var imageSender = (Image)sender;
-            imageSender.Source = (tapHeartCount % 2 == 0) ? "FavouriteRed.png" : "FavouriteBlack.png";
-
-        }
-
         private void lstFavorite_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if(lstFavorite.SelectedItem!=null)
@@ -60,5 +54,16 @@ namespace Viendict.Views
             }
         }
 
+        private async void RemoveFromFavourite_Clicked(object sender, EventArgs e)
+        {
+            ImageButton rm = (ImageButton)sender;
+            Favorite word = rm.CommandParameter as Favorite;
+            HttpClient http = new HttpClient();
+            string jsonword = JsonConvert.SerializeObject(word);
+            StringContent httpcontent = new StringContent(jsonword, Encoding.UTF8, "application/json");
+            await http.PostAsync("http://192.168.1.8/ViendictAPI/api/AppController/DeleteFromFavorite", httpcontent);
+
+            OnAppearing();
+        }
     }
 }

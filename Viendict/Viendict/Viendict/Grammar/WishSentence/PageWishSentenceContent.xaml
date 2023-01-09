@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Viendict.Grammar.WishSentence.PageWishSentenceContent">
+             x:Class="Viendict.Grammar.WishSentence.PageWishSentenceContent"
+             BackgroundImageSource="bg_beige">
     <ContentPage.Content>
         <CollectionView x:Name="lstWishSentenceContent" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10">
                         <Label Text="1. Khái niệm" TextColor="red" FontAttributes="Bold" FontSize="24"></Label>
-                        <Label Text="{Binding Define}" VerticalOptions="Center" FontSize="21" TextColor="CornflowerBlue"/>
+                        <Label Text="{Binding Define}" VerticalOptions="Center" FontSize="21" TextColor="black"  LineHeight="1.5"/>
                         <Label Text="2. Công thức" TextColor="red" FontAttributes="Bold" FontSize="24"></Label>
-                        <Label Text="{Binding Formula}" VerticalOptions="Center" FontSize="21" TextColor="CornflowerBlue"/>
+                        <Label Text="{Binding Formula}" VerticalOptions="Center" FontSize="21" TextColor="Black"  LineHeight="1.5"/>
                         <Label Text="3. Ví dụ" TextColor="red" FontAttributes="Bold" FontSize="24"></Label>
-                        <Label Text="{Binding Example}" VerticalOptions="Center" FontSize="21" TextColor="CornflowerBlue"/>
+                        <Label Text="{Binding Example}" VerticalOptions="Center" FontSize="21" TextColor="Black"  LineHeight="1.5"/>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

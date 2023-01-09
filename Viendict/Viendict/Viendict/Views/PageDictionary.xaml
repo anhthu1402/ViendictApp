@@ -5,9 +5,7 @@
              BackgroundImageSource="bg_loang.png">
     <ContentPage.Content>
         <StackLayout Padding="0,0,0,20">
-            <ImageButton Margin="20" Source="icon_search" HeightRequest="50" WidthRequest="50" BackgroundColor="Transparent" VerticalOptions="Start" HorizontalOptions="EndAndExpand"
-                             x:Name="cmdSearch" Clicked="cmdSearch_Clicked"/>
-            <StackLayout Margin="2,50" Spacing="20">
+            <StackLayout Margin="2,30,2,10" Spacing="20">
                 <ScrollView>
                     <StackLayout Spacing="20" >
                         <Frame Margin="10" BackgroundColor="White" BorderColor="LightBlue" CornerRadius="10">
@@ -27,6 +25,8 @@
                     </StackLayout>
                 </ScrollView>
             </StackLayout>
+            <ImageButton Margin="20,0" Padding="0" Source="icon_search" HeightRequest="50" WidthRequest="50" BackgroundColor="Transparent" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"
+                             x:Name="cmdSearch" Clicked="cmdSearch_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

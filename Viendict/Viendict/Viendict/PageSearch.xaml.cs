@@ -71,7 +71,7 @@ namespace Viendict
             HttpClient http = new HttpClient();
             string jsonword = JsonConvert.SerializeObject(word);
             StringContent httpcontent = new StringContent(jsonword, Encoding.UTF8, "application/json");
-            await http.PostAsync("http://192.168.1.8/ViendictAPI/api/AppController/DeleteFromHistory", httpcontent);
+            await http.PostAsync("http://viendictapi.somee.com/api/AppController/DeleteFromHistory", httpcontent);
 
             OnAppearing();
         }

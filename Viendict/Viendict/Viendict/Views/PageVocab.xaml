@@ -5,8 +5,9 @@
              BackgroundImageSource="bg_blue">
     <ContentPage.Content>
         <StackLayout>
-            <Button x:Name="cmdGrammar" Text="Ngữ pháp" Clicked="cmdGrammar_Clicked" BackgroundColor="Transparent" HorizontalOptions="Start" FontSize="Medium" TextColor="CornflowerBlue"
-                    Margin="0,10"/>
+            <Button x:Name="cmdGrammar" Text="Ngữ pháp" Clicked="cmdGrammar_Clicked" BackgroundColor="Transparent" HorizontalOptions="Start" FontSize="Medium" TextColor="DarkBlue"
+                    Margin="0,5"/>
+            <BoxView BackgroundColor="Maroon" Margin="0" HeightRequest="3"/>
             <ListView x:Name="lstVocabTopic" ItemTapped="lstVocabTopic_ItemTapped" RowHeight="60" SeparatorColor="Black" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -15,7 +16,7 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <Label Text="{Binding Name}" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="Medium" TextColor="CornflowerBlue"/>
+                                <Label Text="{Binding Name}" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="Medium" TextColor="DarkBlue"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
