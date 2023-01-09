@@ -28,7 +28,7 @@ namespace Viendict
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-                ("http://viendictapi.somee.com/api/AppController/UserSignin?Email=" +
+                ("http://192.168.1.8/ViendictAPI/api/AppController/UserSignin?Email=" +
                 useremail.Text + "&&Password=" + userpassword.Text);
             var user = JsonConvert.DeserializeObject<UserAccount>(kq);
             if (user.Email != "" && user.Email != null)
@@ -42,7 +42,7 @@ namespace Viendict
 
         private void cmdBack_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage.Navigation.PopModalAsync();
+            Navigation.PopModalAsync();
         }
     }
 }

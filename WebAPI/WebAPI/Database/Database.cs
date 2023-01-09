@@ -167,7 +167,6 @@ namespace WebAPI.Database
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("userid", word.UserID);
-            param.Add("wordid", word.WordID);
             param.Add("Word", word.Word);
             int result = int.Parse(Exec_Command("Proc_AddToHistory", param).ToString());
             return result;

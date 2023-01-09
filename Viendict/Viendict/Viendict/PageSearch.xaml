@@ -11,17 +11,30 @@
                            TextColor="CornflowerBlue" TextTransform="Lowercase"
                            FontSize="Medium" CancelButtonColor="CornflowerBlue"></SearchBar>
             </Frame>-->
-            <StackLayout Spacing="10">
+            <StackLayout Padding="0,20" Spacing="15">
                 <SearchBar x:Name="search" Placeholder="Type a word to look up..." PlaceholderColor="Gray"
                            TextColor="CornflowerBlue" TextTransform="Lowercase"
                            FontSize="Medium" CancelButtonColor="CornflowerBlue" TextChanged="search_TextChanged"></SearchBar>
-                <Button x:Name="cmdSearch" Text="Search" Clicked="cmdSearch_Clicked"/>
+                <Button x:Name="cmdSearch" Text="Search" Clicked="cmdSearch_Clicked" BackgroundColor="CornflowerBlue"
+                        FontSize="20" TextColor="White" FontAttributes="Bold"
+                        CornerRadius="15" Margin="20,0" Padding="0,10"/>
             </StackLayout>
-            <ListView x:Name="searchResults">
+            <Label Text="Lịch sử tìm kiếm gần nhất..." FontAttributes="Italic" HorizontalOptions="Center" FontSize="Medium"/>
+            <ListView x:Name="lstSearchHistory" HasUnevenRows="True" SeparatorVisibility="None"
+                      ItemTapped="lstSearchHistory_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout></StackLayout>
+                            <StackLayout>
+                                <Frame BackgroundColor="White" Margin="25,10" CornerRadius="20" Padding="0">
+                                    <StackLayout Orientation="Horizontal" Padding="10,5">
+                                        <Label Text="{Binding Word}" Margin="10,0" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                                        <Button x:Name="cmdDelete" Text="x" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" 
+                                                FontSize="Large" Padding="0,10" TextColor="Red"
+                                                CommandParameter="{Binding .}" Clicked="cmdDelete_Clicked"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

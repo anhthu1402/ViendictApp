@@ -4,10 +4,9 @@
              x:Class="Viendict.Views.PageDictionary"
              BackgroundImageSource="bg_loang.png">
     <ContentPage.Content>
-        <StackLayout>
-            <Button x:Name="cmdSearch" ImageSource="search" BackgroundColor="white"
-                    Padding="7" Margin="10,15"
-                    VerticalOptions="Start" HorizontalOptions="End" Clicked="cmdSearch_Clicked"/>
+        <StackLayout Padding="0,0,0,20">
+            <ImageButton Margin="20" Source="icon_search" HeightRequest="50" WidthRequest="50" BackgroundColor="Transparent" VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                             x:Name="cmdSearch" Clicked="cmdSearch_Clicked"/>
             <StackLayout Margin="2,50" Spacing="20">
                 <ScrollView>
                     <StackLayout Spacing="20" >

@@ -83,7 +83,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon_back.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Viendict\Viendict.csproj">
       <Project>{1E7CFD32-E239-4732-8248-586CBF3869AD}</Project>

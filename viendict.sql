@@ -2030,23 +2030,24 @@ create table SearchHistory
 (
 	[ID] int IDENTITY(1,1) NOT NULL,
 	[UserID] int not null,
-	[WordID] int null,
 	[Word] varchar(50) NULL,
 	PRIMARY KEY CLUSTERED ([ID] ASC) 
 	WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF)
 	ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+--drop table SearchHistory
 ----Procedure Add word to Search History----
-create proc [dbo].[AddToHistory] (@userid int, @wordid int, @word varchar(50), @CurrentID int output)
+--drop proc Proc_GetListHistoryByUserID
+create proc [dbo].[Proc_AddToHistory] (@userid int, @word varchar(50), @CurrentID int output)
 as
 begin try
-	if(exists(select * from SearchHistory where Word=@word))
+	if(exists(select * from SearchHistory where UserID=@userid and Word=@word))
 	begin
 		set @CurrentID=0
 		return
 	end
-	insert into SearchHistory values (@userid, @wordid, @word)
+	insert into SearchHistory values (@userid, @word)
 	set @CurrentID=@@IDENTITY
 end try
 begin catch
@@ -2056,13 +2057,13 @@ GO
 ----Procedure Get list Search History by UserID----
 create proc [dbo].[Proc_GetListHistoryByUserID] (@userid int)
 as
-	select * from SearchHistory where UserID = @userid
+	select top 10 * from SearchHistory where UserID = @userid order by ID desc
 Go
 ----Procedure Delete word from Search History----
-create PROC [dbo].[DeleteFromHistory](@id int, @CurrentID int output)
+create PROC [dbo].[Proc_DeleteFromHistory](@id int, @CurrentID int output)
 as
 begin try
-	if(exists(select * from SearchHistory where ID=@id))
+	if(not exists(select * from SearchHistory where ID=@id))
 	begin
 		set @CurrentID=-1
 		return
@@ -2074,4 +2075,11 @@ begin catch
 	set @CurrentID=0
 end catch
 
---exec Proc_GetListHistoryByUserID @userid = 1, @wordid = 90, @word = 'abolish', @CurrentID = 1
+--exec [dbo].[Proc_DeleteFromHistory] @id = 4, @CurrentID = 1
+--delete SearchHistory where ID=3
+--select top 10 * from SearchHistory where UserID=2 order by ID desc
+--select * from UserAccount
+
+--update UserAccount
+--set Email = 'a5'
+--where Email = 'attv552@gmail.com'

@@ -7,10 +7,8 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10,10,10,20" Spacing="20">
-                <Frame BackgroundColor="CornflowerBlue" VerticalOptions="StartAndExpand" Padding="0" Margin="-10">
-                    <Button x:Name="cmdBack" Text="←" FontSize="40" TextColor="White" HorizontalOptions="Start"
-                            Background="Transparent" VerticalOptions="Center"/>
-                </Frame>
+                <ImageButton Source="icon_back" HeightRequest="30" WidthRequest="30" BackgroundColor="Transparent" Margin="5" VerticalOptions="Start" HorizontalOptions="Start"
+                             x:Name="cmdBack" Clicked="cmdBack_Clicked"/>
                 <StackLayout Padding="15,25" Spacing="20">
                     <Label Text="Địa chỉ email" TextColor="CornflowerBlue" FontSize="20" FontAttributes="Bold"/>
                     <Entry x:Name="useremail" Keyboard="Email" Placeholder="example@gmail.com"

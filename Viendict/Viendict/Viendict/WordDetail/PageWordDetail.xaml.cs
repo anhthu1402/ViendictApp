@@ -106,7 +106,7 @@ namespace Viendict.WordDetail
 
         private void cmdSearch_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PageSearch());
+            Navigation.PushModalAsync(new NavigationPage(new PageSearch()));
         }
     }
 }
