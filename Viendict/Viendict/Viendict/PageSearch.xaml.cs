@@ -43,6 +43,13 @@ namespace Viendict
             search.Text = word;
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage = new AppShell();
+            return true;
+        }
+
         private async void cmdSearch_Clicked(object sender, EventArgs e)
         {
             if (UserAccount.user.UserID > 0)
@@ -51,16 +58,10 @@ namespace Viendict
                 HttpClient http = new HttpClient();
                 string jsonhistory = JsonConvert.SerializeObject(word);
                 StringContent httpcontent = new StringContent(jsonhistory, Encoding.Default, "application/json");
-                await http.PostAsync("http://192.168.1.8/ViendictAPI/api/AppController/AddToHistory", httpcontent);
+                await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToHistory", httpcontent);
             }
 
             await Navigation.PushModalAsync(new NavigationPage(new PageWordDetail(search.Text)));
-        }
-
-        private void search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            SearchBar searchBar = (SearchBar)sender;
-            
         }
 
         private async void cmdDelete_Clicked(object sender, EventArgs e)
@@ -82,6 +83,20 @@ namespace Viendict
                 SearchHistory word = (SearchHistory)lstSearchHistory.SelectedItem;
                 Navigation.PushModalAsync(new NavigationPage(new PageWordDetail(word.Word)));
             }
+        }
+
+        private async void search_SearchButtonPressed(object sender, EventArgs e)
+        {
+            if (UserAccount.user.UserID > 0)
+            {
+                SearchHistory word = new SearchHistory { UserID = UserAccount.user.UserID, Word = search.Text };
+                HttpClient http = new HttpClient();
+                string jsonhistory = JsonConvert.SerializeObject(word);
+                StringContent httpcontent = new StringContent(jsonhistory, Encoding.Default, "application/json");
+                await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToHistory", httpcontent);
+            }
+
+            await Navigation.PushModalAsync(new NavigationPage(new PageWordDetail(search.Text)));
         }
     }
 }

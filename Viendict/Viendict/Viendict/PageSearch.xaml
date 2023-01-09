@@ -2,19 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viendict.PageSearch"
-             Title="Search"
+             Title="Tra từ"
              BackgroundImageSource="bg_ocean">
     <ContentPage.Content>
         <StackLayout>
-            <!--<Frame BackgroundColor="Transparent" CornerRadius="10">
-                <SearchBar x:Name="search" Placeholder="Type a word to look up..." PlaceholderColor="Gray"
-                           TextColor="CornflowerBlue" TextTransform="Lowercase"
-                           FontSize="Medium" CancelButtonColor="CornflowerBlue"></SearchBar>
-            </Frame>-->
             <StackLayout Padding="0,20" Spacing="15">
-                <SearchBar x:Name="search" Placeholder="Type a word to look up..." PlaceholderColor="Gray"
+                <SearchBar x:Name="search" Placeholder="Nhập từ cần tra..." PlaceholderColor="Gray"
                            TextColor="CornflowerBlue" TextTransform="Lowercase"
-                           FontSize="Medium" CancelButtonColor="CornflowerBlue" TextChanged="search_TextChanged"></SearchBar>
+                           FontSize="Medium" CancelButtonColor="CornflowerBlue" SearchButtonPressed="search_SearchButtonPressed"></SearchBar>
                 <Button x:Name="cmdSearch" Text="Search" Clicked="cmdSearch_Clicked" BackgroundColor="CornflowerBlue"
                         FontSize="20" TextColor="White" FontAttributes="Bold"
                         CornerRadius="15" Margin="20,0" Padding="0,10"/>
