@@ -19,7 +19,7 @@
                         FontSize="20" TextColor="White" FontAttributes="Bold"
                         CornerRadius="15" Margin="20,0" Padding="0,10"/>
             </StackLayout>
-            <Label Text="Lịch sử tìm kiếm gần nhất..." FontAttributes="Italic" HorizontalOptions="Center" FontSize="Medium"/>
+            <Label x:Name="txthistory" Text="Lịch sử tìm kiếm gần nhất..." FontAttributes="Italic" HorizontalOptions="Center" FontSize="Medium"/>
             <ListView x:Name="lstSearchHistory" HasUnevenRows="True" SeparatorVisibility="None"
                       ItemTapped="lstSearchHistory_ItemTapped">
                 <ListView.ItemTemplate>
