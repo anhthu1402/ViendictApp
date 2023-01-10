@@ -17,6 +17,10 @@ namespace Viendict
         public PageSignIn()
         {
             InitializeComponent();
+            if (UserAccount.user.UserID > 0)
+            {
+                useremail.Text = UserAccount.user.Email;
+            }
         }
 
         private void ForgotPwd_Clicked(object sender, EventArgs e)
@@ -28,7 +32,7 @@ namespace Viendict
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-                ("http://192.168.1.8/ViendictAPI/api/AppController/UserSignin?Email=" +
+                ("http://192.168.1.6/ViendictAPI/api/AppController/UserSignin?Email=" +
                 useremail.Text + "&&Password=" + userpassword.Text);
             var user = JsonConvert.DeserializeObject<UserAccount>(kq);
             if (user.Email != "" && user.Email != null)

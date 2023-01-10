@@ -71,7 +71,7 @@ namespace Viendict
                 smtpServer.Credentials = new System.Net.NetworkCredential("ie307viendict@gmail.com", "hpdhmjegpownndbj");
 
                 smtpServer.Send(mail);
-
+                await DisplayAlert("Thông báo", "Mật khẩu mới đã được gửi đến email của bạn.", "Ok");
                 await Navigation.PopModalAsync();
             }
 

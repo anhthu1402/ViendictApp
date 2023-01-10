@@ -16,7 +16,6 @@ namespace Viendict
         }
         private void Signup_Clicked(object sender, EventArgs e)
         {
-            UserAccount.user.UserID = 0;
             Application.Current.MainPage = new PageSignUp();
         }
 

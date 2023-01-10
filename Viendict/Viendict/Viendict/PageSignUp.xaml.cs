@@ -18,11 +18,6 @@ namespace Viendict
         public PageSignUp()
         {
             InitializeComponent();
-            if (UserAccount.user.UserID > 0)
-            {
-                userloginname.Text = UserAccount.user.UserLoginName;
-                useremail.Text = UserAccount.user.Email;
-            }
         }
         private async void cmdSignup_Clicked(object sender, EventArgs e)
         {
@@ -32,7 +27,7 @@ namespace Viendict
                 HttpClient http = new HttpClient();
                 string jsonuser = JsonConvert.SerializeObject(user);
                 StringContent httpcontent = new StringContent(jsonuser, Encoding.UTF8, "application/json");
-                HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/UserSignup", httpcontent);
+                HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/UserSignup1", httpcontent);
                 var kqtb = await kq.Content.ReadAsStringAsync();
                 user = JsonConvert.DeserializeObject<UserAccount>(kqtb);
                 if (user.UserID > 0)
