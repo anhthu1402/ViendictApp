@@ -1951,9 +1951,9 @@ update lst_study_topic set Img='ielts900.png' where TopicID=1
 update lst_study_topic set Img='toeic600.png' where TopicID=2
 update lst_study_topic set Img='toefl1000.jpg' where TopicID=3
 ----
---alter table lst_study_topic_lesson add Learnt int
+
 alter table lst_study_topic_lesson add TotalWords int
---update lst_study_topic_lesson set Learnt=0
+
 update lst_study_topic_lesson set TotalWords=20 where TopicID=1
 update lst_study_topic_lesson set TotalWords=12 where TopicID=2
 update lst_study_topic_lesson set TotalWords=20 where TopicID=3

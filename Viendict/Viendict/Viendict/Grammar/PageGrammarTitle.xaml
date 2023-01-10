@@ -4,9 +4,6 @@
              x:Class="Viendict.Grammar.PageGrammarTitle"
              NavigationPage.HasNavigationBar="False"
              BackgroundImageSource="bg_loang">
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem Text="Back" x:Name="cmdBack" Clicked="cmdBack_Clicked"></ToolbarItem>
-    </ContentPage.ToolbarItems>-->
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal" BackgroundColor="CornflowerBlue" HeightRequest="60" Spacing="20" Padding="15,0">

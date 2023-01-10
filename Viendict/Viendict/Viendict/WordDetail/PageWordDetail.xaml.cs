@@ -64,7 +64,7 @@ namespace Viendict.WordDetail
         async void IsInFavorite(string Word)
         {
             HttpClient httpClient = new HttpClient();
-            var lstword = await httpClient.GetStringAsync("http://192.168.1.8/ViendictAPI/api/AppController/GetListFavorite?UserID=" + UserAccount.user.UserID.ToString());
+            var lstword = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetListFavorite?UserID=" + UserAccount.user.UserID.ToString());
             var lstwordConverted = JsonConvert.DeserializeObject<List<Favorite>>(lstword);
             foreach (Favorite favorite in lstwordConverted)
             {
@@ -104,8 +104,7 @@ namespace Viendict.WordDetail
                     AddToFavorite.Source = "FavouriteRed.png";
                     jsonFav = JsonConvert.SerializeObject(favorite);
                     httpcontent = new StringContent(jsonFav, Encoding.Default, "application/json");
-                    //HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToFavorite", httpcontent);
-                    HttpResponseMessage kq = await http.PostAsync("http://192.168.1.8/ViendictAPI/api/AppController/AddToFavorite", httpcontent);
+                    HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToFavorite", httpcontent);
                     var kqtb = await kq.Content.ReadAsStringAsync();
                     if (int.Parse(kqtb.ToString()) > 0)
                     {
@@ -122,7 +121,7 @@ namespace Viendict.WordDetail
                         favorite = new Favorite { ID = IDFav, UserID = UserAccount.user.UserID, Word = Word };
                         jsonFav = JsonConvert.SerializeObject(favorite);
                         httpcontent = new StringContent(jsonFav, Encoding.UTF8, "application/json");
-                        await http.PostAsync("http://192.168.1.8/ViendictAPI/api/AppController/DeleteFromFavorite", httpcontent);
+                        await http.PostAsync("http://viendictapi.somee.com/api/AppController/DeleteFromFavorite", httpcontent);
                         isFav = 2;
                     }
                 }
