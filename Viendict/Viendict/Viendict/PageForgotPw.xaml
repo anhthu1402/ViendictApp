@@ -8,11 +8,11 @@
             <ImageButton Source="icon_back" HeightRequest="45" WidthRequest="45" BackgroundColor="Transparent" Margin="5" VerticalOptions="Start" HorizontalOptions="Start"
                              x:Name="cmdBack" Clicked="cmdBack_Clicked"/>
 
-            <Frame HeightRequest="50" CornerRadius="10" BackgroundColor="white" HasShadow="True" Padding="20,0,20,10" Margin="10,20,10,10">
-                <Entry x:Name="email" Keyboard="Email" Placeholder="Nhập email bạn muốn đặt lại mật khẩu" TextColor="CornflowerBlue"
+            <Frame HeightRequest="50" CornerRadius="10" BackgroundColor="white" HasShadow="True" Padding="20,0,20,10" Margin="20,50,20,0">
+                <Entry x:Name="email" Keyboard="Email" Placeholder="Nhập email bạn muốn đặt lại mật khẩu" TextColor="Black"
                    Margin="-5,0,0,0"/>
             </Frame>
-            <Button x:Name="cmdResetPassword" Text="Reset Password" BackgroundColor="CornflowerBlue"
+            <Button x:Name="cmdResetPassword" Text="Đặt lại mật khẩu" BackgroundColor="CornflowerBlue"
                     FontSize="20" TextColor="White" FontAttributes="Bold"
                     CornerRadius="15" Margin="20" Padding="0,15"
                     Clicked="cmdResetPassword_Clicked"/>

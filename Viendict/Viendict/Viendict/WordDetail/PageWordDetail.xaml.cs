@@ -19,6 +19,8 @@ namespace Viendict.WordDetail
         List<WordDetail> wd;
         int isFav = 0;
         int IDFav = 0;
+        //string host = "http://192.168.1.6/ViendictAPI";
+        string host = "http://viendictapi.somee.com";
         async void GetWordDetail(string Word)
         {
             HttpClient client = new HttpClient();
@@ -64,7 +66,7 @@ namespace Viendict.WordDetail
         async void IsInFavorite(string Word)
         {
             HttpClient httpClient = new HttpClient();
-            var lstword = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetListFavorite?UserID=" + UserAccount.user.UserID.ToString());
+            var lstword = await httpClient.GetStringAsync(host + "/api/AppController/GetListFavorite?UserID=" + UserAccount.user.UserID.ToString());
             var lstwordConverted = JsonConvert.DeserializeObject<List<Favorite>>(lstword);
             foreach (Favorite favorite in lstwordConverted)
             {
@@ -74,7 +76,7 @@ namespace Viendict.WordDetail
                     isFav = 1;
                     IDFav = favorite.ID;
                 }
-                else isFav = 2;
+                else isFav = 0;
             }
         }
         public PageWordDetail()
@@ -98,13 +100,13 @@ namespace Viendict.WordDetail
             StringContent httpcontent;
             if (UserAccount.user.UserID > 0)
             {
-                if (isFav == 2)
+                if (isFav == 0)
                 {
                     favorite = new Favorite { UserID = UserAccount.user.UserID, Word = Word };
                     AddToFavorite.Source = "FavouriteRed.png";
                     jsonFav = JsonConvert.SerializeObject(favorite);
                     httpcontent = new StringContent(jsonFav, Encoding.Default, "application/json");
-                    HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToFavorite", httpcontent);
+                    HttpResponseMessage kq = await http.PostAsync(host + "/api/AppController/AddToFavorite", httpcontent);
                     var kqtb = await kq.Content.ReadAsStringAsync();
                     if (int.Parse(kqtb.ToString()) > 0)
                     {
@@ -121,8 +123,8 @@ namespace Viendict.WordDetail
                         favorite = new Favorite { ID = IDFav, UserID = UserAccount.user.UserID, Word = Word };
                         jsonFav = JsonConvert.SerializeObject(favorite);
                         httpcontent = new StringContent(jsonFav, Encoding.UTF8, "application/json");
-                        await http.PostAsync("http://viendictapi.somee.com/api/AppController/DeleteFromFavorite", httpcontent);
-                        isFav = 2;
+                        await http.PostAsync(host + "/api/AppController/DeleteFromFavorite", httpcontent);
+                        isFav = 0;
                     }
                 }
             }

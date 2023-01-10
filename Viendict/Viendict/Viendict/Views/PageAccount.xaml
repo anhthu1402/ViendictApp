@@ -7,7 +7,7 @@
         <ScrollView>
             <StackLayout>
                 <StackLayout x:Name="IsUser" Padding="15,50">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="40" Spacing="5">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="40" Spacing="4">
                         <Label Text="Xin chào " TextColor="#26428b" FontSize="Title" FontAttributes="Bold"
                                HorizontalTextAlignment="Center"/>
                         <Label x:Name="UserName" TextColor="#26428b" FontSize="Title" FontAttributes="Bold"

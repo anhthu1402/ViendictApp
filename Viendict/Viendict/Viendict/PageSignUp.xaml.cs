@@ -61,5 +61,19 @@ namespace Viendict
             Application.Current.MainPage = new MainPage();
             return true;
         }
+
+        private void show_hide_Clicked(object sender, EventArgs e)
+        {
+            if (userpassword.IsPassword)
+            {
+                show_hide.Source = "eyeon.png";
+                userpassword.IsPassword = false;
+            }
+            else
+            {
+                show_hide.Source = "eyeoff.png";
+                userpassword.IsPassword = true;
+            }
+        }
     }
 }

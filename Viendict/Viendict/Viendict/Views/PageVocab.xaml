@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viendict.Views.PageVocab"
-             BackgroundImageSource="bg_blue">
+             BackgroundImageSource="bg_vocab">
     <ContentPage.Content>
         <StackLayout>
             <Button x:Name="cmdGrammar" Text="Ngữ pháp" Clicked="cmdGrammar_Clicked" BackgroundColor="Transparent" HorizontalOptions="Start" FontSize="Medium" TextColor="DarkBlue"

@@ -1875,12 +1875,13 @@ CREATE TABLE [dbo].[Favorite](
 	ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
 ----select * from Favorite
 ----Alter table Favorite add Word varchar(50)
 
-
+select * from UserAccount
 --create procedure Proc_AddToFavorite
---exec Proc_AddToFavorite @userid=2, @word='worm', @CurrentID = 1
+--exec Proc_AddToFavorite @userid=3, @word='worm', @CurrentID = 2
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1902,7 +1903,7 @@ end catch
 GO
 
 --create procedure Proc_GetListFavorite
---exec Proc_GetListFavorite @userid=1
+--exec Proc_GetListFavorite @userid=4
 create proc [dbo].[Proc_GetListFavorite] (@userid int)
 as
 	select * from Favorite where UserID=@userid

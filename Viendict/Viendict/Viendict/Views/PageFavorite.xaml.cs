@@ -15,14 +15,14 @@ namespace Viendict.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageFavorite : ContentPage
     {
-        string host = "http://192.168.1.6/ViendictAPI";
-        //string host = "http://viendictapi.somee.com";
+        //string host = "http://192.168.1.6/ViendictAPI";
+        string host = "http://viendictapi.somee.com";
         public async void GetListFavorite()
         {
             if (UserAccount.user.UserID > 0)
             {
                 HttpClient httpClient = new HttpClient();
-                var lstword = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetListFavorite?UserID=" + UserAccount.user.UserID.ToString());
+                var lstword = await httpClient.GetStringAsync(host + "/api/AppController/GetListFavorite?UserID=" + UserAccount.user.UserID.ToString());
                 var lstwordConverted = JsonConvert.DeserializeObject<List<Favorite>>(lstword);
                 lstFavorite.ItemsSource = lstwordConverted;
             }
@@ -66,7 +66,7 @@ namespace Viendict.Views
             HttpClient http = new HttpClient();
             string jsonword = JsonConvert.SerializeObject(word);
             StringContent httpcontent = new StringContent(jsonword, Encoding.UTF8, "application/json");
-            await http.PostAsync("http://viendictapi.somee.com/api/AppController/DeleteFromFavorite", httpcontent);
+            await http.PostAsync(host + "/api/AppController/DeleteFromFavorite", httpcontent);
 
             OnAppearing();
         }
@@ -74,7 +74,7 @@ namespace Viendict.Views
         private void cmdSignin_Clicked(object sender, EventArgs e)
         {
             Application.Current.MainPage.Navigation.PopToRootAsync();
-            Application.Current.MainPage = new PageSignUp();
+            Application.Current.MainPage = new PageSignIn();
         }
 
         private void cmdSignup_Clicked(object sender, EventArgs e)

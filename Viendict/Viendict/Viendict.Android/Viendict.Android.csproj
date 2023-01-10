@@ -96,22 +96,7 @@
     <AndroidResource Include="Resources\drawable\bg_8.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_beige.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg_blue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_brown.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_cloudcham.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_cloudxanh.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_favourite.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg_forest.png" />
@@ -123,19 +108,10 @@
     <AndroidResource Include="Resources\drawable\bg_forgotpwd.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_gray.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_green.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg_leaves.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg_loang.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_mint.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg_nightsky.png" />
@@ -144,28 +120,13 @@
     <AndroidResource Include="Resources\drawable\bg_ocean.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_pink.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_purple.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg_signin.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg_signup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_thong.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg_viendict.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_vintage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_whiteskin.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\copy.png" />
@@ -204,9 +165,6 @@
     <AndroidResource Include="Resources\drawable\icon_signin.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon_signout.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_signout_red.png" />
   </ItemGroup>
   <ItemGroup>
@@ -214,15 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ielts900.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\logo_fb.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\logo_gg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\replace.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\sat900.jpg" />
@@ -249,34 +198,28 @@
     <AndroidResource Include="Resources\drawable\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\vocab.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\vocabulary.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\about.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\avt.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg_7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_notebook.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg_note.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_grammar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_vg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\deleteicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bg_vg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bg_vocab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bg_st.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

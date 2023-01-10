@@ -21,7 +21,7 @@
                 </StackLayout>
                 <Button x:Name="cmdSubmit" Text="Cập nhật" BackgroundColor="CornflowerBlue"
                         FontSize="20" TextColor="White" FontAttributes="Bold"
-                        CornerRadius="15" Margin="20" Padding="0,15" VerticalOptions="Center"
+                        CornerRadius="15" Margin="20" Padding="0,15" VerticalOptions="EndAndExpand"
                         Clicked="cmdSubmit_Clicked"/>
             </StackLayout>
         </ScrollView>
