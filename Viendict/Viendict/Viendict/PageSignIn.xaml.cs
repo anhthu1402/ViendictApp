@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Android.Widget;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace Viendict
@@ -28,10 +30,18 @@ namespace Viendict
             Navigation.PushModalAsync(new PageForgotPw());
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage = new MainPage();
+            return true;
+        }
+
         private async void cmdSignin_Clicked(object sender, EventArgs e)
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
+                ("http://viendictapi.somee.com/api/AppController/UserSignin?Email=" +
                 ("http://192.168.1.6/ViendictAPI/api/AppController/UserSignin?Email=" +
                 useremail.Text + "&&Password=" + userpassword.Text);
             var user = JsonConvert.DeserializeObject<UserAccount>(kq);

@@ -55,5 +55,11 @@ namespace Viendict
             Application.Current.MainPage.Navigation.PopModalAsync();
             Application.Current.MainPage = new MainPage();
         }
+        protected override bool OnBackButtonPressed()
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage = new MainPage();
+            return true;
+        }
     }
 }

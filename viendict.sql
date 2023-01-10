@@ -1846,16 +1846,16 @@ set IDENTITY_INSERT UserAccount off
 go
 
 --create procedure User Signup--
-create proc [dbo].[UserSignup](@userloginname nvarchar(100), @password nvarchar(100), @email nvarchar(100), @CurrentID int output)
-as
-	if(exists(select * from UserAccount where UserLoginName = @userloginname or Email = @email))
-	begin
-		set @CurrentID=-1
-		return
-	end
-	insert into UserAccount(UserLoginName, Password, Email) values(@userloginname, @password, @email)
-	set @CurrentID=@@IDENTITY
-GO
+--create proc [dbo].[UserSignup](@userloginname nvarchar(100), @password nvarchar(100), @email nvarchar(100), @CurrentID int output)
+--as
+--	if(exists(select * from UserAccount where UserLoginName = @userloginname or Email = @email))
+--	begin
+--		set @CurrentID=-1
+--		return
+--	end
+--	insert into UserAccount(UserLoginName, Password, Email) values(@userloginname, @password, @email)
+--	set @CurrentID=@@IDENTITY
+--GO
 
 
 
@@ -1951,9 +1951,9 @@ update lst_study_topic set Img='ielts900.png' where TopicID=1
 update lst_study_topic set Img='toeic600.png' where TopicID=2
 update lst_study_topic set Img='toefl1000.jpg' where TopicID=3
 ----
---alter table lst_study_topic_lesson add Learnt int
+
 alter table lst_study_topic_lesson add TotalWords int
---update lst_study_topic_lesson set Learnt=0
+
 update lst_study_topic_lesson set TotalWords=20 where TopicID=1
 update lst_study_topic_lesson set TotalWords=12 where TopicID=2
 update lst_study_topic_lesson set TotalWords=20 where TopicID=3
@@ -2018,15 +2018,6 @@ select * from [dbo].[lst_study_topic_vocab]
 where LessonID=@lessonID and TopicID=@topicID and ID=@id
 GO
 
------ remember to execute
---alter table lst_study_topic_lesson alter column Learnt nvarchar(50)
---alter table lst_study_topic_lesson drop column Learnt
---update lst_study_topic_lesson set Learnt=N'Chưa hoàn thành'
-/* Proc_StudyLessonFinished*/
-create proc [dbo].[Proc_StudyLessonFinished] (@topicID int, @lessonID int)
-as 
-update lst_study_topic_lesson set Learnt=N'Đã hoàn thành' where TopicID=@topicID and LessonID=@lessonID
-go
 
 ----Create table SearchHistory----
 create table SearchHistory
@@ -2103,3 +2094,66 @@ end try
 begin catch
 	set @CurrentID=0
 end catch
+
+--
+create table [dbo].[LessonLearnt] (
+	[TopicID] int not null,
+	[LessonID] int not null,
+	[UserID] int not null,
+	[Name] varchar(100)null,
+	[Learnt] nvarchar(50) null
+) 
+
+alter table LessonLearnt add primary key (TopicID, LessonID, UserID)
+
+----
+create proc [dbo].[UserSignup1](@userloginname nvarchar(100), @password nvarchar(100), @email nvarchar(100), @CurrentID int output)
+as
+	if(exists(select * from UserAccount where UserLoginName = @userloginname or Email = @email))
+	begin
+		set @CurrentID=-1
+		return
+	end
+	insert into UserAccount(UserLoginName, Password, Email) values(@userloginname, @password, @email)
+	set @CurrentID=@@IDENTITY
+	insert into LessonLearnt (TopicID, LessonID, UserID , Name,TotalWords) values(1,1, @CurrentID,'Health problems',20), 
+	(1,2, @CurrentID,'Academic subjects',20), (1,3, @CurrentID,'Travel and adventure',20), (1,4, @CurrentID,'Dimensions',20), (1,5, @CurrentID,'City life',20), (1,6, @CurrentID,'Persuasion',20),
+	(1,7, @CurrentID,'Cultural interests',20), (1,8, @CurrentID,'Contrast',20), (1,9, @CurrentID,'Problems and solutions',20), (1,10, @CurrentID,'Ideas',20), 
+	(1,11, @CurrentID,'Growing up 1',20), (1,12, @CurrentID,'Growing up 2',20), (1,13, @CurrentID,'Mental and physical development 1',20), (1,14, @CurrentID,'Mental and physical development 2',20), (1,15, @CurrentID,'Keeping fit 1',20),
+	(2,1, @CurrentID,'Contracts',12),(2,2, @CurrentID,'Marketing',12),(2,3, @CurrentID,'Warranties',12),(2,4, @CurrentID,'Business Planning',12),(2,5, @CurrentID,'Conferences',12),
+	(2,6, @CurrentID,'Computers',12),(2,7, @CurrentID,'Office Technology',12),(2,8, @CurrentID,'Electronics',12),(2,9, @CurrentID,'Warranties',12),(2,10,@CurrentID,'Correspondence',12),
+	(2,11, @CurrentID,'Job Adveritising And Recruitment',12),(2,12, @CurrentID,'Applying And Interviewing',12),(2,13, @CurrentID,'Hiring and training',12),(2,14, @CurrentID,'Salaries and Benefits',12),(2,15, @CurrentID,'Promotions, pensions and awards',12),
+	(3,1, @CurrentID,'Food crops',20),(3,2, @CurrentID,'Disaster',20),(3,3, @CurrentID,'Evolution and migration',20),(3,4, @CurrentID,'Petronleum alternatives',20),(3,5, @CurrentID,'Time efficiency',20),
+	(3,6, @CurrentID,'Ancient life',20),(3,7, @CurrentID,'Computers',20),(3,8, @CurrentID,'Energy',20),(3,9, @CurrentID,'Memory',20),(3,10, @CurrentID,'Spirituality',20),
+	(3,11, @CurrentID,'illness',20),(3,12, @CurrentID,'Surgery',20),(3,13, @CurrentID,'Ghosts',20),(3,14, @CurrentID,'Anthropology',20),(3,15, @CurrentID,'Social inequality',20)
+	update LessonLearnt set Learnt=N'Chưa hoàn thành' where UserID=@CurrentID
+GO
+
+----
+create proc [dbo].[Proc_GetListLessonLearntByUserID](@userID int)
+as
+begin
+	select * from LessonLearnt where UserID=@userID
+end
+
+create proc [dbo].[Proc_GetEachLessonLearntByLessonID](@lessonID int, @topicID int, @userID int)
+as
+begin
+	select * from LessonLearnt where UserID=@userID and LessonID=@lessonID and TopicID=@topicID
+end
+
+create proc [dbo].[Proc_GetListLessonLearntByUserID](@userID int, @topicID int)
+as
+begin
+	select * from LessonLearnt where UserID=@userID and TopicID=@topicID
+end
+
+create proc [dbo].[Proc_UpdateLessonLearnt](@lessonID int, @topicID int, @userID int)
+as
+begin
+	update LessonLearnt set Learnt=N'Đã hoàn thành' where UserID=@userID and LessonID=@lessonID and TopicID=@topicID
+end
+
+alter table LessonLearnt add TotalWords int
+
+

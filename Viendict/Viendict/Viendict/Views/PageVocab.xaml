@@ -7,7 +7,7 @@
         <StackLayout>
             <Button x:Name="cmdGrammar" Text="Ngữ pháp" Clicked="cmdGrammar_Clicked" BackgroundColor="Transparent" HorizontalOptions="Start" FontSize="Medium" TextColor="DarkBlue"
                     Margin="0,5"/>
-            <BoxView BackgroundColor="Maroon" Margin="0" HeightRequest="3"/>
+            <BoxView BackgroundColor="DarkBlue" Margin="0" HeightRequest="3"/>
             <ListView x:Name="lstVocabTopic" ItemTapped="lstVocabTopic_ItemTapped" RowHeight="60" SeparatorColor="Black" >
                 <ListView.ItemTemplate>
                     <DataTemplate>

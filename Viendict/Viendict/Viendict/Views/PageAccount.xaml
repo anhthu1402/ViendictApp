@@ -37,7 +37,7 @@
                         </Frame>
                     </StackLayout>
                 </StackLayout>
-                <StackLayout x:Name="IsGuest" HorizontalOptions="Center" VerticalOptions="Center" Padding="20" Spacing="20">
+                <StackLayout x:Name="IsGuest" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="20" Spacing="20">
                 <Label Text="Đăng ký tài khoản ngay để sử dụng đầy đủ các tính năng của ứng dụng!" Padding="25,10" HorizontalTextAlignment="Center"
                        FontSize="Large" TextColor="Maroon" LineHeight="1.5"/>
                 <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">

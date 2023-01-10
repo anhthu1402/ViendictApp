@@ -17,13 +17,6 @@ namespace Viendict.Views
     public partial class PageStudy : ContentPage
     {
         public StudyListTopic topicDefault = new StudyListTopic { TopicID = 1 };
-        async void GetAllStudyLessonByTopic(int topicID)
-        {
-            HttpClient httpClient = new HttpClient();
-            var lesson = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetAllStudyLessonByTopic?TopicID=" + topicID.ToString());
-            var lessonConverted = JsonConvert.DeserializeObject<List<StudyListLesson>>(lesson);
-            lstStudyLesson.ItemsSource = lessonConverted;
-        }
         async void GetStudyTopicByTopicID(int topicID)
         {
             HttpClient httpClient = new HttpClient();
@@ -31,17 +24,35 @@ namespace Viendict.Views
             var topicConverted = JsonConvert.DeserializeObject<List<StudyListTopic>>(topic);
             lstStudyTopic.ItemsSource = topicConverted;
         }
+
+        async void GetListLessonLearntByUserID( int userID, int topicID)
+        {
+            HttpClient httpClient = new HttpClient();
+            var learnt = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetListLessonLearntByUserID?userID=" + userID.ToString() + "&topicID=" + topicID.ToString());
+            var learntConverted = JsonConvert.DeserializeObject<List<LessonLearnt>>(learnt);
+            lstStudyLesson.ItemsSource = learntConverted;
+        }
         public PageStudy()
         {
             InitializeComponent();
             Shell.SetNavBarIsVisible(this, false);
-            GetAllStudyLessonByTopic(topicDefault.TopicID);
-            GetStudyTopicByTopicID(topicDefault.TopicID);
+            if (UserAccount.user.UserID > 0)
+            {
+                IsUser.IsVisible = true;
+                IsGuest.IsVisible = false;
+                GetListLessonLearntByUserID(UserAccount.user.UserID, topicDefault.TopicID);
+                GetStudyTopicByTopicID(topicDefault.TopicID);
+            }
+            else
+            {
+                IsUser.IsVisible = false;
+                IsGuest.IsVisible = true;
+            }
         }
         public PageStudy(StudyListTopic topic)
         {
             InitializeComponent();
-            GetAllStudyLessonByTopic(topic.TopicID);
+            GetListLessonLearntByUserID(UserAccount.user.UserID, topic.TopicID);
             GetStudyTopicByTopicID(topicDefault.TopicID);
         }
         protected override void OnAppearing()
@@ -49,12 +60,12 @@ namespace Viendict.Views
             base.OnAppearing();
             MessagingCenter.Subscribe<PageStudy, int>(this, "Update Topic", (sender, arg) =>
             {
-                GetAllStudyLessonByTopic(arg);
+                GetListLessonLearntByUserID(UserAccount.user.UserID, arg);
                 GetStudyTopicByTopicID(arg);
             });
             MessagingCenter.Subscribe<PageStudy, int>(this, "Update Lessons' status", (sender, arg) =>
             {
-                GetAllStudyLessonByTopic(arg);
+                GetListLessonLearntByUserID(UserAccount.user.UserID, arg);
             });
         }
 
@@ -67,9 +78,21 @@ namespace Viendict.Views
         {
             if (lstStudyLesson.SelectedItem != null)
             {
-                StudyListLesson lesson = (StudyListLesson)lstStudyLesson.SelectedItem;
+                LessonLearnt lesson = (LessonLearnt)lstStudyLesson.SelectedItem;
                 Navigation.PushModalAsync(new NavigationPage(new PageListStudy(lesson)));
             }
+        }
+
+        private void cmdSignup_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage.Navigation.PopToRootAsync();
+            Application.Current.MainPage = new PageSignUp();
+        }
+
+        private void cmdSignin_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage.Navigation.PopToRootAsync();
+            Application.Current.MainPage = new PageSignUp();
         }
     }
 }

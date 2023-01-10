@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Viendict.WordDetail.PageWordDetail"
-             BackgroundImageSource="bg_beige">
+             x:Class="Viendict.WordDetail.PageWordDetail">
     <ContentPage.Resources>
         <Style TargetType="Label">
-            <Setter Property="FontSize" Value="17"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
             <Setter Property="TextColor" Value="#4A4860"></Setter>
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Always" x:Name="scroll">
+            <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Always">
                 <StackLayout>
                     <StackLayout x:Name="Header">
                         <BindableLayout.ItemTemplate>
@@ -27,7 +26,7 @@
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout>
-                                    <Label Text="{Binding partOfSpeech}" TextColor="Red" FontSize="18" FontAttributes="Bold" Margin="10,0"/>
+                                    <Label Text="{Binding partOfSpeech}" TextColor="Red" FontSize="19" FontAttributes="Bold" Margin="10,0"/>
                                     <Label Text="{Binding definition, StringFormat='◇ {0}'}" LineHeight="1.5"/>
                                     <Label Text="{Binding example, StringFormat='↪ {0}'}" LineHeight="1.5"/>
                                 </StackLayout>
