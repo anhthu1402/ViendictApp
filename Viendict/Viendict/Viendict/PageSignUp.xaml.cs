@@ -32,7 +32,7 @@ namespace Viendict
                 HttpClient http = new HttpClient();
                 string jsonuser = JsonConvert.SerializeObject(user);
                 StringContent httpcontent = new StringContent(jsonuser, Encoding.UTF8, "application/json");
-                HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/UserSignup", httpcontent);
+                HttpResponseMessage kq = await http.PostAsync("http://viendictapi.somee.com/api/AppController/UserSignup1", httpcontent);
                 var kqtb = await kq.Content.ReadAsStringAsync();
                 user = JsonConvert.DeserializeObject<UserAccount>(kqtb);
                 if (user.UserID > 0)
@@ -59,6 +59,12 @@ namespace Viendict
         {
             Application.Current.MainPage.Navigation.PopModalAsync();
             Application.Current.MainPage = new MainPage();
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage = new MainPage();
+            return true;
         }
     }
 }

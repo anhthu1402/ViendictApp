@@ -139,20 +139,6 @@ namespace WebAPI.Controllers
             }
         }
 
-        [Route("api/AppController/UserSignup")]
-        [HttpPost]
-        public IHttpActionResult UserSignup(UserAccount user)
-        {
-            try
-            {
-                UserAccount result = Database.Database.UserSignup(user);
-                return Ok(result);
-            }
-            catch
-            {
-                return NotFound();
-            }
-        }
 
         [Route("api/AppController/UserSignin")]
         [HttpGet]
@@ -330,24 +316,6 @@ namespace WebAPI.Controllers
             }
         }
 
-        [Route("api/AppController/StudyLessonFinished")]
-        [HttpGet]
-        public IHttpActionResult StudyLessonFinished(int TopicID, int LessonID)
-        {
-            try
-            {
-                Dictionary<string, object> param = new Dictionary<string, object>();
-                param.Add("TopicID", TopicID);
-                param.Add("LessonID", LessonID);
-                DataTable result = Database.Database.ReadTable("Proc_StudyLessonFinished", param);
-                return Ok(result);
-            }
-            catch
-            {
-                return NotFound();
-            }
-        }
-
         [Route("api/AppController/AddToHistory")]
         [HttpPost]
         public IHttpActionResult AddToHistory(SearchHistory word)
@@ -400,6 +368,94 @@ namespace WebAPI.Controllers
             try
             {
                 int result = Database.Database.DeleteFromFavorite(favorite);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/GetListLessonLearntByUserID")]
+        [HttpGet]
+        public IHttpActionResult GetListLessonLearntByUserID(int UserID)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("UserID", UserID);
+                DataTable result = Database.Database.ReadTable("Proc_GetListLessonLearntByUserID", param);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/UserSignup1")]
+        [HttpPost]
+        public IHttpActionResult UserSignup1(UserAccount user)
+        {
+            try
+            {
+                UserAccount result = Database.Database.UserSignup1(user);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/GetEachLessonLearntByLessonID")]
+        [HttpGet]
+        public IHttpActionResult GetEachLessonLearntByLessonID(int lessonID, int topicID, int userID)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("LessonID", lessonID);
+                param.Add("TopicID", topicID);
+                param.Add("UserID", userID);
+                DataTable result = Database.Database.ReadTable("Proc_GetEachLessonLearntByLessonID", param);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/GetListLessonLearntByUserID")]
+        [HttpGet]
+        public IHttpActionResult GetListLessonLearntByUserID(int userID, int topicID)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("TopicID", topicID);
+                param.Add("UserID", userID);
+                DataTable result = Database.Database.ReadTable("Proc_GetListLessonLearntByUserID", param);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/AppController/UpdateLessonLearnt")]
+        [HttpGet]
+        public IHttpActionResult UpdateLessonLearnt(int TopicID, int LessonID, int UserID)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("TopicID", TopicID);
+                param.Add("LessonID", LessonID);
+                param.Add("UserID", UserID);
+                DataTable result = Database.Database.ReadTable("Proc_UpdateLessonLearnt", param);
                 return Ok(result);
             }
             catch

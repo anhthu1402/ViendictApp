@@ -37,12 +37,12 @@ namespace Viendict.Views
 
         private void cmdEditProfile_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PageEditAcc());
+            Navigation.PushModalAsync(new PageEditAcc());
         }
 
         private void cmdChangePw_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PageChangePw());
+            Navigation.PushModalAsync(new PageChangePw());
         }
 
         private async void cmdSignout_Clicked(object sender, EventArgs e)

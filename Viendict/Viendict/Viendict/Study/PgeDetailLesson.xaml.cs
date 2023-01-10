@@ -16,7 +16,7 @@ namespace Viendict.Study
     public partial class PgeDetailLesson : ContentPage
     {
         int count = 0;
-        StudyListLesson Lesson;
+        LessonLearnt Learnt;
         async void GetDetailContentLessonByID(int topicID, int lessonID, int id)
         {
             HttpClient httpClient = new HttpClient();
@@ -24,24 +24,24 @@ namespace Viendict.Study
             var contentConverted = JsonConvert.DeserializeObject<List<StudyListVocab>>(content);
             lstcontent.ItemsSource = contentConverted;
         }
-        async void StudyLessonFinished(int topicID, int lessonID)
+        async void UpdateLessonLearnt(int topicID, int lessonID, int userID)
         {
             HttpClient httpClient = new HttpClient();
-            var json = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/StudyLessonFinished?TopicID=" + topicID.ToString() + "&LessonID=" + lessonID.ToString());
-            var jsonConverted = JsonConvert.DeserializeObject<List<StudyListLesson>>(json);
+            var json = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/UpdateLessonLearnt?TopicID=" + topicID.ToString() + "&LessonID=" + lessonID.ToString() + "&UserID=" + userID.ToString());
+            var jsonConverted = JsonConvert.DeserializeObject<List<LessonLearnt>>(json);
         }
 
         public PgeDetailLesson()
         {
             InitializeComponent();
         }
-        public PgeDetailLesson(StudyListLesson lesson, int index)
+        public PgeDetailLesson(LessonLearnt learnt, int index)
         {
             InitializeComponent();
-            GetDetailContentLessonByID(lesson.TopicID, lesson.LessonID, index);
-            Lesson = lesson;
+            GetDetailContentLessonByID(learnt.TopicID, learnt.LessonID, index);
+            Learnt = learnt;
             count = index + 1;
-            this.Title = "Bài " + lesson.LessonID;
+            this.Title = "Bài " + learnt.LessonID;
         }
         protected override bool OnBackButtonPressed()
         {
@@ -55,18 +55,18 @@ namespace Viendict.Study
 
         private async void cmdNextPage_Clicked(object sender, EventArgs e)
         {
-            GetDetailContentLessonByID(Lesson.TopicID, Lesson.LessonID, count);
+            GetDetailContentLessonByID(Learnt.TopicID, Learnt.LessonID, count);
             
-            if(count>Lesson.TotalWords)
+            if(count> Learnt.TotalWords)
             {
-                if(Lesson.Learnt=="Chưa hoàn thành")
+                if(Learnt.Learnt=="Chưa hoàn thành")
                 {
-                    await DisplayAlert("Tuyệt vời", "Bạn vừa học xong tất cả các từ của Bài " + Lesson.LessonID, "OK");
-                    StudyLessonFinished(Lesson.TopicID, Lesson.LessonID);
+                    await DisplayAlert("Tuyệt vời", "Bạn vừa học xong tất cả các từ của Bài " + Learnt.LessonID, "OK");
+                    UpdateLessonLearnt(Learnt.TopicID, Learnt.LessonID, UserAccount.user.UserID);
                 }
                 else
                 {
-                    await DisplayAlert("Tuyệt vời", "Bạn vừa hoàn thành luyện tập Bài " + Lesson.LessonID + ". Hãy quay lại để luyện tập nhiều hơn nhé!", "OK");
+                    await DisplayAlert("Tuyệt vời", "Bạn vừa hoàn thành luyện tập Bài " + Learnt.LessonID + ". Hãy quay lại để luyện tập nhiều hơn nhé!", "OK");
                 }
                 await Navigation.PopModalAsync();
             }
@@ -82,7 +82,7 @@ namespace Viendict.Study
             }
             else
             {
-                progressBar.Progress = (count-1) * (1.0/Lesson.TotalWords);
+                progressBar.Progress = (count-1) * (1.0/ Learnt.TotalWords);
             }
         }
     }

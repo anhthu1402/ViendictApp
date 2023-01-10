@@ -20,29 +20,32 @@ namespace Viendict.Views
             if (UserAccount.user.UserID > 0)
             {
                 HttpClient httpClient = new HttpClient();
-                var lstword = await httpClient.GetStringAsync("http://192.168.1.8/ViendictAPI/api/AppController/GetListFavorite?UserID=" + UserAccount.user.UserID.ToString());
+                var lstword = await httpClient.GetStringAsync("http://viendictapi.somee.com/api/AppController/GetListFavorite?UserID=" + UserAccount.user.UserID.ToString());
                 var lstwordConverted = JsonConvert.DeserializeObject<List<Favorite>>(lstword);
                 lstFavorite.ItemsSource = lstwordConverted;
             }
         }
-        public int tapHeartCount = 0;
-        public int tapSpeakerCount = 0;
+
         public PageFavorite()
         {
             InitializeComponent();
             Shell.SetNavBarIsVisible(this, false);
-            GetListFavorite();
+            if (UserAccount.user.UserID > 0)
+            {
+                IsUser.IsVisible = true;
+                IsGuest.IsVisible = false;
+                GetListFavorite();
+            }
+            else
+            {
+                IsUser.IsVisible = false;
+                IsGuest.IsVisible = true;
+            }
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
             GetListFavorite();
-        }
-        private void TurnOnSpeaker_Tapped(object sender, EventArgs e)
-        {
-            tapSpeakerCount++;
-            var imageSender = (Image)sender;
-            imageSender.Source = (tapSpeakerCount % 2 == 0) ? "speakeroff.png" : "speakeron.png";
         }
 
         private void lstFavorite_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -61,9 +64,21 @@ namespace Viendict.Views
             HttpClient http = new HttpClient();
             string jsonword = JsonConvert.SerializeObject(word);
             StringContent httpcontent = new StringContent(jsonword, Encoding.UTF8, "application/json");
-            await http.PostAsync("http://192.168.1.8/ViendictAPI/api/AppController/DeleteFromFavorite", httpcontent);
+            await http.PostAsync("http://viendictapi.somee.com/api/AppController/DeleteFromFavorite", httpcontent);
 
             OnAppearing();
+        }
+
+        private void cmdSignin_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage.Navigation.PopToRootAsync();
+            Application.Current.MainPage = new PageSignUp();
+        }
+
+        private void cmdSignup_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage.Navigation.PopToRootAsync();
+            Application.Current.MainPage = new PageSignUp();
         }
     }
 }

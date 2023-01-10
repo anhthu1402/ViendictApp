@@ -8,14 +8,17 @@
             <StackLayout Margin="2,30,2,10" Spacing="20">
                 <ScrollView>
                     <StackLayout Spacing="20" >
-                        <Frame Margin="10" BackgroundColor="White" BorderColor="LightBlue" CornerRadius="10">
-                            <Editor x:Name="txtInput" Placeholder="Nhập để dịch" AutoSize="TextChanges" Keyboard="Text" VerticalOptions="Start">
-                            </Editor>
-                        </Frame>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Frame Margin="10" BackgroundColor="White" BorderColor="LightBlue" CornerRadius="10" WidthRequest="280">
+                                <Editor x:Name="txtInput" Placeholder="Nhập để dịch"  Keyboard="Text" VerticalOptions="Start">
+                                </Editor>
+                            </Frame>
+                            <ImageButton x:Name="cmdDelete" Source="deleteicon.png" Clicked="cmdDelete_Clicked" HeightRequest="15" BackgroundColor="Transparent" HorizontalOptions="Center" WidthRequest="15"/>
+                        </StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
-                            <Label x:Name="InputLang" Text="Tiếng Việt" FontSize="18" TextColor="CornflowerBlue" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                            <Label x:Name="InputLang" Text="Tiếng Anh" FontSize="18" TextColor="CornflowerBlue" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
                             <ImageButton x:Name="changeLang" Source="exchange.png" WidthRequest="30" HeightRequest="30" BackgroundColor="Transparent" Clicked="changeLang_Clicked"></ImageButton>
-                            <Label x:Name="OutputLang" Text="Tiếng Anh"  FontSize="18" TextColor="CornflowerBlue" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                            <Label x:Name="OutputLang" Text="Tiếng Việt"  FontSize="18" TextColor="CornflowerBlue" FontAttributes="Bold" VerticalTextAlignment="Center"/>
                             <Button x:Name="cmdTrans" Clicked="cmdTrans_Clicked" Text="Dịch" FontSize="Medium" TextColor="White" BackgroundColor="CornflowerBlue" CornerRadius="5"/>
                         </StackLayout>
                         <Frame Margin="10" BackgroundColor="White" BorderColor="LightBlue" CornerRadius="10">

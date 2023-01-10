@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Widget;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,17 @@ namespace Viendict
         public AppShell()
         {
             InitializeComponent();
+        }
+        int count = 0;
+        protected override bool OnBackButtonPressed()
+        {
+            count++;
+            Toast.MakeText(Android.App.Application.Context, "Nhấn lần nữa để thoát ứng dụng", ToastLength.Short).Show();
+            if (count == 2)
+            {
+                return base.OnBackButtonPressed();
+            }
+            return true;
         }
     }
 }

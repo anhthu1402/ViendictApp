@@ -24,11 +24,6 @@ namespace Viendict
 			}
         }
 
-        //private void dpkDob_DateSelected(object sender, DateChangedEventArgs e)
-        //{
-
-        //}
-
         private async void cmdSubmit_Clicked(object sender, EventArgs e)
         {
 			if (UserAccount.user.UserID > 0)
@@ -49,7 +44,7 @@ namespace Viendict
 				if (int.Parse(result.ToString()) > 0)
 				{
 					await DisplayAlert("Thông báo", "Cập nhật thành công", "Ok");
-					await Shell.Current.Navigation.PopAsync();
+					await Navigation.PopModalAsync();
 				}
 				else
 					await DisplayAlert("Thông báo", "Đã xảy ra lỗi, vui lòng thử lại!", "Ok");

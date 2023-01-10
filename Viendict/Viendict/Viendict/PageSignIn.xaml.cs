@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Android.Widget;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace Viendict
@@ -22,6 +24,13 @@ namespace Viendict
         private void ForgotPwd_Clicked(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new PageForgotPw());
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage = new MainPage();
+            return true;
         }
 
         private async void cmdSignin_Clicked(object sender, EventArgs e)

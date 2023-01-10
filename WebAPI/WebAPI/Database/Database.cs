@@ -92,21 +92,10 @@ namespace WebAPI.Database
             }
             return result;
         }
-        public static UserAccount UserSignup(UserAccount user)
-        {
-            Dictionary<string, object> param = new Dictionary<string, object>();
-            param.Add("UserLoginName", user.UserLoginName);
-            param.Add("Password", user.Password);
-            param.Add("Email", user.Email);
-            int kq = int.Parse(Exec_Command("UserSignup", param).ToString());
-            if (kq > -1)
-                user.UserID = kq;
-            return user;
-        }
         public static int AddToFavorite(Favorite favorite)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
-            param.Add("userid", favorite.UserID);
+            param.Add("UserID", favorite.UserID);
             param.Add("Word", favorite.Word);
             int result = int.Parse(Exec_Command("Proc_AddToFavorite", param).ToString());
             return result;
@@ -197,6 +186,26 @@ namespace WebAPI.Database
             param.Add("ID", favorite.ID);
             int kq = int.Parse(Exec_Command("Proc_DeleteFromFavorite", param).ToString());
             return kq;
+        }
+        public static int LessonLearnt(LessonLearnt lessonLearnt)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("TopicID", lessonLearnt.TopicID);
+            param.Add("LessonID", lessonLearnt.LessonID);
+            param.Add("UserID", lessonLearnt.UserID);
+            int result = int.Parse(Exec_Command("Proc_LessonLearnt", param).ToString());
+            return result;
+        }
+        public static UserAccount UserSignup1(UserAccount user)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("UserLoginName", user.UserLoginName);
+            param.Add("Password", user.Password);
+            param.Add("Email", user.Email);
+            int kq = int.Parse(Exec_Command("UserSignup1", param).ToString());
+            if (kq > -1)
+                user.UserID = kq;
+            return user;
         }
     }
 }

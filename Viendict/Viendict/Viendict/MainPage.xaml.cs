@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Widget;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -27,9 +28,20 @@ namespace Viendict
 
         private void NoAccount_Clicked(object sender, EventArgs e)
         {
-            // await Application.Current.MainPage.Navigation.PopAsync();
             UserAccount.user.UserID = 0; 
             Application.Current.MainPage = new AppShell();
+        }
+
+        int count = 0;
+        protected override bool OnBackButtonPressed()
+        {
+            count++;
+            Toast.MakeText(Android.App.Application.Context, "Nhấn lần nữa thoát ứng dụng", ToastLength.Short).Show();
+            if (count == 2)
+            {
+                return base.OnBackButtonPressed();
+            }
+            return true;
         }
     }
 }

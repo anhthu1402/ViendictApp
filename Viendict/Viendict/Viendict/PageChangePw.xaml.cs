@@ -48,7 +48,7 @@ namespace Viendict
 				if (int.Parse(result.ToString()) > 0)
 				{
 					await DisplayAlert("Thông báo", "Đổi mật khẩu thành công", "Ok");
-					await Shell.Current.Navigation.PopAsync();
+					await Navigation.PopModalAsync();
 				}
 				else
 					await DisplayAlert("Thông báo", "Đã xảy ra lỗi, vui lòng thử lại!", "Ok");

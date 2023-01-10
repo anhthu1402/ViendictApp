@@ -15,7 +15,7 @@ namespace Viendict.Study
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageListStudy : ContentPage
     {
-        StudyListLesson Lesson = new StudyListLesson();
+        LessonLearnt Learnt = new LessonLearnt();
         async void GetContentByLesson(int topicID, int lessonID)
         {
             HttpClient httpClient = new HttpClient();
@@ -28,25 +28,25 @@ namespace Viendict.Study
         {
             InitializeComponent();
         }
-        public PageListStudy(StudyListLesson lesson)
+        public PageListStudy(LessonLearnt learnt)
         {
             InitializeComponent();
-            GetContentByLesson(lesson.TopicID, lesson.LessonID);
-            this.Title = lesson.Name;
-            Lesson = lesson;
+            GetContentByLesson(learnt.TopicID, learnt.LessonID);
+            this.Title = learnt.Name;
+            Learnt = learnt;
         }
 
         protected override bool OnBackButtonPressed()
         {
             PageStudy pageStudy = new PageStudy();
-            MessagingCenter.Send<PageStudy, int>(pageStudy, "Update Lessons' status", Lesson.TopicID);
+            MessagingCenter.Send<PageStudy, int>(pageStudy, "Update Lessons' status", Learnt.TopicID);
             Navigation.PopModalAsync();
             return true;
         }
 
         private void Study_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new PgeDetailLesson(Lesson, 1));
+            Navigation.PushModalAsync(new PgeDetailLesson(Learnt, 1));
         }
     }
 }

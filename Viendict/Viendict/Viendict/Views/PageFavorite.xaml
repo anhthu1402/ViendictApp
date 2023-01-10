@@ -5,27 +5,47 @@
              BackgroundImageSource="bg_note.png">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lstFavorite" ItemTapped="lstFavorite_ItemTapped" RowHeight="100" SeparatorColor="Cornflowerblue">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid Padding="22, 10" RowSpacing="7">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="3*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Word}" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="18" TextColor="Black"/>
-                                <ImageButton x:Name="RemoveFromFavourite" Source="FavouriteRed.png"  BackgroundColor="Transparent" WidthRequest="25"
+            <StackLayout x:Name="IsUser">
+                <ListView x:Name="lstFavorite" ItemTapped="lstFavorite_ItemTapped" RowHeight="100" SeparatorColor="Cornflowerblue">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="22, 10" RowSpacing="7">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Word}" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="18" TextColor="Black"/>
+                                    <ImageButton x:Name="RemoveFromFavourite" Source="FavouriteRed.png"  BackgroundColor="Transparent" WidthRequest="25"
                                              CommandParameter="{Binding .}" Clicked="RemoveFromFavourite_Clicked"
                                              Grid.Column="1" Grid.Row="0" HorizontalOptions="EndAndExpand"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout x:Name="IsGuest" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Padding="20" Spacing="20">
+                <Label Text="Đăng ký tài khoản ngay để sử dụng đầy đủ các tính năng của ứng dụng!" Padding="25,10" HorizontalTextAlignment="Center"
+                       FontSize="Large" TextColor="Maroon" LineHeight="1.5"/>
+                <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
+                    <StackLayout Orientation="Horizontal" Spacing="25">
+                        <Image Source="icon_signup" WidthRequest="25" HeightRequest="25"/>
+                        <Button x:Name="cmdSignup" Text="Đăng ký" HorizontalOptions="Start" Padding="0,15,220,15" 
+                                    BackgroundColor="Transparent" TextColor="Black" FontSize="Medium" Clicked="cmdSignup_Clicked"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
+                    <StackLayout Orientation="Horizontal" Spacing="25">
+                        <Image Source="icon_signin" WidthRequest="25" HeightRequest="25"/>
+                        <Button x:Name="cmdSignin" Text="Đăng nhập" HorizontalOptions="Start" Padding="0,15,220,15" 
+                                    BackgroundColor="Transparent" TextColor="Black" FontSize="Medium" Clicked="cmdSignin_Clicked"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

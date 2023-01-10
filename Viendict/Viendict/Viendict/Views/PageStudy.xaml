@@ -5,49 +5,69 @@
              BackgroundImageSource="about">
     <ContentPage.Content>
         <StackLayout>
-            <CollectionView x:Name="lstStudyTopic" HeightRequest="270">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Margin="10">
-                            <StackLayout Orientation="Horizontal" Spacing="10">
-                                <Frame WidthRequest="70" HeightRequest="70" IsClippedToBounds="True" CornerRadius="100" Padding="0" Margin="15">
-                                    <Image Source="{Binding Img}" Aspect="AspectFit"/>
-                                </Frame>
-                                <Label Text="{Binding Name}" VerticalOptions="Center"
-                               FontSize="22" TextColor="#26428b" FontAttributes="Bold"/>
-                            </StackLayout>
-                            <Frame Padding="15,0" Margin="15,10" CornerRadius="10" HasShadow="True" HorizontalOptions="EndAndExpand">
+            <StackLayout x:Name="IsUser">
+                <CollectionView x:Name="lstStudyTopic" HeightRequest="270">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="10">
                                 <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <Image Source="exchange" WidthRequest="25" HeightRequest="25"/>
-                                    <Button x:Name="cmdChangeTopic" Text="Đổi chủ đề" HorizontalOptions="Start" Padding="10,0" 
+                                    <Frame WidthRequest="70" HeightRequest="70" IsClippedToBounds="True" CornerRadius="100" Padding="0" Margin="15">
+                                        <Image Source="{Binding Img}" Aspect="AspectFit"/>
+                                    </Frame>
+                                    <Label Text="{Binding Name}" VerticalOptions="Center"
+                               FontSize="22" TextColor="#26428b" FontAttributes="Bold"/>
+                                </StackLayout>
+                                <Frame Padding="15,0" Margin="15,10" CornerRadius="10" HasShadow="True" HorizontalOptions="EndAndExpand">
+                                    <StackLayout Orientation="Horizontal" Spacing="10">
+                                        <Image Source="exchange" WidthRequest="25" HeightRequest="25"/>
+                                        <Button x:Name="cmdChangeTopic" Text="Đổi chủ đề" HorizontalOptions="Start" Padding="10,0" 
                                         BackgroundColor="Transparent" TextColor="#26428b" FontSize="Medium" Clicked="cmdChangeTopic_Clicked"/>
-                                </StackLayout>
-                            </Frame>
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <ListView x:Name="lstStudyLesson" ItemTapped="lstStudyLesson_ItemTapped" HasUnevenRows="True" RowHeight="100" SelectionMode="Single">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame CornerRadius="10" HasShadow="True" Margin="10">
-                                <StackLayout>
-                                    <Label TextColor="CornflowerBlue" FontAttributes="Bold" FontSize="20">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="{Binding LessonID, StringFormat='Bài {0}:'}"></Span>
-                                                <Span Text="{Binding Name, StringFormat=' {0}'}"></Span>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                    <Label Text="{Binding Learnt}" FontSize="18" HorizontalOptions="EndAndExpand"/>
-                                </StackLayout>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <ListView x:Name="lstStudyLesson" ItemTapped="lstStudyLesson_ItemTapped" HasUnevenRows="True" RowHeight="100" SelectionMode="Single">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame CornerRadius="10" HasShadow="True" Margin="10">
+                                    <StackLayout>
+                                        <Label TextColor="CornflowerBlue" FontAttributes="Bold" FontSize="20">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding LessonID, StringFormat='Bài {0}:'}"></Span>
+                                                    <Span Text="{Binding Name, StringFormat=' {0}'}"></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Text="{Binding Learnt}" FontSize="18" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout x:Name="IsGuest" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Padding="20" Spacing="20">
+                <Label Text="Đăng ký tài khoản ngay để sử dụng đầy đủ các tính năng của ứng dụng!" Padding="25,10" HorizontalTextAlignment="Center"
+                       FontSize="Large" TextColor="Maroon" LineHeight="1.5"/>
+                <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
+                    <StackLayout Orientation="Horizontal" Spacing="25">
+                        <Image Source="icon_signup" WidthRequest="25" HeightRequest="25"/>
+                        <Button x:Name="cmdSignup" Text="Đăng ký" HorizontalOptions="Start" Padding="0,15,220,15" 
+                                    BackgroundColor="Transparent" TextColor="Black" FontSize="Medium" Clicked="cmdSignup_Clicked"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="15,0" Margin="10,0,10,10" CornerRadius="10" HasShadow="True">
+                    <StackLayout Orientation="Horizontal" Spacing="25">
+                        <Image Source="icon_signin" WidthRequest="25" HeightRequest="25"/>
+                        <Button x:Name="cmdSignin" Text="Đăng nhập" HorizontalOptions="Start" Padding="0,15,220,15" 
+                                    BackgroundColor="Transparent" TextColor="Black" FontSize="Medium" Clicked="cmdSignin_Clicked"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
