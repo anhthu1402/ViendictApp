@@ -61,8 +61,8 @@ namespace Viendict
 
                 mail.From = new MailAddress("ie307viendict@gmail.com");
                 mail.To.Add(email.Text);
-                mail.Subject = "[Viendict] - Reset password request";
-                mail.Body = "Your new password is " + newpw;
+                mail.Subject = "[Viendict] - Yêu cầu đổi mật khẩu";
+                mail.Body = "Mật khẩu mới của bạn là " + newpw;
 
                 smtpServer.Port = 587;
                 smtpServer.Host = "smtp.gmail.com";

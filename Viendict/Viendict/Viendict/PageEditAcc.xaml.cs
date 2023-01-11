@@ -30,9 +30,14 @@ namespace Viendict
             {
 				if (userloginname.Text == "" || useremail.Text == "")
 				{
-					await DisplayAlert("Thông Báo", "Vui lòng nhập đầy đủ các trường trên.", "Ok");
+					await DisplayAlert("Thông báo", "Vui lòng nhập đầy đủ các trường trên.", "Ok");
 					return;
 				}
+				if(useremail.Text.ToLower().Contains('@') == false)
+                {
+					await DisplayAlert("Thông báo", "Email đã nhập chưa đúng định dạng", "Ok");
+					return;
+                }
 				UserAccount.user.UserLoginName = userloginname.Text;
 				UserAccount.user.Email = useremail.Text;
 				HttpClient http = new HttpClient();

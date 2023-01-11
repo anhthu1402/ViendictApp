@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Viendict.WordDetail.PageWordDetail">
+             x:Class="Viendict.WordDetail.PageWordDetail"
+             BackgroundColor="White">
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="18"></Setter>
@@ -18,6 +19,9 @@
                                 <StackLayout Orientation="Horizontal" Spacing="10" Margin="10,10,0,0">
                                     <Label x:Name="wordlbl" Text="{Binding word}" FontSize="23" FontAttributes="Bold" TextColor="DarkBlue"/>
                                     <Label Text="{Binding phonetic}" FontSize="23"/>
+                                    <ImageButton Source="volume.png" WidthRequest="30" BackgroundColor="Transparent"
+                                                 x:Name="TurnOnSpeaker" Clicked="TurnOnSpeaker_Clicked"
+                                                 VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" Margin="15,0"></ImageButton>
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
@@ -27,8 +31,9 @@
                             <DataTemplate>
                                 <StackLayout>
                                     <Label Text="{Binding partOfSpeech}" TextColor="Red" FontSize="19" FontAttributes="Bold" Margin="10,0"/>
-                                    <Label Text="{Binding definition, StringFormat='◇ {0}'}" LineHeight="1.5"/>
-                                    <Label Text="{Binding example, StringFormat='↪ {0}'}" LineHeight="1.5"/>
+                                    <Label Text="{Binding definition, StringFormat='• {0}'}" LineHeight="1.5" TextColor="Maroon"/>
+                                    <Label Text="{Binding enExample, StringFormat=' -> {0}'}" LineHeight="1.5" FontAttributes="Italic"/>
+                                    <Label Text="{Binding viExample, StringFormat='{0}'}" LineHeight="1.5"/>
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>

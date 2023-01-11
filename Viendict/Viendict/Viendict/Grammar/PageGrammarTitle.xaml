@@ -19,7 +19,7 @@
                         <ViewCell>
                             <Grid Padding="10">
                                 <Label Text="{Binding Title}" TextColor="DarkBlue" 
-                                       Grid.Row="0" FontSize="Medium" VerticalOptions="Center"></Label>
+                                       Grid.Row="0" FontSize="20" VerticalOptions="Center"></Label>
                                 <Label Text="{Binding Describe}" TextColor="#333333" 
                                        Grid.Row="1" FontSize="17" VerticalOptions="Center"></Label>
                             </Grid>

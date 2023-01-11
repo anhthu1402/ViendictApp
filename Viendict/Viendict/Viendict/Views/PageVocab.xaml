@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viendict.Views.PageVocab"
-             BackgroundImageSource="bg_vocab">
+             BackgroundImageSource="bg_vocab.png">
     <ContentPage.Content>
         <StackLayout>
-            <Button x:Name="cmdGrammar" Text="Ngữ pháp" Clicked="cmdGrammar_Clicked" BackgroundColor="Transparent" HorizontalOptions="Start" FontSize="Medium" TextColor="DarkBlue"
+            <Button x:Name="cmdGrammar" Text="Ngữ pháp" Clicked="cmdGrammar_Clicked" BackgroundColor="Transparent" HorizontalOptions="Start" FontSize="22" TextColor="DarkBlue"
                     Margin="0,5"/>
-            <BoxView BackgroundColor="DarkBlue" Margin="0" HeightRequest="3"/>
+            <BoxView BackgroundColor="Gray" Margin="0" HeightRequest="3"/>
             <ListView x:Name="lstVocabTopic" ItemTapped="lstVocabTopic_ItemTapped" RowHeight="60" SeparatorColor="Black" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -16,7 +16,7 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <Label Text="{Binding Name}" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="Medium" TextColor="DarkBlue"/>
+                                <Label Text="{Binding Name}" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="22" TextColor="DarkBlue"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

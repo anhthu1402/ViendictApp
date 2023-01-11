@@ -8,6 +8,6 @@ namespace Viendict.WordDetail
     {
         public string partOfSpeech { get; set; }
         public string definition { get; set; }
-        public string example { get; set; }
+        public string enExample { get; set; }
     }
 }

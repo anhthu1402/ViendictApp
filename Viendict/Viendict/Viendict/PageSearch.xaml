@@ -8,7 +8,7 @@
         <StackLayout>
             <StackLayout Padding="0,20" Spacing="15">
                 <SearchBar x:Name="search" Placeholder="Nhập từ cần tra..." PlaceholderColor="Gray"
-                           TextColor="CornflowerBlue" TextTransform="Lowercase"
+                           TextColor="CornflowerBlue" TextTransform="Lowercase" 
                            FontSize="Medium" CancelButtonColor="CornflowerBlue" SearchButtonPressed="search_SearchButtonPressed"></SearchBar>
                 <Button x:Name="cmdSearch" Text="Search" Clicked="cmdSearch_Clicked" BackgroundColor="CornflowerBlue"
                         FontSize="20" TextColor="White" FontAttributes="Bold"

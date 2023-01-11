@@ -33,6 +33,11 @@ namespace Viendict
 					await DisplayAlert("Thông Báo", "Mật khẩu cũ chưa chính xác!", "Ok");
 					return;
 				}
+				if(newpassword.Text.Length < 8)
+                {
+					await DisplayAlert("Thông báo", "Mật khẩu phải chứa ít nhất tám kí tự.", "Ok");
+					return;
+                }
 				if (newpassword.Text != confirm_newpassword.Text)
                 {
 					await DisplayAlert("Thông Báo", "Mật khẩu xác nhận lại chưa khớp!", "Ok");

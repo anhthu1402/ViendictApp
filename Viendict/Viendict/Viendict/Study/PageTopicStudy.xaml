@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viendict.Study.PageTopicStudy" Title="Danh sách các chủ đề">
-    
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="lstTopicStudy" ItemTapped="lstTopicStudy_ItemTapped" HasUnevenRows="True" RowHeight="60" SelectionMode="Single">
@@ -19,7 +18,7 @@
                                     <ColumnDefinition Width="3*"/>
                                 </Grid.ColumnDefinitions>
                                 <Frame WidthRequest="48" HeightRequest="48" Padding="2" Margin="10,0" CornerRadius="5" BorderColor="CornflowerBlue" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
-                                    <Image Source="{Binding Img}"/>
+                                        <Image Source="{Binding Img}"/>
                                 </Frame>
                                 <Label Text="{Binding Name}" FontSize="Large" TextColor="Maroon" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" VerticalTextAlignment="Center"/>
                                 <Label Text="{Binding TotalLessons, StringFormat='Số bài học: {0}'}" FontSize="Medium" TextColor="Gray" Grid.Column="1" Grid.Row="1" VerticalTextAlignment="Center"/>
