@@ -17,7 +17,6 @@ namespace Viendict
         }
         private void Signup_Clicked(object sender, EventArgs e)
         {
-            UserAccount.user.UserID = 0;
             Application.Current.MainPage = new PageSignUp();
         }
 
@@ -36,7 +35,7 @@ namespace Viendict
         protected override bool OnBackButtonPressed()
         {
             count++;
-            Toast.MakeText(Android.App.Application.Context, "Nhấn lần nữa thoát ứng dụng", ToastLength.Short).Show();
+            Toast.MakeText(Android.App.Application.Context, "Nhấn lần nữa để thoát ứng dụng", ToastLength.Short).Show();
             if (count == 2)
             {
                 return base.OnBackButtonPressed();

@@ -18,11 +18,6 @@ namespace Viendict
         public PageSignUp()
         {
             InitializeComponent();
-            if (UserAccount.user.UserID > 0)
-            {
-                userloginname.Text = UserAccount.user.UserLoginName;
-                useremail.Text = UserAccount.user.Email;
-            }
         }
         private async void cmdSignup_Clicked(object sender, EventArgs e)
         {
@@ -65,6 +60,20 @@ namespace Viendict
             Application.Current.MainPage.Navigation.PopModalAsync();
             Application.Current.MainPage = new MainPage();
             return true;
+        }
+
+        private void show_hide_Clicked(object sender, EventArgs e)
+        {
+            if (userpassword.IsPassword)
+            {
+                show_hide.Source = "eyeon.png";
+                userpassword.IsPassword = false;
+            }
+            else
+            {
+                show_hide.Source = "eyeoff.png";
+                userpassword.IsPassword = true;
+            }
         }
     }
 }

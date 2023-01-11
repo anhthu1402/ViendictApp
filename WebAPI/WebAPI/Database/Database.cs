@@ -95,7 +95,7 @@ namespace WebAPI.Database
         public static int AddToFavorite(Favorite favorite)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
-            param.Add("UserID", favorite.UserID);
+            param.Add("userid", favorite.UserID);
             param.Add("Word", favorite.Word);
             int result = int.Parse(Exec_Command("Proc_AddToFavorite", param).ToString());
             return result;

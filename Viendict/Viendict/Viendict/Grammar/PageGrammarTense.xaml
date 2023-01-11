@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Viendict.Grammar.PageGrammarTense"
-             BackgroundImageSource="bg_loang">
+             BackgroundImageSource="bg_vocab">
     <ContentPage.Content>
         <ListView x:Name="lstGrammarTenseTitle" ItemTapped="lstGrammarTenseTitle_ItemTapped" RowHeight="80" SeparatorColor="Black">
             <ListView.ItemTemplate>

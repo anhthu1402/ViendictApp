@@ -1,4 +1,4 @@
-﻿using Android.Widget;
+﻿//using Android.Widget;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,8 +19,11 @@ namespace Viendict
         public PageSignIn()
         {
             InitializeComponent();
+            if (UserAccount.user.UserID > 0)
+            {
+                useremail.Text = UserAccount.user.Email;
+            }
         }
-
         private void ForgotPwd_Clicked(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new PageForgotPw());
@@ -37,7 +40,7 @@ namespace Viendict
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-                ("http://viendictapi.somee.com/api/AppController/UserSignin?Email=" +
+               ("http://viendictapi.somee.com/api/AppController/UserSignin?Email=" +
                 useremail.Text + "&&Password=" + userpassword.Text);
             var user = JsonConvert.DeserializeObject<UserAccount>(kq);
             if (user.Email != "" && user.Email != null)
@@ -53,6 +56,20 @@ namespace Viendict
         {
             Application.Current.MainPage.Navigation.PopModalAsync();
             Application.Current.MainPage = new MainPage();
+        }
+
+        private void show_hide_Clicked(object sender, EventArgs e)
+        {
+            if (userpassword.IsPassword)
+            {
+                show_hide.Source = "eyeon.png";
+                userpassword.IsPassword = false;
+            }
+            else
+            {
+                show_hide.Source = "eyeoff.png";
+                userpassword.IsPassword = true;
+            }
         }
     }
 }
