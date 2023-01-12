@@ -10,10 +10,61 @@
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Label Text='Câu mệnh lệnh là câu có tính chất sai khiến nên còn gọi là câu cầu khiến, được dùng khi người nói yêu cầu hoặc ra lệnh cho một người khác làm một việc gì đó. Nó thường theo sau bởi từ "please". Chủ ngữ của câu mệnh lệnh được ngầm hiểu là "you".' />
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Câu mệnh lệnh được chia làm 2 loại: " FontSize="20" FontAttributes="Bold"/>
+                                <Span Text="Trực tiếp và gián tiếp."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text=' 1.   Câu mệnh lệnh trực tiếp' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text='Luôn dùng dạng thức nguyên thể (không có "to").' FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Be quiet!" TextColor="#4472C4"/>
+                <Label Text="   (Trật tự nào)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text='"Do" có thể được đặt trước động từ nguyên mẫu để nhấn mạnh câu mệnh lệnh khẳng định.' FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Do sit down." TextColor="#4472C4"/>
+                <Label Text="   (Ngồi xuống đi)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 2.   Câu mệnh lệnh gián tiếp' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Thường được dùng với: to order/ask/say/tell somebody to do something." FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Please tell Jaime to leave the room." TextColor="#4472C4"/>
+                <Label Text="   (Hãy bảo Jaime rời khỏi phòng)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 3.   Dạng phủ định của câu mệnh lệnh' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text='Ở dạng phủ định, thêm "Don' FontSize="20"/>
+                                <Span Text="'t" FontSize="20"/>
+                                <Span Text='" vào trước động từ trong câu trực tiếp (kể cả động từ "b") hoặc thêm "not" vào trước động từ nguyên thể trong câu gián tiếp.' FontSize="20"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Don't/not + động từ nguyên thể + tân ngữ" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Don't be silly. I'll come back." TextColor="#4472C4"/>
+                <Label Text="   (Đừng ngốc thế. Anh sẽ quay lại mà)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="   • John asked Jill not to turn off the light." TextColor="#4472C4"/>
+                <Label Text="   (John bảo Gill đừng có tắt đèn)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 4.   Câu mệnh lệnh có thể được thành lập với cấu trúc: Let (+ tân ngữ) + động từ nguyên thể' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Let (+ tân ngữ) + động từ nguyên thể" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Let me see." TextColor="#4472C4"/>
+                <Label Text="   (Hãy để tôi xem nào)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
