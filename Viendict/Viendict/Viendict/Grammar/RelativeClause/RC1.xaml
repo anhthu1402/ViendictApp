@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.RelativeClause.RC1">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text=" 1.    Đại từ quan hệ" FontSize="22" TextColor="Red"/>
+            <Label Text="   Who" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text="* Dùng cho người, đứng sau danh từ chỉ người để làm chủ ngữ hoặc tân ngữ cho động từ đứng sau nó."/>
+            <Label Text="Ví dụ:" TextDecorations="Underline"/>
+            <Label Text="- Who là chủ ngữ của mệnh đề quan hệ:"/>
+            <Label Text="     · Her boyfriend, who was afraid, asked her not to go out."/>
+            <Label Text="       (Bạn trai cô ấy vì đang hoảng sợ yêu cầu cô không được ra ngoài)" FontAttributes="Italic"/>
+            <Label Text="- Who là tân ngữ của mệnh đề quan hệ:"/>
+            <Label Text="     · That is the girl who I am looking for."/>
+            <Label Text="       (Đây là cô gái tôi đang tìm kiếm)"  FontAttributes="Italic"/>
+            <Label Text="   Which" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text="   Of which" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text="   Whose" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text="   Whom" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text="   That" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+            <Label Text=""/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

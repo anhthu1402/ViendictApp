@@ -13,7 +13,10 @@ using Viendict.Grammar.WishSentence;
 using Viendict.Grammar.Reported_Speech;
 using Viendict.Grammar.ConditionalSentence;
 using Viendict.Grammar.ComparisonSentence;
-
+using Viendict.Grammar.ExclamatorySentence;
+using Viendict.Grammar.ImperativeSentence;
+using Viendict.Grammar.Inversion;
+using Viendict.Grammar.RelativeClause;
 
 namespace Viendict.Grammar
 {
@@ -57,6 +60,18 @@ namespace Viendict.Grammar
                         break;
                     case 6:
                         Navigation.PushAsync(new PageComparisonSentence(grammarTitle));
+                        break;
+                    case 7:
+                        Navigation.PushAsync(new PageTitleRC(grammarTitle));
+                        break;
+                    case 8:
+                        Navigation.PushAsync(new ExclamatorySentence.ExclamatorySentence(grammarTitle));
+                        break;
+                    case 10:
+                        Navigation.PushAsync(new Inversion.Inversion(grammarTitle));
+                        break;
+                    case 11:
+                        Navigation.PushAsync(new ImperativeSentence.ImperativeSentence(grammarTitle));
                         break;
                 }
             }
