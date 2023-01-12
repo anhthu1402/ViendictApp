@@ -56,12 +56,12 @@ namespace Viendict.WordDetail
             wd = new List<WordDetail>();
             string text = "";
             var ArraytheWord = theWord.ToArray();
-            for (int k = 0; k<ArraytheWord.Length;k++)
+            for (int k = 0; k < ArraytheWord.Length; k++)
             {
                 var ArrayPhonetics = theWord[k].phonetics.ToArray();
-                for(int i=0;i<ArrayPhonetics.Length;i++)
+                for (int i = 0; i < ArrayPhonetics.Length; i++)
                 {
-                    if(theWord[k].phonetics[i].text!=null)
+                    if (theWord[k].phonetics[i].text != null)
                     {
                         text = theWord[k].phonetics[i].text;
                         break;
@@ -77,7 +77,7 @@ namespace Viendict.WordDetail
                 }
             }
             w.Add(new Word { word = theWord[0].word, phonetic = text });
-            for (int h = 0; h < ArraytheWord.Length; h++) 
+            for (int h = 0; h < ArraytheWord.Length; h++)
             {
                 var ArrayMeanings = theWord[h].meanings.ToArray();
                 string wv = "";
@@ -87,19 +87,19 @@ namespace Viendict.WordDetail
                     var ArrayDefinitions = theWord[h].meanings[i].definitions.ToArray();
 
                     string PartOfSpeech = "▸ " + TranslateText(theWord[h].meanings[i].partOfSpeech);
-                    if(h==0&&i==0)
+                    if (h == 0 && i == 0)
                     {
                         wv = theWord[h].word;
                         PhonecticText = theWord[h].phonetics[0].text;
                     }
                     for (int j = 0; j < ArrayDefinitions.Length; j++)
                     {
-                        if (j > 0 ||h>0) 
+                        if (j > 0 || h > 0)
                         {
                             wv = "";
                             PhonecticText = "";
                         }
-                        if(j>0)
+                        if (j > 0)
                         {
                             PartOfSpeech = "";
                         }

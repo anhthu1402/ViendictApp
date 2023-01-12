@@ -10,7 +10,7 @@
                     <StackLayout Spacing="20" >
                         <StackLayout Orientation="Horizontal" Spacing="10">
                             <Frame Margin="10" BackgroundColor="White" BorderColor="LightBlue" CornerRadius="10" WidthRequest="280">
-                                    <Editor x:Name="txtInput" Placeholder="Nhập để dịch" Keyboard="Text" 
+                                    <Editor x:Name="txtInput" Placeholder="Nhập để dịch" Keyboard="Text" IsSpellCheckEnabled="False"
                                         VerticalOptions="Start" AutoSize="TextChanges" >
                                     </Editor>
                                 </Frame>
@@ -26,7 +26,7 @@
                             <Button x:Name="cmdTrans" Clicked="cmdTrans_Clicked" Text="Dịch" FontSize="Medium" TextColor="White" BackgroundColor="CornflowerBlue" CornerRadius="5"/>
                         </StackLayout>
                         <Frame Margin="10" BackgroundColor="White" BorderColor="LightBlue" CornerRadius="10">
-                            <Editor x:Name="txtOutput" Keyboard="Text" VerticalOptions="Start" IsReadOnly="True" AutoSize="TextChanges">
+                            <Editor x:Name="txtOutput" Keyboard="Text" VerticalOptions="Start" IsReadOnly="True" AutoSize="TextChanges" IsSpellCheckEnabled="False">
                             </Editor>
                         </Frame>
                     </StackLayout>

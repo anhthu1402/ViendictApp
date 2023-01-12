@@ -78,6 +78,7 @@ CREATE TABLE [dbo].[lst_study_topic](
 	[TopicID] [int] NOT NULL Primary key,
 	[Name] [nvarchar](100) NULL,
 	[TotalLessons] [int] NULL,
+	[Img] varchar(50) null,
 )
 
 /*create table lst_study_topic_lesson*/
@@ -89,6 +90,8 @@ CREATE TABLE [dbo].[lst_study_topic_lesson](
 	[LessonID] [int] NOT NULL ,
 	[Name] [nvarchar](100) NULL,
 	[TopicID] [int] NOT NULL,
+	[Learnt] nvarchar(50) null,
+	[TotalWords] int null,
 	Primary key (LessonID, TopicID),
 )
 
@@ -182,11 +185,14 @@ Chú thích: S - chủ ngữ, V3/-ed(Vpp/-ed) - động từ cột 3 trong bản
 SET ANSI_WARNINGS ON;
 
 SET ANSI_WARNINGS OFF;
-insert into lst_study_topic values(1, N'900 từ vựng luyện IELTS', 50)
-insert into lst_study_topic values(2, N'600 từ vựng TOEIC', 50)
-insert into lst_study_topic values(3, N'1000 từ vựng TOEFL', 50)
+insert into lst_study_topic (TopicID, Name, TotalLessons) values(1, N'900 từ vựng luyện IELTS', 50)
+insert into lst_study_topic(TopicID, Name, TotalLessons) values(2, N'600 từ vựng TOEIC', 50)
+insert into lst_study_topic(TopicID, Name, TotalLessons) values(3, N'1000 từ vựng TOEFL', 50)
 SET ANSI_WARNINGS ON;
-
+update lst_study_topic set Img='ielts900.png' where TopicID=1
+update lst_study_topic set Img='toeic600.png' where TopicID=2
+update lst_study_topic set Img='toefl1000.jpg' where TopicID=3
+update lst_study_topic set TotalLessons=15
 SET ANSI_WARNINGS OFF;
 insert into lst_study_topic_lesson values(1, N'Health problems', 1) 
 insert into lst_study_topic_lesson values(2, N'Academic subjects', 1)
@@ -236,7 +242,10 @@ insert into lst_study_topic_lesson values(13, N'Ghosts', 3)
 insert into lst_study_topic_lesson values(14, N'Anthropology', 3)
 insert into lst_study_topic_lesson values(15, N'Social inequality', 3)
 SET ANSI_WARNINGS ON;
-select * from lst_study_topic_lesson
+update lst_study_topic_lesson set TotalWords=20 where TopicID=1
+update lst_study_topic_lesson set TotalWords=12 where TopicID=2
+update lst_study_topic_lesson set TotalWords=20 where TopicID=3
+update lst_study_topic_lesson set Learnt=N'Chưa hoàn thành'
 SET ANSI_WARNINGS ON;
 
 SET ANSI_WARNINGS OFF;
@@ -1946,21 +1955,6 @@ as
 select * from [dbo].lst_study_topic where TopicID=@topicID
 
 
-/* Remember to execute*/
-alter table lst_study_topic add Img varchar(50)
-update lst_study_topic set Img='ielts900.png' where TopicID=1
-update lst_study_topic set Img='toeic600.png' where TopicID=2
-update lst_study_topic set Img='toefl1000.jpg' where TopicID=3
-----
-
-alter table lst_study_topic_lesson add TotalWords int
-
-update lst_study_topic_lesson set TotalWords=20 where TopicID=1
-update lst_study_topic_lesson set TotalWords=12 where TopicID=2
-update lst_study_topic_lesson set TotalWords=20 where TopicID=3
-select * from lst_study_topic_lesson
-----
-update lst_study_topic set TotalLessons=15
 GO
 GO
 --create procedure User Update--
@@ -2102,7 +2096,8 @@ create table [dbo].[LessonLearnt] (
 	[LessonID] int not null,
 	[UserID] int not null,
 	[Name] varchar(100)null,
-	[Learnt] nvarchar(50) null
+	[Learnt] nvarchar(50) null,
+	[TotalWords] int null
 ) 
 
 alter table LessonLearnt add primary key (TopicID, LessonID, UserID)
@@ -2155,6 +2150,287 @@ begin
 	update LessonLearnt set Learnt=N'Đã hoàn thành' where UserID=@userID and LessonID=@lessonID and TopicID=@topicID
 end
 
-alter table LessonLearnt add TotalWords int
+----1
+
+insert into lst_study_topic_vocab values(1, 'poll', N'/pəʊl/', 'noun', N'cuộc điều tra dư luận, cuộc thăm dò ý kiến', N'a public opinion poll', N'cuộc thăm dò dư luận quần chúng', 6, 1)
+insert into lst_study_topic_vocab values(2, 'vigorously', N'/ˈvɪɡərəsli/', 'adverb', N'mãnh liệt, mạnh mẽ', N'argue vigorously in support of something', N'lập luận mạnh mẽ để ủng hộ cái gì', 6, 1)
+insert into lst_study_topic_vocab values(3, 'bitterly', N'/ˈbɪtəli/', 'adverb', N'thảm thiết, một cách đau buồn/tức giận', N'They complained bitterly', N'Họ phàn nàn một cách tức giận', 6, 1)
+insert into lst_study_topic_vocab values(4, 'widely', N'/ˈwaɪdli/', 'adverb', N'rộng rãi, khắp nơi', N'it is widely known that ...', N'khắp nơi người ta đều biết rằng ..., đâu đâu người ta cũng biết rằng ...', 6, 1)
+insert into lst_study_topic_vocab values(5, 'idea', N'/aɪˈdɪə/', 'noun', N'ý tưởng, ý kiến', N'a fixed idea', N'quan niệm cố định', 6, 1)
+insert into lst_study_topic_vocab values(6, 'dispute', N'/dɪˈspjuːt/', 'noun', N'cuộc bàn cãi, cuộc tranh luận', N'there has been much dispute over the question of legalized abortion', N'người ta đã tranh luận nhiều về vấn đề phá thai hợp pháp', 6, 1)
+insert into lst_study_topic_vocab values(7, 'morally', N'/ˈmɒrəli/', 'adverb', N'về phương diện đạo đức, một cách có đạo đức', N'to behave morally', N'cư xử có đạo đức', 6, 1)
+insert into lst_study_topic_vocab values(8, 'legislation', N'/ˌledʒɪsˈleɪʃn/', 'noun', N'pháp luật; pháp chế', N'humanity of socialist legislation', N'tính nhân đạo của pháp chế xã hội chủ nghĩa', 6, 1)
+insert into lst_study_topic_vocab values(9, 'wholly', N'/ˈhəʊlli/', 'adverb', N'toàn bộ, hoàn toàn', N'I don''t wholly agree', N'tôi không hoàn toàn đồng ý', 6, 1)
+insert into lst_study_topic_vocab values(10, 'strongly', N'/ˈstrɒŋli/', 'adverb', N'quả quyết, mãnh mẽ, rất', N'', N'', 6, 1)
+insert into lst_study_topic_vocab values(11, 'suggest', N'/səˈdʒest/', 'verb', N'đề nghị; đề xuất; gợi ý', N'He suggests meeting on Monday', N'Anh ấy đề nghị họp vào thứ hai', 6, 1)
+insert into lst_study_topic_vocab values(12, 'tentatively', N'/ˈtentətɪvli/', 'adverb', N'không dứt khoát, không quả quyết', N'', N'', 6, 1)
+insert into lst_study_topic_vocab values(13, 'otherwise', N'/ˈʌðəwaɪz/', 'adverb', N'khác, cách khác', N'he could not act otherwise', N'anh ta không thể hành động khác hơn được', 6, 1)
+insert into lst_study_topic_vocab values(14, 'acknowledge', N'/əkˈnɒlɪdʒ/', 'verb', N'chấp nhận sự thật của cái gì; thừa nhận cái gì', N'he acknowledged it to be true /that it was true', N'anh ấy thừa nhận điều đó là đúng', 6, 1)
+insert into lst_study_topic_vocab values(15, 'integrity', N'/ɪnˈteɡrəti/', 'noun', N'tính chính trực, tính liêm chính', N'', N'', 6, 1)
+insert into lst_study_topic_vocab values(16, 'justify', N'/ˈdʒʌstɪfaɪ/', 'verb', N'bào chữa; thanh minh', N'you can''t justify neglecting your wife and children', N'anh không thể bào chữa được việc anh lơ là vợ con', 6, 1)
+insert into lst_study_topic_vocab values(17, 'publicly', N'/ˈpʌblɪkli/', 'adverb', N'công khai', N'', N'', 6, 1)
+insert into lst_study_topic_vocab values(18, 'advocate', N'/ˈædvəkət/', 'verb', N'tán thành, ủng hộ', N'', N'', 6, 1)
+insert into lst_study_topic_vocab values(19, 'wisdom', N'/ˈwɪzdəm/', 'noun', N'sự sáng suốt, tài giỏi, khôn ngoan; sự hiểu biết', N'she had acquired much wisdom during her long life', N'bà ta đã tích lũy được nhiều hiểu biết trong cả cuộc đời lâu dài của mình', 6, 1)
+insert into lst_study_topic_vocab values(20, 'object', N'/ˈɒbdʒɪkt/', 'verb', N'phản đối; chống lại', N'I objected : "But he''s too young "', N'Tôi phản đối "Nhưng mà nó quá trẻ"', 6, 1)
+
+insert into lst_study_topic_vocab values(1, 'singer', N'/ˈsɪŋə(r)/', 'noun', N'ca sĩ', N'She is a good singer', N'Cô ấy là một ca sĩ tài giỏi', 7, 1)
+insert into lst_study_topic_vocab values(2, 'ballet', N'/ˈbæleɪ/', 'noun', N'ba-lê', N'', N'', 7, 1)
+insert into lst_study_topic_vocab values(3, 'anthology', N'/ænˈθɒlədʒi/', 'noun', N'bộ sưu tập thơ hoặc văn xuôi về cùng một chủ đề hoặc của một nhà văn; hợp tuyển', N'She has an anthology of love poetry', N'Cô ấy có một hợp tuyển thơ về tình yêu', 7, 1)
+insert into lst_study_topic_vocab values(4, 'discussion', N'/dɪˈskʌʃn/', 'noun', N'sự thảo luận; sự bàn cãi; sự tranh luận', N'after much discussion /several lengthy discussions , they decided to accept our offer', N'sau nhiều cuộc bàn cãi/một vài cuộc bàn cãi lê thê, họ quyết định chấp nhận đề nghị của chúng tôi', 7, 1)
+insert into lst_study_topic_vocab values(5, 'opera', N'/ˈɒprə/', 'noun', N'nhạc kịch, ô-pê-ra', N'tickets for the opera', N'vé đi xem ô-pê-ra', 7, 1)
+insert into lst_study_topic_vocab values(6, 'attend', N'/əˈtend/', 'verb', N'chăm sóc; phục vụ', N'a nurse attends to the patient', N'một y tá chăm sóc cho bệnh nhân', 7, 1)
+insert into lst_study_topic_vocab values(7, 'classical', N'/ˈklæsɪkl/', 'adjective', N'cổ điển', N'classical music', N'âm nhạc cổ điển', 7, 1)
+insert into lst_study_topic_vocab values(8, 'assemble', N'/əˈsembl/', 'verb', N'(làm cho vật hoặc người) tập hợp lại; thu thập', N'The whole school (was) assembled in the main hall', N'Toàn trường tập hợp trong hội trường', 7, 1)
+insert into lst_study_topic_vocab values(9, 'observe', N'/əbˈzɜːv/', 'verb', N'quan sát, theo dõi', N'', N'', 7, 1)
+insert into lst_study_topic_vocab values(10, 'amateur', N'/ˈæmətə/', 'noun', N'người chơi một môn thể thao hoặc môn nghệ thuật không nhằm kiếm tiền; người chơi tài tử; nghiệp dư', N'the tournament is open to amateurs as well as professionals', N'cuộc thi đấu được tổ chức cho các đấu thủ nghiệp dư cũng như các đấu thủ chuyên nghiệp', 7, 1)
+insert into lst_study_topic_vocab values(11, 'recital', N'/rɪˈsaɪtl/', 'noun', N'(âm nhạc) cuộc biểu diễn độc tấu', N'', N'', 7, 1)
+insert into lst_study_topic_vocab values(12, 'orchestra', N'/ˈɔːkɪstrə/', 'noun', N'ban nhạc; dàn nhạc', N'a dance , string , symphony orchestra', N'một dàn nhạc khiêu vũ, đàn dây, giao hưởng', 7, 1)
+insert into lst_study_topic_vocab values(13, 'guest', N'/ɡest/', 'noun', N'khách, khách mời', N'a guest speaker', N'người được mời đến để diễn thuyết', 7, 1)
+insert into lst_study_topic_vocab values(14, 'resign', N'/rɪˈzaɪn/', 'verb', N'từ chức; từ bỏ', N'He resigned as a police officer after 20 years', N'Anh ấy nghỉ hưu sau 20 năm làm cảnh sát', 7, 1)
+insert into lst_study_topic_vocab values(15, 'establish', N'/ɪˈstæblɪʃ/', 'verb', N'lập, thành lập, thiết lập, kiến lập', N'to establish a government', N'lập chính phủ', 7, 1)
+insert into lst_study_topic_vocab values(16, 'poetry', N'/ˈpəʊətri/', 'noun', N'thi ca (thơ ca) nói chung; nghệ thuật thơ', N'epic poetry', N'sử thi', 7, 1)
+insert into lst_study_topic_vocab values(17, 'organize', N'/ˈɔːɡənaɪz/', 'verb', N'tổ chức', N'', N'', 7, 1)
+insert into lst_study_topic_vocab values(18, 'contemporary', N'/kənˈtemprəri/', 'adjective', N'đương thời', N'many contemporary writers condemned the emperor''s actions', N'nhiều nhà văn đương thời lên án các hành động của hoàng đế', 7, 1)
+insert into lst_study_topic_vocab values(19, 'drama', N'/ˈdrɑːmə/', 'noun', N'vở kịch cho sân khấu, ra-đi-ô hoặc truyền hình', N'', N'', 7, 1)
+insert into lst_study_topic_vocab values(20, 'ceremony', N'/ˈserəməni/', 'noun', N'nghi lễ', N'a marriage /wedding ceremony', N'nghi lễ kết hôn; hôn lễ', 7, 1)
 
 
+insert into lst_study_topic_vocab values(1, 'price', N'/praɪs/', 'noun', N'số tiền mua hoặc bán cái gì; giá', N'What''s the price of this table?', N'Cái bàn này giá bao nhiêu?', 8, 1)
+insert into lst_study_topic_vocab values(2, 'twin', N'/twɪn/', 'adjective', N'sinh đôi; tạo thành cặp', N'my twin brother /sister', N'anh/chị sinh đôi của tôi', 8, 1)
+insert into lst_study_topic_vocab values(3, 'markedly', N'/ˈmɑːkɪdli/', 'adverb', N'rõ ràng; rõ rệt', N'', N'', 8, 1)
+insert into lst_study_topic_vocab values(4, 'region', N'/ˈriːdʒən/', 'noun', N'vùng, miền', N'a mountainous region', N'miền đồi núi', 8, 1)
+insert into lst_study_topic_vocab values(5, 'differ', N'/ˈdɪfə(r)/', 'verb', N'khác, không giống', N'The brothers differ widely in their tastes', N'Mấy anh em khác nhau rất nhiều về sở thích', 8, 1)
+insert into lst_study_topic_vocab values(6, 'score', N'/skɔː(r)/', 'noun', N'điểm số; bàn thắng', N'hight score', N'điểm cao', 8, 1)
+insert into lst_study_topic_vocab values(7, 'background', N'/ˈbækɡraʊnd/', 'noun', N'phần trong một cảnh quan, cảnh trí hoặc bảng miêu tả làm nền cho những vật hoặc những người chính; nền; hậu cảnh', N'a dress with red spots on a white background', N'áo nền trắng chấm đỏ', 8, 1)
+insert into lst_study_topic_vocab values(8, 'equivalent', N'/ɪˈkwɪvələnt/', 'adjective', N'(adj) tương đương; (n) vật tương đương, từ tương đương', N'', N'', 8, 1)
+insert into lst_study_topic_vocab values(9, 'distinguish', N'/dɪˈstɪŋɡwɪʃ/', 'verb', N'(to distinguish between A and B / A from B) phân biệt', N'people who cannot distinguish between colours are said to be colour-blind', N'người không phân biệt được màu sắc thì gọi là mù màu', 8, 1)
+insert into lst_study_topic_vocab values(10, 'manner', N'/ˈmænə(r)/', 'noun', N'dáng, vẻ, bộ dạng, thái độ, cử chỉ', N'there is no trace of awkwardness in his manner', N'không có một chút gì là vụng về trong thái độ của anh ta', 8, 1)
+insert into lst_study_topic_vocab values(11, 'contrast', N'/ˈkɒntrɑːst/', 'noun', N'sự tương phản, sự trái ngược', N'the contrast between light and shade', N'sự tương phản giữa ánh sáng và bóng tối', 8, 1)
+insert into lst_study_topic_vocab values(12, 'copy', N'/ˈkɒpi/', 'verb', N'sao lại, chép lại; bắt chước, phỏng theo, mô phỏng', N'to copy out a passage from a book', N'chép lại một đoạn trong sách', 8, 1)
+insert into lst_study_topic_vocab values(13, 'resemble', N'/rɪˈzembl/', 'verb', N'giống với, tương tự (người nào, vật gì), có sự tương đồng với', N'a small object resembling a pin', N'một vật nhỏ giống như một chiếc ghim', 8, 1)
+insert into lst_study_topic_vocab values(14, 'evidence', N'/ˈevɪdəns/', 'noun', N'(evidence to do something/that ...) (pháp lý) chứng cớ; bằng chứng', N'there wasn''t enough evidence to prove him guilty', N'không có đủ bằng chứng để chứng tỏ là nó có tội (không đủ chứng cớ buộc tội nó)', 8, 1)
+insert into lst_study_topic_vocab values(15, 'estimate', N'/ˈestɪmeɪt/', 'verb', N'đánh giá; ước lượng', N'', N'', 8, 1)
+insert into lst_study_topic_vocab values(16, 'alike', N'/əˈlaɪk/', 'adjective', N'giống nhau, tương tự', N'those four chairs are alike', N'bốn cái ghế ấy thì giống nhau', 8, 1)
+insert into lst_study_topic_vocab values(17, 'genetically', N'/dʒəˈnetɪkli/', 'adverb', N'về mặt di truyền học, có liên quan đến khía cạnh di truyền', N'', N'', 8, 1)
+insert into lst_study_topic_vocab values(18, 'variety', N'/vəˈraɪəti/', 'noun', N'sự đa dạng, tính chất không như nhau; trạng thái khác nhau, trạng thái muôn màu muôn vẻ; tính chất bất đồng', N'we all need variety in our diet', N'tất cả chúng tôi đều cần có chế độ ăn luôn luôn thay đổi', 8, 1)
+insert into lst_study_topic_vocab values(19, 'compare', N'/kəmˈpeə(r)/', 'verb', N'so sánh; ví (như)', N'If you compare her work with his /If you compare their work , you''ll find hers is much better', N'Nếu anh so sánh tác phẩm của cô ấy với tác phẩm của anh ta/Nếu anh so sánh tác phẩm của họ với nhau, anh sẽ thấy tác phẩm của cô ấy hay hơn nhiều', 8, 1)
+insert into lst_study_topic_vocab values(20, 'distinct', N'/dɪˈstɪŋkt/', 'adjective', N'riêng, riêng biệt; khác biệt', N'man is distinct from animals', N'con người khác biệt với loài vật', 8, 1)
+
+insert into lst_study_topic_vocab values(1, 'exacerbate', N'/ɪɡˈzæsəbeɪt/', 'verb', N'làm tăng, làm trầm trọng (bệnh, sự tức giận, sự đau đớn)', N'', N'', 9, 1)
+insert into lst_study_topic_vocab values(2, 'symptom', N'/ˈsɪmptəm/', 'noun', N'triệu chứng (của một căn bệnh); dấu hiệu về sự tồn tại của một cái gì xấu', N'This demonstration was a symptom of discontent among the students', N'Cuộc biểu tình này là dấu hiệu của sự bất mãn trong sinh viên', 9, 1)
+insert into lst_study_topic_vocab values(3, 'political', N'/pəˈlɪtɪkl/', 'adjective', N'về chính trị, về chính phủ, về những việc công cộng nói chung', N'political economy', N'kinh tế chính trị', 9, 1)
+insert into lst_study_topic_vocab values(4, 'prospect', N'/ˈprɒspekt/', 'noun', N'cái nhìn rộng về một phong cảnh; cảnh; toàn cảnh', N'a magnificent prospect of mountain peaks and lakes', N'toàn cảnh tuyệt đẹp các đỉnh núi và hồ', 9, 1)
+insert into lst_study_topic_vocab values(5, 'eradicate', N'/ɪˈrædɪkeɪt/', 'verb', N'xóa bỏ, diệt', N'', N'', 9, 1)
+insert into lst_study_topic_vocab values(6, 'conflict', N'/ˈkɒnflɪkt/', 'noun', N'sự xung đột; cuộc xung đột', N'soldiers involved in armed conflict', N'những người lính tham dự vào một cuộc xung đột vũ trang', 9, 1)
+insert into lst_study_topic_vocab values(7, 'problem', N'/ˈprɒbləm/', 'noun', N'cái khó giải quyết hoặc khó hiểu; vấn đề, luận đề', N'How do you cope with the problem of poor vision ?', N'Anh đối phó thế nào với vấn đề thị lực kém?', 9, 1)
+insert into lst_study_topic_vocab values(8, 'condition', N'/kənˈdɪʃn/', 'noun', N'điều kiện, tình trạng', N'You may shut the doors on (upon) condition that nobody smokes in the room', N'Anh có thể đóng cửa với điều kiện không ai hút thuốc trong phòng', 9, 1)
+insert into lst_study_topic_vocab values(9, 'severe', N'/sɪˈvɪə(r)/', 'adjective', N'khắt khe, gay gắt (trong thái độ, cách cư xử)', N'a severe look', N'một cái nhìn nghiêm khắc', 9, 1)
+insert into lst_study_topic_vocab values(10, 'complication', N'/ˌkɒmplɪˈkeɪʃn/', 'noun', N'sự phức tạp, sự rắc rối', N'', N'', 9, 1)
+insert into lst_study_topic_vocab values(11, 'intervene', N'/ˌɪntəˈviːn/', 'verb', N'xen vào, can thiệp', N'to intervene in a quarrel', N'xen vào một cuộc cãi cọ', 9, 1)
+insert into lst_study_topic_vocab values(12, 'damage', N'/ˈdæmɪdʒ/', 'noun', N'(damage to something) sự thiệt hại; sự hư hại', N'The accident did a lot of damage to the car', N'Tai nạn khiến chiếc xe bị hư hại nặng', 9, 1)
+insert into lst_study_topic_vocab values(13, 'crisis', N'/ˈkraɪsɪs/', 'noun', N'sự khủng hoảng; cơn khủng hoảng', N'in times of crisis , it''s good to have a friend to turn to', N'Trong những lúc khủng hoảng, có một người bạn để trông cậy là một điều tốt lành', 9, 1)
+insert into lst_study_topic_vocab values(14, 'tension', N'/ˈtenʃn/', 'noun', N'(nghĩa bóng) sự căng thẳng (về tinh thần, cảm xúc, thần kinh); tình trạng căng thẳng', N'Tension is a major cause of heart disease', N'Tình trạng căng thẳng là nguyên nhân chủ yếu của bệnh tim', 9, 1)
+insert into lst_study_topic_vocab values(15, 'dilemma', N'/dɪˈlemə/', 'noun', N'thế tiến lui đều khó, thế tiến thoái lưỡng nan, tình trạng khó xử', N'between (on ) the horns of a dilemma', N'tiến không được mà lùi chẳng xong, tiến thoái lưỡng nan', 9, 1)
+insert into lst_study_topic_vocab values(16, 'cash', N'/kæʃ/', 'noun', N'tiền, tiền mặt', N'I have no cash with me', N'Tôi không có tiền mặt', 9, 1)
+insert into lst_study_topic_vocab values(17, 'resolve', N'/rɪˈzɒlv/', 'noun', N'giải quyết (khó khăn, vấn đề, mối nghi ngờ...)', N'', N'', 9, 1)
+insert into lst_study_topic_vocab values(18, 'pose', N'/pəʊz/', 'noun', N'sắp đặt (ai...) ở tư thế (chụp ảnh, làm mẫu vẽ...)', N'', N'', 9, 1)
+insert into lst_study_topic_vocab values(19, 'solve', N'/sɒlv/', 'verb', N'giải quyết (khó khăn..)', N'', N'', 9, 1)
+insert into lst_study_topic_vocab values(20, 'face', N'/feɪs/', 'verb', N'đương đầu, đối phó', N'to face famine and poverty', N'đương đầu với nạn đói nghèo', 9, 1)
+
+insert into lst_study_topic_vocab values(1, 'compelling', N'/kəmˈpelɪŋ/', 'adjective', N'hấp dẫn, thuyết phục', N'a compelling commentary', N'bài bình luận hấp dẫn', 10, 1)
+insert into lst_study_topic_vocab values(2, 'dogma', N'/ˈdɒɡmə/', 'noun', N'niềm tin hoặc một loạt niềm tin do một quyền lực nào đó đưa ra (nhất là Giáo hội) để được chấp nhận như một đức tin; giáo điều; tín điều', N'political /social /economic dogma', N'tín điều chính trị/xã hội/kinh tế', 10, 1)
+insert into lst_study_topic_vocab values(3, 'question', N'/ˈkwestʃən/', 'noun', N'câu hỏi; vấn đề; điều bàn đến, điều nói đến', N'What about the question of employment ?', N'Vấn đề công ăn việc làm thì thế nào?', 10, 1)
+insert into lst_study_topic_vocab values(4, 'sample', N'/ˈsɑːmpl/', 'noun', N'mẫu; vật mẫu, hàng mẫu', N'to send something as a sample', N'gửi vật gì để làm mẫu', 10, 1)
+insert into lst_study_topic_vocab values(5, 'comment', N'/ˈkɒment/', 'noun', N'lời bình luận; lời phê bình, lời chỉ trích', N'to make comments on an event', N'bình luận một sự kiện', 10, 1)
+insert into lst_study_topic_vocab values(6, 'concept', N'/ˈkɒnsept/', 'noun', N'tư tưởng làm cơ sở cho cái gì; ý niệm chung; khái niệm', N'He can''t grasp the basic concepts of mathematics', N'Anh ấy không nắm được những khái niệm cơ bản của toán học', 10, 1)
+insert into lst_study_topic_vocab values(7, 'freedom', N'/ˈfriːdəm/', 'noun', N'sự tự do; nền tự do', N'to fight for freedom', N'đấu tranh giành tự do', 10, 1)
+insert into lst_study_topic_vocab values(8, 'democracy', N'/dɪˈmɒkrəsi/', 'noun', N'nền dân chủ; chế độ dân chủ', N'parliamentary democracy', N'nền dân chủ đại nghị; chế độ dân chủ đại nghị', 10, 1)
+insert into lst_study_topic_vocab values(9, 'justice', N'/ˈdʒʌstɪs/', 'noun', N'sự công bằng; phẩm chất công bằng', N'Laws based on the principles of justice', N'Pháp luật dựa trên các nguyên tắc công bằng', 10, 1)
+insert into lst_study_topic_vocab values(10, 'conjecture', N'/kənˈdʒektʃə(r)/', 'noun', N'sự phỏng đoán, sự ước đoán', N'to be right in a conjecture', N'phỏng đoán đúng', 10, 1)
+insert into lst_study_topic_vocab values(11, 'consensus', N'/kənˈsensəs/', 'noun', N'sự đồng lòng, sự đồng tâm, sự nhất trí', N'The two parties have reached a consensus', N'Hai đảng đó đã được một sự nhất trí', 10, 1)
+insert into lst_study_topic_vocab values(12, 'framework', N'/ˈfreɪmwɜːk/', 'noun', N'(nghĩa bóng) cơ cấu tổ chức, khuôn khổ', N'the framework of society', N'cơ cấu xã hội', 10, 1)
+insert into lst_study_topic_vocab values(13, 'ambiguous', N'/æmˈbɪɡjuəs/', 'adjective', N'có nhiều hơn một nghĩa có thể hiểu; lưỡng nghĩa; mơ hồ, nhập nhằng', N'an ambiguous explanation', N'lời giải thích mơ hồ', 10, 1)
+insert into lst_study_topic_vocab values(14, 'biased', N'/ˈbaɪəst/', 'adjective', N'thiên vị', N'', N'', 10, 1)
+insert into lst_study_topic_vocab values(15, 'credible', N'/ˈkredəbl/', 'adjective', N'đáng tin, tin được', N'', N'', 10, 1)
+insert into lst_study_topic_vocab values(16, 'flawed', N'/flɔːd/', 'adjective', N'có vết, rạn nứt; có chỗ hỏng; không hoàn thiện, không hoàn mỹ', N'', N'', 10, 1)
+insert into lst_study_topic_vocab values(17, 'valid', N'/ˈvælɪd/', 'adjective', N'hợp lý; đúng đắn; có cơ sở/căn cứ vững chắc', N'a valid argument', N'một lý lẽ vững chắc', 10, 1)
+insert into lst_study_topic_vocab values(18, 'result', N'/rɪˈzʌlt/', 'noun', N'(result of something) kết quả (của cái gì)', N'The flight was delayed as a result of fog', N'Chuyến bay bị muộn vì sương mù', 10, 1)
+insert into lst_study_topic_vocab values(19, 'reason', N'/ˈriːzn/', 'noun', N'(reason for something/doing something ; reason to do something) lý do', N'Is there any (particular) reason why you can''t come?', N'Có lý do (đặc biệt) gì mà anh không đến được?', 10, 1)
+insert into lst_study_topic_vocab values(20, 'referee', N'/ˌrefəˈriː/', 'noun', N'(thể dục,thể thao) trọng tài (trong bóng đá..)', N'', N'', 10, 1)
+
+
+------2
+
+insert into lst_study_topic_vocab values(1, 'access', N'/ˈækses/', 'noun', N'quyền truy cập, sự tiếp cận', N'I cannot easily get access to the Internet.', N'Tôi không thể dễ dàng có được quyền truy cập vào Internet', 6, 2)
+insert into lst_study_topic_vocab values(2, 'allocate', N'/ˈælԥkeɪt/', 'verb', N'cấp cho, phân phối', N'The office manager did not allocate enough money to purchase software.', N'Người quản lý văn phòng không cấp đủ tiền để mua sắm phần mềm.', 6, 2)
+insert into lst_study_topic_vocab values(3, 'compatible', N'/kəmˈpætəbl/', 'adjective', N'tương thích, hợp nhau', N'Because my girlfriend and I listen to the same music artists, we have compatible tastes in music.', N'Vì tôi và bạn gái tôi cùng nghe nhạc của những ngh͏ệ sĩ giống nhau, nên chúng tôi hợp nhau về thị hiếu âm nhạc.', 6, 2)
+insert into lst_study_topic_vocab values(4, 'delete', N'/diˈli:t/', 'verb', N'xóa đi, bỏ đi', N'The technicians deleted all the data on the disk accidentally.', N'Kỹ thuật viên đã vô tình xóa mọi dữ li͏ệu trên đĩa.', 6, 2)
+insert into lst_study_topic_vocab values(5, 'display', N'/disˈplei/', 'verb', N'hiển thị, trình bày', N'The accounting program displays a current balance when opened.', N'Chương trình kế toán hiển thị một con số cân bằng thu chi khi mở (chương trình đó) ra.', 6, 2)
+insert into lst_study_topic_vocab values(6, 'duplicate', N'/ˈdju:plikit/', 'verb', N'sao lại, nhân đôi', N'I think the new word processing program will duplicate the success of the one introduced last year.', N'Tôi nghĩ rằng chương trình xử lý văn bản mới sẽ thành công gấp đôi so với chương trình được giới thi͏ệu hồi năm ngoái.', 6, 2)
+insert into lst_study_topic_vocab values(7, 'failure', N'/ˈfeɪljə/', 'noun', N'trượt, thất bại', N'The success or failure of the plan depends on you.', N'Kế hoạch thành công hay thất bại là phụ thuộc vào bạn.', 6, 2)
+insert into lst_study_topic_vocab values(8, 'figure out', N'/ˈfɪɡə aʊt/', 'verb', N'đoán ra, giải ra', N'By examining all of the errors, the technicians were able to figure out how to fix the problem.', N'Bằng cách xem xét mọi lỗi, các kỹ thuật viên đã có thể tìm ra cách để sửa chữa các sự cố.', 6, 2)
+insert into lst_study_topic_vocab values(9, 'ignore', N'/igˈnɔ:/', 'verb', N'bỏ qua, phớt lờ', N'He ignored all the things she said.', N'Anh ấy phớt lờ tất cả những gì cô ấy nói.', 6, 2)
+insert into lst_study_topic_vocab values(10, 'search', N'/sɜːtʃ/', 'noun', N'cuộc tìm kiếm, thăm dò', N'Our search of the database produced very little information.', N'Vi͏ệc tìm kiếm trong cơ sở dữ li͏ệu của chúng tôi đã đem lại rất ít thông tin.', 6, 2)
+insert into lst_study_topic_vocab values(11, 'shut down', N'/ʃʌt daʊn/', 'verb', N'tắt máy, ngừng hoạt động', N'Please shut down the computer before you leave.', N'Vui lòng tắt máy trước khi bạn ngừng làm vi͏ệc.', 6, 2)
+insert into lst_study_topic_vocab values(12, 'warning', N'/ˈwɔ:niɳ/', 'noun', N'sự cảnh báo', N'The red flashing light gives a warning to users that the battery is low.', N'Ánh sáng nhấp nháy màu đỏ đưa ra sự cảnh báo với người dùng rằng pin bị cạn.', 6, 2)
+
+insert into lst_study_topic_vocab values(1, 'affordable', N'/əˈfɔːdəbəl/', 'adjective', N'có đủ điều ki͏ện, có thể chi trả, giá cả phải chăng', N'The company''s first priority was to find an affordable phone system.', N'Ưu tiên trước hết của công ty là tìm một h͏ệ thống đi͏ện thoại có đủ khả năng (hoạt động).', 7, 2)
+insert into lst_study_topic_vocab values(2, 'as needed', N'/az niːdɪd/', 'adverb', N'lúc cần thiết, như cần thiết', N'The service contract states that repairs will be made on a basis as needed.', N'Hợp đồng dịch vụ nói rằng việ͏c sửa chữa sẽ được thực hi͏ện dựa trên cơ sở lúc cần thiết.', 7, 2)
+insert into lst_study_topic_vocab values(3, 'be in charge of', N'/bi: ɪn tʃɑːdʒ əv/', 'verb', N'chịu trách nhi͏ệm về', N'He appointed someone to be in charge of maintaining a supply of paper in the fax machine.', N'Ông ấy chọn người nào đó chịu trách nhi͏ệm duy trì vi͏ệc cung cấp giấy cho máy fax.', 7, 2)
+insert into lst_study_topic_vocab values(4, 'capacity', N'/kəˈpæsəti/', 'noun', N'sức chứa, dung tích', N'The new conference room is much larger and has a capacity of one hundred people.', N'Phòng họp mới thì lớn hơn nhiều (phòng cũ) và có khả năng chứa được một trăm người.', 7, 2)
+insert into lst_study_topic_vocab values(5, 'durable', N'/ˈdjʊərəbl/', 'adjective', N'bền, lâu', N'These chairs are more durable than the first ones we looked at.', N'Những cái ghế này bền hơn nhiều những cái ghế đầu tiên mà chúng ta đã thấy.', 7, 2)
+insert into lst_study_topic_vocab values(6, 'initiative', N'/ɪˈnɪʃətɪv/', 'noun', N'bước khởi đầu, sự khởi xướng, sáng kiến', N'Take the initiative and engage your classmates in friendly conversation.', N'Hãy khởi xướng và thu hút các bạn cùng lớp tham gia vào một cuộc nói chuy͏ện thân thi͏ện.', 7, 2)
+insert into lst_study_topic_vocab values(7, 'physically', N'/ˈfɪzɪkli /', 'adverb', N'về thân thể, thể chất', N'The computer screen is making her physically sick.', N'Màn hình máy tính khiến cho cô ta khó ch͓u về mặt thể chất.', 7, 2)
+insert into lst_study_topic_vocab values(8, 'provider', N'/prəˈvaɪdə(r)/', 'noun', N'nhà cung cấp', N'The department was extremely pleased with the service they received from the phone provider.', N'Bộ phận hết sức hài lòng với dịch vụ mà họ nhận được từ nhà cung cấp dịch vụ đi͏ện thoại.', 7, 2)
+insert into lst_study_topic_vocab values(9, 'recur', N'/rɪˈkɜː(r)/', 'verb', N'tái diễn, lặp đi lặp lại', N'The managers did not want that particular error to recur.', N'Các trưởng phòng không muốn những lỗi cá bi͏ệt đó lại tái diễn.', 7, 2)
+insert into lst_study_topic_vocab values(10, 'reduction', N'/riˈdʌkʃn/', 'noun', N': sự giảm, thu nhỏ', N'The outlet store gave a 20 percent reduction in the price of the shelves and bookcases.', N'Cửa hàng tiêu thụ đã giảm giá 20% với các k͏ệ sách và tủ sách.', 7, 2)
+insert into lst_study_topic_vocab values(11, 'stay on top of', N'/steɪ ɒn tɒp əv/', 'verb', N'nắm bắt tình hình', N'In this industry, you must stay on top of current developments.', N'Trong ngành công nghi͏p này, anh phải nắm bắt được tình hình về các diễn biến hi͏ện tại.', 7, 2)
+insert into lst_study_topic_vocab values(12, 'stock', N'/stɒk/', 'verb', N'trữ hàng', N'The employees stocked the shelves on a weekly basis.', N'Các nhân viên trữ hàng lên k͏ệ căn cứ theo mỗi tuần.', 7, 2)
+
+
+insert into lst_study_topic_vocab values(1, 'appreciation', N'/əˌpriːʃiˈeɪʃn/', 'noun', N'sự cảm kích', N'She shows little appreciation of good music.', N'Cô ấy cho thấy một chút sự đánh giá cao về thẩm mỹ âm nhạc tốt.', 8, 2)
+insert into lst_study_topic_vocab values(2, 'be made of', N'/bi: meɪd əv/', 'verb', N'làm bằng (cái gì)', N'This job will really test what you are made of.', N'Công vi͏ệc này sẽ thật sự kiểm tra xem anh là người thế nào.', 8, 2)
+insert into lst_study_topic_vocab values(3, 'bring in', N'/brɪŋ ɪn/', 'verb', N'tuyển dụng, dẫn tới', N'The company brings in new team of project planners.', N'Công ty thuê một đợi mới cho các nhà hoạch định dự án.', 8, 2)
+insert into lst_study_topic_vocab values(4, 'casually', N'/ˈkæʒuəli/', 'adverb', N'bình thường, không trịnh trọng', N'On Fridays, most employees dress casually.', N'Vào các thứ Sáu, phần lớn nhân viên ăn mặc tùy ý (không mặc đồng phục).', 8, 2)
+insert into lst_study_topic_vocab values(5, 'code', N'/koud/', 'noun', N'quy tắc, luật l͏ệ', N'Even the most traditional companies are changing their dress code to something less formal.', N'Thậm chí hầu hết các công ty theo lối cổ cũng đang thay đổi quy tắc ăn mặc của họ sao cho bớt trịnh trọng đi.', 8, 2)
+insert into lst_study_topic_vocab values(6, 'expose', N'/iksˈpouz/', 'verb', N'phơi bày, bộc lộ', N'He did not want to expose his fears and insecurity to anyone.', N'Anh ấy không muốn để lộ sự sợ hãi và bất an củaa mình cho bất cứ ai.', 8, 2)
+insert into lst_study_topic_vocab values(7, 'glimpse', N'/ɡlɪmps/', 'noun', N'cái nhìn lướt qua', N'The secretary caught a glimpse of her new boss as she was leaving the office.', N'Cô thư ký bắt gặp ánh mắt lướt qua của người chủ mỗi khi cô ấy rời khỏi văn phòng.', 8, 2)
+insert into lst_study_topic_vocab values(8, 'out of', N'/aʊt əv/', 'adjective', N'hết, không còn', N'The presenter ran out of time before he reached his conclusion.', N'Người dẫn chương trình đã hết thời gian trước khi anh ta đi đến kết luận.', 8, 2)
+insert into lst_study_topic_vocab values(9, 'outdated', N'/autˈdeitid/', 'adjective', N'hết hạn; lỗi thời, lạc hậu, hiện nay không còn dùng', N'Before you do a mailing, make sure that none of the addresses is outdated.', N'Trước khi anh gửi thư, hãy bảo đảm rằng không có địa chỉ nào hi͏ện không còn sử dụng', 8, 2)
+insert into lst_study_topic_vocab values(10, 'practice', N'/ˈpræktis/', 'verb', N'thực hành, rèn luy͏ện', N'Bill practiced answering the telephone until he was satisfied.', N'Bill thực tập trả lời đi͏n thoại cho đến khi anh ta cảm thấy hài lòng.', 8, 2)
+insert into lst_study_topic_vocab values(11, 'reinforce', N'/,ri:inˈfɔ:s/', 'verb', N'tăng cường, củng cố', N'Employees reinforced their learning with practice in the workplace.', N'Các nhân viên củng cố kiến thức của mình bằng vi͏ệc thực hành ở nơi làm vi͏ệc.', 8, 2)
+insert into lst_study_topic_vocab values(12, 'verbally', N'/ˈvɜːbəli/', 'adverb', N'bằng mi͏ệng, bằng lời nói', N'The guarantee was made only verbally.', N'Sự bảo đảm được cam kết chỉ bằng lời.', 8, 2)
+
+insert into lst_study_topic_vocab values(1, 'disk', N'/disk/', 'noun', N'đĩa (vi tính, thể thao, đĩa hát...)', N'Rewritable compact disks are more expensive than read-only CDs.', N'Đĩa quang có khả năng ghi thì đắt hơn nhiều đĩa CD chỉ đọc.', 9, 2)
+insert into lst_study_topic_vocab values(2, 'facilitate', N'/fəˈsɪlɪteɪt/', 'verb', N'làm cho dễ dàng, làm cho thuận ti͏ện', N'The computer program facilitated the scheduling of appointments.', N'Chương trình máy tính làm cho vi͏ệc lập lịch các buổi hẹn được thuận lợi.', 9, 2)
+insert into lst_study_topic_vocab values(3, 'network', N'/ˈnetwɜːk/', 'verb', N'kết nối, liên kết', N'More and more PCs are networked together.', N'Ngày càng nhiều máy tính được kết nối với nhau.', 9, 2)
+insert into lst_study_topic_vocab values(4, 'popularity', N'/,pɔpjuˈlæriti/', 'noun', N'‹tính/sự› đại chúng, phổ biến, nổi tiếng', N'This brand of computers was at the height of its popularity.', N'Thương hiệ͏u máy tính này từng nổi tiếng rất nhiều.', 9, 2)
+insert into lst_study_topic_vocab values(5, 'process', N'/ˈprəʊses/', 'noun', N'quá trình', N'Singing contests usually have the same process: auditions, semi-finals, and finals.', N'Các cuộc thi ca hát thường có quá trình giống nhau: thử giọng, bán kết, và chung kết.', 9, 2)
+insert into lst_study_topic_vocab values(6, 'replace', N'/riˈpleis/', 'verb', N'thay thế', N'My father replaced the old plug with a new one.', N'Ba tôi thay thế cái nắp cũ bằng cái mới.', 9, 2)
+insert into lst_study_topic_vocab values(7, 'revolution', N'/,revəˈlu:ʃn/', 'noun', N'cuộc cách mạng', N'We see a revolution in the computer field almost every day.', N'Chúng ta thấy một cuộc cách mạng trong lĩnh vực máy tính hầu như mỗi ngày.', 9, 2)
+insert into lst_study_topic_vocab values(8, 'sharp', N'/ʃɑ:p/', 'adjective', N'thông minh, láu lĩnh', N'The new employee proved how sharp she was when she mastered the new program in a few days.', N'Nhân viên mới đã chứng tỏ được cô ấy thông minh đến thế nào khi mà cô đã làm chủ được chương trình mới trong vài ngày.', 9, 2)
+insert into lst_study_topic_vocab values(9, 'skill', N'/skil/', 'noun', N'kỹ năng, kỹ xảo', N'The software developer has excellent technical skills and would be an asset to our software programming team.', N'Người phát triển phần mềm có những kỹ năng chuyên môn xuất sắc và là một vốn quý đối với đội ngũ lập trình phần mềm của chúng tôi.', 9, 2)
+insert into lst_study_topic_vocab values(10, 'software', N'/ˈsɒftweə(r)/', 'noun', N'phần mềm, chương trình máy tính', N'Many computers come pre-loaded with software.', N'Nhiều máy tính đã có sẵn phần mềm.', 9, 2)
+insert into lst_study_topic_vocab values(11, 'store', N'/stɔ:/', 'verb', N'lưu giữ, tích trữ', N'You can store more data on a zip drive.', N'Anh có thể lưu trữ dữ liệu nhiều hơn trên ổ đĩa nén.', 9, 2)
+insert into lst_study_topic_vocab values(12, 'technically', N'/ˈteknɪkli/', 'adverb', N'nói đến/nói về mặt kỹ thuật; một cách chuyên môn/nghiêm túc', N'Technically speaking, the virus infected only script files.', N'Nói về mặt kỹ thuật thì virus chỉ tác động lên các tập tin script (tập tin kịch bản thi hành).', 9, 2)
+
+insert into lst_study_topic_vocab values(1, 'assemble', N'/əˈsembl/', 'verb', N'thu thập, tập hợp, lắp ráp', N'All the students were asked to assemble in the main hall.', N'Tất cả các sinh viên được yêu cầu tập hợp ở hội trường chính.', 10, 2)
+insert into lst_study_topic_vocab values(2, 'beforehand', N'/biˈfɔ:hænd/', 'adverb', N'có sẵn, trước', N'To speed up the mailing, we should prepare the labels beforehand.', N'Để tăng tốc gửi thư, chúng ta nên chuẩn bị nhãn trước.', 10, 2)
+insert into lst_study_topic_vocab values(3, 'complication', N'/ˌkɑːmplɪˈkeɪʃn/', 'noun', N'sự phức tạp, sự rắc rối', N'She will have to spend two more days in the hospital due to complications during the surgery.', N'Cô sẽ phải mất hai ngày nữa trong b͏ệnh vi͏ện do biến chủng trong khi phẫu thuật.', 10, 2)
+insert into lst_study_topic_vocab values(4, 'courier', N'/ˈkʊriər/', 'noun', N'người đưa thư, người chuyển phát', N'We hired a courier to deliver the package.', N'Chúng tôi đã thuê một người đưa thư để phân phát các kiệ͏n hàng.', 10, 2)
+insert into lst_study_topic_vocab values(5, 'express', N'/iksˈpres/', 'adjective', N'nhanh, hỏa tốc, tốc hành.', N'It''s important that this document be there tomorrow, so please send it express mail.', N'Vi͏ệc tài li͏ệu này phải có ở chổ ngày mai vì nó rất quan trọng, do đó nên hãy gửi thư chuyển phát nhanh.', 10, 2)
+insert into lst_study_topic_vocab values(6, 'fold', N'/fould/', 'verb', N'gập, gấp', N'You should fold the omelette in half.', N'Bạn nên gập trứng rán làm đôi.', 10, 2)
+insert into lst_study_topic_vocab values(7, 'layout', N'/ˈleɪaʊt/', 'noun', N'sự bố trí trang giấy', N'There is no single correct layout for business letters.', N'Trong thư thương mại thì không có bố cục nào là chuẩn hoàn toàn hết cả.', 10, 2)
+insert into lst_study_topic_vocab values(8, 'mention', N'/ˈmenʃn/', 'verb', N'nói đến, đề cập đếm, đề xuất', N'You should mention in the letter that we can arrange for mailing the brochures as well as printing them.', N'Anh nên đề cập trong thư rằng chúng ta có thể thu xếp gửi (thư) tờ bướm cũng như là in ấn chúng.', 10, 2)
+insert into lst_study_topic_vocab values(9, 'petition', N'/pəˈtɪʃn/', 'noun', N'đơn kiến nghị, đơn thỉnh cầu', N'The petition was photocopied and distributed to workers who will collect the neccessary signatures', N'Đơn kiến nghị được photocopy và phân phát đến những công nhân nào sẽ thu thập chữ ký cần thiết.', 10, 2)
+insert into lst_study_topic_vocab values(10, 'proof', N'/proof/', 'noun', N'bằng chứng, chứng cớ', N'These results are a further proof of his ability.', N'Những kết quả này là một bằng chứng nữa về khả năng của ông.', 10, 2)
+insert into lst_study_topic_vocab values(11, 'register', N'ˈredʒɪstər', 'verb', N'đăng ký', N'You can register this mail for an additional $2.2.', N'Anh ấy có thể gửi đảm bảo thư này với một khoản 2.2 đô-la phí bổ sung.', 10, 2)
+insert into lst_study_topic_vocab values(12, 'revise', N'/riˈvaiz/', 'verb', N'đọc lại, xem lại, duy͏ệt lại, sửa lại (bản in thử, đạo luật...)', N'', N'', 10, 2)
+------3
+
+insert into lst_study_topic_vocab values(1, 'cover', N'/ˈkʌvər/', 'verb', N'bao phủ, che phủ', N'She covered her face with her hands.', N'Cô lấy tay che mặt.', 6, 3)
+insert into lst_study_topic_vocab values(2, 'adjacent', N'/əˈdʒeɪsnt/', 'adjective', N'kế bên, liền kề, sát cạnh', N'The vineyards of Verzy lie adjacent to those of Verzenay.', N'Những vườn nho của Verzy nằm liền kề với những vườn nho của Verzenay.', 6, 3)
+insert into lst_study_topic_vocab values(3, 'compress', N'/kəmˈpres/', 'verb', N'ép, đè nén', N'As more snow fell, the bottom layer was compressed into ice.', N'Khi tuyết rơi nhiều hơn, lớp dưới cùng bị nén thành băng.', 6, 3)
+insert into lst_study_topic_vocab values(4, 'feasible', N'/ˈfiːzəbl/', 'adjective', N'khả thi', N'It''s just not feasible to manage the business on a part-time basis.', N'Việc quản lý doanh nghiệp trên cơ sở bán thời gian là không khả thi.', 6, 3)
+insert into lst_study_topic_vocab values(5, 'gut', N'/ɡʌt/', 'noun', N'ruột, nội tạng', N'It can take up to 72 hours for food to pass through the gut.', N'Có thể mất đến 72 giờ để thức ăn đi qua ruột.', 6, 3)
+insert into lst_study_topic_vocab values(6, 'integral', N'/ˈɪntɪɡrəl/', 'adjective', N'tính toàn bộ/toàn vẹn, cần cho tính toàn bộ/toàn vẹn; cần thiết, không thể thiếu', N'Music is an integral part of the school''s curriculum.', N'Âm nhạc là một phần không thể thiếu trong chương trình giảng dạy của trường.', 6, 3)
+insert into lst_study_topic_vocab values(7, 'overlap', N'/ˌəʊvəˈlæp/', 'verb', N'sự gối lên nhau, sự chồng chéo', N'The floor was protected with overlapping sheets of newspaper.', N'Sàn nhà được bảo vệ bằng những tờ báo chồng lên nhau.', 6, 3)
+insert into lst_study_topic_vocab values(8, 'retain', N'/rɪˈteɪn/', 'verb', N'giữ lại; tiếp tục có', N'He struggled to retain control of the situation.', N'Anh đấu tranh để giữ quyền kiểm soát tình hình.', 6, 3)
+insert into lst_study_topic_vocab values(9, 'seep', N'/siːp/', 'verb', N'rỉ ra', N'Water seeped from a crack in the pipe.', N'Nước rỉ ra từ một vết nứt trên đường ống.', 6, 3)
+insert into lst_study_topic_vocab values(10, 'structure', N'/ˈstrʌktʃə(r)/', 'noun', N'kết cấu, cấu trúc', N'Bees have a complex social structure.', N'Ong có một cấu trúc xã hội phức tạp .', 6, 3)
+insert into lst_study_topic_vocab values(11, 'organic', N'/ɔːˈɡænɪk/', 'adjective', N'hữu cơ', N'Improve the soil by adding organic matter', N'Cải tạo đất bằng cách bổ sung chất hữu cơ .', 6, 3)
+insert into lst_study_topic_vocab values(12, 'petrifaction', N'/ˌpet.rɪˈfæk.ʃən/', 'noun', N'sự hóa đá, sự sững sờ', N'They have undergone petrification.', N'Họ đã trải qua quá trình hóa đá.', 6, 3)
+insert into lst_study_topic_vocab values(13, 'object', N'/ˈɒbdʒɪkt/', 'noun', N'phản đối, đồ vật', N'The scanner detected a metal object.', N'Máy quét phát hiện một vật thể kim loại.', 6, 3)
+insert into lst_study_topic_vocab values(14, 'mineral', N'/ˈmɪnərəl/', 'noun', N'khoáng chất, khoáng vật', N'Low bone mineral density is linked with vitamin deficiency.', N'Mật độ khoáng xương thấp có liên quan đến tình trạng thiếu vitamin.', 6, 3)
+insert into lst_study_topic_vocab values(15, 'version', N'/ˈvɜːʃn/', 'noun', N'phiên bản', N'The original/final version is vastly superior.', N'Phiên bản gốc/cuối cùng vượt trội hơn rất nhiều.', 6, 3)
+insert into lst_study_topic_vocab values(16, 'mud', N'/mʌd/', 'noun', N'bùn, đất bùn nhão', N'The car wheels got stuck in the mud.', N'Bánh xe ô tô bị kẹt trong bùn.', 6, 3)
+insert into lst_study_topic_vocab values(17, 'ancient', N'/ˈeɪnʃənt/', 'adjective', N'xưa, cổ', N'Archaeologists are excavating the ruined temples of this ancient civilization.', N'Các nhà khảo cổ đang khai quật những ngôi đền đổ nát của nền văn minh cổ đại này.', 6, 3)
+insert into lst_study_topic_vocab values(18, 'scientific', N'/ˌsaɪənˈtɪfɪk/', 'adjective', N'thuộc về khoa học, (thuộc về) khoa học', N'He took a very scientific approach to management.', N'Ông đã có một cách tiếp cận rất khoa học để quản lý.', 6, 3)
+insert into lst_study_topic_vocab values(19, 'layer', N'/ˈleɪər/', 'noun', N'tầng, lớp', N'Ducks have a thick layer of fat to keep them warm.', N'Vịt có lớp mỡ dày để giữ ấm.', 6, 3)
+insert into lst_study_topic_vocab values(20, 'ash', N'/æʃ/', 'noun', N'tro, màu tro', N'She flicked ash out of the window carelessly.', N'Cô ấy hất tàn tro ra ngoài cửa sổ một cách bất cẩn.', 6, 3)
+
+insert into lst_study_topic_vocab values(1, 'circulate', N'/ˈsɜːkjəleɪt/', 'verb', N'lưu hành, truyền', N'Rumours began to circulate about his financial problems.', N'Tin đồn bắt đầu lan truyền về các vấn đề tài chính của anh ấy.', 7, 3)
+insert into lst_study_topic_vocab values(2, 'corrode', N'/kəˈrəʊd/', 'verb', N'ăn mòn', N'Acid corrodes metal.', N'Axit ăn mòn kim loại.', 7, 3)
+insert into lst_study_topic_vocab values(3, 'derive', N'/dɪˈraɪv/', 'verb', N'xuất phát từ, bắt nguồn từ', N'Section 7 presents some user statistics derived from randomly logged requests.', N'Phần 7 trình bày một số thống kê người dùng bắt nguồn từ các yêu cầu được ghi ngẫu nhiên.', 7, 3)
+insert into lst_study_topic_vocab values(4, 'detection', N'/dɪˈtekʃn/', 'noun', N'sự phát hiện', N'Last year the detection rate for car theft was just 13 per cent.', N'Năm ngoái, tỷ lệ phát hiện trộm xe hơi chỉ là 13%.', 7, 3)
+insert into lst_study_topic_vocab values(5, 'expeditious', N'/ˌekspəˈdɪʃəs/', 'adjective', N'hiệu quả', N'It is the most expeditious method of dealing with the situation.', N'Đó là phương pháp hiệu quả nhất để giải quyết tình huống', 7, 3)
+insert into lst_study_topic_vocab values(6, 'implement', N'/ˈɪmplɪment/', 'verb', N'triển khai, thực hiện', N'A new work programme for young people will be implemented.', N'Một chương trình làm việc mới cho những người trẻ tuổi sẽ được thực hiện.', 7, 3)
+insert into lst_study_topic_vocab values(7, 'innovative', N'/ˈɪnəveɪtɪv/', 'adjective', N'sáng tạo, đổi mới', N'There will be a prize for the most innovative design.', N'Sẽ có một giải thưởng cho thiết kế sáng tạo nhất.', 7, 3)
+insert into lst_study_topic_vocab values(8, 'installation', N'/ˌɪnstəˈleɪʃn/', 'noun', N'sự cài đặt, (n) sự lắp đặt', N'Installation of the new system will take several days.', N'Việc cài đặt hệ thống mới sẽ mất vài ngày.', 7, 3)
+insert into lst_study_topic_vocab values(9, 'maintenance', N'/ˈmeɪntənəns/', 'noun', N'sự giữ gìn, duy trì, bảo quản', N'The school pays for heating and the maintenance of the buildings.', N'Nhà trường trả tiền sưởi ấm và bảo trì các tòa nhà.', 7, 3)
+insert into lst_study_topic_vocab values(10, 'simulate', N'/ˈsɪmjuleɪt/', 'verb', N'bắt chước, mô phỏng', N'Computer software can be used to simulate conditions on the seabed.', N'Phần mềm máy tính có thể được sử dụng để mô phỏng các điều kiện dưới đáy biển.', 7, 3)
+insert into lst_study_topic_vocab values(11, 'dependence', N'/dɪˈpendəns/', 'noun', N'sự phụ thuộc, sự lệ thuộc', N'Our relationship was based on mutual dependence.', N'Mối quan hệ của chúng tôi dựa trên sự phụ thuộc lẫn nhau.', 7, 3)
+insert into lst_study_topic_vocab values(12, 'support', N'/səˈpɔːt/', 'verb', N'ủng hộ, hỗ trợ', N'Efforts to reduce waste are strongly supported by environmental groups.', N'Những nỗ lực để giảm chất thải được hỗ trợ mạnh mẽ bởi các nhóm môi trường.', 7, 3)
+insert into lst_study_topic_vocab values(13, 'vigilance', N'/ˈvɪdʒɪləns/', 'noun', N'sự cảnh giác', N'She stressed the need for constant vigilance.', N'Cô nhấn mạnh sự cần thiết của sự cảnh giác liên tục.', 7, 3)
+insert into lst_study_topic_vocab values(14, 'self-appointed', N'/ˌself əˈpɔɪntɪd/', 'adjective', N'tự phong, tự bổ nhiệm', N'The newspaper has become the self-appointed guardian of public morals.', N'Tờ báo đã tự bổ nhiệm mình trở thành người bảo vệ đạo đức công cộng .', 7, 3)
+insert into lst_study_topic_vocab values(15, 'freelance', N'/ˈfriːlɑːns/', 'adjective', N'người làm nghề tự do, người hành nghề tự do', N'Most of the journalists I know are/work freelance.', N'Hầu hết các nhà báo mà tôi biết đều làm việc tự do.', 7, 3)
+insert into lst_study_topic_vocab values(16, 'consultant', N'/kənˈsʌltənt/', 'noun', N'cố vấn, chuyên viên tư vấn', N'She is clearly being coached by image consultants.', N'Cô ấy rõ ràng đang được huấn luyện bởi các chuyên gia tư vấn hình ảnh.', 7, 3)
+insert into lst_study_topic_vocab values(17, 'propose', N'/prəˈpəʊz/', 'verb', N'cầu hôn/đề xuất', N'The Board of Directors is proposing an amendment to Article I.', N'Hội đồng quản trị đang đề xuất sửa đổi Điều I.', 7, 3)
+insert into lst_study_topic_vocab values(18, 'unique', N'/juˈniːk/', 'adjective', N'độc nhất vô nhị, đặc biệt', N'Each item has a unique 6-digit code.', N'Mỗi mặt hàng có một mã gồm 6 chữ số duy nhất.', 7, 3)
+insert into lst_study_topic_vocab values(19, 'inventory', N'/ˈɪnvəntri/', 'noun', N'(sự/bản) kiểm kê, tóm tắt; hàng hóa tồn kho, hàng trong kho', N'The inventory will be disposed of over the next twelve weeks.', N'Hàng tồn kho sẽ được xử lý trong vòng mười hai tuần tới.', 7, 3)
+insert into lst_study_topic_vocab values(20, 'personnel', N'/ˌpɜːsəˈnel/', 'noun', N'cán bộ, nhân viên', N'There is a severe shortage of skilled personnel.', N'Nhân lực có tay nghề cao đang thiếu trầm trọng. ', 7, 3)
+
+
+insert into lst_study_topic_vocab values(1, 'combustion', N'/kəmˈbʌstʃən/', 'noun', N'sự đốt cháy', N'Poisonous gases are produced during fossil fuel combustion.', N'Khí độc được tạo ra trong quá trình đốt cháy nhiên liệu hóa thạch.', 8, 3)
+insert into lst_study_topic_vocab values(2, 'component', N'/kəmˈpəʊnənt/', 'noun', N'thành phần, bộ phận', N'Nitrogen is the main component of air.', N'Nitơ là thành phần chính của không khí.', 8, 3)
+insert into lst_study_topic_vocab values(3, 'convey', N'/kənˈveɪ/', 'verb', N'chuyển tải, thể hiện (ý tưởng, cảm xúc đến ai)', N'His poetry conveys a great sense of religious devotion.', N'Thơ của ông truyền đạt một cảm giác tuyệt vời của sự tôn sùng tôn giáo .', 8, 3)
+insert into lst_study_topic_vocab values(4, 'discrete', N'/dɪˈskriːt/', 'adjective', N'riêng biệt', N'The organisms can be divided into discrete categories.', N'Các sinh vật có thể được chia thành các loại riêng biệt.', 8, 3)
+insert into lst_study_topic_vocab values(5, 'nuclear', N'/ˈnjuːkliə(r)/', 'adjective', N'hạt nhân, đầy đủ', N'China and India only produce a very small percentage of their electricity from nuclear facilities.', N'Trung Quốc và Ấn Độ chỉ sản xuất một tỷ lệ rất nhỏ điện năng của họ từ các cơ sở hạt nhân.', 8, 3)
+insert into lst_study_topic_vocab values(6, 'permeate', N'/ˈpɜːmieɪt/', 'verb', N'lan ra, tràn ngập', N'The air was permeated with the odour of burning rubber.', N'Không khí tràn ngập mùi cao su cháy.', 8, 3)
+insert into lst_study_topic_vocab values(7, 'rotate', N'/rəʊˈteɪt/', 'verb', N'làm quay, làm xoay quanh', N'Stay well away from the helicopter when its blades start to rotate.', N'Tránh xa máy bay trực thăng khi cánh quạt của nó bắt đầu quay.', 8, 3)
+insert into lst_study_topic_vocab values(8, 'solar', N'/ˈsəʊlə/', 'adjective', N'thuộc mặt trời, năng lượng mặt trời', N'They are searching for intelligent life forms in other solar systems.', N'Họ đang tìm kiếm các dạng sống thông minh trong các hệ mặt trời khác.', 8, 3)
+insert into lst_study_topic_vocab values(9, 'source', N'/sɔːs/', 'noun', N'nguồn, nguồn gốc', N'These fish are widely used as a food source.', N'Những con cá này được sử dụng rộng rãi như một nguồn thực phẩm .', 8, 3)
+insert into lst_study_topic_vocab values(10, 'trigger', N'/ˈtrɪɡə(r)/', 'verb', N'cò súng, gây ra', N'Nuts can trigger off a violent allergic reaction.', N'Các loại hạt có thể gây ra phản ứng dị ứng dữ dội.', 8, 3)
+insert into lst_study_topic_vocab values(11, 'electricity', N'/ɪˌlekˈtrɪsəti/', 'noun', N'điện thắp sáng, điện lực', N'The wind farm will generate enough electricity for some 30 000 homes.', N'Trang trại gió sẽ tạo ra đủ điện cho khoảng 30 000 hộ gia đình.', 8, 3)
+insert into lst_study_topic_vocab values(12, 'steam', N'/stiːm/', 'noun', N'hơi nước, hấp', N'Steam rose from the boiling kettle.', N'Hơi nước bốc lên từ ấm đun sôi.', 8, 3)
+insert into lst_study_topic_vocab values(13, 'turbine', N'/ˈtɜːbaɪn/', 'noun', N'tua-bin', N'Gas turbines can be used to generate electricity.', N'Tua bin khí có thể được sử dụng để tạo ra điện.', 8, 3)
+insert into lst_study_topic_vocab values(14, 'shaft', N'/ʃɑːft/', 'noun', N'hầm, lò, trục', N'The clubs are fitted with graphite shafts.', N'Các câu lạc bộ được trang bị trục than chì.', 8, 3)
+insert into lst_study_topic_vocab values(15, 'generator', N'/ˈdʒenəreɪtə(r)/', 'noun', N'máy phát điện', N'The wind generator delivers 120 watts in a strong breeze.', N'Máy phát điện gió cung cấp 120 watt trong một làn gió mạnh.', 8, 3)
+insert into lst_study_topic_vocab values(16, 'fission', N'/ˈfɪʃn/', 'noun', N'sự phân hạch', N'The fission of the cell could be inhibited with certain chemicals.', N'Sự phân hạch của tế bào có thể bị ức chế bởi một số hóa chất .', 8, 3)
+insert into lst_study_topic_vocab values(17, 'atom', N'/ˈætəm/', 'noun', N'nguyên tử', N'Two atoms of hydrogen combine with one atom of oxygen to form a molecule of water.', N'Hai nguyên tử hydro kết hợp với một nguyên tử oxy để tạo thành một phân tử nước.', 8, 3)
+insert into lst_study_topic_vocab values(18, 'harness', N'/ˈhɑːnɪs/', 'noun', N'điều khiển, sử dụng lực hay khả năng của cái gì để tạo ra sức mạnh hay đạt được mục đích', N'The sight of horses in harness hauling timber was common a hundred years ago.', N'Hình ảnh những con ngựa kéo gỗ đã phổ biến cách đây hàng trăm năm.', 8, 3)
+insert into lst_study_topic_vocab values(19, 'aware', N'/əˈweə(r)/', 'adjective', N'biết, nhận thấy, nhận thức thấy', N'They suddenly became aware of people looking at them.', N'Họ chợt nhận ra có người đang nhìn mình.', 8, 3)
+insert into lst_study_topic_vocab values(20, 'heat', N'/hiːt/', 'noun', N'hơi nóng, nhiệt', N'He could feel the heat of the sun on his back.', N'Anh có thể cảm thấy sức nóng của mặt trời trên lưng mình.', 8, 3)
+
+insert into lst_study_topic_vocab values(1, 'anomaly', N'/əˈnɒməli/', 'noun', N'sự không bình thường, dị thường', N'There are areas of anomaly in the report.', N'Có những khu vực bất thường trong báo cáo.', 9, 3)
+insert into lst_study_topic_vocab values(2, 'memory', N'/ˈmeməri/', 'noun', N'kỷ niệm, tri nhớ', N'People have short memories.', N'Mọi người có trí nhớ ngắn.', 9, 3)
+insert into lst_study_topic_vocab values(3, 'degrade', N'/dɪˈɡreɪd/', 'verb', N'giảm dần', N'Important natural habitats have been degraded by development.', N'Các môi trường sống tự nhiên quan trọng đã bị suy thoái do quá trình phát triển.', 9, 3)
+insert into lst_study_topic_vocab values(4, 'gap', N'/ɡæp/', 'noun', N'khoảng trống, sự thiếu sót', N'Extra funding is needed to plug the gap.', N'Cần có thêm kinh phí để thu hẹp khoảng cách.', 9, 3)
+insert into lst_study_topic_vocab values(5, 'indisputable', N'/ˌɪndɪˈspjuːtəbl/', 'adjective', N'không thể phủ nhận', N'It is indisputable that the crime rate has been rising.', N'Không thể chối cãi rằng tỷ lệ tội phạm đang gia tăng.', 9, 3)
+insert into lst_study_topic_vocab values(6, 'intervene', N'/ˌɪntəˈviːn/', 'verb', N'xen vào, can vào', N'They would not intervene against the rebels themselves.', N'Họ sẽ không can thiệp chống lại chính những kẻ nổi loạn.', 9, 3)
+insert into lst_study_topic_vocab values(7, 'intuitively', N'/ɪnˈtjuːɪtɪvli/', 'adverb', N'bằng trực giác', N'Intuitively, she knew that he was lying.', N'Bằng trực giác, cô biết rằng anh đang nói dối.', 9, 3)
+insert into lst_study_topic_vocab values(8, 'recession', N'/rɪˈseʃn/', 'noun', N'sự suy thoái (kinh tế), sự suy giảm', N'These industries have been hard hit by recession.', N'Những ngành công nghiệp này đã bị ảnh hưởng nặng nề bởi sự suy thoái.', 9, 3)
+insert into lst_study_topic_vocab values(9, 'retrieval', N'/rɪˈtriːvl/', 'noun', N'sự truy lục', N'The ship was buried, beyond retrieval, at the bottom of the sea.', N'Con tàu đã bị chôn vùi, không thể trục vớt được, dưới đáy biển.', 9, 3)
+insert into lst_study_topic_vocab values(10, 'function', N'/ˈfʌŋkʃn/', 'noun', N'chức năng, nhiệm vụ', N'The club serves a useful function as a meeting place.', N'Câu lạc bộ phục vụ một chức năng hữu ích như một nơi gặp gỡ.', 9, 3)
+insert into lst_study_topic_vocab values(11, 'perception', N'/pəˈsepʃn/', 'noun', N'cách nhìn nhận, quan niệm về việc gì', N'They have little perception of how ordinary people live their lives.', N'Họ có ít nhận thức về cách những người bình thường sống cuộc sống của họ.', 9, 3)
+insert into lst_study_topic_vocab values(12, 'imperfect', N'/ɪmˈpɜːfɪkt/', 'adjective', N'không hoàn hảo', N'All our sale items are slightly imperfect.', N'Tất cả các mặt hàng bán của chúng tôi hơi không hoàn hảo.', 9, 3)
+insert into lst_study_topic_vocab values(13, 'recollection', N'/ˌrekəˈlekʃn/', 'noun', N'sự hồi tưởng', N' I have no recollection of meeting her before.', N'Tôi không nhớ đã gặp cô ấy trước đây.', 9, 3)
+insert into lst_study_topic_vocab values(14, 'storage', N'/ˈstɔːrɪdʒ/', 'noun', N'sự cất giữ, sự dự trữ, sự lưu giữ', N'We need more storage now.', N'Chúng tôi cần thêm dung lượng lưu trữ ngay bây giờ.', 9, 3)
+insert into lst_study_topic_vocab values(15, 'compensate', N'/ˈkɒmpenseɪt/', 'verb', N'bù, đền bù, bồi thường', N'Nothing can compensate for the loss of a loved one.', N'Không có gì có thể bù đắp cho sự mất mát của một người thân yêu.', 9, 3)
+insert into lst_study_topic_vocab values(16, 'locate', N'/ləʊˈkeɪt/', 'verb', N'định vị; xác định vị trí của', N'The mechanic located the fault immediately.', N'Các thợ máy xác định lỗi ngay lập tức.', 9, 3)
+insert into lst_study_topic_vocab values(17, 'distortion', N'/dɪˈstɔːʃn/', 'noun', N'sự rối loạn', N'Distortion of sound is a common problem with cheap amps.', N'Biến dạng âm thanh là một vấn đề phổ biến với amps giá rẻ.', 9, 3)
+insert into lst_study_topic_vocab values(18, 'acquisition', N'/ˌækwɪˈzɪʃn/', 'noun', N'sự giành được, thu được, đạt được (kiến thức, kỹ năng)', N'His latest acquisition is a racehorse.', N'Mua lại mới nhất của anh ấy là một con ngựa đua.', 9, 3)
+insert into lst_study_topic_vocab values(19, 'mind', N'/maɪnd/', 'noun', N'trí óc/phiền', N'There were all kinds of thoughts running through my mind.', N'Có tất cả các loại suy nghĩ chạy qua tâm trí của tôi.', 9, 3)
+insert into lst_study_topic_vocab values(20, 'occurrence', N'/əˈkʌrəns/', 'noun', N'sự việc, sự kiện, sự cố', N'Vandalism used to be a rare occurrence here.', N'Phá hoại từng là một điều hiếm khi xảy ra ở đây.', 9, 3)
+
+insert into lst_study_topic_vocab values(1, 'agnosticism', N'/æɡˈnɒstɪsɪzəm/', 'noun', N'thuyết Bất Khả Tri', N'According to census figures, men significantly outnumber women in claiming agnosticism.', N'Theo số liệu điều tra dân số , đàn ông nhiều hơn đáng kể so với phụ nữ trong việc tuyên bố thuyết Bất Khả Tri.', 10, 3)
+insert into lst_study_topic_vocab values(2, 'animism', N'/ˈænɪmɪzəm/', 'noun', N'thuyết Vạn Vật Hữu Linh', N'Animism is a religious and ontological perspective common to many indigenous cultures across the globe.', N'Thuyết Vạn Vật Hữu Linh là một quan điểm tôn giáo và bản thể học phổ biến đối với nhiều nền văn hóa bản địa trên toàn cầu.', 10, 3)
+insert into lst_study_topic_vocab values(3, 'atheism', N'/ˈeɪθiɪzəm/', 'noun', N'thuyết Vô Thần', N'Atheism as we know it did not exist until modern times.', N'Chủ nghĩa vô thần như chúng ta biết đã không tồn tại cho đến thời hiện đại.', 10, 3)
+insert into lst_study_topic_vocab values(4, 'be inclined to', N'/bi ɪnˈklaɪnd tə/', 'verb', N'thiên về xu hướng muốn', N'Tom is inclined to be lazy.', N'Tom có ​​khuynh hướng lười biếng.', 10, 3)
+insert into lst_study_topic_vocab values(5, 'contemplation', N'/ˌkɒntəmˈpleɪʃn/', 'noun', N'sự suy ngẫm', N'He sat there deep in contemplation.', N'Anh ngồi đó trầm ngâm suy nghĩ.', 10, 3)
+insert into lst_study_topic_vocab values(6, 'deify', N'/ˈdeɪɪfaɪ/', 'verb', N'phong Thánh', N'The Romans used to deify their emperors', N'Người La Mã từng tôn thờ các hoàng đế của họ.', 10, 3)
+insert into lst_study_topic_vocab values(7, 'ecclesiastical', N'//', 'adjective', N'(thuộc) giáo hội', N'An ecclesiastical office is the office at a church, and a nun''s habit is ecclesiastical dress.', N'Văn phòng giáo hội là văn phòng tại nhà thờ, và trang phục của nữ tu là trang phục của giáo hội.', 10, 3)
+insert into lst_study_topic_vocab values(8, 'exalt', N'/ɪɡˈzɔːlt/', 'verb', N'đưa lên địa vị, cấp bậc cao hơn', N'His son was exalted to a high position in the government through family connections.', N'Con trai ông đã được tôn lên một vị trí cao trong chính phủ thông qua các mối quan hệ gia đình.', 10, 3)
+insert into lst_study_topic_vocab values(9, 'pious', N'/ˈpaɪəs/', 'adjective', N'ngoan đạo, sùng đạo', N'He dismissed his critics as pious do-gooders.', N'Ông coi những người chỉ trích mình là những người làm điều tốt ngoan đạo.', 10, 3)
+insert into lst_study_topic_vocab values(10, 'prominent', N'/ˈprɒmɪnənt/', 'adjective', N'quan trọng, nổi tiếng', N'The played a prominent part in the campaign.', N'Anh ấy đã đóng một vai trò nổi bật trong chiến dịch.', 10, 3)
+insert into lst_study_topic_vocab values(11, 'power', N'/ˈpaʊə(r)/', 'noun', N'quyền lực, sức mạnh', N'Religion is losing its power to shape our behaviour.', N'Tôn giáo đang mất đi sức mạnh định hình hành vi của chúng ta.', 10, 3)
+insert into lst_study_topic_vocab values(12, 'religion', N'/rɪˈlɪdʒən/', 'noun', N'tôn giáo', N'He believed in God but had no interest in organized religion.', N'Ông tin vào Chúa nhưng không quan tâm đến tôn giáo có tổ chức.', 10, 3)
+insert into lst_study_topic_vocab values(13, 'tenacity', N'/təˈnæsəti/', 'noun', N'việc sùng kính', N'They competed with skill and tenacity.', N'Họ đã thi đấu với kỹ năng và sự bền bỉ.', 10, 3)
+insert into lst_study_topic_vocab values(14, 'orthodox', N'/ˈɔːθədɒks/', 'adjective', N'thông thường; đi theo những quan điểm thường được chấp nhận', N'He is very orthodox in his views.', N'Anh ấy rất chính thống trong quan điểm của mình.', 10, 3)
+insert into lst_study_topic_vocab values(15, 'patriarch', N'/ˈpeɪtriɑːk/', 'noun', N'Vị Thượng Phụ', N'A patriarch is a male leader.', N'Một tộc trưởng là một nhà lãnh đạo nam.', 10, 3)
+insert into lst_study_topic_vocab values(16, 'pilgrimage', N'/ˈpɪlɡrɪmɪdʒ/', 'noun', N'đi hành hương', N'His grave has become a place of pilgrimage.', N'Ngôi mộ của ông đã trở thành một nơi hành hương .', 10, 3)
+insert into lst_study_topic_vocab values(17, 'broaden', N'/ˈbrɔːdn/', 'verb', N'mở rộng, nới rộng', N'The party needs to broaden its appeal to voters.', N'Đảng cần mở rộng sức hấp dẫn của mình đối với cử tri.', 10, 3)
+insert into lst_study_topic_vocab values(18, 'coexist', N'/ˌkəʊɪɡˈzɪst/', 'verb', N'sống chung, cùng tồn tại', N'English speakers now coexist peacefully with their Spanish-speaking neighbours.', N'Những người nói tiếng Anh giờ đây cùng chung sống hòa bình với những người hàng xóm nói tiếng Tây Ban Nha.', 10, 3)
+insert into lst_study_topic_vocab values(19, 'christianity', N'/ˌkrɪstiˈænəti/', 'noun', N'đạo Thiên Chúa, đạo Cơ đốc', N'Christianity spread rapidly in the first century.', N'Kitô giáo lan rộng nhanh chóng trong thế kỷ thứ nhất.', 10, 3)
+insert into lst_study_topic_vocab values(20, 'judaism', N'/ˈdʒuːdeɪɪzəm/', 'noun', N'đạo Do Thái', N'He converted to Judaism.', N'Ông đã chuyển đổi sang Do Thái giáo.', 10, 3)
+-------

@@ -47,6 +47,8 @@ namespace Viendict.Views
             {
                 IsUser.IsVisible = false;
                 IsGuest.IsVisible = true;
+                this.BackgroundImageSource = "";
+                this.BackgroundColor = Color.AliceBlue;
             }
         }
         public PageStudy(StudyListTopic topic)
