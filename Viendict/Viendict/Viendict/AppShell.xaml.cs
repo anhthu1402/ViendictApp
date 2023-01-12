@@ -21,9 +21,11 @@ namespace Viendict
         protected override bool OnBackButtonPressed()
         {
             count++;
-            Toast.MakeText(Android.App.Application.Context, "Nhấn lần nữa để thoát ứng dụng", ToastLength.Short).Show();
+            if (count < 2)
+                Toast.MakeText(Android.App.Application.Context, "Nhấn lần nữa để thoát ứng dụng", ToastLength.Short).Show();
             if (count == 2)
             {
+                count = 0;
                 return base.OnBackButtonPressed();
             }
             return true;
