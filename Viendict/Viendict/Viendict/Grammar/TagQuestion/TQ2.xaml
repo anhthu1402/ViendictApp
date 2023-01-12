@@ -86,7 +86,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="USED TO: từng " TextColor="Maroon" TextDecorations="Underline" FontAttributes="Bold"/>
+                                <Span Text="USED TO: từng " TextColor="Maroon" FontAttributes="Bold" FontSize="20"/>
                                 <Span Text="(diễn tả thói quen, hành động thường lập đi lập lại trong quá khứ).
 Trường hợp này, ta cứ việc xem USED TO là một động từ chia ở thì quá khứ. Do đó, câu hỏi đuôi tương ứng chỉ cần mượn trợ động từ: DID"/>
                             </FormattedString.Spans>
@@ -100,7 +100,7 @@ Trường hợp này, ta cứ việc xem USED TO là một động từ chia ở
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="HAD BETTER: " TextColor="Maroon" TextDecorations="Underline" FontAttributes="Bold"/>
+                                <Span Text="HAD BETTER: " TextColor="Maroon" FontSize="20" FontAttributes="Bold"/>
                                 <Span Text="'Had better' thường được viết ngắn gọn thành 'D BETTER, nên dễ khiến ta lúng túng khi phải lập câu hỏi đuôi tương ứng. Khi thấy 'D BETTER, chỉ cần mượn trợ động từ HAD để lập câu hỏi đuôi."/>
                             </FormattedString.Spans>
                         </FormattedString>
@@ -113,7 +113,7 @@ Trường hợp này, ta cứ việc xem USED TO là một động từ chia ở
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="WOULD RATHER: " TextColor="Maroon" TextDecorations="Underline" FontAttributes="Bold"/>
+                                <Span Text="WOULD RATHER: " TextColor="Maroon" FontSize="20" FontAttributes="Bold"/>
                                 <Span Text="Would rather thường được viết gọn là 'D RATHER nên cũng dễ gây lúng túng cho bạn. Chỉ cần mượn trợ động từ WOULD cho trường hợp này để lập câu hỏi đuôi."/>
                             </FormattedString.Spans>
                         </FormattedString>

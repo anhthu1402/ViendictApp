@@ -37,7 +37,7 @@
                         <FormattedString>
                             <FormattedString.Spans>
                                 <Span Text="    → Yes" FontSize="20" TextColor="#ED7D31"/>
-                                <Span Text=" (nếu đồng ý với câu trần thuật ở trên)" FontAttributes="Italic" TextColor="DarkGray"/>
+                                <Span Text=" (nếu đồng ý với câu trần thuật ở trên)" FontAttributes="Italic" FontSize="20" TextColor="DarkGray"/>
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
@@ -47,7 +47,7 @@
                         <FormattedString>
                             <FormattedString.Spans>
                                 <Span Text="    → No" FontSize="20" TextColor="#ED7D31"/>
-                                <Span Text=" (nếu không đồng ý với câu trần thuật ở trên)" FontAttributes="Italic" TextColor="DarkGray"/>
+                                <Span Text=" (nếu không đồng ý với câu trần thuật ở trên)" FontAttributes="Italic" FontSize="20" TextColor="DarkGray"/>
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
