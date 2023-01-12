@@ -88,6 +88,9 @@
     <EmbeddedResource Update="Grammar\Reported Speech\PageReportedSpeech.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Grammar\TagQuestion\PageTagQuestion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Grammar\WishSentence\PageWishSentenceContent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -151,6 +154,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Grammar\ExclamatorySentence\ExclamatorySentence.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Grammar\ImperativeSentence\ImperativeSentence.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Grammar\Inversion\Inversion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Grammar\RelativeClause\PageTitleRC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Grammar\RelativeClause\RC1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Grammar\RelativeClause\RC2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <None Update="Study\PageDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>

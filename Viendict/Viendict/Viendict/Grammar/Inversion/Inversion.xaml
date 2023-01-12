@@ -13,7 +13,7 @@
         <ScrollView>
             <StackLayout Padding="10">
                 <Label Text='Đảo ngữ là hiện tượng đảo ngược vị trí động từ hoặc trợ động từ lên trước chủ ngữ nhằm mục đích nhấn mạnh.. Trong trường hợp đó ngữ pháp sẽ thay đổi, đằng sau phó từ đứng đầu câu là trợ động từ rồi mới đến chủ ngữ và động từ chính.' />
-                <Label Text=' 1.    Câu cảm thán với "What"' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+              
                 <Label Text=' 1.   Đảo ngữ với "No" và "Not"' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
                 <Label Text="Với S là chủ ngữ, V là động từ, N là danh từ, Clause là mệnh đề, adv là trạng từ, adj là tính từ." />
                 <Label Text="Công thức:"  TextColor="#4472C4" FontAttributes="Bold" TextDecorations="Underline"/>

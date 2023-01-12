@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.TagQuestion.PageTagQuestion">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="LineHeight" Value="1.5"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
