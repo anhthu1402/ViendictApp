@@ -5,10 +5,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Viendict.WordDetail;
+using Android.Widget;
 
 namespace Viendict.Views
 {
@@ -59,7 +59,7 @@ namespace Viendict.Views
 
         private async void RemoveFromFavourite_Clicked(object sender, EventArgs e)
         {
-            ImageButton rm = (ImageButton)sender;
+            Xamarin.Forms.ImageButton rm = (Xamarin.Forms.ImageButton)sender;
             Favorite word = rm.CommandParameter as Favorite;
             HttpClient http = new HttpClient();
             string jsonword = JsonConvert.SerializeObject(word);
@@ -79,6 +79,19 @@ namespace Viendict.Views
         {
             Application.Current.MainPage.Navigation.PopToRootAsync();
             Application.Current.MainPage = new PageSignUp();
+        }
+        int count = 0;
+        protected override bool OnBackButtonPressed()
+        {
+            count++;
+            if (count < 2)
+                Toast.MakeText(Android.App.Application.Context, "Nhấn lần nữa để thoát ứng dụng", ToastLength.Short).Show();
+            if (count == 2)
+            {
+                count = 0;
+                return base.OnBackButtonPressed();
+            }
+            return true;
         }
     }
 }

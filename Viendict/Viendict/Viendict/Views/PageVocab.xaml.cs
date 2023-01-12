@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Viendict.Vocab;
 using Viendict.Grammar;
+using Android.Widget;
 
 namespace Viendict.Views
 {
@@ -42,6 +43,20 @@ namespace Viendict.Views
                 ListVocabTopic topic = (ListVocabTopic)lstVocabTopic.SelectedItem;
                 Navigation.PushModalAsync(new NavigationPage(new PageListVocab(topic)));
             }
+        }
+
+        int count = 0;
+        protected override bool OnBackButtonPressed()
+        {
+            count++;
+            if (count < 2)
+                Toast.MakeText(Android.App.Application.Context, "Nhấn lần nữa để thoát ứng dụng", ToastLength.Short).Show();
+            if (count == 2)
+            {
+                count = 0;
+                return base.OnBackButtonPressed();
+            }
+            return true;
         }
     }
 }

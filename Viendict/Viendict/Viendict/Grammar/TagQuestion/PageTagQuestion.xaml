@@ -10,9 +10,21 @@
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="10">
-            </StackLayout>
-        </ScrollView>
+        <StackLayout>
+            <ListView x:Name="lstTagQues" ItemTapped="lstTagQues_ItemTapped" SeparatorColor="Black" RowHeight="80" SeparatorVisibility="Default" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Label Text="{Binding Name}" TextColor="DarkBlue" 
+                                   Grid.Row="0" FontSize="Medium" VerticalOptions="Center"></Label>
+                                <Label Text="{Binding Describe}" TextColor="#333333" 
+                                   Grid.Row="1" FontSize="16" VerticalOptions="Center"></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

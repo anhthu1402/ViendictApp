@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Widget;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -91,6 +92,20 @@ namespace Viendict.Views
         private void cmdDelete_Clicked(object sender, EventArgs e)
         {
             txtInput.Text = "";
+        }
+
+        int count = 0;
+        protected override bool OnBackButtonPressed()
+        {
+            count++;
+            if (count < 2)
+                Toast.MakeText(Android.App.Application.Context, "Nhấn lần nữa để thoát ứng dụng", ToastLength.Short).Show();
+            if (count == 2)
+            {
+                count = 0;
+                return base.OnBackButtonPressed();
+            }
+            return true;
         }
     }
 }
