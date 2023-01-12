@@ -6,13 +6,108 @@
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="black"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="LineHeight" Value="1.5"/>
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Label Text='Đảo ngữ là hiện tượng đảo ngược vị trí động từ hoặc trợ động từ lên trước chủ ngữ nhằm mục đích nhấn mạnh.. Trong trường hợp đó ngữ pháp sẽ thay đổi, đằng sau phó từ đứng đầu câu là trợ động từ rồi mới đến chủ ngữ và động từ chính.' />
+                <Label Text=' 1.    Câu cảm thán với "What"' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text=' 1.   Đảo ngữ với "No" và "Not"' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Với S là chủ ngữ, V là động từ, N là danh từ, Clause là mệnh đề, adv là trạng từ, adj là tính từ." />
+                <Label Text="Công thức:"  TextColor="#4472C4" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Label Text="No + N(noun) + Trợ động từ + S + V(nguyên thể)" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Not any + N + Trợ động từ + S + Verb (inf)" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • No money shall I lend you from now on." TextColor="#4472C4"/>
+                <Label Text="   Bằng với: Not any money shall I lend you from now on" TextColor="Gray" FontAttributes="Italic"/>
+
+                <Label Text=' 2.    Đảo ngữ với các trạng từ phủ định: "Never, Rarely, Seldom, Little, Hardly ever,..."' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Công thức:"  TextColor="#4472C4" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Label Text="Never/Rarely/Seldom/Little/Hardly/ever + Trợ động từ + S + V" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Never in Mid-summer does it snow." TextColor="#4472C4"/>
+                <Label Text="   (Không bao giờ giữa mùa hè có tuyết)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 3.    Đảo ngữ với "Only"' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Công thức:"  TextColor="#4472C4" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Label Text="Only once + Trợ động từ + S + V" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Only later + Trợ động từ + S + V" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Only in this way + Trợ động từ + S + V" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Only in that way + Trợ động từ + S + V" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Only then + Trợ động từ + S + V" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Only after + N" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Only by V_ing/N" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Only when + clause" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Only with + N" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Only if+ clause" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Only in adv of time/place" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Only by practising English every day can you speak it fluently." TextColor="#4472C4"/>
+                <Label Text="   (Chỉ bằng cách luyện tập tiếng Anh mỗi ngày bạn có thể nói nó lưu loát)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 4.    Đảo ngữ với các cụm từ có No' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Công thức:"  TextColor="#4472C4" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Label Text="At no time + Trợ động từ + S + N" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="On no condition + Trợ động từ + S + N" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="On no account + Trợ động từ + S + N" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Under/in no circumstances + Trợ động từ + S + N" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="For no reason + Trợ động từ + S + N" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="In no way + Trợ động từ + S + N" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="No longer + Trợ động từ + S + N" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • For no reason shall you play truant." TextColor="#4472C4"/>
+                <Label Text="   (Không có lý do gì để bạn nghỉ học)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="   • The money is not to be paid under any circumstances." TextColor="#4472C4"/>
+                <Label Text="   Bằng với: Under no circumsstances is the money tobe paid" TextColor="Gray" FontAttributes="Italic"/>
+                <Label Text="   (Khoản tiền này không được thanh toán trong bất kỳ trường hợp nào)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 5.    No sooner...than... = Hardly/Barely/Scarely...when/before... (Vừa mới... thì...)' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Công thức:"  TextColor="#4472C4" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Label Text="No sooner had + S + V(PP/V3) + than + clause (mệnh đề thường ở thì quá khứ đơn)." FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Hardly/Barely/Scarely had + S + V(PP/V3) + when/before + clause(mệnh đề thường ở thì quá khứ đơn)" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Hardly/Scarely/Barely had we sat down at the table, when the phone rang" TextColor="#4472C4"/>
+                <Label Text="   (Chúng tôi vừa ngồi xuống bàn thì điện thoại reo)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 6.    Đảo ngữ với Not only...but also...' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Công thức:"  TextColor="#4472C4" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Label Text="Not only: mệnh đề đảo" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="But...also: mệnh đề thường." FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Not only + Trợ động từ/be + S + V + but + S + also" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Not only is he good at English but he can also draw very well." TextColor="#4472C4"/>
+                <Label Text="   (Anh ta không chỉ giỏi tiếng Anh mà anh ta còn vẽ rất đẹp)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="   • Not only do we finish this work but we also work overtime." TextColor="#4472C4"/>
+                <Label Text="   (Không những phải làm xong công việc này mà chúng tôi còn phải làm thêm giờ nữa)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 7.    Đảo ngữ với "So"' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Công thức:"  TextColor="#4472C4" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Label Text="So + Adj/Adv + Trợ động từ + S + V + that-clause(mệnh đề danh từ)" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • So busy am I that I don't have time to look after myself." TextColor="#4472C4"/>
+                <Label Text="   (Tôi không có thời gian chăm sóc bản thân vì quá bận)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 8.    Câu cảm thán với "What"' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • So intelligent is that she can answer all questions in the interview." TextColor="#4472C4"/>
+                <Label Text="   (Cô ấy có thể trả lời tất cả câu hỏi trong buổi phỏng vấn vì cô ấy rất tự tin)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+                
+                <Label Text=' 9.    Đảo ngữ với until/till + clause/Adv of time + Trợ động từ + S + V(Cho đến khi...)' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • I won't come home till 10 o'clock." TextColor="#4472C4"/>
+                <Label Text="   Bằng với: Not until/ till o'clock that I will come home." TextColor="Gray" FontAttributes="Italic"/>
+                <Label Text="   Bằng với: It is not until 10 o'clock that I will come home." TextColor="Gray" FontAttributes="Italic"/>
+                <Label Text="   (Tôi không muốn về nhà cho đến khi 10 giờ)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 10.    Đảo ngữ với No where + Aux (Trợ động từ) + S + V(Không nơi nào...)' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • No where do I feel as comfortable as I do at home." TextColor="#4472C4"/>
+                <Label Text="   (Không nơi nào tôi cảm thấy thoải mái như ở nhà)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="   • No where can you buy the goods as good as those in my country. " TextColor="#4472C4"/>
+                <Label Text="   (Không có nơi nào bạn có thể mua hàng hoá tốt như ở nước tôi)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -6,13 +6,59 @@
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="black"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="LineHeight" Value="1.5"/>
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Label Text='Câu cảm thán là câu diễn tả một cảm giác cảm xúc hay thái độ (ngạc nhiên, thán phục, tội nghiệp, ghê tởm,...) của một người trước một người, sự vật, sự việc nào đó. Hình thức cảm thán thường được cấu tạo với "HOW, WHAT, SO, SUCH" và hình thức câu hỏi phủ định.' />
+                <Label Text=' 1.    Câu cảm thán với "What"' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="- Với adj là tính từ, adv là trạng từ, N(noun) là danh từ, S là chủ ngữ, V là động từ" />
+                <Label Text="What + a/an + adj + danh từ số ít" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • What a lazy student!" TextColor="#4472C4"/>
+                <Label Text="   (Cậu học trò lười quá!)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text="What + adj + danh từ số nhiều/không đếm được" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • What beautiful flowers are!" TextColor="#4472C4"/>
+                <Label Text="   (Bông hoa đẹp quá!)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text="What + a/an + adj + N + S + V" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • What a good picture they saw!" TextColor="#4472C4"/>
+                <Label Text="   (Tôi đã xem một bức tranh thật tuyệt)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 2.    Câu cảm thán với "How"' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="How + adj/adv + S + V" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • How cold (adj) it is!" TextColor="#4472C4"/>
+                <Label Text="   (Trời lạnh quá!)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="   • How well (adv) she sings!" TextColor="#4472C4"/>
+                <Label Text="   (Cô ấy hát hay thật!)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text="How + S + V" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • How you've grown!" TextColor="#4472C4"/>
+                <Label Text="   (Cháu lớn nhanh quá!)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 3.    Câu cảm thán với "So" và "Such"' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="So + adj" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • He is so fat!" TextColor="#4472C4"/>
+                <Label Text="   (Anh ta mập quá!)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text="Such + (a/an) + adj + Noun" FontAttributes="Bold" TextColor="Maroon"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • It was such a boring speech!" TextColor="#4472C4"/>
+                <Label Text="   (Bài diễn văn buồn tẻ quá!)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text=' 4.    Dạng câu hỏi phủ định' FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Hasn't she grown!" TextColor="#4472C4"/>
+                <Label Text="   (Cô bé lớn nhanh thật)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
