@@ -15,6 +15,32 @@ namespace Viendict
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageSearch : ContentPage
     {
+        async void AddToSearchHistory(string Word)
+        {
+            if (UserAccount.user.UserID > 0)
+            {
+                SearchHistory word = new SearchHistory { UserID = UserAccount.user.UserID, Word = Word};
+                HttpClient http = new HttpClient();
+                string jsonhistory = JsonConvert.SerializeObject(word);
+                StringContent httpcontent = new StringContent(jsonhistory, Encoding.Default, "application/json");
+                await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToHistory", httpcontent);
+            }
+        }
+        public async void Searching(string Word)
+        {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage httpResponse = new HttpResponseMessage();
+            httpResponse = await client.GetAsync("https://api.dictionaryapi.dev/api/v2/entries/en/" + Word);
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                AddToSearchHistory(Word);
+                await Navigation.PushModalAsync(new NavigationPage(new PageWordDetail(Word)));
+            }
+            else
+            {
+                await DisplayAlert("Rất tiếc", "Từ bạn cần tìm không có trong từ điển", "Ok");
+            }
+        }
         public async void GetListHistoryByUserID()
         {
             if (UserAccount.user.UserID > 0)
@@ -37,11 +63,6 @@ namespace Viendict
             base.OnAppearing();
             GetListHistoryByUserID();
         }
-        public PageSearch(string word)
-        {
-            InitializeComponent();
-            search.Text = word;
-        }
 
         protected override bool OnBackButtonPressed()
         {
@@ -49,19 +70,10 @@ namespace Viendict
             Application.Current.MainPage = new AppShell();
             return true;
         }
-
-        private async void cmdSearch_Clicked(object sender, EventArgs e)
+        
+        private void cmdSearch_Clicked(object sender, EventArgs e)
         {
-            if (UserAccount.user.UserID > 0)
-            {
-                SearchHistory word = new SearchHistory { UserID = UserAccount.user.UserID, Word = search.Text };
-                HttpClient http = new HttpClient();
-                string jsonhistory = JsonConvert.SerializeObject(word);
-                StringContent httpcontent = new StringContent(jsonhistory, Encoding.Default, "application/json");
-                await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToHistory", httpcontent);
-            }
-
-            await Navigation.PushModalAsync(new NavigationPage(new PageWordDetail(search.Text)));
+            Searching(search.Text);
         }
 
         private async void cmdDelete_Clicked(object sender, EventArgs e)
@@ -85,18 +97,9 @@ namespace Viendict
             }
         }
 
-        private async void search_SearchButtonPressed(object sender, EventArgs e)
+        private void search_SearchButtonPressed(object sender, EventArgs e)
         {
-            if (UserAccount.user.UserID > 0)
-            {
-                SearchHistory word = new SearchHistory { UserID = UserAccount.user.UserID, Word = search.Text };
-                HttpClient http = new HttpClient();
-                string jsonhistory = JsonConvert.SerializeObject(word);
-                StringContent httpcontent = new StringContent(jsonhistory, Encoding.Default, "application/json");
-                await http.PostAsync("http://viendictapi.somee.com/api/AppController/AddToHistory", httpcontent);
-            }
-
-            await Navigation.PushModalAsync(new NavigationPage(new PageWordDetail(search.Text)));
+            Searching(search.Text);
         }
     }
 }
