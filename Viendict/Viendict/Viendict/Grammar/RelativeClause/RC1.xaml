@@ -6,33 +6,145 @@
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="black"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="LineHeight" Value="1.5"/>
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout Padding="10">
-            <Label Text=" 1.    Đại từ quan hệ" FontSize="22" TextColor="Red"/>
-            <Label Text="   Who" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text=" 1.    Đại từ quan hệ" FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+            
+            <Label Text="a)   Who" TextColor="Maroon" FontAttributes="Bold"/>
             <Label Text="* Dùng cho người, đứng sau danh từ chỉ người để làm chủ ngữ hoặc tân ngữ cho động từ đứng sau nó."/>
-            <Label Text="Ví dụ:" TextDecorations="Underline"/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
             <Label Text="- Who là chủ ngữ của mệnh đề quan hệ:"/>
-            <Label Text="     · Her boyfriend, who was afraid, asked her not to go out."/>
-            <Label Text="       (Bạn trai cô ấy vì đang hoảng sợ yêu cầu cô không được ra ngoài)" FontAttributes="Italic"/>
+            <Label Text="   • Her boyfriend, who was afraid, asked her not to go out." TextColor="#4472C4"/>
+            <Label Text="     (Bạn trai cô ấy vì đang hoảng sợ yêu cầu cô không được ra ngoài)" FontAttributes="Italic" TextColor="#ED7D31"/>
             <Label Text="- Who là tân ngữ của mệnh đề quan hệ:"/>
-            <Label Text="     · That is the girl who I am looking for."/>
-            <Label Text="       (Đây là cô gái tôi đang tìm kiếm)"  FontAttributes="Italic"/>
-            <Label Text="   Which" TextColor="Maroon" FontAttributes="Bold"/>
-            <Label Text="   Of which" TextColor="Maroon" FontAttributes="Bold"/>
-            <Label Text="   Whose" TextColor="Maroon" FontAttributes="Bold"/>
-            <Label Text="   Whom" TextColor="Maroon" FontAttributes="Bold"/>
-            <Label Text="   That" TextColor="Maroon" FontAttributes="Bold"/>
-            <Label Text=""/>
-            <Label Text=""/>
-            <Label Text=""/>
-            <Label Text=""/>
-            <Label Text=""/>
-            <Label Text=""/>
-            <Label Text=""/>
-            <Label Text=""/>
-        </StackLayout>
+            <Label Text="   • That is the girl who I am looking for." TextColor="#4472C4"/>
+            <Label Text="     (Đây là cô gái tôi đang tìm kiếm)"  FontAttributes="Italic" TextColor="#ED7D31"/>
+            
+            <Label Text="b)   Which" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text="* Là đại từ quan hệ chỉ vật, đứng sau các danh từ chỉ con vật, đồ vật, sự vật, làm chức năng chủ ngữ hoặc tân ngữ cho động từ đứng sau nó."/>
+            <Label Text='* Thay thế cho danh từ chỉ vật "sport" và đóng vai trò là tân ngữ trong mệnh đề quan hệ.'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • This is the sport which I often practice whenever I have free time."  TextColor="#4472C4"/>
+            <Label Text="   (Đây là môn thể thao mà tôi thường tập luyện mỗi khi có thời gian rỗi)" FontAttributes="Italic" TextColor="#ED7D31"/>
+            <Label Text='* Thay thế cho danh từ chỉ vật "shorts" và đóng vai trò là chủ ngữ trong mệnh đề quan hệ.'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • The shorts which is dark – green is mine." TextColor="#4472C4"/>
+            <Label Text="   (Chiếc quần sooc màu xanh sẫm là của tôi)" FontAttributes="Italic" TextColor="#ED7D31"/>
+            
+            <Label Text="c)   Of which" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Đại từ quan hệ chỉ sở hữu được dùng để chỉ sở hữu cho danh từ chỉ vật đứng trước, không dùng cho người.'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • The house whose windows = the windows of which are broken is mine." TextColor="#4472C4"/>
+            <Label Text="   (Ngôi nhà có cửa sổ bị vỡ là ngôi nhà của tôi)" FontAttributes="Italic" TextColor="#ED7D31"/>
+
+            <Label Text="d)   Whose" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Được dùng khi danh từ đứng sau nó thuộc sở hửu của danh từ đứng trước nó. Chú ý danh từ đi sau whose không có The.'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • We often do not like people whose ideas are contrary to ours." TextColor="#4472C4"/>
+            <Label Text="   (Chúng ta thường không thích những người có ý tưởng khác với chúng ta)" FontAttributes="Italic" TextColor="#ED7D31"/>
+
+            <Label Text="e)   Whom" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Dùng cho người, đứng sau danh từ chỉ người để làm tân ngữ cho động từ đứng sau nó.'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • She married a man whom she did not know much about." TextColor="#4472C4"/>
+            <Label Text="   (Cô ấy lấy người mình không biết rõ lắm)" FontAttributes="Italic" TextColor="#ED7D31"/>
+
+            <Label Text="f)   That" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Đại từ quan hệ chỉ người hoặc vật, đứng trước các danh từ chỉ người, vật, hoặc cả người cả vật để làm chủ ngữ hoặc tân ngữ.'/>
+            <Label Text="Chú ý:" TextDecorations="Underline" TextColor="Red" FontAttributes="Bold"/>
+            <Label Text='* "That" có thể dùng để thay thế who, whom, which.'/>
+            <Label Text='* "That" thường được dùng trong các trường hợp sau:' Margin="0,0,0,10"/>
+            <Label Text="- Khi mang nghĩa so sánh hơn nhất, số thứ tự: the most, the last/only/ first person..."/>
+            <Label Margin="0,0,0,10" Text="- Khi đi sau: all, same, any, only, none, little…. và đôi khi sau It is/ It was - Khi là các đại từ bất định: no one, nobody, nothing, something, somebody, someone, anybody, anyone, anything, everything - Khi danh từ đứng trước bao gồm cả người lẫn vật."/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • The firemen managed to rescue the old lady and her cat that were stuck in the house." TextColor="#4472C4"/>
+            <Label Text="    (Người lính cứu hỏa cố gắng cứu cả bà cụ và con mèo của bà đang bị kẹt trong ngôi nhà)" FontAttributes="Italic" TextColor="#ED7D31"/>
+
+            <Label Text=" 2.    Trạng từ quan hệ" FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+            
+            <Label Text="a)   When" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Là trạng từ quan hệ chỉ thời gian được dùng để bổ nghĩa cho danh từ chỉ thời gian đứng trước nó.'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • I still remember the day when = on which we first met." TextColor="#4472C4"/>
+            <Label Text="   (Em vẫn nhớ ngày đầu tiên chúng ta gặp nhau)" FontAttributes="Italic" TextColor="#ED7D31"/>
+            
+            <Label Text="b)   Where" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Là trạng từ quan hệ chỉ nơi chốn được dùng để bổ nghĩa cho danh từ chỉ nơi chốn đứng trước nó.'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • This is the city where = in which I was born." TextColor="#4472C4"/>
+            <Label Text="   (Đây là thành phố nơi tôi đã sinh ra)" FontAttributes="Italic" TextColor="#ED7D31"/>
+
+            <Label Text="c)   Why" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Là trạng từ quan hệ chỉ lý do, thường theo sau bổ nghĩa cho danh từ "the reason".'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • That isn't the reason why they were late." TextColor="#4472C4"/>
+            <Label Text="   (Đó là lý do tại sao họ lại đến muộn)" FontAttributes="Italic" TextColor="#ED7D31"/>
+
+            <Label Text=" 3.    Những lưu ý khi dùng đại từ quan hệ (Who ,Which ,Whom....)" FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+
+            <Label Text="a)   Khi nào dùng dấu phẩy?" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text="Khi danh từ đứng trước who, which, whom... là:"/>
+            <Label Text='* Danh từ riêng, tên:'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • Ha Noi, which..., Mary, who is..." TextColor="#4472C4"/>
+
+            <Label Text='* Có this, that, these, those đứng trước danh từ:'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • This book, which..." TextColor="#4472C4"/>
+
+            <Label Text='* Có sở hữu đứng trước danh từ:'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • My mother, who is..." TextColor="#4472C4"/>
+
+            <Label Text='* Là vật duy nhất ai cũng biết: Sun (mặt trời), moon (mặt trăng),...'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • The Sun, which..." TextColor="#4472C4"/>
+
+            <Label Text="b)   Đặt dấu phẩy ở đâu?" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Nếu mệnh đề quan hệ ở giữa thì dùng 2 dấu phẩy đặt ở đầu và cuối mệnh đề.'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • My mother, who is a cook, cooks very well." TextColor="#4472C4"/>
+            <Label Text="   (Mẹ tôi, người nấu ăn, nấu ăn rất giỏi)" FontAttributes="Italic" TextColor="#ED7D31"/>
+
+            <Label Text='* Nếu mệnh đề quan hệ ở cuối thì dùng một dấu phẩy đặt ở đầu mệnh đề, cuối mệnh đề dùng dấu chấm.'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • This is my mother, who is a cook." TextColor="#4472C4"/>
+            <Label Text="   (Đây là mẹ tôi, người nấu ăn)" FontAttributes="Italic" TextColor="#ED7D31"/>
+
+            <Label Text="c)   Khi nào có thể lược bỏ đại từ quan hệ Who, Which, Whom...?" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Khi nó làm túc từ và phía trước nó không có dấu phẩy, không có giới từ (whose không được bỏ).'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • This is the book which I buy." TextColor="#4472C4"/>
+            <Label Text="   Ta thấy which là túc từ (chủ từ là I, động từ là buy), phía trước không có phẩy hay giới từ gì cả nên có thể bỏ which đi:" FontSize="18" TextColor="#ED7D31"/>
+            <Label Text="   → This is the book I buy." TextColor="#4472C4"/>
+
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • This is my book, which I bought 2 years ago." TextColor="#4472C4"/>
+            <Label Text="   (Trước chữ which có dấu phẩy nên không thể bỏ được)" FontSize="18" TextColor="#ED7D31"/>
+            <Label Text="   • This is the house in which I live." TextColor="#4472C4"/>
+            <Label Text="   (Trước which có giới từ in nên cũng không bỏ which đựơc)" FontSize="18" TextColor="#ED7D31"/>
+            <Label Text="   • This is the man who lives near my house." TextColor="#4472C4"/>
+            <Label Text="   (Who là chủ từ (của động từ lives) nên không thể bỏ nó được)" FontSize="18" TextColor="#ED7D31"/>
+
+            <Label Text="d)   Khi nào KHÔNG ĐƯỢC dùng That?" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Khi phía trước nó có dấu phẩy hoặc giới từ:'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • This is my book, that I bought 2 years ago." TextColor="#4472C4"/>
+            <Label Text="   (SAI vì phía trước có dấu phẩy - phải dùng which)" FontSize="18" TextColor="#ED7D31"/>
+            <Label Text="   • This is the house in that I live." TextColor="#4472C4"/>
+            <Label Text="   (SAI vì phía trước có giới từ in - phải dùng which)" FontSize="18" TextColor="#ED7D31"/>
+
+            <Label Text="e)   Khi nào bắt buộc dùng That?" TextColor="Maroon" FontAttributes="Bold"/>
+            <Label Text='* Khi danh từ mà nó thay thế gồm 2 danh từ trở lên trong đó vừa có ngừơi vừa có vật.'/>
+            <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+            <Label Text="   • The man and his dog that." TextColor="#4472C4"/>
+            <Label Text="   (That thay thế cho người và chó)" FontSize="18" TextColor="#ED7D31"/>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

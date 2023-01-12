@@ -6,13 +6,121 @@
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="black"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="LineHeight" Value="1.5"/>
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Label Text=" 1.    Mệnh đề quan hệ rút gọn" FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+                
+                <Label Text="a)   Rút gọn bằng cách dùng participle phrases (V-ing)" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text='* Được dùng cho các mệnh đề chủ động'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • The woman who is standing over there is my mother." TextColor="#4472C4"/>
+                <Label Text="   → The woman standing over there is my mother." TextColor="#4472C4"/>
+                <Label Text="   Ta thấy, trong ví dụ trên đại từ quan hệ who và động từ to be(is) được lược bỏ đi làm cho câu gọn hơn." FontSize="18" TextColor="#ED7D31"/>
+                
+                <Label Text="b)   Rút gọn bằng cách dùng past participle phrase (V-ed)" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text='* Được dùng cho mệnh đề bị động'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   •  I love songs which were presented by Maroon 5." TextColor="#4472C4"/>
+                <Label Text="   →  I love songs presented by Maroon 5." TextColor="#4472C4"/>
+                <Label Text="   Tương tự, đại từ quan hệ which và động từ to be(were) cũng được lược bỏ đi." FontSize="18" TextColor="#ED7D31"/>
+                
+                <Label Text="c)   Dùng cụm động từ nguyên mẫu (to infinitive)" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text='* Dùng khi đứng trước các từ bổ nghĩa như: only, first, second, last...'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • He is the last person who left the office." TextColor="#4472C4"/>
+                <Label Text="   → He is the last person left the office." TextColor="#4472C4"/>
+                <Label Text="   Từ ví dụ trên ta thấy, do trong câu có từ last nên đại từ quan hệ who được lược bỏ đi." FontSize="18" TextColor="#ED7D31"/>
+                
+                <Label Text='* Động từ have/had:'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • He had something that he could/had to do" TextColor="#4472C4"/>
+                <Label Text="   → He had something to do." TextColor="#4472C4"/>
+                <Label Text="   Ta thấy mệnh đề sau có chứa động từ had nên câu sẽ được lược bỏ đi đại từ quan hệ that và động từ had." FontSize="18" TextColor="#ED7D31"/>
+
+                <Label Text='* Đầu câu có here(be), there(be)'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • There is a deadline which have to be done today." TextColor="#4472C4"/>
+                <Label Text="   → There is a deadline to be done today." TextColor="#4472C4"/>
+
+                <Label Text='Trong phần to inf này các bạn cần nhớ các điều sau:'/>
+                <Label Text='* Nếu chủ từ 2 mệnh đề khác nhau thì thêm cụm for somebody trước to inf.'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • We have some picture books that children can read." TextColor="#4472C4"/>
+                <Label Text="   → We have some picture books for children to read." TextColor="#4472C4"/>
+
+                <Label Text='* Tuy nhiên nếu chủ từ đó là đại từ có nghĩa chung chung như we, you, everyone…. thì có thể không cần ghi ra.'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Studying abroad is the wonderful thing that we must think about." TextColor="#4472C4"/>
+                <Label Text="   → Studying abroad is the wonderful (for us) to think about." TextColor="#4472C4"/>
+
+                <Label Text='* Nếu trước relative pronoun có giới từ thì phải đem xuống cuối câu. (đây là lỗi dễ sai nhất).'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • We have a peg on which we can hang our coat." TextColor="#4472C4"/>
+                <Label Text="   → We have a peg to hang our coat on." TextColor="#4472C4"/>
+                
+                <Label Text="d)   Dùng cụm danh từ" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text='* Chúng ta sử dụng khi mệnh đề tính từ có dạng:'/>
+                <Label Text="S + BE + DANH TỪ/CỤM DANH TỪ/CỤM GIỚI TỪ" TextColor="Red" FontSize="18"/>
+                <Label Text='* Chúng ta chỉ việc bỏ who, which và be'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Football, which is a popular sport, is very good for health." TextColor="#4472C4"/>
+                <Label Text="   → Football, a popular sport, is very good for health." TextColor="#4472C4"/>
+                
+                <Label Text="e)   Mệnh đề tính từ có dạng be và tính từ/cụm tính từ" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text='Có 2 công thức rút gọn:' FontAttributes="Bold"/>
+                <Label Text='- Công thức 1: Bỏ who, which...to be -> giữ nguyên tính từ phía sau.'/>
+                <Label Text='* Điều kiện 1: Nếu phía trước that là đại từ phiếm chỉ như something, anything, anybody...'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • There must be something that is wrong." TextColor="#4472C4"/>
+                <Label Text="   → There must be something wrong." TextColor="#4472C4"/>
+
+                <Label Text='* Điều kiện 2: Có dấu phẩy phía trước và phải có từ 2 tính từ trở lên'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • My grandmother, who is old and sick, never goes out of the house." TextColor="#4472C4"/>
+                <Label Text="   → My grandmother, old and sick, never goes out of the house." TextColor="#4472C4"/>
+
+                <Label Text='- Công thức 2: Những trường hợp còn lại ta đem tính từ lên trước danh từ.'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • My grandmother, who is sick, never goes out of the house." TextColor="#4472C4"/>
+                <Label Text="   → My sick grandmother never goes out of the house." TextColor="#4472C4"/>
+                <Label Text="   • I buy a hat which is very beautiful and fashionable." TextColor="#4472C4"/>
+                <Label Text="   → I buy a very beautiful and fashionable hat." TextColor="#4472C4"/>
+
+                <Label Text='* Tuy nhiên nếu cụm tính từ gồm cả danh từ ở trong nó thì ta chỉ còn cách dùng V-ing mà thôi'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • I met a man who was very good at both English and French." TextColor="#4472C4"/>
+                <Label Text="   → I met a man being very good at both English and French." TextColor="#4472C4"/>
+
+                <Label Text='* Tóm lại cách rút gọn loại này khá phức tạp vì nó tùy thuộc vào đến 3 yếu tố:'/>
+                <Label Text='- Một là có một hay nhiều tính từ?'/>
+                <Label Text='- Hai là danh từ đứng trước có phải là phiếm chỉ không?'/>
+                <Label Text='- Ba là có dấu phẩy hay không?'/>
+                
+                <Label Text="f)   Mệnh đề tính từ thành tính từ ghép" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Cách làm: " FontSize="20" TextColor="Red" FontAttributes="Bold" TextDecorations="Underline"/>
+                                <Span Text="Ta sẽ rút gọn mệnh đề thành một tính từ ghép bằng cách tìm trong mệnh đề một số đếm và danh từ đi sau nó, sau đó ta để chúng kế nhau và thêm dấu gạch nối ở giữa. Đem tính từ ghép đó ra trước danh từ đứng trước who, which... - những phần còn lại bỏ hết."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Lưu ý:" TextDecorations="Underline" TextColor="Red" FontAttributes="Bold"/>
+                <Label Text='- Danh từ không được thêm "s"'/>
+                <Label Text='- Chỉ dùng được dạng này khi mệnh đề tính từ có số đếm'/>
+                <Label Text='- Các cụm như tuổi thì sẽ viết lại cả 3 từ và gạch nối giữa chúng (two years old và two-year-old)'/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • I have a car which has four seats." TextColor="#4472C4"/>
+                <Label Text="   → I have a four-seat car." TextColor="#4472C4"/>
+                <Label Text="   • I had a holiday which lasted two days." TextColor="#4472C4"/>
+                <Label Text="   → I had a two-day holiday." TextColor="#4472C4"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
