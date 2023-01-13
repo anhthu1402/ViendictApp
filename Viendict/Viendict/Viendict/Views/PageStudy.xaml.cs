@@ -96,5 +96,6 @@ namespace Viendict.Views
             Application.Current.MainPage.Navigation.PopToRootAsync();
             Application.Current.MainPage = new PageSignIn();
         }
+
     }
 }
