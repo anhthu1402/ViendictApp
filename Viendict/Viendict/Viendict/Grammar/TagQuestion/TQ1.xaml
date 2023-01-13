@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.TagQuestion.TQ1">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="LineHeight" Value="1.5"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Label Text="Câu hỏi đuôi là câu hỏi ngắn ở cuối câu trần thuật. Câu hỏi này được dùng khi người nói muốn xác minh thông tin là đúng hay không hoặc khi khuyến khích một sự hồi đáp từ phía người nghe."/>
+                <Label Text="Nguyên tắc thành lập câu hỏi đuôi:" FontSize="22" TextColor="Red" FontAttributes="Bold"/>
+
+                <Label Text="Nếu câu trần thuật là câu khẳng định, câu hỏi đuôi phải ở thể phủ định." TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • You didn't do your homework, did you?" TextColor="#4472C4"/>
+
+                <Label Text="Nếu câu trần thuật là câu phủ định, câu hỏi đuôi phải ở thể khẳng định." TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • You're afraid, aren't you? " TextColor="#4472C4"/>
+
+                <Label Text="Nếu câu trần thuật ở thì hiện tại đơn,  câu hỏi đuôi phải dùng trợ động từ  do/does." TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • You play the guitar, don't you? " TextColor="#4472C4"/>
+
+                <Label Text="Nếu câu trần thuật ở thì quá khứ đơn,  câu hỏi đuôi phải dùng trợ động từ  did" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • They went to the cinema, didn't they? " TextColor="#4472C4"/>
+
+                <Label Text="Câu trả lời là:" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="    → Yes" FontSize="20" TextColor="#ED7D31"/>
+                                <Span Text=" (nếu đồng ý với câu trần thuật ở trên)" FontAttributes="Italic" FontSize="20" TextColor="DarkGray"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="    → No" FontSize="20" TextColor="#ED7D31"/>
+                                <Span Text=" (nếu không đồng ý với câu trần thuật ở trên)" FontAttributes="Italic" FontSize="20" TextColor="DarkGray"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Your sister is married, isn't she ?" TextColor="#4472C4"/>
+                <Label Text="   → Yes, she has just married." FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="   → No, ofcouse she isn't." FontAttributes="Italic" TextColor="#ED7D31"/>
+
+                <Label Text="Để hiểu hơn về các loại câu hỏi đuôi, chúng ta cùng xem xét các ví dụ sau:	"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Câu hỏi đuôi khẳng định: " TextColor="Maroon" TextDecorations="Underline"/>
+                                <Span Text="Câu trần thuật phủ định + câu hỏi đuôi khẳng định"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Câu hỏi đuôi phủ định: " TextColor="Maroon" TextDecorations="Underline"/>
+                                <Span Text="Câu trần thuật khẳng định + câu hỏi đuôi phủ định"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="Câu hỏi đuôi khẳng định:"/>
+                <Label Text="   • You aren't a teacher, are you?" TextColor="#4472C4"/>
+                <Label Text="Câu hỏi đuôi phủ định:"/>
+                <Label Text="   • You are a student, aren't you?" TextColor="#4472C4"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="Câu hỏi đuôi khẳng định:"/>
+                <Label Text="   • They weren't late, were they?" TextColor="#4472C4"/>
+                <Label Text="Câu hỏi đuôi phủ định:"/>
+                <Label Text="   • They were surprised, weren't they?" TextColor="#4472C4"/>
+
+                
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

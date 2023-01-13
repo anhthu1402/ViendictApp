@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Viendict.Grammar.TagQuestion.TQ2">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="black"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="LineHeight" Value="1.5"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Label Text="Câu giới thiệu dùng 'I am', câu hỏi đuôi là 'aren't I'" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • I am a student, aren't I" TextColor="#4472C4"/>
+                <Label Text="   (Tôi là một sinh viên đúng không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Câu giới thiệu dùng Let's, câu hỏi đuôi là 'Shall we'" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Let's go for a picnic, shall we?" TextColor="#4472C4"/>
+                <Label Text="   (Hãy đi dã ngoại, phải không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Chủ ngữ là những đại từ bất định 'Everyone, someone, anyone, no one, nobody…' câu hỏi đuôi là 'they'" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Somebody wanted a drink, didn't they?" TextColor="#4472C4"/>
+                <Label Text="   (Ai đó muốn uống rượu đúng không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="   • Nobody phoned, did they?" TextColor="#4472C4"/>
+                <Label Text="   (Không có ai gọi điện đúng không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Chủ ngữ là 'nothing' thì câu hỏi đuôi dùng 'it'. Và Nothing là chủ ngữ có nghĩa là mệnh đề giới thiệu đang ở dạng phủ định, câu hỏi đuôi sẽ ở dạng khẳng định." TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Nothing can happen, can it?" TextColor="#4472C4"/>
+                <Label Text="   (Có phải không có chuyện gì xảy ra?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Trong câu có các trạng từ phủ định và bán phủ định như: never, seldom, hardly, scarely, little… thì câu đó được xem như là câu phủ định – phần hỏi đuôi sẽ ở dạng khẳng định" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • He seldom drinks wine, does he?" TextColor="#4472C4"/>
+                <Label Text="   (Anh ta ít khi uống rượu, phải không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Câu đầu có It seems that + mệnh đề, lấy mệnh đề làm câu hỏi" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • It seems that you are right, aren't you?" TextColor="#4472C4"/>
+                <Label Text="   (Có vẻ bạn nói đúng rồi phải không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Chủ từ là mệnh đề danh từ, dùng 'it' trong câu hỏi đuôi" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • What you have said is wrong, isn't it?" TextColor="#4472C4"/>
+                <Label Text="   (Những gì bạn nói là sai phải không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="   • Why he killed himself seems a secret, doesn't it?" TextColor="#4472C4"/>
+                <Label Text="   (Việc anh ấy tự sát có phải là một bí mật không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Sau câu mệnh lệnh cách (Do.../Don't do v.v...), câu hỏi đuôi thường là … will you?:" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • Open the door, will you?" TextColor="#4472C4"/>
+                <Label Text="   (Mở cửa, đúng không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Câu đầu là I WISH, dùng MAY trong câu hỏi đuôi" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • I wish to study English, may I?" TextColor="#4472C4"/>
+                <Label Text="   (Tôi muốn học tiếng Anh, tôi có thể không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Chủ từ là ONE, dùng you hoặc one trong câu hỏi đuôi" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • One can be one's master, can't you/one?" TextColor="#4472C4"/>
+                <Label Text="Câu đầu có MUST, must có nhiều cách dùng cho nên tùy theo cách dùng mà sẽ có câu hỏi đuôi khác nhau Must chỉ sự cần thiết: => dùng needn't" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • They must study hard, needn't they?" TextColor="#4472C4"/>
+                <Label Text="   (Họ phải chăm chỉ, có cần vậy không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Must chỉ sự cấm đoán: => dùng must" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • You mustn't come late, must you?" TextColor="#4472C4"/>
+                <Label Text="   (Bạn không được đến muộn phải không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Must chỉ sự dự đoán ở quá khứ (trong công thức must + have + V3/-ed): => dùng là have/has" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • You must have stolen my bike, haven't you?" TextColor="#4472C4"/>
+                <Label Text="   (Bạn chắc hẵn là đã lấy cắp xe của tôi, phải không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Câu cảm thán, lấy danh từ trong câu đổi thành đại từ, dùng is, am, are" TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • What a beautiful dress, isn't it?" TextColor="#4472C4"/>
+                <Label Text="   (Bộ váy này đẹp đúng không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="Câu đầu có I + các động từ sau: think, believe, suppose, figure, assume, fancy, imagine, reckon, expect, seem, feel + mệnh đề phụ, lấy mệnh đề phụ làm câu hỏi đuôi." TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • I think he will come here, won't he?" TextColor="#4472C4"/>
+                <Label Text="   (Tôi nghĩ anh ta sẽ đến đây, đúng không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="   • I don't believe Mary can do it, can she?" TextColor="#4472C4"/>
+                <Label Text="   (Tôi không tin Mary có thể làm được nó, có thể không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label Text="   (Lưu ý mệnh đề chính có 'not' thì vẫn tính như ở mệnh đề phụ)" FontAttributes="Italic" TextColor="DarkGray"/>
+                <Label Text="Cùng mẫu này nhưng nếu chủ từ không phải là I thì lại dùng mệnh đề đầu làm câu hỏi đuôi." TextColor="Maroon" FontAttributes="Bold"/>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • She thinks he will come, doesn't she?" TextColor="#4472C4"/>
+                <Label Text="   (Cô ấy nghĩ anh ta sẽ đến, đúng không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="USED TO: từng " TextColor="Maroon" FontAttributes="Bold" FontSize="20"/>
+                                <Span Text="(diễn tả thói quen, hành động thường lập đi lập lại trong quá khứ).
+Trường hợp này, ta cứ việc xem USED TO là một động từ chia ở thì quá khứ. Do đó, câu hỏi đuôi tương ứng chỉ cần mượn trợ động từ: DID"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • She used to live here, didn't she?" TextColor="#4472C4"/>
+                <Label Text="   (Cô đã từng sống ở đây, phải không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="HAD BETTER: " TextColor="Maroon" FontSize="20" FontAttributes="Bold"/>
+                                <Span Text="'Had better' thường được viết ngắn gọn thành 'D BETTER, nên dễ khiến ta lúng túng khi phải lập câu hỏi đuôi tương ứng. Khi thấy 'D BETTER, chỉ cần mượn trợ động từ HAD để lập câu hỏi đuôi."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • He'd better stay, hadn't he?" TextColor="#4472C4"/>
+                <Label Text="   (Anh ta sẽ ở lại, phải không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="WOULD RATHER: " TextColor="Maroon" FontSize="20" FontAttributes="Bold"/>
+                                <Span Text="Would rather thường được viết gọn là 'D RATHER nên cũng dễ gây lúng túng cho bạn. Chỉ cần mượn trợ động từ WOULD cho trường hợp này để lập câu hỏi đuôi."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Ví dụ:" TextDecorations="Underline" TextColor="Red"/>
+                <Label Text="   • You'd rather go, wouldn't you?" TextColor="#4472C4"/>
+                <Label Text="   (Bạn muốn đi, phải không?)" FontAttributes="Italic" TextColor="#ED7D31"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

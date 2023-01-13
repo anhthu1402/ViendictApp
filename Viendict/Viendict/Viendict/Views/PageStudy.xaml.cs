@@ -10,6 +10,7 @@ using Viendict.Study;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Viendict.Vocab;
+using Android.Widget;
 
 namespace Viendict.Views
 {
@@ -96,6 +97,18 @@ namespace Viendict.Views
             Application.Current.MainPage.Navigation.PopToRootAsync();
             Application.Current.MainPage = new PageSignIn();
         }
-
+        int count = 0;
+        protected override bool OnBackButtonPressed()
+        {
+            count++;
+            if (count < 2)
+                Toast.MakeText(Android.App.Application.Context, "Nhấn lần nữa để thoát ứng dụng", ToastLength.Short).Show();
+            if (count == 2)
+            {
+                count = 0;
+                return base.OnBackButtonPressed();
+            }
+            return true;
+        }
     }
 }

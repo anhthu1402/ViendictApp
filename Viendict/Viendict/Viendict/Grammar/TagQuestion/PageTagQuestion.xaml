@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Viendict.Grammar.TagQuestion.PageTagQuestion">
+             x:Class="Viendict.Grammar.TagQuestion.PageTagQuestion"
+             BackgroundImageSource="bg_leaves">
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="black"/>
@@ -10,9 +11,21 @@
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="10">
-            </StackLayout>
-        </ScrollView>
+        <StackLayout>
+            <ListView x:Name="lstTagQues" ItemTapped="lstTagQues_ItemTapped" SeparatorColor="Black" RowHeight="80" SeparatorVisibility="Default" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Label Text="{Binding Name}" TextColor="DarkBlue" 
+                                   Grid.Row="0" FontSize="Medium" VerticalOptions="Center"></Label>
+                                <Label Text="{Binding Describe}" TextColor="#333333" 
+                                   Grid.Row="1" FontSize="16" VerticalOptions="Center"></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
